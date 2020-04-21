@@ -14,15 +14,28 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    product: {
-        type: String,
-        required: true
-    },
-    PhoneNumber: {
+    // product: {
+    //     type: String,
+    //     required: true
+    // },
+    cellNo: {
         type: Number,
         required: true
     },
+    address: {
 
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    province: {
+        type:String,
+        required:true
+
+    },
     isVarified: {
         type: Boolean
         , default: false

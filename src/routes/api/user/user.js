@@ -43,21 +43,24 @@ router.post('/rejister', (req, res) => {
 //   return res.status(400).json(errors)
 //  }
   // Userprofile.findOne({ email: req.body.email,PhoneNumber:req.body.PhoneNumber })
-  Userprofile.findOne({$or:[ {'email':req.body.email}, {'PhoneNumber':req.body.PhoneNumber}]})
+  // Userprofile.findOne({$or:[ {'email':req.body.email}, {'PhoneNumber':req.body.PhoneNumber}]})
   
   // $or:[ {'_id':objId}, {'name':param}
-  .then((user) => {
-      if (user) {
-        const errors = "user already exist"
-        return res.status(400).json(errors)
-      }
-      else {
+  // .then((user) => {
+  //     if (user) {
+  //       const errors = "user already exist"
+  //       return res.status(400).json(errors)
+  //     }
+      // else {
         const newUser = new Userprofile({
           name: req.body.name,
           email: req.body.email,
           password: req.body.password,
-          product: req.body.product,
-          PhoneNumber:req.body.PhoneNumber,
+          // product: req.body.product,
+          cellNo:req.body.cellNo,
+          address:req.body.address,
+          city:req.body.city,
+          province:req.body.province,
           typeAdmin:false,
           isVarified:false,
           
@@ -70,59 +73,61 @@ router.post('/rejister', (req, res) => {
             newUser.password = hash
             //save and send to client
             newUser.save().then((user) => {
-              
+              if(user){
+                res.status(404).json('account is created')
+              }
               
               // res.json(user)
             
             
-              const token = crypto.randomBytes(20).toString('hex')
-         var TokenProfile=new Tokenprofile();
-         TokenProfile.resetToken = token;
-         TokenProfile.email = user.email;
-         TokenProfile.resetTokenExpiration = Date.now() + 3600000
-         TokenProfile.save((err, token)=>{
-console.log(token)
-         });
-        // console.log(token)
+//               const token = crypto.randomBytes(20).toString('hex')
+//          var TokenProfile=new Tokenprofile();
+//          TokenProfile.resetToken = token;
+//          TokenProfile.email = user.email;
+//          TokenProfile.resetTokenExpiration = Date.now() + 3600000
+//          TokenProfile.save((err, token)=>{
+// console.log(token)
+//          });
+//         // console.log(token)
 
 
-        transporter = nodemailer.createTransport({
-          host: 'smtp.gmail.com',
-          port: 587,
-          secure: false, // true for 465, false for other ports
-          auth: {
-            user: 'productsgobachi@gmail.com', //   company generated ethereal user
-            pass: 'gobachi123'  // generated ethereal password
-          }
-        });
+//         transporter = nodemailer.createTransport({
+//           host: 'smtp.gmail.com',
+//           port: 587,
+//           secure: false, // true for 465, false for other ports
+//           auth: {
+//             user: 'productsgobachi@gmail.com', //   company generated ethereal user
+//             pass: 'gobachi123'  // generated ethereal password
+//           }
+//         });
 
-        // const transporter= nodemailer.createTransport({
-        // service:'gmail',
-        // auth:{
-        //   user:`${process.env.EMAIL_ADDRESS}`,
-        //   pass:`${process.env.EMAIL_PASSWORD}`,
-        // }
-        // })
+//         // const transporter= nodemailer.createTransport({
+//         // service:'gmail',
+//         // auth:{
+//         //   user:`${process.env.EMAIL_ADDRESS}`,
+//         //   pass:`${process.env.EMAIL_PASSWORD}`,
+//         // }
+//         // })
 
-        const mailOptions = {
-          from: 'hassanhabibtahir@gmail.com',
-          to: user.email,
-          subject: 'verify your email',
-          text: 'you are receiving this because you have requested to reset password for your account.\n'
-            + 'please cliks on the following links\n'
-            + `http://localhost:3000/login/${token}`
+//         const mailOptions = {
+//           from: 'hassanhabibtahir@gmail.com',
+//           to: user.email,
+//           subject: 'verify your email',
+//           text: 'you are receiving this because you have requested to reset password for your account.\n'
+//             + 'please cliks on the following links\n'
+//             + `http://localhost:3000/login/${token}`
 
-        }
+//         }
 
-        transporter.sendMail(mailOptions, (err, resonce) => {
-          if (err) {
-            res.status(404).json('emai is invalid')
-          }
-          else {
+//         transporter.sendMail(mailOptions, (err, resonce) => {
+//           if (err) {
+//             res.status(404).json('emai is invalid')
+//           }
+//           else {
            
-           res.status(200).json('recovery email is sent on your Gmail check first your mail for athentication')
-          }
-        })
+//            res.status(200).json('recovery email is sent on your Gmail check first your mail for athentication')
+//           }
+//         })
 
       //}
             
@@ -134,11 +139,31 @@ console.log(token)
 
 
 
-      }
-    })
+      // }
+    // })
 
 
 })
+
+
+
+//api/users/emailVerification
+
+router.post('/emailVerification',(req,res)=>{
+  Userprofile.findOne({'email':req.body.email},(err,user)=>{
+      if(user){
+      res.status(200).json("email already in use");}
+      else{
+          res.status(200).json("readytouse"
+          )
+      }
+      
+  });
+})
+
+
+
+
 
 //user login 
 ///api/users
@@ -314,7 +339,7 @@ console.log(token)
         // })
 
         const mailOptions = {
-          from: 'hassanhabibtahir@gmail.com',
+          from: 'productsgobachi@gmail.com',
           to: user.email,
           subject: 'Link to reset passsword',
           text: 'you are receiving this because you have requested to reset password for your account.\n'

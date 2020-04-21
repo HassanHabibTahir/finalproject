@@ -51,3 +51,12 @@
 .aut_svg svg{
     fill: white !important;
 }
+
+.selectSignUp{
+    border: none!important;
+    width: 95%;
+    padding: 10px;
+    font-weight: 400;
+    display: inline-block;
+    outline: none;
+}

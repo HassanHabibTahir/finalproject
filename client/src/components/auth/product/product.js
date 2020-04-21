@@ -96,7 +96,7 @@ class Product extends Component {
 
     render() {
 
-        console.log(this.props.auth.user.isverified)
+        console.log(this.props.auth.user)
     // if((typeof(this.props.Verifiy)===null)||(typeof(this.props.Verifiy)===undefined)){
 
     //     alert("this is null")
@@ -111,12 +111,12 @@ class Product extends Component {
 
 
 
-
+console.log(this.props.auth.user.isverified)
 
         return (
             <div style={{ marginTop: "20vh" }} >
                 <Grid item xs={false} sm={4} md={7} />
-                {  this.props.auth.user.isverified==true?
+                {/* {  this.props.auth.user.isverified===true? */}
                     <Container component="main" maxWidth="xs">
 
                     <div >
@@ -260,9 +260,11 @@ class Product extends Component {
                     
                     <Box mt={5}>
                     </Box>
-                    </Container>:<Verification/>
+                    </Container>
+                    
+                    {/* :<Verification/>
                 }
-             
+              */}
             </div>
             
             
