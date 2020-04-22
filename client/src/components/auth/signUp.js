@@ -43,8 +43,8 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux'; 
-// import './toobar/toolbar.css'
-// import './aut.css'
+import './toobar/toolbar.css'
+import './aut.css'
 
 // import Paper from '@material-ui/core/Paper';
 class SignUp extends Component {
@@ -207,12 +207,27 @@ class SignUp extends Component {
                  <Paper  style={{padding:"100px"}} className="loginPaper" elevation={10} align="center">
                    
                  
-                  <Avatar style={{color: '#fff',backgroundColor: pink[500],}} >
+
+
+          
+             <div className="Icon_signUp">
+
+              <div className=" aut_svg" >       
+                <LockOutlinedIcon />
+   </div>
+</div>
+<Typography variant="h3" gutterBottom>
+        SignUp
+      </Typography>
+<br/>  <br/>  <br/> 
+
+                 {/* <Avatar   className="paddingTop" style={{color: '#fff',backgroundColor: pink[500],}} >
                  
                   <AccountCircle fontSize="large" className="largeIcon"/>
                  
-                        </Avatar>
-                       <Typography variant="headline">Sign Up</Typography>
+                        </Avatar>  */}
+                     
+                     
                    <Grid container spacing={8} className="LoginContainer"> 
                      <Grid item xs={12} md={6} className="paddingTop">
                      <TextField
@@ -244,7 +259,7 @@ class SignUp extends Component {
                     startAdornment: (
                       <InputAdornment position="start">
                      
-                            <Email fontSize="large"  className="iconFixfield"/>
+                            <Email fontSize="large" color="disabled" className="iconFixfield"/>
                         
                       </InputAdornment>
                     ),
@@ -267,7 +282,7 @@ class SignUp extends Component {
                     startAdornment: (
                       <InputAdornment position="start">
                      
-                            <Lock  fontSize="large" className="iconFixfield"/>
+                            <Lock  fontSize="large" color="disabled" className="iconFixfield"/>
                         
                       </InputAdornment>
                     ),
@@ -292,7 +307,7 @@ class SignUp extends Component {
                     startAdornment: (
                       <InputAdornment position="start">
                       
-                            <Lock fontSize="large"  className="iconFixfield"/>
+                            <Lock fontSize="large" color="disabled" className="iconFixfield"/>
                         
                       </InputAdornment>
                     ),
@@ -317,7 +332,7 @@ class SignUp extends Component {
                     startAdornment: (
                       <InputAdornment position="start">
                     
-                            <Phone fontSize="large"  className="iconFixfield" />
+                            <Phone fontSize="large" color="disabled" className="iconFixfield" />
                       
                       </InputAdornment>
                     ),
@@ -332,13 +347,13 @@ class SignUp extends Component {
                   </Grid>
 
                   <Grid item xs={12} md={12} className="paddingTop">
-                    <Map fontSize="large"   underline={false} sendAddress={this.getAddress}/>
+                    <Map fontSize="large" color="disabled"  underline={false} sendAddress={this.getAddress}/>
                   </Grid>
                   
                   <Grid item xs={12} md={12} className="paddingTop">
                 
                 
-                  <Add   fontSize="large" className="iconFixfield mangaeWithSelect"/>
+                  <Add   fontSize="large" color="disabled" className="iconFixfield mangaeWithSelect"/>
 
                         
                     <select name="province"
@@ -378,7 +393,7 @@ class SignUp extends Component {
                    <Grid item xs={12} md={12} className="paddingTop">
                      
                  
-                  <LocationCity  fontSize="large" className="iconFixfield mangaeWithSelect"/>
+                  <LocationCity color="disabled" fontSize="large" className="iconFixfield mangaeWithSelect"/>
                    
                     <select name="city" 
                     onChange={this.onChangeHandler}
@@ -405,7 +420,7 @@ class SignUp extends Component {
                     startAdornment: (
                       <InputAdornment position="start">
                        
-                        <StarHalf fontSize="large"  className="iconFixfield"/>
+                        <StarHalf fontSize="large" color="disabled" className="iconFixfield"/>
                         
                       </InputAdornment>
                     ),
@@ -426,9 +441,7 @@ class SignUp extends Component {
                        name="checkbox"
                        onChange={this.onChangeHandler}
                        value = "checkedB" color = "primary" />}/>
-                       Copyright © 2018. OLX Pakistan - All Rights Reserved -
-                       Reproduction of material from olxpakistan pages without prior written permission from OLX is strictly prohibited and may result in legal action.
-                       Reproduction of material containing the OLX watermark constitutes unauthorized use of the OLX trade mark and may also result in legal action. 
+                       Gobachi is amazing plateform where the factories  sales the products 
                        </Typography>
                      </Grid>
                      <Grid item xs={12} md={12} align="center" className="paddingTop">
