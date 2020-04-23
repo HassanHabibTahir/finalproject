@@ -24,7 +24,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 import Map from '../auth/map/mapapi/mapapi';
 import data from '../auth/map/pk/pk.json';
-
+import Footer from '../home/paralelx/footer/footer'
 
 import './aut.css';
 import './toobar/toolbar.css'
@@ -196,7 +196,7 @@ class SignUp extends Component {
     const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading} = this.state;
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' || passwordError !== '' || loading; 
       return (
-          <div  style={{marginTop:"10vh" ,padding:"100px"}} >
+        <div>          <div  style={{marginTop:"10vh" ,padding:"100px"}} >
               <Grid container spacing={8}   > 
               <Hidden smDown>
               <Grid item xs={4} md={3}> 
@@ -474,7 +474,11 @@ class SignUp extends Component {
               </Grid>
               </Hidden>
               </Grid>
+             
           </div>
+          <div><Footer/></div>
+          </div>
+
       )
   }
 }

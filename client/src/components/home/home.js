@@ -5,7 +5,7 @@ import CatgSlider from '../home/categorslider/quickbox/catgSlider'
 import Showcase from './shopImg/shop'
 import Details from './Details/details'
  import Paralex from './paralelx/foot';
- import Header from './paralelx/footer/header';
+ import Footer from './paralelx/footer/footer';
  import Scrool from './scrolUpBtn/ScrolUp'
 import Aux from '../../hoc/hoc'
 export default class Home extends Component {
@@ -35,7 +35,7 @@ export default class Home extends Component {
 <br/>
         <div> <Showcase /></div>
         <div> <Paralex/></div>
-        <div><Header/></div>   
+        <div><Footer/></div>   
         <div><Scrool/></div>
       </div>
            </Aux>
