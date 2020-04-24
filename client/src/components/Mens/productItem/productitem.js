@@ -20,7 +20,11 @@ class Productitem extends Component {
     
     addProductinCart=(id)=>{
 
-this.props.addtoCartValue(id)
+const cartId={
+    id:id
+}
+
+this.props.addtoCartValue(cartId)
 // this.props.getAllProduts()    
     }
     

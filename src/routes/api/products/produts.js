@@ -114,7 +114,24 @@ router.get('/allProduts',(req,res)=>{
 });
 
 
+router.post('/PostCart',
+passport.authenticate('jwt', { session: false }),
+(req,res)=>{
 
+
+  const prodId = req.body.id;
+  console.log(prodId)
+  Product.findById(prodId)
+    .then(product => {
+      console.log(req.user)
+      return req.user.addToCart(product);
+    })
+    .then(result => {
+      console.log(result);
+      // res.redirect('/cart');
+    });
+
+})
 
 
 

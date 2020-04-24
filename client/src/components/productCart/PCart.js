@@ -15,7 +15,9 @@ class PCart extends Component {
   constructor(props) {
     super(props)
 
-
+ this.state={
+   datas:[]
+ }
   }
 
   DeletedCartItem=(i,id)=>{
@@ -40,6 +42,14 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
         this.props.RemoveCartElement(data)
 
   }
+
+
+
+
+
+
+
+
   componentDidMount() {
 
     let cartProduct = JSON.parse(localStorage.getItem('cartItem'));
@@ -81,7 +91,7 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
 
   render() {
 
-
+console.log(this.state.datas)
  
     //    const product = cartProduct
     //   let profileItems;
