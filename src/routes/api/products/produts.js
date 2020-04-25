@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const Product = require('../../../module/products/product');
+const Users  = require('../../../module/user/userprofile')
 const Productcontroler = require('../../../controler/product')
 const passport = require('passport');
 // var storage = multer.diskStorage({
@@ -134,7 +135,25 @@ passport.authenticate('jwt', { session: false }),
 })
 
 
-
+router.get('/getCart',
+passport.authenticate('jwt', { session: false }),
+(req, res, next) => {
+ console.log(req.user)
+ req.user
+ .populate('cart.items.productId')
+ .execPopulate()
+ .then(user => {
+   const products = user.cart.items;
+   res.json({products: products});
+  console.log(products)
+   //  res.render('shop/cart', {
+  //    path: '/cart',
+  //    pageTitle: 'Your Cart',
+  //    products: products
+  //  });
+ })
+ .catch(err => console.log(err));
+});
 
 
 module.exports = router

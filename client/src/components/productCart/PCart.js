@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CardMedia from '@material-ui/core/CardMedia';
-import { getcartproducts ,RemoveCartElement } from '../../store/action/cartAction/cartaction'
+import { getcartproducts ,RemoveCartElement ,getCartProductbyId} from '../../store/action/cartAction/cartaction'
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
@@ -52,20 +52,24 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
 
   componentDidMount() {
 
-    let cartProduct = JSON.parse(localStorage.getItem('cartItem'));
-    let data = [];
-    axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
-      cartProduct.map(id => {
-
-        res.data.filter(product => {
-          if (product._id == id)
-            data.push(product)
-        })
-      })
-    })
+console.log("what is happend")
+   this.props.getCartProductbyId()
 
 
-    this.props.getcartproducts(data)
+    // let cartProduct = JSON.parse(localStorage.getItem('cartItem'));
+    // let data = [];
+    // axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
+    //   cartProduct.map(id => {
+
+    //     res.data.filter(product => {
+    //       if (product._id == id)
+    //         data.push(product)
+    //     })
+    //   })
+    // })
+
+
+    // this.props.getcartproducts(data)
 
   }
 
@@ -91,7 +95,7 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
 
   render() {
 
-console.log(this.state.datas)
+// console.log(this.state.datas)
  
     //    const product = cartProduct
     //   let profileItems;
@@ -143,4 +147,4 @@ const mapStateToProps = (state) => ({
   CartItems: state.allProducts.cartitems
 })
 
-export default connect(mapStateToProps, { getcartproducts,RemoveCartElement })(PCart)
+export default connect(mapStateToProps, { getcartproducts,RemoveCartElement,getCartProductbyId })(PCart)

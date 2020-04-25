@@ -45,3 +45,34 @@ dispatch({
 
 
 }
+
+export const getCartProductbyId =()=>(dispatch)=>{
+
+debugger;
+  axios.get('http://localhost:8080/api/product/getCart').then((res)=>{
+
+console.log(res.data)
+
+  })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
+//   const cartProduct=res.data;
+// let addedItem = cartProduct.find(item=>item._id===id)   
+// dispatch({
+//   type:ADDTOCARTITEMSS,
+//   payload:addedItem
+// })
+// })
+

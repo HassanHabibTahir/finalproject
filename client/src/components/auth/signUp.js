@@ -21,7 +21,7 @@ import {withRouter} from 'react-router-dom';
 
 import LOGIN from '../auth/login';
 import InputAdornment from '@material-ui/core/InputAdornment';
-
+import history from '../history/history'
 import Map from '../auth/map/mapapi/mapapi';
 import data from '../auth/map/pk/pk.json';
 import Footer from '../home/paralelx/footer/footer'
@@ -99,10 +99,14 @@ class SignUp extends Component {
       this.setState({emailError:''});
     }
 
-    if(nextProps.userAccount ==='Account has been created!'){
-      // this.props.history.push(LOGIN);
+    if(nextProps.auth.user ==='account is created!'){
+      history.push('/login')
     }
     
+
+    // if(nextProps.auth.user){
+    //   history.push('/login')
+    // }
   }
 
   onBlurEmailHandler = (e) =>{
@@ -489,7 +493,7 @@ const mapStateToProps = state => ({
 // userAccount :state.user.userAccount,
 // err:state.user.signupErr
 err:state.erorr,
-  // auth:state.auth
+  auth:state.auth
 })
 
 export default withRouter(connect(mapStateToProps,{registerUser,startEmailVerification})(SignUp));
