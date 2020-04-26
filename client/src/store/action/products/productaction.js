@@ -84,9 +84,9 @@ export const getProfilebyId=(id)=>(dispatch)=>{
 })
 
 }
-export const FavouritAdds =(fav)=>(dispatch)=>{
+export const FavouritAdds =(add)=>(dispatch)=>{
 
-axios.post("http://localhost:8080/api/Favour/favaddChanged",fav)
+axios.post("http://localhost:8080/api/Favour/favaddChanged" ,add)
 .then((res)=>{
   if(res){
     axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
@@ -107,9 +107,9 @@ axios.post("http://localhost:8080/api/Favour/favaddChanged",fav)
 
 }
 
-export const GetFavourproducts=(id)=>(dispatch)=>{
+export const GetFavourproducts=()=>(dispatch)=>{
 
-    axios.get("http://localhost:8080/api/Favour/getFavouritadd",id)
+    axios.get("http://localhost:8080/api/Favour/getFavouritadd")
     .then((res)=>{
         console.log(res)
         dispatch({
