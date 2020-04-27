@@ -31,20 +31,22 @@ export default function ( state=intialState, action ) {
 
  
       case ADDTOCARTITEMSS:
-         var cartItem= localStorage.getItem('cartItem');
-         var items=[]
-    if(cartItem)
-    {
-items=JSON.parse(cartItem)
-   }
-   items.push(action.payload._id)
-        localStorage.setItem('cartItem', JSON.stringify(items)); 
+        //   console.log(action.payload)
+        //  var cartItem= localStorage.getItem('cartItem');
+        //  var items=[]
+    // if(cartItem)
+    // {
+// items=JSON.parse(cartItem)
+//    }
+//    items.push(action.payload._id)
+        // localStorage.setItem('cartItem', JSON.stringify(items)); 
         // let cartProduct=JSON.parse(localStorage.getItem('cartItem'));
         // let addedItem = cartProduct
         // console.log(addedItem)
 
           return{
               ...newState,
+              cartitems:action.payload
             //   addedItems: [...state.addedItems, addedItem],
           }
 

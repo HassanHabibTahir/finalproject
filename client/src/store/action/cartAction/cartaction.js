@@ -9,7 +9,7 @@ export const addtoCartValue=(cartId)=>dispatch=>{
 }
 //     axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
 //             const cartProduct=res.data;
-//         let addedItem = cartProduct.find(item=>item._id===id)   
+//         let addedItem = cartProduct.find(item=>item._id===cartId)   
 //         dispatch({
 //             type:ADDTOCARTITEMSS,
 //             payload:addedItem
@@ -48,11 +48,14 @@ dispatch({
 
 export const getCartProductbyId =()=>(dispatch)=>{
 
-debugger;
+
   axios.get('http://localhost:8080/api/product/getCart').then((res)=>{
 
-console.log(res.data)
 
+dispatch({
+              type:ADDTOCARTITEMSS,
+              payload:res.data
+          })
   })
 
 }

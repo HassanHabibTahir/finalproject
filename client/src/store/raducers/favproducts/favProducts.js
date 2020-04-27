@@ -21,11 +21,11 @@ export default function ( state=intialState, action ) {
         case FAVOURITPRODUCTBYID:
     
         console.log(action.payload)
-            // return({
-            //  ...newState,
-            //  FavouritProducts:action.payload,
+            return({
+             ...newState,
+             FavouritProducts:action.payload,
     
-            // })
+            })
 
 
             default:

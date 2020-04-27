@@ -6,10 +6,10 @@ let  FavuritProducts=  new Schema({
         ref:'products'
     },
     fav:Boolean,
-    user : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'users'
-    }
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+      },
 })
 
 const FacuritProduts = mongoose.model('FavuritProducts', FavuritProducts);

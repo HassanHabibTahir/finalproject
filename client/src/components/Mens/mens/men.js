@@ -21,6 +21,7 @@ import {Link} from 'react-router-dom';
   } 
   addToFav=(fav)=>{
    this.props.FavouritAdds(fav)
+   alert(fav)
   }
 
     render() {

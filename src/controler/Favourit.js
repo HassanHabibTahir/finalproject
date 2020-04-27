@@ -3,10 +3,11 @@ const Produts = require('../module/products/product')
 
 const favAdController = {
     favAdClicked:function(data,cb){
-// console.log(data)
+
 
         //Changing kerni hai app k check box k liye
         FavProducts.findOne({user:data.body.user,adId:data.body._id},function(err,prod){
+            console.log(prod)
             if(prod){
                 Produts.findByIdAndUpdate(data.body._id,{$set:{fav:false}},function(err,favp){
                     console.log(err||favp)
@@ -34,8 +35,10 @@ const favAdController = {
 
     },
     showFavouritProduct:function(data,cb){
-        FavProducts.find({"user":data.user._id}).populate('adId').exec(function(err, fav){
+        console.log(data.id)
+        FavProducts.find({"user":data.id}).populate('adId').exec(function(err, fav){
 
+            console.log(fav)
 
            let userFavads = fav.map(function(fav){
                     return fav.adId;

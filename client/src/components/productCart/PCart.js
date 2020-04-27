@@ -16,7 +16,7 @@ class PCart extends Component {
     super(props)
 
  this.state={
-   datas:[]
+   data:[]
  }
   }
 
@@ -52,7 +52,7 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
 
   componentDidMount() {
 
-console.log("what is happend")
+
    this.props.getCartProductbyId()
 
 
@@ -74,30 +74,45 @@ console.log("what is happend")
   }
 
 
-   product = (cartItems)=>cartItems.map((item, i) => {
-    console.log(item)
-          return (
+  //  product = (cartItems)=>cartItems.map((item, i) => {
+  //   console.log(item)
+  //         return (
     
-            <TableRow key={item.id}>
-              <TableCell>
-                <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} />
-              </TableCell>
-              <TableCell align="right">{item.productname.toUpperCase()}</TableCell>
-              <TableCell align="right">{item.price}</TableCell>
-              <TableCell align="right">1</TableCell>
-              <TableCell align="right">Discount</TableCell>
-              <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
-            </TableRow>
+  //           <TableRow key={item.id}>
+  //             <TableCell>
+  //               <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} />
+  //             </TableCell>
+  //             <TableCell align="right">{item.productname.toUpperCase()}</TableCell>
+  //             <TableCell align="right">{item.price}</TableCell>
+  //             <TableCell align="right">1</TableCell>
+  //             <TableCell align="right">Discount</TableCell>
+  //             <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
+  //           </TableRow>
     
-          )
-        })
+  //         )
+  //       })
   
+
+
+  componentWillReceiveProps(nextProps) {
+
+    if(nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
+
+       this.setState({
+        data: nextProps.CartItems.products,
+          
+       })
+    }
+}
+
 
   render() {
 
-// console.log(this.state.datas)
+this.state.data.map((item,i)=>{
+  console.log(item,i)
+})
  
-    //    const product = cartProduct
+      //  const cartProduct = this.props.CartItems.products
     //   let profileItems;
     //   if (cartProduct === null) {
     //     profileItems = <h1>loading.............</h1>;
@@ -107,11 +122,42 @@ console.log("what is happend")
     //         profileItems = <h1>loading...........agin..</h1>;
     //     }
     //     else {
-    //       profileItems=cartProduct
-    //          console.log(profileItems)
-    //     }
-    //   }
+       
+       
+        // let products= !this.props.CartItems.products&&this.props.CartItems.products===undefined&&this.props.CartItems.products===null?null:this.props.CartItems.products.map((item,i)=>{
+        //   console.log(i)
+        // })
+
+   
+       
+          
+        
+          // if(profileItems.length>0){
+            // profileItems.map((item,i)=>{
+            //  console.log(i)
+            //   // return item
+            // })
+          // }
+      //   }
+      // }
+    const  product = this.state.data.map((item, i) => {
+    console.log(item)
+          return (
     
+            <TableRow key={item.id}>
+              <TableCell>
+                {/* <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} /> */}
+              </TableCell>
+              {/* <TableCell align="right">{item.productname.toUpperCase()}</TableCell> */}
+              {/* <TableCell align="right">{item.price}</TableCell> */}
+          <TableCell align="right">{item.quantity}</TableCell>
+              {/* <TableCell align="right">Discount</TableCell> */}
+              {/* <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell> */}
+            </TableRow>
+    
+          )
+        })
+  
  
     return (
       <div style={{ marginTop: "vh" }}>
@@ -130,10 +176,14 @@ console.log("what is happend")
               </TableRow>
             </TableHead>
             <TableBody>
+              {this.props.cartItems&&this.props.cartItems!==undefined&&this.props.cartItems!==null?[this.props.cartItems].map((itms)=>{
+console.log(itms)
+              }):<h1>loading....</h1>}
               {/* {this.props.CartItems.map(item=>{
                 return <p>i=e</p>
               })} */}
-              {this.product(this.props.CartItems)}
+              {/* {this.product(this.props.CartItems)} */}
+              {product}
             </TableBody>
           </Table>
         </TableContainer>

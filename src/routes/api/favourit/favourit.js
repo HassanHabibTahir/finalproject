@@ -8,11 +8,12 @@ const passport = require('passport');
 
 favRouter.post('/favaddChanged',
 
-// passport.authenticate('jwt', { session: false }),
+passport.authenticate('jwt', { session: false }),
 
 function(req,res){
-    // console.log(req.body)
-    // req.body.user = req.user
+    
+    adId=req.body._id
+    console.log(adId)
     favConroler.favAdClicked(req,function(err,ad){
         res.json(ad)
     })
@@ -24,8 +25,8 @@ favRouter.get('/getFavouritadd'
 ,
 passport.authenticate('jwt', { session: false }),
 function(req,res){
-
-    favConroler.showFavouritProduct(req,function(err,ad){
+let user =req.user
+    favConroler.showFavouritProduct(user,function(err,ad){
         res.json(ad)
     })
 
