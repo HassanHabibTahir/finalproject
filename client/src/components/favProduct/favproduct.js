@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {GetFavourproducts} from '../../store/action/products/productaction'
 import {connect} from 'react-redux'; 
 import FavCard from './favCard'
+import './favCard.css'
 class Favproduct extends Component {
 constructor(){
     super()
@@ -34,8 +35,8 @@ componentWillReceiveProps(nextProps) {
         
         
         return (
-            <div style={{marginTop:"8vh"}} > 
-                <h1>THIS  IS FAVOURIT PRODUCT</h1>
+            <div className="mainvalue"   style={{marginTop:"8vh"}} > 
+            
                 {favcard}
             </div>
         )

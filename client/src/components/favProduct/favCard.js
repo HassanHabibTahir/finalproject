@@ -7,7 +7,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {FavouritAdds} from '../../store/action/products/productaction'
-// import './men.css'
+import './favCard.css'
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
  class FavCard extends Component {
@@ -25,14 +25,14 @@ import {Link} from 'react-router-dom';
 
        
         return (
-        //  <div></div>
+            <div  >
             <Card className="main">
 
             <FormControlLabel
             fontSize="large"
             
             style={{float:"right"}}
-            control={<Checkbox onClick = {()=>{this.addToFav(fCard)}} checked = {fCard.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+            control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard)}} checked = {fCard.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
                 
                   />
             
@@ -68,6 +68,7 @@ import {Link} from 'react-router-dom';
             </div>
             
                            </Card>
+                           </div>
         )
     }
 }

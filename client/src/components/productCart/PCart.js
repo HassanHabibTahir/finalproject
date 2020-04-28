@@ -95,7 +95,7 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
 
 
   componentWillReceiveProps(nextProps) {
-
+        console.log(nextProps)
     if(nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
 
        this.setState({
@@ -141,15 +141,15 @@ this.state.data.map((item,i)=>{
       //   }
       // }
     const  product = this.state.data.map((item, i) => {
-    console.log(item)
+    console.log(item.productId)
           return (
     
             <TableRow key={item.id}>
               <TableCell>
-                {/* <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} /> */}
+                <img height="50" src={"http://localhost:8080/" + item.productId.imgSrc[0]} />
               </TableCell>
-              {/* <TableCell align="right">{item.productname.toUpperCase()}</TableCell> */}
-              {/* <TableCell align="right">{item.price}</TableCell> */}
+              <TableCell align="right">{item.productId.productname}</TableCell>
+              <TableCell align="right">{item.productId.price}</TableCell>
           <TableCell align="right">{item.quantity}</TableCell>
               {/* <TableCell align="right">Discount</TableCell> */}
               {/* <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell> */}

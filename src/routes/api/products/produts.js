@@ -138,8 +138,10 @@ passport.authenticate('jwt', { session: false }),
 router.get('/getCart',
 passport.authenticate('jwt', { session: false }),
 (req, res, next) => {
- console.log(req.user)
+ console.log(req.user.cart.items.productId)
+ 
  req.user
+ 
  .populate('cart.items.productId')
  .execPopulate()
  .then(user => {

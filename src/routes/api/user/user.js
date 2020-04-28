@@ -63,7 +63,8 @@ router.post('/rejister', (req, res) => {
           province:req.body.province,
           typeAdmin:false,
           isVarified:false,
-          cart: { items: [] }
+          cart: { items: [] },
+          // productsId:{}
           
         })
 
