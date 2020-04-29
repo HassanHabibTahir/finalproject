@@ -158,4 +158,23 @@ passport.authenticate('jwt', { session: false }),
 });
 
 
+
+router.post('/removeCartproduct',
+passport.authenticate('jwt', { session: false }),
+(req,res,next)=>{
+  
+  const prodId = req.body.id;
+  console.log(prodId)
+  req.user
+    .removeFromCart(prodId)
+    .then(result => {
+    res.json("suceess fully deleted product")
+    })
+    .catch(err => console.log(err));
+
+}
+)
+
+
+
 module.exports = router

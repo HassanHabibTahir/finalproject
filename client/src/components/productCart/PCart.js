@@ -22,7 +22,7 @@ class PCart extends Component {
 
   DeletedCartItem=(i,id)=>{
 
-    var cartItems= JSON.parse(localStorage.getItem('cartItem'));
+    // var cartItems= JSON.parse(localStorage.getItem('cartItem'));
 
     // for(let x in cartItems ){
 // if(x==0){
@@ -30,13 +30,13 @@ class PCart extends Component {
 // }
 // let ie= cartItems.splice(i,1)
 
-let ie = cartItems.filter(item=>item!==id)
+// let ie = cartItems.filter(item=>item!==id)
 // console.log("filter",ie)
-localStorage.setItem('cartItem', JSON.stringify(ie)); 
+// localStorage.setItem('cartItem', JSON.stringify(ie)); 
 
     //}
     const data = {
-      index: i,
+      // index: i,
       id: id
   }
         this.props.RemoveCartElement(data)
@@ -140,8 +140,10 @@ this.state.data.map((item,i)=>{
           // }
       //   }
       // }
-    const  product = this.state.data.map((item, i) => {
-    console.log(item.productId)
+    const  product = this.state.data &&this.state.data!=null&&this.state.data!=undefined?this.state.data.map((item, i) => {
+    if(item.productId!=null && item.productId!=undefined){
+    //   console.log(item.productId)
+    // }
           return (
     
             <TableRow key={item.id}>
@@ -151,12 +153,13 @@ this.state.data.map((item,i)=>{
               <TableCell align="right">{item.productId.productname}</TableCell>
               <TableCell align="right">{item.productId.price}</TableCell>
           <TableCell align="right">{item.quantity}</TableCell>
-              {/* <TableCell align="right">Discount</TableCell> */}
-              {/* <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell> */}
+              <TableCell align="right">Discount</TableCell>
+              <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
             </TableRow>
     
           )
-        })
+    }
+        }):null
   
  
     return (
@@ -176,9 +179,7 @@ this.state.data.map((item,i)=>{
               </TableRow>
             </TableHead>
             <TableBody>
-              {this.props.cartItems&&this.props.cartItems!==undefined&&this.props.cartItems!==null?[this.props.cartItems].map((itms)=>{
-console.log(itms)
-              }):<h1>loading....</h1>}
+             
               {/* {this.props.CartItems.map(item=>{
                 return <p>i=e</p>
               })} */}

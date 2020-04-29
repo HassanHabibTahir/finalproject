@@ -4,6 +4,7 @@ export const addtoCartValue=(cartId)=>dispatch=>{
 
   axios.post('http://localhost:8080/api/product/PostCart',cartId).then((res)=>{
 
+  console.log(res)
 
   })
 }
@@ -32,16 +33,38 @@ export const getcartproducts=(data)=>(dispatch)=>{
 
 export const  RemoveCartElement=(data)=>(dispatch)=>{
  
+console.log(data)
+  axios.post('http://localhost:8080/api/product/removeCartproduct',data).then((res)=>{
+
+
+  if(res){
+    axios.get('http://localhost:8080/api/product/getCart').then((res)=>{
+
+
+      dispatch({
+                    type:ADDTOCARTITEMSS,
+                    payload:res.data
+                })
+        })
+  }
+
+  })
+
+
+
+
+
+
     // let data = [];
     // cartItems.filter(product => {
     //     if (product._id !== data.id)
     //       data.push(product)
     //   })
     //   localStorage.setItem('cartItem', JSON.stringify(data)); 
-dispatch({
-    type:REMOVECARTPRODUCT,
-    payload:data
-})
+// dispatch({
+//     type:REMOVECARTPRODUCT,
+//     payload:data
+// })
 
 
 }
