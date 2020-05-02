@@ -5,6 +5,7 @@ import './productitem.css'
 import { getProfilebyId  } from '../../../store/action/products/productaction'
 import {addtoCartValue  } from '../../../store/action/cartAction/cartaction';
 // ,getAllProduts
+import history from '../../history/history'
 import { Button } from '@material-ui/core';
 class Productitem extends Component {
 
@@ -18,16 +19,22 @@ class Productitem extends Component {
 
     
     
-    addProductinCart=(id)=>{
-
-const cartId={
-    id:id
+    addProductinCart=(id ,isauth)=>{
+        if(!isauth.isAuthenticated===false){
+            const cartId={
+                id:id
+            }
+            
+            this.props.addtoCartValue(cartId)
+        }
+else{
+  
+    history.push('/productitems/login')
 }
-
-this.props.addtoCartValue(cartId)
 // this.props.getAllProduts()    
-    }
-    
+ 
+
+}
     
     
     changedData = (img) => {
@@ -82,7 +89,7 @@ this.props.addtoCartValue(cartId)
                     <br/>
                  <div className="Deliverd"><h3 className="delivery-product" > Product Delikver after  the  complete satisfaction  </h3></div>
                   <br/>
-                   <div className="addto_cart" ><Button size="large"  variant="text" variant="outlined"  fullWidth={true} color="primary"   onClick={()=>this.addProductinCart(item._id)}   >ADD TO CART</Button></div>
+                   <div className="addto_cart" ><Button size="large"  variant="text" variant="outlined"  fullWidth={true} color="primary"   onClick={()=>this.addProductinCart(item._id ,this.props.auth)}   >ADD TO CART</Button></div>
                     </div>
                   
                 
@@ -106,7 +113,8 @@ this.props.addtoCartValue(cartId)
 const mapStateToProps = (state) => ({
 
     SingleProduct: state.ItempProduct,
-    unique:state.allProducts.addedItems
+    unique:state.allProducts.addedItems,
+    auth:state.auth, 
 })
 
 export default connect(mapStateToProps, { getProfilebyId , addtoCartValue })(Productitem)

@@ -11,6 +11,7 @@ import { getcartproducts ,RemoveCartElement ,getCartProductbyId} from '../../sto
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
+import history from '../history/history'
 class PCart extends Component {
   constructor(props) {
     super(props)
@@ -95,7 +96,7 @@ class PCart extends Component {
 
 
   componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
+ 
     if(nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
 
        this.setState({
@@ -103,6 +104,8 @@ class PCart extends Component {
           
        })
     }
+
+
 }
 
 
@@ -140,12 +143,16 @@ this.state.data.map((item,i)=>{
           // }
       //   }
       // }
+      let total=0;
     const  product = this.state.data &&this.state.data!=null&&this.state.data!=undefined?this.state.data.map((item, i) => {
     if(item.productId!=null && item.productId!=undefined){
     //   console.log(item.productId)
     // }
+   
+           total+=parseInt(item.productId.price)*item.quantity
+           console.log(total)
           return (
-    
+    <div>
             <TableRow key={item.id}>
               <TableCell>
                 <img height="50" src={"http://localhost:8080/" + item.productId.imgSrc[0]} />
@@ -155,8 +162,10 @@ this.state.data.map((item,i)=>{
           <TableCell align="right">{item.quantity}</TableCell>
               <TableCell align="right">Discount</TableCell>
               <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
+           
             </TableRow>
-    
+         
+    </div>
           )
     }
         }):null
@@ -185,9 +194,11 @@ this.state.data.map((item,i)=>{
               })} */}
               {/* {this.product(this.props.CartItems)} */}
               {product}
+            
             </TableBody>
           </Table>
         </TableContainer>
+        <h1>total={total}</h1>
       </div>
     )
   }
@@ -195,7 +206,8 @@ this.state.data.map((item,i)=>{
 const mapStateToProps = (state) => ({
 
 
-  CartItems: state.allProducts.cartitems
+  CartItems: state.allProducts.cartitems,
+
 })
 
 export default connect(mapStateToProps, { getcartproducts,RemoveCartElement,getCartProductbyId })(PCart)

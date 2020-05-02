@@ -46,7 +46,9 @@ export default class Routes extends Component {
         <Switch>
           <Route exact path="/product/child" component={Child} />
         </Switch>
-
+       <Switch>
+         <Route exact path="/productitems/login" component={Login}/>
+       </Switch>
 
 
         <Switch>
@@ -56,12 +58,12 @@ export default class Routes extends Component {
           <Route exact path="/productitems/:id" component={Productitem} />
         </Switch>
         <Switch>
-          <Route exact path="/cart" component={Cart} />
+          <ProvatieRoutes exact path="/cart" component={Cart} />
         </Switch>
 
 
         <Switch>
-          <Route exact path="/favourint" component={Favproduct} />
+          <ProvatieRoutes exact path="/favourint" component={Favproduct} />
         </Switch>
         <Switch>
           <Redirect to="/" />

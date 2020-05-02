@@ -35,7 +35,6 @@ let errors;
 // /api/users
 
 router.post('/rejister', (req, res) => {
-
 //   const result = validatePhoneNumber.validate(+4333334123);
 //   console.log(result)
 //  if(result){
@@ -65,6 +64,7 @@ router.post('/rejister', (req, res) => {
           isVarified:false,
           cart: { items: [] },
           // productsId:{}
+          
           
         })
 

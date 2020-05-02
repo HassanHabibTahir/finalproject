@@ -7,7 +7,8 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {getAllMenProduts ,FavouritAdds} from '../../../store/action/products/productaction'
-import './men.css'
+import history from '../../history/history'
+ import './men.css'
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
  class MEN extends Component {
@@ -19,9 +20,14 @@ import {Link} from 'react-router-dom';
    
   
   } 
-  addToFav=(fav)=>{
+  addToFav=(fav ,auth)=>{
+    if(!auth.isAuthenticated===false){
    this.props.FavouritAdds(fav)
-   alert(fav)
+  //  alert(fav)
+    }
+    else{
+      history.push('/login')
+    }
   }
 
     render() {
@@ -42,7 +48,7 @@ return    <Card className="main">
 fontSize="large"
 
 style={{float:"right"}}
-control={<Checkbox onClick = {()=>{this.addToFav(item)}} checked = {item.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
     
       />
 
@@ -94,6 +100,7 @@ const mapStateToProps=(state)=>({
   
     Products:state.allProducts.AllusersProducts,
     // unique:state.allProducts.UniqueItem
+    auth:state.auth,
 
   
   })
