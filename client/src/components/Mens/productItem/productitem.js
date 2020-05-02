@@ -29,7 +29,7 @@ class Productitem extends Component {
         }
 else{
   
-    history.push('/productitems/login')
+    history.push('/cartproductItems/loginbycart')
 }
 // this.props.getAllProduts()    
  
