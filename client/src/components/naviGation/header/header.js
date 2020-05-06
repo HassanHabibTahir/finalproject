@@ -76,10 +76,10 @@ const adminLinks=(
 {this.props.auth.user.Admin?adminLinks:list}
 
 </div>
-<div className="spacer"></div>
+{/* <div className="spacer"></div> */}
 {this.props.auth.user.Admin?null:<Serch/>}
 
-<div className="spacer"></div>
+{/* <div className="spacer"></div> */}
 {this.props.auth.user.Admin?null:<div>
   
     <Link to="/cart" >  <IconButton aria-label="show 4 new mails" color="inherit">

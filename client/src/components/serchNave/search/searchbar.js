@@ -32,13 +32,20 @@ const useStyles = makeStyles(theme => ({
 export default function CustomizedInputBase() {
   const classes = useStyles();
 
+
+  // changedHandler=(e)=>{
+  //   console.log(e)
+  // }
+
+
   return (
     <Paper component="form" className={classes.root}>
      
       <InputBase
         className={classes.input}
-        // placeholder="Search Google Maps"
+        placeholder="Search Garments Products"
         // inputProps={{ 'aria-label': 'search google maps' }}
+        onChange={()=>{this.changedHandler()}}
       />
       <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />
