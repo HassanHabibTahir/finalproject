@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import path from 'path';
 import Card from '@material-ui/core/Card';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {getuserallproducts} from '../../store/action/products/productaction'
+import {getuserallproducts,DeleteUserProduct} from '../../store/action/products/productaction'
 import { connect } from 'react-redux'; 
 import './userDashbo.css'
 import axios from 'axios'; 
@@ -28,16 +28,26 @@ changedData=(img)=>{
 }
 
 
+DeleteProduct=(id)=>{
+
+  // userData={
+
+  // }
+
+ this.props.DeleteUserProduct(id)
+ 
+}
+
   render() {
 
 console.log(this.props.Products)
 
 let   profileItems = this.props.Products===undefined||this.props.Products===null? <h1>show is noting</h1>:this.props.Products.map((item, i) => {
               return (
-               <Card className="main">
+               <Card className="main"  >
 
 <div className="card_products">
-  <div className="deleteButton"> <Button  onClick={this.deleteProduct}   className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div>
+  <div className="deleteButton"> <Button  onClick={()=>{this.DeleteProduct(item._id)}}   className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div>
 
 <div className="top-section">
   
@@ -91,4 +101,4 @@ const mapStateToProps=(state)=>({
 
 })
 
-export default connect(mapStateToProps,{getuserallproducts})(Dashboard)
+export default connect(mapStateToProps,{getuserallproducts ,DeleteUserProduct})(Dashboard)

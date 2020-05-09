@@ -45,6 +45,18 @@ export const getuserallproducts = (user) => dispatch => {
 }
 
 
+export const DeleteUserProduct=(id)=>(dispatch)=>{
+          console.log(id)
+
+    axios.delete(`http://localhost:8080/api/product/deleteUserproduct/${id}`).then((res) => {
+       
+if(res){
+   
+}
+    })
+}
+
+
 export const getAllMenProduts = () => (dispatch) => {
 
     axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
@@ -88,6 +100,7 @@ export const FavouritAdds = (add) => (dispatch) => {
 
     axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
         .then((res) => {
+            console.log(res)
             if (res) {
                 axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
 

@@ -29,9 +29,10 @@ componentWillReceiveProps(nextProps) {
     render() {
         console.log(this.state.Dfav)
         
-        const favcard=this.state.Dfav.map((item,i)=>{
+        const favcard=this.state.Dfav && this.state.Dfav!==null && this.state.Dfav!==undefined? this.state.Dfav.map((item,i)=>{
+            console.log(item)
             return <FavCard   fCard={item} index={i} />
-        })
+        }):null
         
         
         return (

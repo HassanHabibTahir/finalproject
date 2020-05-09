@@ -1,4 +1,5 @@
 const Product = require('../module/products/product');
+const Faourit = require('../module/favourit/favritAd')
 const productControler = {
     submitProduct:function(data,callback){
         let producatData = new Product();
@@ -27,15 +28,22 @@ const productControler = {
 
 
 
-    // deleteProduct:(data,callback)=>{
+    deleteProduct:(data,callback)=>{
 
-    //     Product.findByIdAndRemove(data.body,id,()=>{
-    //         console.log("remove the product from the products")
-    //     })
+        Product.findByIdAndDelete({ _id: data.params.id }).then((profile) => {
+        })   
+           
+        
+        Faourit.deleteMany({"adId":data.params.id}).then((re)=>{
+      
+        })
 
-    //     callback();
-    // }
+        callback();
+    }
 
 }
 
 module.exports = productControler
+
+
+

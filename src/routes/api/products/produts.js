@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const Product = require('../../../module/products/product');
-const Users  = require('../../../module/user/userprofile')
+const Users  = require('../../../module/user/userprofile');
+const Faourit = require('../../../module/favourit/favritAd')
 const Productcontroler = require('../../../controler/product')
 const passport = require('passport');
 // var storage = multer.diskStorage({
@@ -57,20 +58,26 @@ upload.array('files',7), (req, res) => {
 
 })
 
-// router.delete('/deleteProduct/:id', (req, res) => {
+// router.delete('/deleteUserproduct/:id', (req, res) => {
 
-//     Product.findByIdAndDelete({ _id: req.params.id }).then((profile) => {
+    
+//   Product.findByIdAndDelete({ _id: req.params.id }).then((profile) => {
+//   })   
+     
+  
+//   Faourit.deleteMany({"adId":req.params.id}).then((re)=>{
 
-//         res.json("product delete succefully")
-//     })
-
+//   })
 // })
 
-// router.delete('/deleteproduct',(req,res)=>{
-//     Productcontroler.deleteProduct(req,()=>{
-//         res.json("delete elemets successfull")
-//     })
-// })
+router.delete('/deleteUserproduct/:id',
+(req,res)=>{
+
+  Productcontroler.deleteProduct(req,(err,pr)=>{
+
+        res.json("delete elemets successfull")
+    })
+})
 
 
 
