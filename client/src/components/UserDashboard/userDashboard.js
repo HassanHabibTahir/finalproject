@@ -19,12 +19,16 @@ componentDidMount (){
 
 
 } 
-changedData=(img)=>{
-
-  const containerSrc = this.refs.imageContainer.src
+changedData=(i,img)=>{
+// console.log(i)
+// const index = this.target.valaue
+// console.log(index)
+// .imageContainer.src
+  const containerSrc = this.refs[i].src
+  
   console.log("this is second",containerSrc)
-  this.refs.imageContainer.src="http://localhost:8080/"+img
-  console.log(img) 
+  this.refs[i].src="http://localhost:8080/"+img
+  // console.log(img) 
 }
 
 
@@ -40,10 +44,13 @@ DeleteProduct=(id)=>{
 
   render() {
 
-console.log(this.props.Products)
+
 
 let   profileItems = this.props.Products===undefined||this.props.Products===null? <h1>show is noting</h1>:this.props.Products.map((item, i) => {
-              return (
+          
+  let id=item._id
+  console.log(item.imgSrc[0])
+  return (
                <Card className="main"  >
 
 <div className="card_products">
@@ -51,14 +58,14 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 
 <div className="top-section">
   
-   <center> <img    ref = 'imageContainer'    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+   <center> <img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
 
 <div className="nav">
 
-<img    onClick={()=>{this.changedData(item.imgSrc[1])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[1]}/>
-<img    onClick={()=>{this.changedData(item.imgSrc[2])}}    ref = 'image' src={"http://localhost:8080/"+item.imgSrc[2]}/>
-<img    onClick={()=>{this.changedData(item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]}/>
+<img    onClick={()=>{this.changedData( item._id  ,item.imgSrc[1])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[1]}/>
+<img    onClick={()=>{this.changedData(item._id,item.imgSrc[2])}}    ref = 'image' src={"http://localhost:8080/"+item.imgSrc[2]}/>
+<img    onClick={()=>{this.changedData(item._id,item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]}/>
 
 </div>
 
