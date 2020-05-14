@@ -49,7 +49,7 @@ color:orange
 
 .toolbar_logo{
     margin-left:0rem; 
-    padding: 10px;
+    /* padding: 10px; */
 
 }
 .toolbar_logo a{
@@ -70,6 +70,12 @@ text-shadow: 2px 2px 8px rgb(43, 75, 219)
     display: none;
 }
 }
+
+@media(max-width:768px){
+    .serch-bar{
+        display: none;
+    }
+    }
 
 
 @media(min-width:769px){
@@ -94,7 +100,7 @@ nav .toolbarsecond{
 	padding: 0;
 	margin: 0;
 	float: right;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     
 }
 nav .toolbarsecond li{

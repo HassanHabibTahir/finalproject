@@ -34,8 +34,8 @@ export default class Home extends Component {
 
 <br/>
         <div> <Showcase /></div>
-        <div> <Paralex/></div>
-        <div><Footer/></div>   
+        {/* <div> <Paralex/></div> */}
+        {/* <div><Footer/></div>    */}
         <div><Scrool/></div>
       </div>
            </Aux>

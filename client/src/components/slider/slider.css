@@ -63,7 +63,7 @@
     height: 80vh;
     width: 100%;
     position: relative;
-    background-image: url('../../components/slider/images/storemen.jpg');
+    /* background-image: url('../../components/slider/images/storemen.jpg'); */
  
     background-repeat: no-repeat;
     background-size: cover;
@@ -95,7 +95,7 @@
     position: relative;
     height: 80vh;
     width: 100%;
-    background-image: url('../../components/slider/images/img4.jpg');
+    /* background-image: url('../../components/slider/images/img4.jpg'); */
     height: 40rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -126,7 +126,7 @@
 
 .slide3{
     position: relative;
-    background-image: url('../../components/slider/images/img3.jpg');
+    /* background-image: url('../../components/slider/images/img3.jpg'); */
     height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -157,7 +157,7 @@
 
 .slide4{
     position: relative;
-    background-image: url('../../components/slider/images/img4.jpg');
+    /* background-image: url('../../components/slider/images/img4.jpg'); */
     height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -186,7 +186,7 @@
 }
 .slide5{
     position: relative;
-    background-image: url('../../components/slider/images/img4.jpg');
+    /* background-image: url('../../components/slider/images/img4.jpg'); */
     height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;

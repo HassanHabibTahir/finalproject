@@ -39,19 +39,23 @@ export default function CustomizedInputBase() {
 
 
   return (
-    <Paper component="form" className={classes.root}>
+
+
+
+    <div> hassan </div>
+    // <Paper component="form" className={classes.root}>
      
-      <InputBase
-        className={classes.input}
-        placeholder="Search Garments Products"
-        // inputProps={{ 'aria-label': 'search google maps' }}
-        onChange={()=>{this.changedHandler()}}
-      />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
+    //   <InputBase
+    //     className={classes.input}
+    //     placeholder="Search Garments Products"
+    //     // inputProps={{ 'aria-label': 'search google maps' }}
+    //     onChange={()=>{this.changedHandler()}}
+    //   />
+    //   <IconButton type="submit" className={classes.iconButton} aria-label="search">
+    //     <SearchIcon />
+    //   </IconButton>
     
      
-    </Paper>
+    // </Paper>
   );
 }

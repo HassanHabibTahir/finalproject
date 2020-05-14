@@ -3,7 +3,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import './header.css';
 import DrawerToggle from '../sideBar/drawerToggleButon'
 import { Link } from "react-router-dom";
-import Serch from '../../serchNave/search/searchbar';
+import Serch from '../serchbar/serchbar';
 import Cart from '../../serchNave/cart/cartlink';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,7 +15,7 @@ import Aux from '../../../hoc/hoc';
 import { connect } from 'react-redux'; 
 class Header extends Component {
     render() {
-        console.log("Admain in home ",this.props.auth.user.Admin)
+        // console.log("Admain in home ",this.props.auth.user.Admin)
             const list=(
             <ul  className="toolbarsecond" >
 
@@ -70,15 +70,16 @@ const adminLinks=(
 {this.props.auth.user.Admin?null:<div  className="tollbar-togle-button" ><DrawerToggle click={this.props.drawerClickHandler} /></div>}
 <div  className="toolbar_logo" ><a href="/">GOBACHI</a></div>
 
-<div className="spacer"></div>
-
+{/* <div className="spacer"></div> */}
+<div style={{width:"10vw"}}></div>
 <div className="toolbar_navigation_items" >
 {this.props.auth.user.Admin?adminLinks:list}
 
 </div>
-{/* <div className="spacer"></div> */}
-{this.props.auth.user.Admin?null:<Serch/>}
-
+{/* <div style={{width:"20vw"}}></div> */}
+<div className="spacer"></div>
+{this.props.auth.user.Admin?null:<div  className="serch-bar"> <Serch/></div>}
+{/* <div style={{width:"10vw"}}></div> */}
 {/* <div className="spacer"></div> */}
 {this.props.auth.user.Admin?null:<div>
   
@@ -91,11 +92,13 @@ const adminLinks=(
               </Link> 
    </div>}
    <div>
+   {/* <div style={{width:"5vw"}}></div> */}
 {/* <div className="spacer"></div> */}
-  <Link to="/favourint"  >  <FavoriteIcon  className="fave_icon" fontSize="large" color="red" />
+   {/* <div style={{width:"5vw"}}></div> */}
+<Link to="/favourint"  >  <FavoriteIcon  className="fave_icon" fontSize="large" color="red" />
   </Link>
   </div>
-<div><ToolBar/></div>
+<div  ><ToolBar/></div>
 </nav>
 
 </header>

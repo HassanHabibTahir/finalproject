@@ -28,14 +28,14 @@ class Slidersimple extends Component {
     var settings = {
       autoplay:true,
       dots: true,
-      fade: true,
-      useTransform: true,
+      // fade: true,
+      // useTransform: true,
       infinite: true,
       speed: 3300,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      useCSS: true,
+      // slidesToShow: 1,
+      // slidesToScroll: 1,
+      // arrows: true,
+      // useCSS: true,
       beforeChange: this.onBeforeChange,
       afterChange: this.onAfterChange
     };
