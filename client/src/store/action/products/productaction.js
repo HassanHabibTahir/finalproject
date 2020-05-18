@@ -26,14 +26,10 @@ export const addproducts = (productData) => dispatch => {
 
 
 export const getuserallproducts = (user) => dispatch => {
-
+console.log(user)
     axios.post('http://localhost:8080/api/product/getallproducts', user).then((res) => {
 
-
-
-
-
-        dispatch({
+     dispatch({
             type: getUserProducts,
             payload: res.data
 
@@ -45,13 +41,23 @@ export const getuserallproducts = (user) => dispatch => {
 }
 
 
-export const DeleteUserProduct=(id)=>(dispatch)=>{
-          console.log(id)
+export const DeleteUserProduct=(userData)=>(dispatch)=>{
 
-    axios.delete(`http://localhost:8080/api/product/deleteUserproduct/${id}`).then((res) => {
+    axios.delete(`http://localhost:8080/api/product/deleteUserproduct/${userData.id}`).then((res) => {
        
+
+    console.log(userData)
 if(res){
+    axios.post('http://localhost:8080/api/product/getallproducts', userData).then((res) => {
+
+        dispatch({
+               type: getUserProducts,
+               payload: res.data
    
+   
+           })
+   
+       })
 }
     })
 }

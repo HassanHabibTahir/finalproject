@@ -28,14 +28,14 @@ class Slidersimple extends Component {
     var settings = {
       autoplay:true,
       dots: true,
-      // fade: true,
-      // useTransform: true,
+      fade: true,
+      useTransform: true,
       infinite: true,
       speed: 3300,
-      // slidesToShow: 1,
-      // slidesToScroll: 1,
-      // arrows: true,
-      // useCSS: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      useCSS: true,
       beforeChange: this.onBeforeChange,
       afterChange: this.onAfterChange
     };
@@ -50,16 +50,16 @@ class Slidersimple extends Component {
 
           <div>
 
-            <div className="slide2" >
+            <div className="slide1" >
               <br />
 
               <img className="img1" src={Image1} />
             
             </div>
           </div>
-          <div>
+           {/* <div>
 
-            <div className="slide1" >
+           <div className="slide1" >
               <div>
                 <img className="img2" src={Imges2} />
               </div>
@@ -78,7 +78,7 @@ class Slidersimple extends Component {
                 <img className="img4" src={Imges4} />
               </div>
             </div>
-          </div>
+          </div> */}
 
 
         </Slider>

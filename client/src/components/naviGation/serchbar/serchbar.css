@@ -11,11 +11,11 @@ padding: 10px;
 .search-btn{
     /* position: fixed; */
     float: right;
-    /* width: 40px;
-    height: 40px; */
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     text-align: center;
-    /* background-color: rgb(250, 237, 58); */
+    background-color: rgb(250, 237, 58);
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -34,13 +34,19 @@ color: rgb(36, 6, 85);
 font-size: 16px;
 transition: 0.4s;
 line-height: 20px;
-width: 0px;
+width: 0vw;
 }
 .search-box:hover >.searc-text{
-  width: 20vw;
+  width: 30vw;
 }
 .search-box:hover > .search-btn{
 /* display: none; */
 /* margin-top: 20px  */
-;
+
 }
+
+@media(max-width:768px){
+    .search-btn{
+        display: none;
+    }
+    }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './sideDrawr.css';
-// import Search from '../serchbar/serchbar'
+import Search from '../serchbar/serchbar'
 import { Link } from "react-router-dom";
 const SideDrawr = (props)=>{
     let drawerClasses='side-drawer';
@@ -15,7 +15,7 @@ const SideDrawr = (props)=>{
           
             </div>
 <ul style={{textAlign:"center"}}>
- {/* <li><Search/></li> */}
+ <li><Search/></li>
 <h1>Hassan habib tahir</h1>
 <h1>Hassan habib tahir</h1>
 <h1>Hassan habib tahir</h1>

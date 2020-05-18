@@ -34,11 +34,12 @@ changedData=(i,img)=>{
 
 DeleteProduct=(id)=>{
 
-  // userData={
+  let userData={
+    user:this.props.auth.user,
+    id:id
+  }
 
-  // }
-
- this.props.DeleteUserProduct(id)
+ this.props.DeleteUserProduct(userData)
  
 }
 
