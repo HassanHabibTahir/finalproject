@@ -16,9 +16,10 @@ import {Link} from 'react-router-dom';
 
 
   componentDidMount (){
+  
     this.props.getAllMenProduts()
    
-  
+      
   } 
   addToFav=(fav ,auth)=>{
     if(!auth.isAuthenticated===false){
@@ -72,7 +73,8 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
   {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
 
 <div className="top-section">
-  
+                                                            
+
    <center> <Link  to={`productitems/${item._id}`}><img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
 
 

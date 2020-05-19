@@ -106,9 +106,8 @@ router.post('/getallproducts',(req,res)=>{
 
 })
 // allProduts
-
-router.get('/allProduts',(req,res)=>{
-  Product.find()
+  router.get('/allProduts',(req,res)=>{
+   Product.find()
   .populate('user', ['name' ,'isVarified' ])
   .then(allproduts => {
     if (!allproduts) {
@@ -119,6 +118,29 @@ router.get('/allProduts',(req,res)=>{
     res.json(allproduts);
   })
   .catch(err => res.status(404).json({ profile: 'There are no products' }));
+});
+
+// allProduts
+router.post('/allProduts2',(req,res)=>{
+  const keyword = req.body.keyword;
+  console.log(keyword);
+  Product.find({
+    $or: [ 
+      { productname: {'$regex': keyword }}, 
+      { discription: {'$regex': keyword } } 
+    ]
+  })
+ .populate('user', ['name' ,'isVarified' ])
+ .then(allproduts => {
+   console.log(allproduts);
+   if (!allproduts) {
+     errors = "there are no products";
+     return res.status(400).json(errors)
+   }
+// console.log(allusers)
+   res.json(allproduts);
+ })
+ .catch(err => res.status(404).json({ profile: 'There are no products' }));
 });
 
 

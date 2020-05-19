@@ -204,9 +204,7 @@ Tokenprofile.findOne({
             }
 
           )
-
-
-        }
+ }
         else {
           errors = "passsword in corect";
           return res.status(400).json(errors)
@@ -352,6 +350,7 @@ console.log(token)
 
         transporter.sendMail(mailOptions, (err, resonce) => {
           if (err) {
+            console.log(err)
             res.status(404).json('emai is invalid')
           }
           else {
