@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Slider from "react-slick";
 import './slider.css';
-import './slideranimation.css'
+// import './slideranimation.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -47,32 +47,29 @@ class Slidersimple extends Component {
         <div onClick={this.next} className="right-arrow"><ArrowForwardIosIcon className="rightIcon" /></div>
 
         <Slider ref={c => (this.slider = c)} {...settings} className="sliderContainer"   >
-
-          <div>
-
             <div className="slide1" >
               <br />
 
               <img className="img1" src={Image1} />
             
             </div>
-          </div>
-           {/* <div>
+         
+      
 
-           <div className="slide1" >
+           {/* <div className="slide2" >
               <div>
                 <img className="img2" src={Imges2} />
               </div>
-            </div>
-          </div>
-          <div>
+            </div> */}
+      
+          {/* <div>
             <div className="slide3" >
               <div>
                 <img className="img3" src={Imges3} />
               </div>
             </div>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <div className="slide4" >
               <div>
                 <img className="img4" src={Imges4} />

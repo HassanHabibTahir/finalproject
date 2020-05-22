@@ -15,28 +15,28 @@ export default class Home extends Component {
       <Aux>
 
       <div>
+    <div style={{ height: "auto" ,marginTop:"50px"}} > 
+    <Slidersimple /> 
+     </div> 
 
-      <div style={{ height: "auto" ,marginTop:"50px"}} >
-          <Slidersimple />
-        </div>
 
         <div style={{ height: "auto" ,marginTop:"60px"}}>
 
           <Details />
         </div>
-<br/>
+{/* <br/> */}
         <div style={{ height: "auto" }} >
           <CatgSlider />
         </div>
 
-<br/>
+{/* <br/> */}
         <div   ><MenuList/></div>
 
-<br/>
-        <div> <Showcase /></div>
-        <div> <Paralex/></div> 
-   <div><Footer/></div>   
-        <div><Scrool/></div>
+{/* <br/> */}
+        {/* <div> <Showcase /></div> */}
+        {/* <div> <Paralex/></div>  */}
+   {/* <div><Footer/></div>    */}
+        {/* <div><Scrool/></div> */}
       </div>
            </Aux>
     )

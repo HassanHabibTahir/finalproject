@@ -15,13 +15,16 @@ width: 70%;
 
  .image_list{
     width: 20%;
-    /* height: auto; */
+
  }
 .cards_slider{
     
 }
-
- @media only screen and (min-width: 600px){
+.image_list{
+    /* width: 40px; */
+    /* height: auto; */
+}
+ /* @media only screen and (min-width: 600px){
     .cards_slider {
         width: 10vw; 
         height: 10vh
@@ -37,11 +40,11 @@ width: 70%;
 position: relative !important
     }
 
-}
+} */
 
-@media only screen and (min-width: 400px) {
+/* @media only screen and (min-width: 400px) {
     .cards_slider{
-        /* width: 140%;  */
+
          height: 50vh; 
     }
 
@@ -79,7 +82,7 @@ position: relative !important
     } 
 
 }
-
+ */
 
  .image_list{
 

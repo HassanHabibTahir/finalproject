@@ -33,7 +33,7 @@ export default class CatgSlider extends React.Component {
                     link: '/manjens'
                 },
                 {
-                    img1:'https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/20052019/b19b74d8a904d2aa8e78f71a2bd05f75-185186319607.JPEG',
+                    img1: 'https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/20052019/b19b74d8a904d2aa8e78f71a2bd05f75-185186319607.JPEG',
                     link: '/manshirt'
                 },
                 {
@@ -48,16 +48,19 @@ export default class CatgSlider extends React.Component {
                     img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/round dresses-1524719222883.png',
                     link: '/womenpent'
                 },
-                { img1: "https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/15052019/21ed6f7dcacd6cefd25963980a110098-450437341402.JPEG" 
-               , link: '/kidsshirt'
-            }
+                {
+                    img1: "https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/15052019/21ed6f7dcacd6cefd25963980a110098-450437341402.JPEG"
+                    , link: '/kidsshirt'
+                }
                 ,
                 {
                     img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/boys-1505874350709.png',
                     link: 'kidspents'
                 },
-                { img1: "https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/22072019/9fbfc47578157c247e895081b6c78b17-477342285184.JPEG" 
-                ,link: 'kidsjeens'}
+                {
+                    img1: "https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/22072019/9fbfc47578157c247e895081b6c78b17-477342285184.JPEG"
+                    , link: 'kidsjeens'
+                }
 
             ],
 
@@ -68,22 +71,33 @@ export default class CatgSlider extends React.Component {
         console.log("jaha");
     }
     render() {
+        // $('.multiple-items').slick({
+        //     infinite: true,
+        //     slidesToShow: 3,
+        //     slidesToScroll: 3
+        //   });
         return (
             <InfiniteCarousel
                 breakpoints={[
                     {
-                        breakpoint: 10,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2,
-                        },
-                    },
-                    {
-                        breakpoint: 8,
+                        breakpoint: 1024,
                         settings: {
                             slidesToShow: 3,
-                            slidesToScroll: 3,
-                        },
+                            infinite: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            dots: true
+                        }
+                    },
+
+
+                    {
+                        breakpoint: 300,
+                        settings: "unslick" // destroys slick
                     },
                 ]}
                 autoplay={true}
@@ -94,6 +108,15 @@ export default class CatgSlider extends React.Component {
                 slidesToScroll={1}
                 slidesToShow={5}
                 scrollOnDevice={true}
+
+
+
+
+
+
+
+
+
             >
                 {this.state.items.map((item) => {
                     return <div className="cards_slider">
@@ -101,10 +124,10 @@ export default class CatgSlider extends React.Component {
 
                         <div>
 
-                           
-                         <img style={imageStyle} className="image_list"   width="600" height="400"  src={item.img1} />
-                           
-            
+
+                            <img style={imageStyle} className="image_list" width="500" height="300" src={item.img1} />
+
+
 
                             <br />
                             {/* <span className="effects">
