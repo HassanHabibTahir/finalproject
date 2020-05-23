@@ -29,14 +29,14 @@ export default class Home extends Component {
           <CatgSlider />
         </div>
 
-{/* <br/> */}
+<br/>
         <div   ><MenuList/></div>
 
-{/* <br/> */}
-        {/* <div> <Showcase /></div> */}
-        {/* <div> <Paralex/></div>  */}
-   {/* <div><Footer/></div>    */}
-        {/* <div><Scrool/></div> */}
+<br/>
+        <div> <Showcase /></div>
+        <div> <Paralex/></div> 
+   <div><Footer/></div>   
+        <div><Scrool/></div>
       </div>
            </Aux>
     )

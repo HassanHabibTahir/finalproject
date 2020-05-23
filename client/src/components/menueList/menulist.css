@@ -118,8 +118,33 @@ width: 100%;
      color: rgb(17, 5, 68);
  
    }
-   
+   .women_list{
+    color: rgb(82, 82, 82); font-size: 25px; line-height: 70px; font-weight: 
+    normal; white-space: normal;
+    text-decoration: none;
+    
+   }
+   .women_list a{
   
+
+    text-decoration: none;
+    padding-left: 30px;
+    color: rgb(17, 5, 68);
+
+  }
+  .child_list{
+    color: rgb(82, 82, 82); font-size: 25px; line-height: 70px; font-weight: 
+    normal; white-space: normal;
+    text-decoration: none;
+  }
+  .child_list a{
+  
+
+    text-decoration: none;
+    padding-left: 30px;
+    color: rgb(17, 5, 68);
+
+  }
   @keyframes icon {
     0%,100%{
       transform: translate(0px);

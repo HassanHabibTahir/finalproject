@@ -5,11 +5,20 @@ import Paper from '@material-ui/core/Paper';
 import './menulist.css';
 
 import imgShowCase from './images/men-906703245888-654537555048.png'
-import Shirt from './images/menShirt.jpg'
+import Shirt from './images/manshirt.png'
 import Pents from './images/menPents.jpg'
-import Suits from './images/suits.jpg'
+import tarditional from './images/traditioncloth.png'
+import Suite from './images/suit.png'
 import Women from './images/women.png'
+import womenShirt from './images/womenshirt.png'
+import womenPents from './images/womenjeans.jpg'
+import TraditionClothes from './images/womenTradition.jpg'
+import womenDerss from './images/womendress.png'
 import Child from './images/child.png'
+import girlsShirts from './images/girsClothing.png'
+import boysClothing from './images/bosysclothing.png'
+import Frocks from './images/gFroks.png'
+import Tradition from './images/tradition.png'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 export default class MenuList extends Component {
   render() {
@@ -51,7 +60,7 @@ export default class MenuList extends Component {
 
             <div className="items-body-lists">
               <span className="men_list" ><Link>Shirt</Link></span>
-              <span><img className="cate_img_list" src='https://d30fs77zq6vq2v.cloudfront.net/category/shirts-321965682306.png' /></span>
+              <span><img className="cate_img_list" src={Shirt}/></span>
             </div>
 
           </div>
@@ -63,7 +72,7 @@ export default class MenuList extends Component {
 
               <div className="items-body-lists">
                 <span className="men_list"   ><Link>Traditional Clothing</Link></span>
-                <span><img className="cate_img_list" src="https://d30fs77zq6vq2v.cloudfront.net/category/Round men kurta-344094639405-1251100026145.png" /></span>
+                <span><img className="cate_img_list" src={tarditional} /></span>
               </div>
 
             </div>
@@ -77,7 +86,7 @@ export default class MenuList extends Component {
 
 <div className="items-body-lists">
   <span className="men_list" ><Link>Suits</Link></span>
-  <span><img className="cate_img_list" src='https://d30fs77zq6vq2v.cloudfront.net/category/suiting-1415596793745.png' /></span>
+  <span><img className="cate_img_list" src={Suite} /></span>
 </div>
 
 </div>
@@ -88,7 +97,7 @@ export default class MenuList extends Component {
 
 
   <div className="items-body-lists">
-    <span className="men_list"   ><Link> </Link></span>
+    <span className="men_list"   ><Link> Pents</Link></span>
     <span><img className="cate_img_list" src={Pents} /></span>
   </div>
 
@@ -101,7 +110,7 @@ export default class MenuList extends Component {
 
 
 
-        {/* <Grid item xs={12}>
+        <Grid item xs={12}>
 
 
 <div>
@@ -126,7 +135,7 @@ export default class MenuList extends Component {
 
             <div className="items-body-lists">
               <span className="women_list" ><Link>Shirt</Link></span>
-              <span><img className="cate_img_list" src={Shirt} /></span>
+              <span><img className="cate_img_list" src={womenShirt} /></span>
             </div>
 
           </div>
@@ -137,8 +146,8 @@ export default class MenuList extends Component {
 
 
               <div className="items-body-lists">
-                <span className="women_list"   ><Link>Pents</Link></span>
-                <span><img className="cate_img_list" src={Pents} /></span>
+                <span className="women_list"   ><Link>Jeans &Pents</Link></span>
+                <span><img className="cate_img_list" src={womenPents} /></span>
               </div>
 
             </div>
@@ -151,8 +160,8 @@ export default class MenuList extends Component {
 
 
 <div className="items-body-lists">
-  <span className="women_list" ><Link>Suits</Link></span>
-  <span><img className="cate_img_list" src={Suits} /></span>
+  <span className="women_list" ><Link>Traditional Clothes</Link></span>
+  <span><img className="cate_img_list" src={TraditionClothes} /></span>
 </div>
 
 </div>
@@ -163,83 +172,8 @@ export default class MenuList extends Component {
 
 
   <div className="items-body-lists">
-    <span className="women_list"   ><Link>Pents</Link></span>
-    <span><img className="cate_img_list" src={Pents} /></span>
-  </div>
-
-</div>
-
-
-
-
-        </div> */}
-
-
-
-        {/* <Grid item xs={12}>
-
-
-<div>
-
-  <div className="items-body-child">
-    <span className="men_list" ><Link>Women</Link></span>
-    <span><img className="cate_img"  style={{marginTop:"12px"}}  src={Child} /></span>
-  </div>
-
-</div>
-
-
-</Grid>
-
-
-
-
-<div style={{flex:"wrap" }}  className="card" >
-          <div className="itesm-list">
-
-
-
-            <div className="items-body-lists">
-              <span className="men_list" ><Link>Shirt</Link></span>
-              <span><img className="cate_img_list" src={Shirt} /></span>
-            </div>
-
-          </div>
-          <div style={{ flex: 1 }}></div>
-      
-            <div className="itesm-list">
-
-
-
-              <div className="items-body-lists">
-                <span className="men_list"   ><Link>Pents</Link></span>
-                <span><img className="cate_img_list" src={Pents} /></span>
-              </div>
-
-            </div>
-          <div className="fist-list"></div>
-         
-
-
-          <div className="itesm-list">
-
-
-
-<div className="items-body-lists">
-  <span className="men_list" ><Link>Suits</Link></span>
-  <span><img className="cate_img_list" src={Suits} /></span>
-</div>
-
-</div>
-<div style={{ flex: 1 }}></div>
-
-<div className="itesm-list">
-
-
-
-  <div className="items-body-lists">
-    <span className="men_list"   ><Link>Pents</Link></span>
-    <span><img className="cate_img_list" src={Pents} /></span>
+    <span className="women_list"   ><Link> Women Dresess</Link></span>
+    <span><img className="cate_img_list" src={womenDerss} /></span>
   </div>
 
 </div>
@@ -251,8 +185,79 @@ export default class MenuList extends Component {
 
 
 
- */}
+      <Grid item xs={12}>
 
+
+<div>
+
+  <div className="items-body-child">
+    <span className="child_list" ><Link>Kids</Link></span>
+    <span><img className="cate_img"  style={{marginTop:"12px"}}  src={Child} /></span>
+  </div>
+
+</div>
+
+
+</Grid>
+
+<div style={{flex:"wrap" }}  className="card" >
+          <div className="itesm-list">
+
+
+
+            <div className="items-body-lists">
+              <span className="child_list" ><Link>boys Shirts</Link></span>
+              <span><img className="cate_img_list" src={boysClothing} /></span>
+            </div>
+
+          </div>
+          <div style={{ flex: 1 }}></div>
+      
+            <div className="itesm-list">
+
+
+
+              <div className="items-body-lists">
+                <span className="child_list"   ><Link>girls Shits</Link></span>
+                <span><img className="cate_img_list" src={girlsShirts} /></span>
+              </div>
+
+            </div>
+          <div className="fist-list"></div>
+         
+
+
+          <div className="itesm-list">
+
+
+
+<div className="items-body-lists">
+  <span className="child_list" ><Link>Frocks</Link></span>
+  <span><img className="cate_img_list" src={Frocks} /></span>
+</div>
+
+</div>
+<div style={{ flex: 1 }}></div>
+
+<div className="itesm-list">
+
+
+
+  <div className="items-body-lists">
+    <span className="child_list"   ><Link>Tradition </Link></span>
+    <span><img className="cate_img_list" src={Tradition} /></span>
+  </div>
+
+</div>
+
+
+
+
+        </div>
+
+
+
+ 
 
 
       </div>
