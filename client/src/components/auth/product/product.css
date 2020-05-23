@@ -33,3 +33,10 @@ width: 50vh !important;
         }
         
     }
+    
+    .products-cate{border: none!important;
+    width: 100%;
+    padding: 10px;
+    font-weight: 400;
+    display: inline-block;
+    outline: none;}
