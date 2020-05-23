@@ -98,7 +98,8 @@ console.log(fd)
 
 
     render() {
-
+        const {price,discount,productname,discription,category,files} = this.state;
+        const isnotValid = price === '' ||discount===''||productname===''||discription===''||category===''||files.length==='';
         return (
             <div style={{ marginTop: "20vh" }} >
                 <Grid item xs={false} sm={4} md={7} />
@@ -198,7 +199,7 @@ console.log(fd)
                   autoFocus={true}
                   onChange={this.handleChange}
                   fullWidth={true}
-                  placeholder="Title"
+                  placeholder="discription"
                   value={this.state.discription}
                   />
             </Grid>
@@ -256,6 +257,7 @@ console.log(fd)
                                 style={{ marginTop: "20px" }}
                                 type="submit"
                                 fullWidth
+                                disabled={isnotValid}
                                 variant="contained"
                                 color="primary"
                                 onClick={this.handleSubmit}
