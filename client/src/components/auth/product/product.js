@@ -20,7 +20,7 @@ import {Subtitles,Business,LocalAtm,CastConnected,Details,Attachment,AccountBox,
 import DescriptionIcon from '@material-ui/icons/Description';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
+import Paper from '@material-ui/core/Paper';
 import {addproducts} from '../../../store/action/products/productaction'
 import Verification from './Verification';
 import PropTypes from 'prop-types';
@@ -64,10 +64,16 @@ console.log(productData)
             fd.append(item, productData[item]);
         }
         
+        if(this.state.files.length<=3){
+            alert("upload 4 imges")
+            return false;
+        }
+        else{
         this.state.files.forEach((file)=>{
+        
             fd.append('files', file)
         })
-
+    }
 console.log(fd)
           this.props.addproducts(fd,this.props.history)
 
@@ -80,6 +86,11 @@ console.log(fd)
     }
 
     ImageshandleChange = (files) => {
+  
+//         files.forEach((f)=>{
+//   console.log(f)
+//         })
+     
         this.setState({
             files: files
         });
@@ -104,11 +115,11 @@ console.log(fd)
             <div style={{ marginTop: "20vh" }} >
                 <Grid item xs={false} sm={4} md={7} />
              
-                    <Container component="main" maxWidth="sm">
+                    <Container component="main" maxWidth="md">
+                    <Paper  style={{padding:"20px"}} elevation={10} align="center" >
 
-                    <div >
+                    <div>
                     
-
 
                               <Grid item xs={12} md={12} className="paddingTop">
                                     <TextField
@@ -165,18 +176,26 @@ console.log(fd)
                     onChange={this.handleChange}
                     className="selectSignUp">
                     <option selected value="none">
-                    Choose  Category
+                    Choose Product Name
                     </option>
                     <option value="gents">
-                    gents
+                    shirt
                     </option>
                     <option value="WOMEN">
-                    WOMEN
+                    pent
                     </option>
                     <option value="CHILD">
-                    CHILD
+                    jeans
                     </option>
-                   
+                   <option value="traditionalclothing" >
+                   Traditional ClothingSuits
+                   </option>
+                   <option value="suits" >
+                   suits 
+                   </option>
+                   <option value="dresess" >
+                    Dresess
+                   </option>
                     </select>
                     {/* <Divider /> */}
                   </Grid>
@@ -269,12 +288,12 @@ console.log(fd)
                     
                     <Box mt={5}>
                     </Box>
+                    </Paper>
+  
                     </Container>
                     
-                 
             </div>
-            
-            
+          
             
             )
     }

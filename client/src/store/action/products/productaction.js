@@ -80,6 +80,19 @@ export const getAllMenProduts2 = (keyword) => (dispatch) => {
     })
 
 }
+
+
+export const getChildProduct = (data) => (dispatch) => {
+
+    axios.post('http://localhost:8080/api/product/childProducts',data).then((res) => {
+
+console.log(res)
+
+    })
+}
+
+
+
 export const getAllMenProduts = () => (dispatch) => {
 
     axios.get('http://localhost:8080/api/product/allProduts').then((res) => {

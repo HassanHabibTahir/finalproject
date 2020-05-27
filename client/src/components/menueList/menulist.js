@@ -108,7 +108,7 @@ export default class MenuList extends Component {
 
         </div>
 
-
+<br/>
 
         <Grid item xs={12}>
 
@@ -117,7 +117,7 @@ export default class MenuList extends Component {
 
   <div className="items-body-women">
     <span className="women_list" ><Link to="/women" >Women</Link></span>
-    <span><img className="cate_img"  style={{marginTop:"12px"}}  src={Women} /></span>
+    <span><img className="cate_img2"   src={Women} /></span>
   </div>
 
 </div>
@@ -184,7 +184,7 @@ export default class MenuList extends Component {
         </div>
 
 
-
+<br/>
       <Grid item xs={12}>
 
 
@@ -192,7 +192,7 @@ export default class MenuList extends Component {
 
   <div className="items-body-child">
     <span className="child_list" ><Link>Kids</Link></span>
-    <span><img className="cate_img"  style={{marginTop:"12px"}}  src={Child} /></span>
+    <span><img className="cate_img3"    src={Child} /></span>
   </div>
 
 </div>

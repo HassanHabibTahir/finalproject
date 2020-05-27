@@ -34,19 +34,40 @@ color: rgb(36, 6, 85);
 font-size: 16px;
 transition: 0.4s;
 line-height: 20px;
-width: 0vw;
+width: 30vw;
 }
-.search-box:hover >.searc-text{
+/* .search-box:hover >.searc-text{
   width: 30vw;
-}
-.search-box:hover > .search-btn{
-/* display: none; */
-/* margin-top: 20px  */
+} */
+/* .search-box:hover > .search-btn{
+display: none; 
 
-}
+
+} */
 
 @media(max-width:768px){
-    .search-btn{
+    .search-box{
         display: none;
     }
     }
+
+
+    input[type=text] {
+        width: 100%;
+        /* margin-right: 120px; */
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: rgb(253, 250, 250);
+        background-image: url('./serch/kisspng-material-font-search-icon-5b21819439b852.2823675615289225162364.png');
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+      }
+      
+      /* input[type=text]:focus {
+        width: 100%;
+      } */

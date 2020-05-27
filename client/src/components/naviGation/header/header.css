@@ -71,11 +71,9 @@ text-shadow: 2px 2px 8px rgb(43, 75, 219)
 }
 }
 
-@media(max-width:768px){
-    .serch-bar{
-        display: none;
-    }
-    }
+.serch-bar{
+    width: 50%;
+}
 
 
 @media(min-width:769px){

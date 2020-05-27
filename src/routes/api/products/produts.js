@@ -120,6 +120,24 @@ router.post('/getallproducts',(req,res)=>{
   .catch(err => res.status(404).json({ profile: 'There are no products' }));
 });
 
+router.post('/childProducts',(req,res)=>{
+
+console.log(req)
+
+    Product.find({"category":req.body.category})
+  .populate('user', ['name' ,'isVarified' ])
+  .then(allproduts => {
+    if (!allproduts) {
+      errors = "there are no products";
+      return res.status(400).json(errors)
+    }
+// console.log(allusers)
+    res.json(allproduts);
+  })
+  .catch(err => res.status(404).json({ profile: 'There are no products' }));
+})
+
+
 // allProduts
 router.post('/allProduts2',(req,res)=>{
   const keyword = req.body.keyword;
