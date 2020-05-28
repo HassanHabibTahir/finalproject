@@ -16,7 +16,7 @@ export default class Home extends Component {
 
       <div>
     <div style={{ height: "auto" ,marginTop:"50px"}} > 
-    <Slidersimple /> 
+    {/* <Slidersimple />  */}
      </div> 
 
 

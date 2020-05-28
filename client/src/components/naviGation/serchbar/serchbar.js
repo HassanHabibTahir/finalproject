@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+// import SearchIcon from '@material-ui/icons/Search';
+import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
-import SearchBar from 'material-ui-search-bar'
 import './serchbar.css'
+
 export default class serchbar extends Component {
     constructor(props){
         super(props)
@@ -15,38 +17,28 @@ export default class serchbar extends Component {
     render() {
         
         return (
-
-
-<div>
-<form  >
-  <input type="text" name="search"   placeholder="Search.." onChange={this.serchItem} />
-</form>
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?"/>
+      <button type="submit" class="searchButton">
+      <SearchIcon  fontSize="large" style={{color:"blue"}} />
+     </button>
+   </div>
 </div>
 
-/*
-            <div>
- <div className="search-box">
- <input   className="searc-text" type="text" name='' placeholder="type to search" />
- <SearchIcon className="search-btn" />
-       </div>
-       </div>
- <SearchBar
-    size='large'
-onChange={() => this.chniged()}
-onRequestSearch={() =>  this.chniged()}
-style={{
-  margin: '0 auto',
-  maxWidth: 800
-}}
-
-/>  */
         )
     }
 }
 
 
 
-
+{/* <SearchBar
+// onChange={this.serchItem}
+style={{
+  margin: '0 auto',
+  maxWidth: 800
+}}
+></SearchBar> */}
 
 
 

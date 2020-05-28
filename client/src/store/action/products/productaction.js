@@ -63,9 +63,9 @@ if(res){
 }
 
 
-export const getAllMenProduts2 = (keyword) => (dispatch) => {
-
-    axios.post('http://localhost:8080/api/product/allProduts2', {keyword: keyword}).then((res) => {
+export const serchProduct = (keyword) => (dispatch) => {
+console.log(keyword)
+    // axios.post('http://localhost:8080/api/product/allProduts2', {keyword: keyword}).then((res) => {
 
 
 
@@ -77,7 +77,7 @@ export const getAllMenProduts2 = (keyword) => (dispatch) => {
         // })
 
 
-    })
+    // })
 
 }
 
