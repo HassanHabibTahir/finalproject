@@ -87,8 +87,12 @@ export const getCategoryProduct = (data) => (dispatch) => {
     console.log(data)
 
     axios.post('http://localhost:8080/api/product/categoryProducts',data).then((res) => {
+        dispatch({
+            type: getAllProducts,
+            payload: res.data
 
-console.log(res)
+
+        })
 
     })
 }
@@ -147,11 +151,11 @@ export const FavouritAdds = (add) => (dispatch) => {
                     dispatch({
                         type: getAllProducts,
                         payload: res.data
-
-
+            
+            
                     })
-
-
+            
+            
                 })
 
                 axios.get("http://localhost:8080/api/Favour/getFavouritadd")

@@ -33,17 +33,18 @@ return    <Card className="main">
   {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
 
 <div className="top-section">
+
   
    <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
 
-{/* <div className="nav"> */}
+<div className="nav">
 
-{/* <img src={"http://localhost:8080/"+item.imgSrc[1]}/> */}
-{/* <img src={"http://localhost:8080/"+item.imgSrc[2]}/> */}
-{/* <img src={"http://localhost:8080/"+item.imgSrc[3]}/> */}
+<img src={"http://localhost:8080/"+item.imgSrc[1]}/>
+<img src={"http://localhost:8080/"+item.imgSrc[2]}/>
+<img src={"http://localhost:8080/"+item.imgSrc[3]}/>
 
-{/* </div> */}
+</div>
 
 <div className="product_info">
 
