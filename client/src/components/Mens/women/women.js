@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
- import {getAllMenProduts} from '../../../store/action/products/productaction'
+ import {getCategoryProduct} from '../../../store/action/products/productaction'
 
  import { connect } from 'react-redux'; 
 
@@ -9,7 +9,7 @@ import Card from '@material-ui/core/Card';
 
 
   componentDidMount (){
-    this.props.getAllMenProduts()
+    this.props.getCategoryProduct({category:"WOMEN"})
    
   
   } 
@@ -79,4 +79,4 @@ const mapStateToProps=(state)=>({
   
   })
 
-  export default connect(mapStateToProps,{getAllMenProduts})(Women)
+  export default connect(mapStateToProps,{getCategoryProduct})(Women)

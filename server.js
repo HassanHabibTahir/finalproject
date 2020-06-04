@@ -15,7 +15,7 @@ const FavAdd = require('./src/routes/api/favourit/favourit')
 var cors = require('cors');
 //path is required
 var path = require("path");
-//bodyParsre
+//bodyParsre  
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

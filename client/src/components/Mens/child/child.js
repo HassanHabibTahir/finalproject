@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
- import {getChildProduct} from '../../../store/action/products/productaction'
+ import {getCategoryProduct} from '../../../store/action/products/productaction'
 // import './men.css'
  import { connect } from 'react-redux'; 
 import { Category } from '@material-ui/icons';
 
- class MEN extends Component {
+ class Child extends Component {
 
 
 
@@ -13,7 +13,7 @@ import { Category } from '@material-ui/icons';
 
    
 
-    this.props.getChildProduct({category:"CHILD"})
+    this.props.getCategoryProduct({category:"CHILD"})
    
   
   } 
@@ -83,4 +83,4 @@ const mapStateToProps=(state)=>({
   
   })
 
-  export default connect(mapStateToProps,{getChildProduct})(MEN)
+  export default connect(mapStateToProps,{getCategoryProduct})(Child)

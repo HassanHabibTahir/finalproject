@@ -120,7 +120,7 @@ router.post('/getallproducts',(req,res)=>{
   .catch(err => res.status(404).json({ profile: 'There are no products' }));
 });
 
-router.post('/childProducts',(req,res)=>{
+router.post('/categoryProducts',(req,res)=>{
 
 console.log(req)
 

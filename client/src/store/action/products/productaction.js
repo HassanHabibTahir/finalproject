@@ -41,6 +41,12 @@ console.log(user)
 }
 
 
+
+// export const getChildProduct=(child)=>(dispatch)=>{
+// console.log(child)
+// }
+
+
 export const DeleteUserProduct=(userData)=>(dispatch)=>{
 
     axios.delete(`http://localhost:8080/api/product/deleteUserproduct/${userData.id}`).then((res) => {
@@ -65,26 +71,22 @@ if(res){
 
 export const serchProduct = (keyword) => (dispatch) => {
 console.log(keyword)
-    // axios.post('http://localhost:8080/api/product/allProduts2', {keyword: keyword}).then((res) => {
+    axios.post('http://localhost:8080/api/product/allProduts2', keyword).then((res) => {
 
 
 
-        // dispatch({
-        //     type: getAllProducts,
-        //     payload: res.data
+console.log(res.data)
 
-
-        // })
-
-
-    // })
+    })
 
 }
 
 
-export const getChildProduct = (data) => (dispatch) => {
+export const getCategoryProduct = (data) => (dispatch) => {
 
-    axios.post('http://localhost:8080/api/product/childProducts',data).then((res) => {
+    console.log(data)
+
+    axios.post('http://localhost:8080/api/product/categoryProducts',data).then((res) => {
 
 console.log(res)
 
