@@ -19,7 +19,7 @@ class Header extends Component {
             const list=(
             <ul  className="toolbarsecond" >
 
-<li className="header_nav" ><Link to="/mens">MENs</Link>
+<li className="header_nav" ><Link to="/product/mens">MENs</Link>
 <ul className="list_show" >
 <li  ><a href="#">Shirt</a></li>
 <li><a href="#">Pents</a></li>

@@ -2,7 +2,7 @@ import { UserProducts, getUserProducts, getAllProducts, GetByIdProducts, FAVOURI
 import axios from 'axios';
 import history from '../../../components/history/history'
 export const addproducts = (productData) => dispatch => {
-
+console.log(productData)
     axios.post('/api/product/upload', productData)
         .then((res) => {
             // console.log(res)

@@ -178,13 +178,13 @@ console.log(fd)
                     <option selected value="none">
                     Choose Product Name
                     </option>
-                    <option value="gents">
+                    <option value="shirt">
                     shirt
                     </option>
-                    <option value="WOMEN">
+                    <option value="pent">
                     pent
                     </option>
-                    <option value="CHILD">
+                    <option value="jeans">
                     jeans
                     </option>
                    <option value="traditionalclothing" >

@@ -71,7 +71,7 @@
     }
 
     .name_product{
-        color: white;
+        color: rgb(33, 10, 88);
     }
 
 
@@ -118,8 +118,8 @@
     }
     .nav img{
     
-        width: 5vw;
-        height: 80px;
+        width: 3vw;
+        height: 60px;
         border: 1px solid #ddd;
         margin: 8px 2px;
         cursor: pointer;
@@ -132,7 +132,7 @@
           
         
             float: right;
-            color: #fbfbfb;
+            color: #1e1663;
      
         
 
@@ -143,22 +143,22 @@
 
         .product_info {
             text-align: left;
-        padding: 24px;
+        padding: 4px;
         background: #020D75;
         }
 
         .product_info h2{
-            color: white;
+            color: rgb(66, 37, 145);
         }
         .dis{
     
             font-size: 16px;
             /* opacity: 0.7; */
-            color: white;
+            color: rgb(29, 7, 126);
         } 
         .deleteButton{
             text-align: right;
-            color: white    ;
+            color: rgb(11, 9, 124)    ;
         }
         /* deleteButton */
         .icon_del{
