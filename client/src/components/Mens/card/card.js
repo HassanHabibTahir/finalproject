@@ -12,7 +12,7 @@ import history from '../../history/history'
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import {FavouritAdds} from '../../../store/action/products/productaction'
 import {Link} from 'react-router-dom';
-
+import './card.css'
  class ChildCard extends Component {
 
 
@@ -89,11 +89,11 @@ return    (
    <div className="prduct_info">
    
    <div  className="name_product"><h2>
-   {/* <span className="price">${item.price}</span> */}
+{Products.productName}
    </h2>
    
    </div>
-   <div className="dis">{Products.discription}</div>
+ <div className="dis">{Products.description}</div>
    
    </div>
    </div>

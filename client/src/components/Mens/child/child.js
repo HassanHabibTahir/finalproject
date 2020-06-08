@@ -65,7 +65,7 @@ return (
   images={item.imgSrc}
   price={item.price}
   description={item.discription}
-  productName = {item.productName}
+  productName = {item.productname}
   category={item.category}
   _id={item._id}
   id={item._id}

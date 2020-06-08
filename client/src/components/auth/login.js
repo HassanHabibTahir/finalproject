@@ -21,6 +21,7 @@ import pink from '@material-ui/core/colors/pink';
 import {withRouter} from 'react-router-dom';
 import {Send,Email,Lock} from '@material-ui/icons';
 import SignUp from '../auth/signUp';
+import Footer from '../home/paralelx/footer/footer'
 import loginUser from '../../store/action/loginAction/loginaction'
 // import { connect } from 'react-redux';
 
@@ -138,7 +139,8 @@ class Login extends Component {
         const {email, password, loading,checkbox} = this.state;
         const isnotValid = email === '' || password === '' ||checkbox===''|| loading;
         return (
-            <div style={{marginTop:"10vh" ,padding:"100px"}}>
+            <div>         
+                   <div style={{marginTop:"10vh" ,padding:"100px"}}>
                 <Grid container spacing={8}>
                     <Hidden smDown>
                         <Grid item xs={4} md={4}></Grid>
@@ -271,6 +273,9 @@ LogIn
                     </Hidden>
                 </Grid>
             </div>
+                <div><Footer/></div>
+            </div>
+
         )
     }
 }

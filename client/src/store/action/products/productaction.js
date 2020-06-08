@@ -1,4 +1,5 @@
-import { UserProducts, getUserProducts, getAllProducts, GetByIdProducts, FAVOURITPRODUCTBYID } from '../../action/types/types'
+import { UserProducts, getUserProducts, getAllProducts,
+     GetByIdProducts, FAVOURITPRODUCTBYID,SEARCGPRODUCT } from '../../action/types/types'
 import axios from 'axios';
 import history from '../../../components/history/history'
 export const addproducts = (productData) => dispatch => {
@@ -68,14 +69,19 @@ if(res){
     })
 }
 
-
 export const serchProduct = (keyword) => (dispatch) => {
 console.log(keyword)
     axios.post('http://localhost:8080/api/product/allProduts2', keyword).then((res) => {
 
+ if(res){
+  dispatch({
+         type:SEARCGPRODUCT,
+         payload:res.data
+     })
+     history.push('/serchProducts')
+ }
 
 
-console.log(res.data)
 
     })
 
@@ -142,7 +148,7 @@ export const FavouritAdds = (add) => (dispatch) => {
 
     axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
         .then((res) => {
-            console.log(res)
+        
             if (res) {
                 axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
 
@@ -160,7 +166,7 @@ export const FavouritAdds = (add) => (dispatch) => {
 
                 axios.get("http://localhost:8080/api/Favour/getFavouritadd")
                     .then((res) => {
-                        console.log(res.data)
+                  
                         dispatch({
                             type: FAVOURITPRODUCTBYID,
                             payload: res.data

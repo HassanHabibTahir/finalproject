@@ -26,6 +26,7 @@ import Child from '../../components/Mens/child/child'
 import Women from '../../components/Mens/women/women'
 import Productitem from '../../components/Mens/productItem/productitem'
 import Cart from '../../components/productCart/PCart';
+import Serch from '../../components/serchProduct/searchProduc'
 export default class Routes extends Component {
   render() {
     return (
@@ -57,6 +58,11 @@ export default class Routes extends Component {
         <Switch>
           <Route exact path="/product/productitems/:id" component={Productitem} />
         </Switch>
+        <Switch>
+          <Route exact path="/serchProducts" component={Serch} />
+        </Switch>
+
+        
         <Switch>
           <ProvatieRoutes exact path="/cart" component={Cart} />
         </Switch>

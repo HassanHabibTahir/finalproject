@@ -10,7 +10,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {getAllMenProduts ,FavouritAdds} from '../../../store/action/products/productaction'
 import history from '../../history/history'
 import MenCard from '../card/card'
- import './men.css'
+
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
  class MEN extends Component {
@@ -67,7 +67,7 @@ return(
   images={item.imgSrc}
   price={item.price}
   description={item.discription}
-  productName = {item.productName}
+  productName = {item.productname}
   category={item.category}
   _id={item._id}
   id={item._id}

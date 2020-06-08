@@ -5,6 +5,7 @@ import './productitem.css'
 import { getProfilebyId  } from '../../../store/action/products/productaction'
 import {addtoCartValue  } from '../../../store/action/cartAction/cartaction';
 // ,getAllProduts
+import ImageGallery from 'react-image-gallery';
 import history from '../../history/history'
 import { Button } from '@material-ui/core';
 class Productitem extends Component {
@@ -59,6 +60,8 @@ else{
                 <div className="product-item">
                     <br />
                     <br />
+
+    
                     <div className="item-slider">
 
 
