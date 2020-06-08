@@ -73,13 +73,13 @@ this.refs[i].src="http://localhost:8080/"+img
 console.log(this.props.serchProducts)
  const  MenProducts = this.props.serchProducts
 
- let Prdouctsitems= MenProducts.filter(( item,index)=>{
+//  let Prdouctsitems= MenProducts.filter(( item,index)=>{
   
-      return item.category ===  "gents"
+//       return item.category ===  "gents"
   
-})
+// })
 // console.log(Prdouctsitems)
-  let product= Prdouctsitems.map((item,i)=>{
+  let product= MenProducts.map((item,i)=>{
     let id=item._id
 
 

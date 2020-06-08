@@ -19,13 +19,13 @@ import './card.css'
 
     addToFav=(fav ,auth)=>{
     console.log(fav)
-        //     if(!auth.isAuthenticated===false){
-    //    this.props.FavouritAdds(fav)
-    //    alert(fav)
-    //     }
-    //     else{
-    //       history.push('/login')
-    //     }
+            if(!auth.isAuthenticated===false){
+       this.props.FavouritAdds(fav)
+       alert(fav)
+        }
+        else{
+          history.push('/login')
+        }
       }
 
 

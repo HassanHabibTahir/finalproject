@@ -27,6 +27,7 @@ passport.authenticate('jwt', { session: false }),
 function(req,res){
 let user =req.user
     favConroler.showFavouritProduct(user,function(err,ad){
+        console.log(ad)
         res.json(ad)
     })
 
