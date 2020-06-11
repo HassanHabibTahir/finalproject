@@ -20,7 +20,7 @@ import {
 } from "react-router-dom";
 import history from '../../components/history/history'
 import ProvatieRoutes from '../../components/privavte/private'
-import Admin from '../../components/adminpanal/admin'
+import Admin from '../../components/adminpanal/Dashboard'
 import MEN from '../../components/Mens/mens/men'
 import Child from '../../components/Mens/child/child'
 import Women from '../../components/Mens/women/women'

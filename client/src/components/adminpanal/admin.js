@@ -307,16 +307,7 @@ const MyDrawer = withStyles(styles)(
       </Collapse>
     </List>
 
-
-
-
-
-
-
-
-
-
-            <List>
+        <List>
             <ListItem
             button
             component={Link}

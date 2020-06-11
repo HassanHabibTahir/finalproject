@@ -15,9 +15,13 @@ import Aux from '../../../hoc/hoc';
 import { connect } from 'react-redux'; 
 class Header extends Component {
     render() {
-        // console.log("Admain in home ",this.props.auth.user.Admin)
+     
+      //  let quanit =   this.props.CartItems&&this.props.CartItems.products!=null&& this.props.CartItems.products!=undefined? this.props.CartItems.products.map((q)=>{
+      // return q.quantity
+      //  }):null
+      // console.log(quanit)
             const list=(
-            <ul  className="toolbarsecond" >
+            <ul  className="toolbarsecond">
 
 <li className="header_nav" ><Link to="/product/mens">MENs</Link>
 <ul className="list_show" >
@@ -109,7 +113,8 @@ const adminLinks=(
 
 const mapStateToProps=(state)=>({
     errors:state.erorr,
-    auth:state.auth
+    auth:state.auth,
+    CartItems: state.allProducts.cartitems,
   })
 
 export default connect(mapStateToProps)(Header)
