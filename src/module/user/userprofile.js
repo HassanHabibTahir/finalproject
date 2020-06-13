@@ -45,6 +45,10 @@ const userSchema = new Schema({
         default: false
     },
 
+    userCondition:{
+      type:String,
+      required:true
+    },
     // role:{
     //   type:String
     // },

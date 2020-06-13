@@ -63,6 +63,7 @@ router.post('/rejister', (req, res) => {
           typeAdmin:false,
           isVarified:false,
           cart: { items: [] },
+          userCondition:req.body.userCondition
           // productsId:{}
           
           
@@ -191,7 +192,7 @@ Tokenprofile.findOne({
       .then((isMatch) => {
         if (isMatch) {
 
-          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified}
+          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified ,userCondition:user.userCondition}
           //using token
           jwt.sign(payload,
             keys.secretOrkey,

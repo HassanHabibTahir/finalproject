@@ -125,7 +125,7 @@ class SignUp extends Component {
       this.setState({emailError:''});
     }
 
-    if(nextProps.auth.user ==='account is created!'){
+    if(nextProps.err.message ==='account is created'){
       history.push('/login')
     }
     
@@ -187,7 +187,7 @@ class SignUp extends Component {
   onSubmitHandler=(e)=>{
     e.preventDefault();
     this.setState({loading:true});
-    const {name,email,password,cellNo,address,city,province} = this.state;
+    const {name,email,password,cellNo,address,city,province,userCondition} = this.state;
     
           let userData = {
             name,
@@ -197,6 +197,7 @@ class SignUp extends Component {
             address,
             city,
             province,
+            userCondition,
           }
           console.log(userData)
       this.props.registerUser(userData);
@@ -222,8 +223,8 @@ class SignUp extends Component {
     this.setState({address})
  }
   render() {
-    console.log(this.state)
-    // console.log(this.props.err)
+    
+    console.log(this.props.err)
     const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading} = this.state;
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' || passwordError !== '' || loading; 
       return (
