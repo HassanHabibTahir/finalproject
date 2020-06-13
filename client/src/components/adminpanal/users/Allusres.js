@@ -150,7 +150,7 @@ class AllUser extends Component {
 
         return (
 
-            <div style={{ marginTop: '20vh' }}>
+            <div style={{ marginTop: '10vh' }}>
                 <table style={{width:"100%"}} >
                     <tr>
                         <th>Sr.NO</th>

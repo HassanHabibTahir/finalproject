@@ -164,9 +164,9 @@ const logoutHandler=(e)=>{
                logout 
                {/* <NotificationsIcon/> */}
  
-          </Button>
-        </Toolbar>
-      </AppBar>
+          </Button> 
+       </Toolbar> 
+   </AppBar> 
       <Drawer
         variant="permanent"
         classes={{
