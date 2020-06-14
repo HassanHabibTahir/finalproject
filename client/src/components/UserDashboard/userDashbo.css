@@ -92,14 +92,14 @@
             /* border: 1px solid rgb(40, 1 2, 163); */
             padding: 15px;
         }
-    .mainvalue{
-        /* padding: 2px; */
-        display: flex;
+    .userProducts{
+        /* padding: 2px;
+        /* display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: center; */
         /* width: 400px; */
         /* height: 400px; */
-    }
+    } 
 
 
     .nav{

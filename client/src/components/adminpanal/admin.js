@@ -19,7 +19,7 @@ import ShopIcon from '@material-ui/icons/Shop';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import history from '../history/history'
 import AllUser from './users/Allusres' ;
-
+import Dashboard from './Dashboard'
 import './admin.css';
 import { findByLabelText } from '@testing-library/react';
 const useStyles = makeStyles(theme => ({
@@ -43,8 +43,9 @@ export default function Admin() {
 
   return (
     <Router history={history} >
-    <div className="admin_page" >
-        <div className="list"  >
+    <div     className="admin_page" >
+      <Dashboard/>
+         {/* <div className="list"  >
 
         <List
         
@@ -112,7 +113,7 @@ export default function Admin() {
         </List>
       </Collapse>
     </List>
-        </div>
+        </div>  */}
 
 
 

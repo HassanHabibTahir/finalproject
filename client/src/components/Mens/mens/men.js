@@ -13,6 +13,7 @@ import MenCard from '../card/card'
 
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
+import '../mens.css'
  class MEN extends Component {
 
 

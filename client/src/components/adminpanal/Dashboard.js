@@ -26,7 +26,8 @@ import { connect } from 'react-redux';
 import Logout from '../../store/action/logout/logout'
 import Deposits from './Deposits';
 import Orders from './Orders';
-
+import { BrowserRouter as Router, Route, c } from "react-router-dom";
+import './admin.css'
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -40,7 +41,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
+    // position: 'fixed',
+    // whiteSpace: 'nowrap',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -107,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   container: {
-    paddingTop: theme.spacing(4),
+    paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(4),
   },
   paper: {
@@ -117,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 400,
   },
 }));
 
@@ -125,48 +126,18 @@ const useStyles = makeStyles((theme) => ({
   const classes = useStyles();
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  // const handleDrawerOpen = () => {
+  //   setOpen(true);
+  // };
   const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-
-const logoutHandler=(e)=>{
-  e.preventDefault();
-    
-  dispatch(Logout());
-}
-
-
-
   return (
     <div>
-      <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-        <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
-          </Typography>
-          <Button color="inherit"  onClick={logoutHandler} >
-          
-               logout 
-               {/* <NotificationsIcon/> */}
- 
-          </Button> 
-       </Toolbar> 
-   </AppBar> 
+   
+     
       <Drawer
         variant="permanent"
         classes={{
@@ -175,32 +146,38 @@ const logoutHandler=(e)=>{
         open={open}
       >
         <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
+        <Toolbar className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}
+                      //  onClick={handleDrawerOpen}
+                       >
+            {open==true?<ChevronLeftIcon   />
+            :<MenuIcon />}
+          </IconButton   >
+        
+          </Toolbar>
         </div>
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        {/* <List>{secondaryListItems}</List> */}
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+      {/* <main className={classes.content}>
+        <div className={classes.appBarSpacer} /> */}
+        {/* <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
+            Chart
             <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
+              <Paper className={fixedHeightPaper}> */}
                 {/* <Chart /> */}
-              </Paper>
+              {/* </Paper>
             </Grid>
-            {/* Recent Deposits */}
+            Recent Deposits
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+            Recent Orders
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Orders />
@@ -210,8 +187,8 @@ const logoutHandler=(e)=>{
           <Box pt={4}>
             <Copyright />
           </Box>
-        </Container>
-      </main>
+        </Container> */}
+      {/* </main> */}
     </div>
   );
 }

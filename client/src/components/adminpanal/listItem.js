@@ -8,27 +8,38 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import AssignmentIcon from '@material-ui/icons/Assignment';
 
 export const mainListItems = (
   <div>
     <ListItem button>
-      <ListItemIcon>
+    <Link primary="Dashboard"  to="/AllUser" className="links" >
         <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      </Link>
+      <Link primary="Dashboard"  to="/AllUser" className="links" ><ListItemText primary="All Users" /></Link> 
     </ListItem>
     <ListItem button>
-      <ListItemIcon>
+      <Link primary="Dashboard"  to="/cart" className="links" >
         <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
+      </Link>
+      <Link primary="Dashboard"  to="/cart" className="links" ><ListItemText primary="cart" /></Link> 
     </ListItem>
     <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
+    <Link primary="Dashboard"  to="/buyer" className="links" >
+            <PeopleIcon />
+      </Link>
+      <Link primary="Dashboard"  to="/buyer" className="links" > <ListItemText primary="buyer" /></Link> 
+      
+     
+    </ListItem>
+    <ListItem button>
+    <Link primary="Dashboard"  to="/seller" className="links" >
+            <PeopleIcon />
+      </Link>
+      <Link primary="Dashboard"  to="/seller" className="links" > <ListItemText primary="seller" /></Link> 
+      
+     
     </ListItem>
     <ListItem button>
       <ListItemIcon>
