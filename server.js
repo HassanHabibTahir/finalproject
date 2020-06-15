@@ -4,6 +4,8 @@ require('./src/db/db')
 
 const express = require('express');
 const app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 //passport
 const passport = require('passport');
@@ -15,6 +17,7 @@ const FavAdd = require('./src/routes/api/favourit/favourit')
 var cors = require('cors');
 //path is required
 var path = require("path");
+const handleChat = require('./src/chat/chat');
 //bodyParsre  
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,10 +44,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.static('./public/file'));
 app.use(express.static('./client/build/'))
-app.listen(port, () => {
+http.listen(port, () => {
 
     console.log(`servsr is running ${port}`)
 })
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    handleChat(socket)
+  });
 
 
 

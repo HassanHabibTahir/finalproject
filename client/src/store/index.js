@@ -15,7 +15,7 @@ const Store = createStore(rootReducer,
     //   applyMiddleware(...middleware,logger),
     applyMiddleware(...middleware),
 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 
 );

@@ -79,11 +79,11 @@ export default class Routes extends Component {
         </Switch>
         <Switch> <ProvatieRoutes exact path="/addProduct" component={Product} /></Switch>
         <Switch>
-          <ProvatieRoutes path="/Admin" exact component={Admin} />
+          <ProvatieRoutes exact path="/Admin"  component={Admin} />
         </Switch>
 
         <Switch>
-          <ProvatieRoutes path="/userproduct" exact component={UserDashboard} />
+          <ProvatieRoutes exact path="/userproduct"  component={UserDashboard} />
         </Switch>
 
         {/* <Route path="/users" component={Users} /> */}
