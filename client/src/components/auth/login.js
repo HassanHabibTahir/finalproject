@@ -24,7 +24,7 @@ import SignUp from '../auth/signUp';
 import Footer from '../home/paralelx/footer/footer'
 import loginUser from '../../store/action/loginAction/loginaction'
 // import { connect } from 'react-redux';
-
+import history from '../history/history'
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import resetEmail from '../auth/reset/resetemail';
@@ -71,23 +71,38 @@ class Login extends Component {
 
     // }
   componentWillReceiveProps(nextProps) {
+      console.log(nextProps)
   this.setState({loading: false})
 
     if (nextProps.auth.isAuthenticated) {
            
          if(nextProps.auth.user.Admin){
-          this.props.history.push('/Admin');
+            history.push('/Admin');
 
-         }else{
-          this.props.history.push('/dashboard');
-         }
+        }
+        else if(nextProps.auth.user.Admin===false && nextProps.auth.user.userCondition==="seller"  ){
+            
+            //  if( nextProps.auth.user.userCondition==="seller"){
+           console.log(nextProps.auth.user)
+            history.push('/dashboard')
+        // }
+        }else{
+            history.push('/')
+        }
+        // if( nextProps.auth.user.userCondition==="seller"){
+        //    console.log(nextProps.auth.user.userCondition)
+        //     history.push('/dashboard')
+        // }
+        // else if( this.props.auth.user.userCondition==="seller"){
+       
+        //  }
 
      
     }
 
     if (nextProps.errors) {
             this.setState({errors:nextProps.errors})
-            console.log(this.state.errors)
+            // console.log(this.state.errors)
       
           }
 

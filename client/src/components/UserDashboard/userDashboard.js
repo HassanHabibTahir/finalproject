@@ -89,7 +89,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
         })
       
     return (
-      <div className="mainvalue"  style={{marginTop:'100px'}} >
+      <div className="userProducts"  style={{marginTop:'100px'}} >
         {/* welcome */}
         {profileItems}
       </div>

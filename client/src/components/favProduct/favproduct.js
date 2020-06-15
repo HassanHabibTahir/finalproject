@@ -36,7 +36,7 @@ componentWillReceiveProps(nextProps) {
         
         
         return (
-            <div className="mainvalue"   style={{marginTop:"8vh"}} > 
+            <div className="favourit-products"   style={{marginTop:"8vh"}} > 
             
                 {favcard}
             </div>

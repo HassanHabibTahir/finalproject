@@ -18,7 +18,10 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 import {withRouter} from 'react-router-dom';
-
+import green from '@material-ui/core/colors/green';
+import Radio from '@material-ui/core/Radio';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import LOGIN from '../auth/login';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import history from '../history/history'
@@ -47,6 +50,21 @@ import './toobar/toolbar.css'
 import './aut.css'
 
 // import Paper from '@material-ui/core/Paper';
+
+
+
+
+const styles = {
+  root: {
+    color: green[600],
+    '&$checked': {
+      color: green[500],
+    },
+  },
+  checked: {},
+};
+
+
 class SignUp extends Component {
 
   constructor(props) {
@@ -67,10 +85,18 @@ class SignUp extends Component {
           emailError:'',
           passwordError:'',
           emailVarified:'',
-          loading:false
+          loading:false,
+          buyer: '',
+          seller:'',
+          userCondition:null,
+          checkedA: true,
+          checkedB: true,
+        
       }
   }
-
+  handleChangeCondition = event => {
+    this.setState({ userCondition: event.target.value });
+  };
   componentDidMount() {
     document.title = "Signup";
   }
@@ -99,7 +125,7 @@ class SignUp extends Component {
       this.setState({emailError:''});
     }
 
-    if(nextProps.auth.user ==='account is created!'){
+    if(nextProps.err.message ==='account is created'){
       history.push('/login')
     }
     
@@ -161,7 +187,7 @@ class SignUp extends Component {
   onSubmitHandler=(e)=>{
     e.preventDefault();
     this.setState({loading:true});
-    const {name,email,password,cellNo,address,city,province} = this.state;
+    const {name,email,password,cellNo,address,city,province,userCondition} = this.state;
     
           let userData = {
             name,
@@ -171,6 +197,7 @@ class SignUp extends Component {
             address,
             city,
             province,
+            userCondition,
           }
           console.log(userData)
       this.props.registerUser(userData);
@@ -196,6 +223,7 @@ class SignUp extends Component {
     this.setState({address})
  }
   render() {
+    
     console.log(this.props.err)
     const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading} = this.state;
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' || passwordError !== '' || loading; 
@@ -438,6 +466,27 @@ class SignUp extends Component {
                 />
                      </Grid>
 
+                     <Grid item xs={12} md={12} >
+           <span style={{width:"5vw"  , fontSize:"10px"}} >Check button Are you  a  </span>
+           <span style={{width:"4vw" ,padding:"40px" }} >   Saller:   <Radio
+          checked={this.state.userCondition === 'seller'}
+          onChange={this.handleChangeCondition}
+          value="seller"
+          name="sel"
+          aria-label="A"
+        />
+        </span>
+     
+        <span style={{width:"4vw" ,padding:"40px" }} >
+       Buyer:  <Radio
+          checked={this.state.userCondition==='buyer'}
+          onChange={this.handleChangeCondition}
+          value="buyer"
+          name="buy"
+          aria-label="B"
+        />
+        </span>
+</Grid>
                      <Grid item xs={12} md={12} className="paddingTop">
                        <Typography variant="caption" > 
                        <FormControlLabel

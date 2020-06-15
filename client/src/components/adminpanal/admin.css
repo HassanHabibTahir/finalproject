@@ -25,3 +25,7 @@
 display: flex;
 flex-wrap: wrap;
 }
+.MuiDrawer-paper{
+    top: 70px !important;
+    z-index: 0 !important;
+}

@@ -8,22 +8,22 @@ export const registerUser = (userData, history) => (dispatch) => {
 
         .then((res) => {
 
-            // console.log(res.data)
-
+            console.log(res.data)
+debugger;
             dispatch({
                 type:TokenSetToUser,
                 payload:res.data
             })
             // const token = this.props.match.params.token;
             // console.log(token)
-            // // history.push('/login')
+            history.push('/login')
 
         }
            
           
              )
         .catch((err) => {
-            
+            console.log(err)
           dispatch({
                   type: GET_ERRORS,
                   payload: err.response.data

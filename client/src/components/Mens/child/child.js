@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
  import {getCategoryProduct,FavouritAdds} from '../../../store/action/products/productaction'
-// import './men.css'
+  import '../mens.css'
  import { connect } from 'react-redux';
  import Fab from '@material-ui/core/Fab'; 
  import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -125,7 +125,7 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 
 
         return (
-            <div style={{marginTop:"10vh"}}>
+            <div className="mainvalue">
          
             {product}
             </div>

@@ -12,7 +12,7 @@ export default class App extends Component {
       <Aux>
   
         <Routes/>
-       
+       {/* <Admin/> */}
 
        <br/>
    
