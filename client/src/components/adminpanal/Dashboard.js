@@ -48,13 +48,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    
+    paddingLeft: 100, // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: '0 8px',
+    // padding: '10px 1px',
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -82,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   drawerPaper: {
-    // position: 'fixed',
-    // whiteSpace: 'nowrap',
+    // position: 'relative',
+    whiteSpace: 'nowrap',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -96,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing(7),
+    width: theme.spacing(17),
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9),
     },
@@ -106,10 +107,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
+    // marginRight:400
   },
   container: {
     paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(4),
+    // marginRight:1000
   },
   paper: {
     padding: theme.spacing(2),
@@ -122,10 +125,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function Dashboard() {
+ function Menubar() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   // const handleDrawerOpen = () => {
   //   setOpen(true);
   // };
@@ -159,41 +162,17 @@ const useStyles = makeStyles((theme) => ({
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-        {/* <List>{secondaryListItems}</List> */}
+       <List>{secondaryListItems}</List> 
       </Drawer>
-      {/* <main className={classes.content}>
-        <div className={classes.appBarSpacer} /> */}
-        {/* <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            Chart
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}> */}
-                {/* <Chart /> */}
-              {/* </Paper>
-            </Grid>
-            Recent Deposits
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            Recent Orders
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
-          </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container> */}
-      {/* </main> */}
+    
     </div>
+
+
+
   );
 }
 const mapStateToProps=(state)=>({
 
 })
 
-export default connect(mapStateToProps,{Logout})(Dashboard)
+export default connect(mapStateToProps,{Logout})(Menubar)
