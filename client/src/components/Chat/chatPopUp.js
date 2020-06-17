@@ -40,6 +40,7 @@ class ChatPopUp extends Component {
 
     }
     componentWillUpdate(nextProps, nextState) {
+        if(nextState.chatRoom)
         var unreadedMessages = nextState.chatRoom.messages.filter(msg => msg.readed == "false" && msg.sender != this.props.auth.user.id);
         if (unreadedMessages.length > 0) {
             this.props.dispatch(MarkMessagesAsReaded({ chatRoomID: nextState.chatRoom._id, unreadedMessages }))
