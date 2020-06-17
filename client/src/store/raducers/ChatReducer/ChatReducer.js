@@ -7,9 +7,14 @@ import { setChatData, addNewMessage, addNewRoom, markMessagesAsReaded } from '..
 const intialState = {
     chatRooms: []
 }
-function sortRooms(rooms){
-rooms.sort((a,b)=> new Date(a.messages[a.messages.length-1].createdAt)-new Date(b.messages[b.messages.length-1].createdAt))
-return rooms.reverse();
+function sortRooms(rooms) {
+    rooms.sort((a, b) => {
+        if (a.messages.length>0&&b.messages.length>0)
+           return new Date(a.messages[a.messages.length - 1].createdAt) - new Date(b.messages[b.messages.length - 1].createdAt)
+        else
+          return  new Date(a.updatedAt) - new Date(b.updatedAt)
+    })
+    return rooms.reverse();
 }
 
 export default function (state = intialState, action) {
@@ -22,8 +27,8 @@ export default function (state = intialState, action) {
 
         case setChatData:
             {
-                const rooms=sortRooms(action.payload);
-                return ({ ...state, chatRooms: rooms});
+                const rooms = sortRooms(action.payload);
+                return ({ ...state, chatRooms: rooms });
             }
 
         case addNewMessage: {
@@ -32,11 +37,11 @@ export default function (state = intialState, action) {
                     chatRoom.messages.push(action.payload.message);
                 return chatRoom;
             })
-            updatedChatRooms=sortRooms(updatedChatRooms);
+            updatedChatRooms = sortRooms(updatedChatRooms);
             return { ...state, chatRooms: updatedChatRooms }
         }
         case addNewRoom: {
-            var rooms=sortRooms([...state.chatRooms, action.payload])
+            var rooms = sortRooms([...state.chatRooms, action.payload])
             return { ...state, chatRooms: rooms }
         }
         case markMessagesAsReaded: {
@@ -50,7 +55,7 @@ export default function (state = intialState, action) {
                 }
             }
             )
-            rooms=sortRooms(rooms);
+            rooms = sortRooms(rooms);
             return {
                 ...state, chatRoomID: rooms
             }
