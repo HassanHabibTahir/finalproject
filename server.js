@@ -18,6 +18,7 @@ var cors = require('cors');
 //path is required
 var path = require("path");
 const handleChat = require('./src/chat/chat');
+const chat = require('./src/routes/api/chat/chat');
 //bodyParsre  
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -37,6 +38,8 @@ app.use('/api/users', user)
 app.use('/api/product',product)
 //favourit
 app.use('/api/Favour',FavAdd)
+// chat
+app.use("/api/chat",chat);
 
 
 const port = process.env.PORT || 8080;
@@ -50,7 +53,7 @@ http.listen(port, () => {
 })
 io.on('connection', (socket) => {
     console.log('a user connected');
-    handleChat(socket)
+    handleChat(socket,io)
   });
 
 

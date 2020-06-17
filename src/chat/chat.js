@@ -1,10 +1,10 @@
 
-const chatRoom = require("../module/chatRoom/chatRoom");
 const HandleChatRoom = require("./handleRoom");
 const handleMessage = require("./HandleMessage");
+const message = require("../module/message/message");
 var sockets=[];
 var people = {};
-const handleChat = (socket) => {
+const handleChat = (socket,io) => {
     sockets.push(socket);
     socket.on('join', function(id){
         people[socket.id] = {id: id};
@@ -14,9 +14,22 @@ const handleChat = (socket) => {
        HandleChatRoom(users,socket)
     })
     socket.on("message",(roomId,receipentID,senderID,messageBody)=>{
-    var receiverSocket = findReceipentsSocket(receipentID);
-        handleMessage(roomId,receiverSocket,senderID,messageBody,socket);
+    var receiverSocketID = findReceipentsSocket(receipentID);
+        handleMessage(roomId,receiverSocketID,senderID,messageBody,socket,io);
     })
+
+    socket.on("markasReaded",(unreadedMessages)=>{
+      unreadedMessages.forEach(msg => {
+        message.findOneAndUpdate({_id:msg._id},{readed:true},(err,res)=>{
+          if(err)
+          {
+            console.log(err)
+          }
+        });
+        
+      });
+    })
+
     socket.on('disconnect', function(){
         delete people[socket.id];
         sockets.splice(sockets.indexOf(socket), 1);
@@ -25,11 +38,11 @@ const handleChat = (socket) => {
 
 
       function findReceipentsSocket(receipentID){
-          console.log(people)
         for(socketId in people){
-            console.log(people[socketId].id,receipentID)
           if(people[socketId].id === receipentID){
-            return sockets.find(s=>s.id=socketId);
+            {
+              return socketId;
+            }
           }
         }
         return false;

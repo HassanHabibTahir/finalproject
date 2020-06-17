@@ -9,6 +9,7 @@ import jwt_decode from 'jwt-decode';
 import {Provider} from 'react-redux'
 import Logout from './store/action/logout/logout'
 import SetCurrentUser from './store/action/loginAction/setUser'
+
 //check token
 if(localStorage.jwtToken){
     //set aut token header aut
@@ -16,6 +17,7 @@ if(localStorage.jwtToken){
     //decode the item and get user info and exp
     const decoded = jwt_decode(localStorage.jwtToken)
     Store.dispatch(SetCurrentUser(decoded))  ;
+   
      
     
     const currentTime = Date.now()/1000;

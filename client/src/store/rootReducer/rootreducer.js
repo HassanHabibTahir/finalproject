@@ -9,6 +9,7 @@ import AllProducts from '../../store/raducers/getAllproduct/getallproduct';
 import ItempProduct from '../raducers/itemProduct/itemProduct';
 import  FavouritProducts from '../raducers/favproducts/favProducts'
 import serchProducts from '../raducers/searchProduct/searchProduct'
+import ChatReducer from '../raducers/ChatReducer/ChatReducer'
 const rootReducer = combineReducers({
     erorr:errors,
     auth:Auth,
@@ -19,7 +20,7 @@ const rootReducer = combineReducers({
     allProducts:AllProducts,
     ItempProduct:ItempProduct,
     favproduct:FavouritProducts,
-    SERCHPRODUCT:serchProducts
-
+    SERCHPRODUCT:serchProducts,
+    ChatReducer
 })
 export default rootReducer;

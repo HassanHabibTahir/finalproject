@@ -12,7 +12,13 @@ const messageSchema=new Schema({
     message_body:{
         type:String,
         required:true
+    },
+    readed:{
+        type:String,
+        default:false
     }
-});
+},
+{timestamps:true}
+);
 
 module.exports=mongoose.model("message",messageSchema);

@@ -16,3 +16,7 @@ export const REMOVECARTPRODUCT = "REMOVECARTPRODUCT";
 export const FAVOURITPRODUCTBYID="FAVOURITPRODUCTBYID";
 export const MAPLOCATIONS ="MAPLOCATIONS";
 export const SEARCGPRODUCT="SEARCGPRODUCT"
+export const setChatData='setChatData';
+export const addNewMessage="addNewMessage"
+export const addNewRoom="addNewRoom"
+export const markMessagesAsReaded="markMessagesAsReaded"
