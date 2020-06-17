@@ -29,3 +29,6 @@ flex-wrap: wrap;
     top: 70px !important;
     z-index: 0 !important;
 }
+.MuiToolbar-root {
+    margin-right: -20px !important;
+}

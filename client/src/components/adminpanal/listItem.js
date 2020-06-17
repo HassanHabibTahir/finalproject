@@ -14,8 +14,14 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 export const mainListItems = (
   <div>
     <ListItem button>
-    <Link primary="Dashboard"  to="/AllUser" className="links" >
+    <Link primary="Dashboard"  to="/dashboard" className="links" >
         <DashboardIcon />
+      </Link>
+      <Link primary="Dashboard"  to="/dashboard" className="links" ><ListItemText primary="Dashboard" /></Link> 
+    </ListItem>
+    <ListItem button>
+    <Link primary="Dashboard"  to="/AllUser" className="links" >
+    <PeopleIcon />
       </Link>
       <Link primary="Dashboard"  to="/AllUser" className="links" ><ListItemText primary="All Users" /></Link> 
     </ListItem>
