@@ -3,7 +3,7 @@ const chatRoom = require("../../../module/chatRoom/chatRoom")
 const chat = express.Router();
 
 chat.get("/getall", (req, res) => {
-    chatRoom.find({ users: { $in: [req.query.user] } })
+    chatRoom.find({ users: { $in: [req.query.user]},messages: {$exists: true, $not: {$size: 0}}  })
         .populate("users")
         .populate("messages")
         .exec(
