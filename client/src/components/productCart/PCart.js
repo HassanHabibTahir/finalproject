@@ -96,7 +96,7 @@ class PCart extends Component {
 
 
   componentWillReceiveProps(nextProps) {
- 
+ console.log(nextProps.CartItems.products)
     if(nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
 
        this.setState({
@@ -145,6 +145,7 @@ this.state.data.map((item,i)=>{
       // }
       let total=0;
     const  product = this.state.data &&this.state.data!=null&&this.state.data!=undefined?this.state.data.map((item, i) => {
+      console.log(item)
     if(item.productId!=null && item.productId!=undefined){
     //   console.log(item.productId)
     // }

@@ -16,8 +16,8 @@ const FavAdd = require('./src/routes/api/favourit/favourit')
 //cors is use to data send
 var cors = require('cors');
 //path is required
-var path = require("path");
-const handleChat = require('./src/chat/chat');
+var path = require("path");  
+const handleChat = require('./src/chat/chat');  
 const chat = require('./src/routes/api/chat/chat');
 //bodyParsre  
 

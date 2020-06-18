@@ -11,15 +11,46 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ToolBar from '../../auth/toobar/tolbar';
+import {getCartProductbyId} from '../../../store/action/cartAction/cartaction'
 import Aux from '../../../hoc/hoc';
 import { connect } from 'react-redux'; 
 class Header extends Component {
+//  state={
+//     data:[]
+//   }
+
+//   componentDidMount() {
+
+
+//     this.props.getCartProductbyId()
+//   }
+
+
+
+//   componentWillReceiveProps(nextProps) {
+//     // console.log(nextProps.CartItems.products)
+//        if(nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
+   
+      
+//         this.setState({
+//           data: nextProps.CartItems.products,
+            
+//          })
+          
+//        }
+   
+   
+//    }
     render() {
      
+      console.log(this.props.CartItems)
       //  let quanit =   this.props.CartItems&&this.props.CartItems.products!=null&& this.props.CartItems.products!=undefined? this.props.CartItems.products.map((q)=>{
       // return q.quantity
-      //  }):null
-      // console.log(quanit)
+      //  }):null length
+      
+//       let  itemlngth = this.state.data &&this.state.data!=null&&this.state.data!=undefined?  this.state.data.length:null
+// console.log(itemlngth)
+  
             const list=(
             <ul  className="toolbarsecond">
 
@@ -88,7 +119,7 @@ const adminLinks=(
 {this.props.auth.user.Admin?null:<div>
   
     <Link to="/cart" >  <IconButton aria-label="show 4 new mails" color="inherit">
-    <Badge badgeContent={4} color="secondary">
+    <Badge badgeContent={6} color="secondary">
    
     <AddShoppingCartIcon  fontSize="large"  style={{color:'white'}} />
               </Badge>
@@ -117,5 +148,5 @@ const mapStateToProps=(state)=>({
     CartItems: state.allProducts.cartitems,
   })
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps,{getCartProductbyId})(Header)
 

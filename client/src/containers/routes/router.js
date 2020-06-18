@@ -47,6 +47,7 @@ function InitializeChat(auth, socket, dispatch) {
     dispatch(AddNewMessage({ RoomID, message }))
   }
   );
+  //receive 
   socket.on("receiveroom", (room) => {
     dispatch(AddNewRoom(room))
   });
