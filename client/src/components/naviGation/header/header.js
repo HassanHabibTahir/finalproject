@@ -19,11 +19,11 @@ class Header extends Component {
 //     data:[]
 //   }
 
-//   componentDidMount() {
+  componentDidMount() {
 
 
-//     this.props.getCartProductbyId()
-//   }
+    this.props.getCartProductbyId()
+  }
 
 
 
@@ -42,7 +42,6 @@ class Header extends Component {
    
 //    }
     render() {
-     
       console.log(this.props.CartItems)
       //  let quanit =   this.props.CartItems&&this.props.CartItems.products!=null&& this.props.CartItems.products!=undefined? this.props.CartItems.products.map((q)=>{
       // return q.quantity
@@ -119,7 +118,7 @@ const adminLinks=(
 {this.props.auth.user.Admin?null:<div>
   
     <Link to="/cart" >  <IconButton aria-label="show 4 new mails" color="inherit">
-    <Badge badgeContent={6} color="secondary">
+    <Badge badgeContent={this.props.CartItems?.products?.length} color="secondary">
    
     <AddShoppingCartIcon  fontSize="large"  style={{color:'white'}} />
               </Badge>
