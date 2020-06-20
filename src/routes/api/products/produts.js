@@ -108,7 +108,7 @@ router.post('/getallproducts',(req,res)=>{
 // allProduts
   router.get('/allProduts',(req,res)=>{
    Product.find()
-  .populate('user', ['name' ,'isVarified' ])
+  .populate('user', ['name' ,'isVarified','userCondition' ])
   .then(allproduts => {
     if (!allproduts) {
       errors = "there are no products";

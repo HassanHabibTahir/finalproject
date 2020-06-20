@@ -12,9 +12,16 @@ import './favCard.css'
 import {Link} from 'react-router-dom';
  class FavCard extends Component {
     
-    addToFav=(fav)=>{
-        this.props.FavouritAdds(fav)
-        alert(fav)
+    addToFav=(fav,auth)=>{
+    
+        
+        const userFavouritHandler={
+            favpro:fav,
+            auth:auth.user.id
+        }
+        this.props.FavouritAdds(userFavouritHandler)
+
+
        }
     
     render() {
@@ -32,7 +39,7 @@ import {Link} from 'react-router-dom';
             fontSize="large"
             
             style={{float:"right"}}
-            control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard)}} checked = {fCard.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+            control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard,this.props.auth)}} checked = 'true'  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
                 
                   />
             
@@ -72,8 +79,15 @@ import {Link} from 'react-router-dom';
         )
     }
 }
+const mapStateToProps=(state)=>({
+  
+    
+    // unique:state.allProducts.UniqueItem
+    auth:state.auth,
 
-export default connect(null,{FavouritAdds})(FavCard)
+  
+  })
+export default connect(mapStateToProps,{FavouritAdds})(FavCard)
 
 
 

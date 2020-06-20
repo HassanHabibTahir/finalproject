@@ -14,20 +14,36 @@ import MenCard from '../card/card'
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
 import '../mens.css'
+
+
  class MEN extends Component {
+constructor(){
+  super()
+  
+}
 
-
-
+ 
   componentDidMount (){
   
-    this.props.getAllMenProduts()
-   
-      
+    this.props.getAllMenProduts(this.props.auth.user)
+
+  //   axios.get("http://localhost:8080/api/Favour/FavproductId").then((users)=>{
+  //     console.log("get",users)
+  // })
   } 
   addToFav=(fav ,auth)=>{
+
     if(!auth.isAuthenticated===false){
-   this.props.FavouritAdds(fav)
+
+      const userFavouritHandler={
+        favpro:fav,
+        auth:auth.user.id
+      }
+       
+   this.props.FavouritAdds(userFavouritHandler)
   //  alert(fav)
+  console.log(fav)
+  // console.log(auth.user.id)
     }
     else{
       history.push('/login')
@@ -57,7 +73,7 @@ console.log(this.props.Products)
       return item.category ===  "gents"
   
 })
-// console.log(Prdouctsitems)
+console.log(this.props.auth.user)
   let product= Prdouctsitems.map((item,i)=>{
     let id=item._id
 
@@ -85,7 +101,8 @@ return    <Card className="main">
 fontSize="large"
 
 style={{float:"right"}}
-control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+
+control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
     
       />
 

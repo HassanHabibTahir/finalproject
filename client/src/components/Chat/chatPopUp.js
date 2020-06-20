@@ -102,7 +102,7 @@ class ChatPopUp extends Component {
                         })
                     }
                 </div>
-                <div className="inputContainor">
+                <div className="inputContainors">
                     <input placeholder="type message" type="text" ref={"message"}  ></input>
                     <button onClick={handleSend}>send</button>
                 </div>

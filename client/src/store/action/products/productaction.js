@@ -105,21 +105,38 @@ export const getCategoryProduct = (data) => (dispatch) => {
 
 
 
-export const getAllMenProduts = () => (dispatch) => {
-
+export const getAllMenProduts = (user) => (dispatch) => {
+    // console.log("user",user)
     axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
+        
+        
+        axios.get("http://localhost:8080/api/Favour/FavproductId").then(users=>{
+            const data=users.data.filter(product=>product.user==user.id);
+          res.data=  res.data.map(product=>{
+              console.log(product,data)
+                if(data.find(fvprod=>fvprod.adId==product._id))
+              
+                {
+                    console.log("found")
+                    product.fav=true;
+                }
+                else
+                product.fav=false;
+                return product;
+            })
 
-
-
-        dispatch({
-            type: getAllProducts,
-            payload: res.data
-
-
+            
+            dispatch({
+                type: getAllProducts,
+                payload: res.data
+                
+                
+            })
         })
 
 
     })
+
 
 }
 
@@ -144,34 +161,36 @@ export const getProfilebyId = (id) => (dispatch) => {
     })
 
 }
-export const FavouritAdds = (add) => (dispatch) => {
-
+export const FavouritAdds = (add,auth) => (dispatch) => {
+console.log(add,auth)
     axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
         .then((res) => {
-        
+            getAllMenProduts()
             if (res) {
-                axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
+                // console.log("are you here")
+               
+                // axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
 
 
 
-                    dispatch({
-                        type: getAllProducts,
-                        payload: res.data
+                //     dispatch({
+                //         type: getAllProducts,
+                //         payload: res.data
             
             
-                    })
+                //     })
             
             
-                })
+                // })
 
-                axios.get("http://localhost:8080/api/Favour/getFavouritadd")
-                    .then((res) => {
+                // axios.get("http://localhost:8080/api/Favour/getFavouritadd")
+                //     .then((res) => {
                   
-                        dispatch({
-                            type: FAVOURITPRODUCTBYID,
-                            payload: res.data
-                        })
-                    })
+                //         dispatch({
+                //             type: FAVOURITPRODUCTBYID,
+                //             payload: res.data
+                //         })
+                //     })
             }
         })
 
@@ -187,4 +206,15 @@ export const GetFavourproducts = () => (dispatch) => {
                 payload: res.data
             })
         })
+}
+
+
+// /  favourit user get
+ const favouritProductsId=(b)=>{
+   const data=axios.get("http://localhost:8080/api/Favour/FavproductId").then((users)=>{
+       console.log("get",users.data)
+return users.data
+   }).then(data=>data).catch(err=>console.log(err))
+   console.log(data)
+   return data;
 }

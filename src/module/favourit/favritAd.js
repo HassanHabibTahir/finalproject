@@ -10,6 +10,10 @@ let  FavuritProducts=  new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
       },
+    //   buyer:{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'users' 
+    //   }
 })
 
 const FacuritProduts = mongoose.model('FavuritProducts', FavuritProducts);

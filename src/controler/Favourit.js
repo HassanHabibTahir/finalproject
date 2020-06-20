@@ -6,24 +6,24 @@ const favAdController = {
 
 
         //Changing kerni hai app k check box k liye
-        FavProducts.findOne({user:data.body.user,adId:data.body._id},function(err,prod){
+        FavProducts.findOne({user:data.body.auth,adId:data.body.favpro._id},function(err,prod){
             console.log(prod)
             if(prod){
-                Produts.findByIdAndUpdate(data.body._id,{$set:{fav:false}},function(err,favp){
-                    console.log(err||favp)
-                })
-                console.log(Produts,FavProducts)
+                // Produts.findByIdAndUpdate(data.body.favpro._id,{$set:{fav:false}},function(err,favp){
+                //     console.log(err||favp)
+                // })
+                // console.log(Produts,FavProducts)
                 FavProducts.findByIdAndDelete(prod._id,function(data,res){
                     cb(err,{found:true})
                 })
             }else{
-                Produts.findByIdAndUpdate(data.body._id,{$set:{fav:true}},function(err,fav){
-                    console.log(err||fav)
-                })
-                console.log(Produts,FavProducts)
+                // Produts.findByIdAndUpdate(data.body.favpro._id,{$set:{fav:true}},function(err,fav){
+                //     console.log(err||fav)
+                // })
+                // console.log(Produts,FavProducts)
                 let favAd = new FavProducts();
-                favAd.adId = data.body._id;
-                favAd.user = data.body.user ;
+                favAd.adId = data.body.favpro._id;
+                favAd.user = data.body.auth ;
                 favAd.save(function(err,ad){
                     if(ad._id){
 
