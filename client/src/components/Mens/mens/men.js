@@ -40,7 +40,7 @@ constructor(){
         auth:auth.user.id
       }
        
-   this.props.FavouritAdds(userFavouritHandler)
+   this.props.FavouritAdds(userFavouritHandler,auth)
   //  alert(fav)
   console.log(fav)
   // console.log(auth.user.id)

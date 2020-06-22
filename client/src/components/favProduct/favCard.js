@@ -19,7 +19,7 @@ import {Link} from 'react-router-dom';
             favpro:fav,
             auth:auth.user.id
         }
-        this.props.FavouritAdds(userFavouritHandler)
+        this.props.FavouritAdds(userFavouritHandler,auth)
 
 
        }

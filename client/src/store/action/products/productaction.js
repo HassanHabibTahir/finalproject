@@ -106,6 +106,7 @@ export const getCategoryProduct = (data) => (dispatch) => {
 
 
 export const getAllMenProduts = (user) => (dispatch) => {
+    console.log("getmen profuct")
     // console.log("user",user)
     axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
         
@@ -162,11 +163,11 @@ export const getProfilebyId = (id) => (dispatch) => {
 
 }
 export const FavouritAdds = (add,auth) => (dispatch) => {
-console.log(add,auth)
     axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
         .then((res) => {
-            getAllMenProduts()
             if (res) {
+                getAllMenProduts(auth.user)(dispatch)
+                GetFavourproducts()(dispatch)
                 // console.log("are you here")
                
                 // axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
