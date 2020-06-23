@@ -23,7 +23,7 @@
 
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
@@ -31,22 +31,42 @@ import Divider from '@material-ui/core/Divider';
 import Card from '../users/usertabel';
 import TablePaginationActionsWrapped from '../pagination/pagination';
 import TablePagination from '@material-ui/core/TablePagination';
+import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
-import TableFooter from '@material-ui/core/TableFooter';
-import TableRow from '@material-ui/core/TableRow';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import { makeStyles } from '@material-ui/core/styles';
+import TableFooter from '@material-ui/core/TableFooter';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
+const StyledTableCell = withStyles((theme: Theme) =>
+  createStyles({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }),
+)(TableCell);
+
+const StyledTableRow = withStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }),
+)(TableRow);
 const useStyles = makeStyles({
   table: {
-    minWidth: 850,
+    // minWidth: 700,
   },
 });
-
-
 class AllUser extends Component {
   
 constructor(props) {
@@ -92,7 +112,7 @@ handleChangeRowsPerPage = event => {
   render() {
     const classes = useStyles;
     const {copyData, rowsPerPage, page,adsViewOf} = this.state;
-    console.log(copyData)
+  
     return (
       <div>
        <Grid container > 
@@ -106,20 +126,9 @@ handleChangeRowsPerPage = event => {
 
           <Grid item xs={12} md={12}>
           {/* <Divider /> */}
-          <TableContainer component={Paper}>
-      <Table style={{width:"70vw"}} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell  component="th" >Name</TableCell>
-            <TableCell   component="th" >Email</TableCell>
-            <TableCell   component="th" >PhoneNumber</TableCell>
-            <TableCell  component="th" >Product</TableCell>
-            <TableCell   component="th" >Varification</TableCell>
-            <TableCell   component="th" >Delete User</TableCell>
-            <TableCell   component="th" >Admin</TableCell>
-           
-          </TableRow>
-        </TableHead>
+          {/* <TableContainer component={Paper}> */}
+      {/* <Table className={classes.table}  aria-label="customized table"  > */}
+        
         {/* <TableBody>
           {rows.map((row) => (
             <TableRow key={row.name}>
@@ -133,28 +142,40 @@ handleChangeRowsPerPage = event => {
             </TableRow>
           ))}
         </TableBody> */}
-      </Table>
-    </TableContainer>
-          {copyData.length>0 ?
+      {/* </Table> */}
+    {/* </TableContainer> */}
+       
+                    <Table   >
+                    <TableHead>
+          <TableRow >
+          <StyledTableCell   component="th" >SR.NO</StyledTableCell>
+            <StyledTableCell   component="th" >Name</StyledTableCell>
+            <StyledTableCell   component="th" >Email</StyledTableCell>
+            <StyledTableCell   component="th" >PhoneNumber</StyledTableCell>
+            <StyledTableCell   component="th" >city</StyledTableCell>
+            <StyledTableCell   component="th" >Province</StyledTableCell>
+            <StyledTableCell   component="th" >Adress</StyledTableCell>
+            <StyledTableCell   component="th" >user Type</StyledTableCell>
+            <StyledTableCell   component="th" >Verification</StyledTableCell>
+            <StyledTableCell   component="th" >Delete User</StyledTableCell>
+            <StyledTableCell   component="th" >verification by Admin</StyledTableCell>
+           
+          </TableRow>
+      </TableHead>
+
+
+      <TableBody>
+      {/* <TableRow> */}
+      {copyData.length>0 ?
               copyData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((users,i) => {
-                return (
-
-
-<div>
-        <TableBody>
-<Card key={i} user={users}  />
-          
-        </TableBody></div>
-
-
-                );
-              })
+              .map((users,i) => <Card key={i} user={users} index={i}  TableStyle={StyledTableCell} />
+              
+              )
               :<img alt=""/> }
-                    <Table>
-                      
+{/* </TableRow> */}
+      </TableBody>
                     <TableFooter>
-                      {/* <TableRow> */}
+                      <TableRow>
                         <TablePagination
                           // colSpan={2}
                           count={copyData.length}
@@ -166,7 +187,7 @@ handleChangeRowsPerPage = event => {
                           onChangePage={this.handleChangePage}
                           onChangeRowsPerPage={this.handleChangeRowsPerPage}
                           ActionsComponent={TablePaginationActionsWrapped}/>
-                      {/* </TableRow> */}
+                      </TableRow>
                     </TableFooter>
 
 
