@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
+import { useDispatch  } from "react-redux";
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -42,18 +44,44 @@ export default function CustomizedTables(props) {
 const [verfiy , isVarified]= useState(false)
 
   const classes = useStyles();
-
+  const dispatch = useDispatch();
 
   const changedElement=()=>{
    isVarified(!verfiy)
   }
 
+
+
+   const DeleteUser = (i, id) => {
+
+        console.log(i, id)
+        const data = {
+            index: i,
+            id: id
+        }
+
+        dispatch(DeleteUserprofile(data))
+
+    }
+
+
+const UpdatadataElemt = (id) => {
+
+        const updatation = {
+            id: id,
+            isVarified: verfiy
+        }
+
+        dispatch(updataElement(updatation))
+    }
+console.log(verfiy)
 console.log(props.user)
+
   return (
     // <TableContainer component={Paper}>
     //   <Table   size="large"  className={classes.table} aria-label="customized table">
 
-      <TableRow   key={props.user._id} >
+    <TableRow   key={props.user._id} >
   <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{props.user.name}</StyledTableCell>
   {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */}
@@ -65,8 +93,8 @@ console.log(props.user)
   <StyledTableCell component="th" scope="row"  >{!props.user.userCondition?'Admin':props.user.userCondition}</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >
   <Checkbox
-                //  checked={verfiy==false?"checked":false}
-                 onChange={changedElement} value={verfiy}
+                 checked={props.user.isVarified==true?"checked":false}
+                 onChange={()=>{changedElement(props.user._id)}} value={verfiy}
 
                                 />
     
@@ -76,15 +104,15 @@ console.log(props.user)
   <Button
                                 variant="contained"
                                 color="secondary"
-                                // onClick={() => { this.DeleteUser(i, item._id) }}
+                                onClick={() => {DeleteUser(props.index, props.user._id) }}
                                 startIcon={<DeleteIcon />}
                             >
                                 Delete
                             </Button>
 
   </StyledTableCell>
-  {/* onClick={() => { this.UpdatadataElemt(item._id) }} */}
-   <StyledTableCell component="th" scope="row"  ><Button  color="primary" >SAVE</Button></StyledTableCell>
+  
+   <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell>
   
      
       </TableRow>

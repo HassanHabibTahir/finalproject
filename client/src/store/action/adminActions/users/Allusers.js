@@ -74,7 +74,7 @@ export const updataElement=data=>dispatch=>{
 //     })
  axios.put(`/api/users/updateUser/${data.id}`,data)
     .then((res)=>{
-
+        getUsersProfiles()(dispatch)
         console.log(res.data)
         dispatch({
         type:UserVerfication,
