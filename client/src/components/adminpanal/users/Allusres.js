@@ -145,7 +145,7 @@ handleChangeRowsPerPage = event => {
       {/* </Table> */}
     {/* </TableContainer> */}
        
-                    <Table   >
+                    <Table  style={{width:"100vw"}}   >
                     <TableHead>
           <TableRow >
           <StyledTableCell   component="th" >SR.NO</StyledTableCell>

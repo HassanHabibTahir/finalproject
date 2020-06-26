@@ -68,10 +68,10 @@ export  const DeleteUserprofile=data=>dispatch=>{
 
 export const updataElement=data=>dispatch=>{
    console.log(data.isVarified)
-//    dispatch({
-//     type:UserVerfication,
-//     payload:data.isVarified
-//     })
+   dispatch({
+    type:UserVerfication,
+    payload:data.isVarified
+    })
  axios.put(`/api/users/updateUser/${data.id}`,data)
     .then((res)=>{
         getUsersProfiles()(dispatch)

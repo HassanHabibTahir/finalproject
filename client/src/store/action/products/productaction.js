@@ -6,7 +6,7 @@ export const addproducts = (productData) => dispatch => {
 console.log(productData)
     axios.post('/api/product/upload', productData)
         .then((res) => {
-            // console.log(res)
+            console.log(res)
             history.push('/dashboard')
             dispatch({
                 type: UserProducts,

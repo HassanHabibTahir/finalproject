@@ -46,8 +46,10 @@ const [verfiy , isVarified]= useState(false)
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const changedElement=()=>{
+  const changedElement=(id)=>{
    isVarified(!verfiy)
+   UpdatadataElemt(id)
+   
   }
 
 
@@ -66,7 +68,7 @@ const [verfiy , isVarified]= useState(false)
 
 
 const UpdatadataElemt = (id) => {
-
+// console.log(id)
         const updatation = {
             id: id,
             isVarified: verfiy
@@ -74,8 +76,8 @@ const UpdatadataElemt = (id) => {
 
         dispatch(updataElement(updatation))
     }
-console.log(verfiy)
-console.log(props.user)
+// console.log(verfiy)
+// console.log(props.user)
 
   return (
     // <TableContainer component={Paper}>
@@ -111,8 +113,8 @@ console.log(props.user)
                             </Button>
 
   </StyledTableCell>
-  
-   <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell>
+  <StyledTableCell> {!props.user.isVarified==true?"user not verified":"user verified  by admin"}</StyledTableCell>
+   {/* <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell> */}
   
      
       </TableRow>

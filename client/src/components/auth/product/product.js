@@ -113,9 +113,10 @@ console.log(fd)
         const isnotValid = price === '' ||discount===''||productname===''||discription===''||category===''||files.length==='';
         return (
             <div style={{ marginTop: "20vh" }} >
+                
                 <Grid item xs={false} sm={4} md={7} />
              
-                    <Container component="main" maxWidth="md">
+                {this.props.auth.user.isverified==true?    <Container component="main" maxWidth="md">
                     <Paper  style={{padding:"20px"}} elevation={10} align="center" >
 
                     <div>
@@ -290,7 +291,7 @@ console.log(fd)
                     </Box>
                     </Paper>
   
-                    </Container>
+                    </Container>:<Verification/>}
                     
             </div>
           
