@@ -28,7 +28,7 @@ import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import Card from '../users/usertabel';
+import Card from './sellertabel';
 import TablePaginationActionsWrapped from '../pagination/pagination';
 import TablePagination from '@material-ui/core/TablePagination';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
@@ -67,7 +67,7 @@ const useStyles = makeStyles({
     // minWidth: 700,
   },
 });
-class AllUser extends Component {
+class Buyer extends Component {
   
 constructor(props) {
   super(props)
@@ -75,7 +75,7 @@ constructor(props) {
    ads:[],
    copyData:[],     
    page: 0,
-   rowsPerPage: 1,
+   rowsPerPage: 8,
    adsViewOf:true
   }
 }
@@ -91,12 +91,7 @@ adsViewOff = () => {
   this.setState({adsViewOf:false});
 }
 
-// onClickHandler = (data) =>{
-  
-//    const {ads} = this.state; 
-//    let filter = ads.filter(item => item.category === data);
-//    this.setState({copyData:filter});
-// }
+
 componentWillReceiveProps(nextProps) {
   
     // console.log(nextProps.profile.profile.users)
@@ -168,6 +163,7 @@ handleChangeRowsPerPage = event => {
       {/* <TableRow> */}
       {copyData.length>0 ?
               copyData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .filter((ite)=>ite.userCondition=='buyer')
               .map((users,i) => <Card key={i} user={users} index={i}  TableStyle={StyledTableCell} />
               
               )
@@ -213,7 +209,7 @@ const mapStateToProps = (state) => ({
     profile: state
 })
 
-export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles, updataElement })(AllUser)
+export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles, updataElement })(Buyer)
 
 
 
