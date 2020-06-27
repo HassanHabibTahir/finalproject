@@ -4,6 +4,7 @@ const multer = require('multer');
 const Product = require('../../../module/products/product');
 const Users  = require('../../../module/user/userprofile');
 const Faourit = require('../../../module/favourit/favritAd')
+const Order = require('../../../module/orders/order')
 const Productcontroler = require('../../../controler/product')
 const passport = require('passport');
 // var storage = multer.diskStorage({
@@ -221,7 +222,31 @@ passport.authenticate('jwt', { session: false }),
 
 }
 )
+// /api/product/postOrdr
+router.post('/postOrdr',
+passport.authenticate('jwt', { session: false }),
+(req,res)=>{
+  req.user
+  .populate('cart.items.productId')
+  .execPopulate()
+  .then(user => {
+   const ordeProducts = user.cart.items.map( i=>{
+     return { quantity: i.quantity, product: { ...i.productId._doc }}
+   })
+   const order = new Order({
+    user: {
+      email: req.user.email,
+      userId: req.user
+    },
+    products: ordeProducts
+  });
+  return order.save();
+  })
+   .then(result => {
+      return req.user.clearCart();
+    })
+    .catch(err => console.log(err));
 
-
+})
 
 module.exports = router
