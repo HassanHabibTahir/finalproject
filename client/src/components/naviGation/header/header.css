@@ -33,13 +33,13 @@ display: flex;
 
 .toolbar_navigation_items li{
 
-    padding: 0 3rem;
+    padding: 0 4rem;
     color:white
 }
 
 .toolbar_navigation_items a:hover{
 
-    
+   
 }
 
 .toolbar_navigation_items a:active{
@@ -118,19 +118,27 @@ nav .toolbarsecond li a{
 }
 
 
-nav .toolbarsecond li a:hover{
-	background:#020D75;
+nav .toolbarsecond .list_show >li:hover{
+    /* background:#020D75; */
+    width: 150px;
+    background-color:  #AA0078;
+    /* opacity: 0.9; */
+    line-height: 20px !important;
+}
+nav .toolbarsecond .list_show >li a:hover{
+    width: 150px;
+
 }
 
 nav .toolbarsecond ul{
 	position: absolute;
-    top: 55px;
+    top: 60px;
     left: 80px;
 	line-height: 20px !important;
 	display: none;
 }
 
-nav .toolbarsecond li:hover > ul{
+nav .toolbarsecond li:hover > .list_show{
 	display: block;
 }
 
@@ -176,3 +184,6 @@ top: 5px;
 .fave_icon {
     color: red;
 }
+/* .list_show li a {
+background-color: white;
+} */

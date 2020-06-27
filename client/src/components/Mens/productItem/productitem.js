@@ -52,7 +52,9 @@ constructor(props){
     }
 
 
+componentWillReceiveProps(nexprops){
 
+}
 
 
 

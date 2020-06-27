@@ -60,14 +60,14 @@ class Header extends Component {
 <li><a href="#">Jeans</a></li>
 </ul>
 </li>
-<li><Link to="/product/child">CHILD</Link>
+<li className="header_nav"  ><Link to="/product/child">CHILD</Link>
 <ul className="list_show" >
 <li><a href="#">Shirt</a></li>
 <li><a href="#">curta</a></li>
 <li><a href="#">logng shirt</a></li>
 </ul>
 </li>
-<li><Link to="/product/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
+<li className="header_nav"    ><Link to="/product/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
 <ul className="list_show" >
 <li><a href="#">Shirt</a></li>
 <li><a href="#">logn shirt</a></li>

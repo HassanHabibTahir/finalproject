@@ -1,6 +1,6 @@
-*,*::after,*::before{
+/* *,*::after,*::before{
     box-sizing: border-box;
-}
+} */
 .chat{
     margin: 0 auto;
     height: 100vh;
