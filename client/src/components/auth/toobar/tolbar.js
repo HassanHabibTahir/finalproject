@@ -15,6 +15,9 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ArtTrackOutlinedIcon from '@material-ui/icons/ArtTrackOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
+import LockIcon from '@material-ui/icons/Lock';
+import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
+import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/EnhancedEncryptionOutlined';
 import Logout from '../../../store/action/logout/logout'
 import { connect } from 'react-redux'; 
 import Aux from '../../../hoc/hoc'
@@ -123,7 +126,7 @@ const Logout=(
             <Aux>
             <div>
                 <Button onClick={this.handleClickOpen}>
-                   <div>{isAuthenticated? <span style={{color:"white"}}><SettingsIcon fontSize="large"/></span>:<img src="https://img.icons8.com/ultraviolet/40/000000/lock.png"/>}</div>
+                   <div>{isAuthenticated? <span style={{color:"white"}}><SettingsIcon fontSize="large"/></span>:<span style={{color:"white"}}><EnhancedEncryptionOutlinedIcon fontSize="large"/></span>}</div>
         </Button>
                 <Dialog  
                     open={this.state.open}

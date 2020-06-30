@@ -155,7 +155,7 @@ class Login extends Component {
         const isnotValid = email === '' || password === '' ||checkbox===''|| loading;
         return (
             <div>         
-                   <div style={{marginTop:"10vh" ,padding:"100px"}}>
+                   <div style={{marginTop:"10vh"}}>
                 <Grid container spacing={8}>
                     <Hidden smDown>
                         <Grid item xs={4} md={4}></Grid>

@@ -12,6 +12,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ToolBar from '../../auth/toobar/tolbar';
 import {getCartProductbyId} from '../../../store/action/cartAction/cartaction'
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+// import $ from 'jquery'
 import Aux from '../../../hoc/hoc';
 import { connect } from 'react-redux'; 
 class Header extends Component {
@@ -25,8 +27,7 @@ class Header extends Component {
     this.props.getCartProductbyId()
   }
 
-
-
+  
 //   componentWillReceiveProps(nextProps) {
 //     // console.log(nextProps.CartItems.products)
 //        if(nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
@@ -49,12 +50,12 @@ class Header extends Component {
       
 //       let  itemlngth = this.state.data &&this.state.data!=null&&this.state.data!=undefined?  this.state.data.length:null
 // console.log(itemlngth)
-  
+
             const list=(
             <ul  className="toolbarsecond">
-
+{/* onMouseOver={this.hoverEffects */}
 <li className="header_nav" ><Link to="/product/mens">MENs</Link>
-<ul className="list_show" >
+<ul className="list_show">
 <li  ><a href="#">Shirt</a></li>
 <li><a href="#">Pents</a></li>
 <li><a href="#">Jeans</a></li>
@@ -62,20 +63,20 @@ class Header extends Component {
 </li>
 <li className="header_nav"  ><Link to="/product/child">CHILD</Link>
 <ul className="list_show" >
-<li><a href="#">Shirt</a></li>
-<li><a href="#">curta</a></li>
-<li><a href="#">logng shirt</a></li>
+<li><Link href="#">Shirt</Link></li>
+<li><Link href="#">curta</Link></li>
+<li><Link href="#">logng shirt</Link></li>
 </ul>
 </li>
 <li className="header_nav"    ><Link to="/product/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
 <ul className="list_show" >
-<li><a href="#">Shirt</a></li>
-<li><a href="#">logn shirt</a></li>
-<li><a href="#"> typse <i className="arow_rotate"   style={{transform: "rotate(-90deg)"}} ><span   >&#11162;</span></i> </a>
+<li><Link href="#">Shirt</Link></li>
+<li><Link href="#">logn shirt</Link></li>
+<li><Link href="#"> typse <i className="arow_rotate"   style={{transform: "rotate(-90deg)"}} ><span   >&#11162;</span></i> </Link>
 <ul className="list_show_more" >
-<li><a href="#"></a></li>
-<li><a href="#">small shirt</a></li>
-<li><a href="#">big shirt</a></li>
+<li><Link href="#"></Link></li>
+<li><Link href="#">small shirt</Link></li>
+<li><Link href="#">big shirt</Link></li>
 </ul>
 </li>
 

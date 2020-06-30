@@ -9,15 +9,15 @@
 }  */
 
 
-.slick-slide img {
+/* .slick-slide img {
     opacity: 0 !important;
     animation: slide 1s ease-in-out 1.8s forwards;
-}
+} */
 
-.slick-active img {
+/* .slick-active img {
     opacity: 0 !important;
     animation: active 1s ease-in-out 1.8s forwards;
-}
+} */
 @keyframes slide {
     0% {
         opacity: 1;
@@ -59,29 +59,21 @@
     width: 100%;
 } */
 
-.slide1{
-    opacity: 1;
-    height: 80vh;
-    width: 100%;
-    position: relative;
-    background-image: url('../../components/slider/images/storemen.jpg');
- 
-    background-repeat: no-repeat;
-    background-size: cover;
-   
-}
 
 .img1{
     z-index: 100;
-    opacity: 0;
+    /* opacity: 0; */
     width: 100%;
     height: 80vh;
     animation-name: imges  1.5s ease 2.2s forwards;
-    animation-duration: 5s;
+    animation-duration: 5s; 
     /* animation-fill-mode: backwards; */
     /* animation-iteration-count: 10; */
     /* animation-play-state: paused; */
-}
+ } 
+
+
+
 @keyframes imges {
     0% {
        
@@ -92,20 +84,10 @@
         opacity: 1;
     }
 }
-.slide2{
-    position: relative;
-    /* height: 90vh; */
-    width: 100%;
-    /* background-image: url('../../components/slider/images/img4.jpg'); */
-    height: 50rem;
-    background-repeat: no-repeat;
-    background-size: cover;
 
-   
-}
 .img2{
     z-index: 100;
-    opacity: 0;
+    /* opacity: 0; */
     width: 100%;
     height: 80vh;
     animation-name: imges2 1.5s ease 2.2s forwards;
@@ -125,17 +107,10 @@
     }
 }
 
-.slide3{
-    position: relative;
-    /* background-image: url('../../components/slider/images/img3.jpg'); */
-    height: 80vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-   
-}
+
 .img3{
     z-index: 100;
-    opacity: 0;
+    /* opacity: 0; */
     width: 100%;
     height: 80vh;
     animation-name: imges2 1.5s ease 2.2s forwards;
@@ -156,17 +131,9 @@
 }
 
 
-.slide4{
-    position: relative;
-    /* background-image: url('../../components/slider/images/img4.jpg'); */
-    height: 80vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-   
-}
 .img4{
     z-index: 100;
-    opacity: 0;
+    /* opacity: 0; */
     width: 100%;
     height: 80vh;
     animation-name: imges3 1.5s ease 2.2s forwards;
@@ -185,22 +152,15 @@
         opacity: 1;
     }
 }
-.slide5{
+/* .slide5{
     position: relative;
-    /* background-image: url('../../components/slider/images/img4.jpg'); */
+    background-image: url('../../components/slider/images/img4.jpg');
     height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
    
-}
-/* .slide6{
-    position: relative;
-    background-image: url('../../components/slider/images/img1.jpg');
-    height: 40rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-   
 } */
+
 
  .leftIcon, .rightIcon {
     font-size: 40px;
@@ -258,3 +218,198 @@ background-color: white;
     opacity: 1; 
 
 }
+
+.goba-chi{
+    font-size: 150px;
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    position: absolute;
+    top: 0px;
+}
+
+
+
+
+
+
+
+.animation-container{
+    width: 100%;
+    height: 100%;
+}
+
+
+.type-animation{
+    position: absolute;
+    top: 3rem;
+    /* left: 2rem; */
+    text-align: center;
+    width: 100vw;
+    /* display: flex; */
+
+
+}
+.type-animation .textDiv{
+    text-align: center;
+}
+
+
+
+.Slid1text1 {
+    display: flex;
+    font-weight: bold;
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 20px 15px rgb(11, 1, 63);
+    font-size: 70px;
+    line-height: 5;
+    justify-content: center;
+}
+
+
+.type-animation .styles_typicalWrapper__1_Uvh{
+
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 20px 15px rgb(11, 1, 63);
+}
+.shop-now{
+    /* cursor: pointer; */
+    color: #ffffff;
+    line-height: 5px;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 15px 20px;
+   vertical-align: middle;
+    box-shadow: 6px 5px  10px rgb(255, 254, 254);
+    position: relative;
+    background: #020D75;
+  
+    transition-property: color;
+
+    transition-duration: 0.3s;
+    border-radius: 0;
+  
+
+
+}
+
+.shop-now-next{
+    color: #ffffff;
+    line-height: 2px;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 15px 20px;
+   vertical-align: middle;
+    box-shadow: 6px 5px  10px rgb(255, 254, 254);
+    position: relative;
+    background: #020D75;
+
+    border-radius: 0;  
+}
+
+.type-animation .shop-now:hover{
+cursor: pointer;
+color: red;
+}
+
+/* 
+.type-animation .textDiv{
+    text-align: center;
+}
+
+ */
+
+
+
+
+
+
+
+
+
+
+.btn {
+    position: absolute;
+    /* opacity: 0; */
+    height: 35px;
+    width: 170px;
+    background: #fff;
+    padding: 0;
+    border: 0;
+    font-weight: bold;
+    top: 10rem;
+}
+
+
+
+
+
+
+.text2 {
+    /* margin-top: 36px; */
+    /* opacity: 0; */
+    color: #fff;
+    font-size: 40px;
+    line-height: 1;
+    margin-top: 2rem;
+}
+
+
+.slick-slide .text2 {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: text-slide 1s ease-in 1.8s forwards;
+}
+
+.slick-active .text2 {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: text-active 1s ease-in 1s forwards;
+}
+
+
+
+
+/* 
+
+
+#aa-slider .aa-slider-area .seq-title span {
+    background-color: #fff;  
+    display: inline-block;
+    padding: 6px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+  #aa-slider .aa-slider-area .seq-title h2 {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #333;
+    display: inline-block;
+    float: none;
+    font-size: 50px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  #aa-slider .aa-slider-area .seq-title p {
+    color: #fff;
+    display: block;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  #aa-slider .aa-slider-area .seq-title .aa-shop-now-btn {
+    margin-top: 25px;
+  }
+  #aa-slider .aa-slider-area .seq .seq-next {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  } */
+  

@@ -105,7 +105,8 @@ nav .toolbarsecond li{
 	background: #020D75;
 	position: relative;
 	list-style: none;
-	display: inline-block;
+    display: inline-block;
+   color: white;
 }
 nav .toolbarsecond li a{
 	display: block;
@@ -121,13 +122,19 @@ nav .toolbarsecond li a{
 nav .toolbarsecond .list_show >li:hover{
     /* background:#020D75; */
     width: 150px;
-    background-color:  #AA0078;
+    /* background-color:  rgb(248, 245, 247); */
     /* opacity: 0.9; */
     line-height: 20px !important;
+    color: rgb(2, 13, 117);
 }
-nav .toolbarsecond .list_show >li a:hover{
+nav .toolbarsecond .list_show >li :hover a{
     width: 150px;
-
+    /* background-color: rgb(248, 245, 247); */
+    color: rgb(2, 13, 117);
+}
+nav .toolbarsecond .list_show >li a{
+    width: 170px;
+    color:rgb(2, 13, 117);
 }
 
 nav .toolbarsecond ul{
@@ -138,13 +145,27 @@ nav .toolbarsecond ul{
 	display: none;
 }
 
-nav .toolbarsecond li:hover > .list_show{
-	display: block;
+nav .toolbarsecond :hover >.list_show {
+    display: block;
+    border-bottom: red 30px;
+   
+}
+nav .toolbarsecond li:hover >.list_show a  {
+   color: white;
+   
 }
 
+nav .toolbarsecond li>.list_show li:hover {
+    width: 160px;
+   
+opacity: 0.9;
+    border-radius: 0px 5px 0px 0px;
+    border-right-style: solid;
+    border-right-color: #ffff
+ }
 
 nav .toolbarsecond ul li{
-	width: 150px;
+	/* width: 150px; */
 	float: none;
 	display: list-item;
 	position: relative;

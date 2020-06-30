@@ -228,7 +228,7 @@ class SignUp extends Component {
     const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading} = this.state;
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' || passwordError !== '' || loading; 
       return (
-        <div>          <div  style={{marginTop:"10vh" ,padding:"100px"}} >
+        <div>          <div  style={{marginTop:"10vh"}} >
               <Grid container spacing={8}   > 
               <Hidden smDown>
               <Grid item xs={4} md={3}> 
@@ -236,7 +236,7 @@ class SignUp extends Component {
               </Hidden>
               
                <Grid item xs={12} md={6}>
-                 <Paper  style={{padding:"100px"}} className="loginPaper" elevation={10} align="center">
+                 <Paper   className="loginPaper" elevation={10} align="center">
                    
                  
 
@@ -467,17 +467,17 @@ class SignUp extends Component {
                      </Grid>
 
                      <Grid item xs={12} md={12} >
-           <span style={{width:"5vw"  , fontSize:"10px"}} >Check button Are you  a  </span>
-           <span style={{width:"4vw" ,padding:"40px" }} >   Saller:   <Radio
+           <Grid >Check button Are you  a  </Grid>
+           <Grid item xs={12} md={12}  >  Saller:   <Radio
           checked={this.state.userCondition === 'seller'}
           onChange={this.handleChangeCondition}
           value="seller"
           name="sel"
           aria-label="A"
         />
-        </span>
+        </Grid>
      
-        <span style={{width:"4vw" ,padding:"40px" }} >
+        <Grid item xs={12} md={12}  >
        Buyer:  <Radio
           checked={this.state.userCondition==='buyer'}
           onChange={this.handleChangeCondition}
@@ -485,7 +485,7 @@ class SignUp extends Component {
           name="buy"
           aria-label="B"
         />
-        </span>
+        </Grid>
 </Grid>
                      <Grid item xs={12} md={12} className="paddingTop">
                        <Typography variant="caption" > 

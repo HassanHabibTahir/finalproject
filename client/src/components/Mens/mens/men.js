@@ -10,7 +10,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {getAllMenProduts ,FavouritAdds} from '../../../store/action/products/productaction'
 import history from '../../history/history'
 import MenCard from '../card/card'
-
+ import Fade from 'react-reveal/Fade';
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
 import '../mens.css'
@@ -93,7 +93,9 @@ console.log(this.props.auth.user)
 // />
 // )
 
-return    <Card className="main">
+return  (
+  <Fade bottom cascade>
+<Card className="main">
  <Fab size="medium" color="secondary" aria-label="add" >
 {item.price}$
        </Fab>
@@ -141,6 +143,8 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 </div>
 
                </Card>
+               </Fade>
+               )
  
 })
 
@@ -148,7 +152,7 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
         return (
             <div className="mainvalue"   >
         
-            {product}
+            {product}    
             </div>
         )
     }
