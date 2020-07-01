@@ -74,11 +74,13 @@ console.log(keyword)
     axios.post('http://localhost:8080/api/product/allProduts2', keyword).then((res) => {
 
  if(res){
-  dispatch({
+     
+    dispatch({
          type:SEARCGPRODUCT,
          payload:res.data
      })
      history.push('/serchProducts')
+    
  }
 
 
@@ -86,24 +88,6 @@ console.log(keyword)
     })
 
 }
-
-
-export const getCategoryProduct = (data) => (dispatch) => {
-
-    console.log(data)
-
-    axios.post('http://localhost:8080/api/product/categoryProducts',data).then((res) => {
-        dispatch({
-            type: getAllProducts,
-            payload: res.data
-
-
-        })
-
-    })
-}
-
-
 
 export const getAllMenProduts = (user) => (dispatch) => {
     console.log("getmen profuct")
@@ -143,31 +127,13 @@ export const getAllMenProduts = (user) => (dispatch) => {
 
 
 
-
-
-
-export const getProfilebyId = (id) => (dispatch) => {
-
-    axios.get(`http://localhost:8080/api/product/profilebyid/${id}`).then((res) => {
-
-
-        dispatch({
-            type: GetByIdProducts,
-            payload: res.data
-
-
-        })
-
-
-    })
-
-}
 export const FavouritAdds = (add,auth) => (dispatch) => {
     axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
         .then((res) => {
             if (res) {
                 getAllMenProduts(auth.user)(dispatch)
                 GetFavourproducts()(dispatch)
+                
                 // console.log("are you here")
                
                 // axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
@@ -197,6 +163,43 @@ export const FavouritAdds = (add,auth) => (dispatch) => {
 
 }
 
+
+
+export const getCategoryProduct = (data) => (dispatch) => {
+
+    console.log(data)
+
+    axios.post('http://localhost:8080/api/product/categoryProducts',data).then((res) => {
+        dispatch({
+            type: getAllProducts,
+            payload: res.data
+
+
+        })
+
+    })
+}
+
+
+
+export const getProfilebyId = (id) => (dispatch) => {
+
+    axios.get(`http://localhost:8080/api/product/profilebyid/${id}`).then((res) => {
+
+
+        dispatch({
+            type: GetByIdProducts,
+            payload: res.data
+
+
+        })
+
+
+    })
+
+}
+
+
 export const GetFavourproducts = () => (dispatch) => {
 
     axios.get("http://localhost:8080/api/Favour/getFavouritadd")
@@ -211,11 +214,11 @@ export const GetFavourproducts = () => (dispatch) => {
 
 
 // /  favourit user get
- const favouritProductsId=(b)=>{
-   const data=axios.get("http://localhost:8080/api/Favour/FavproductId").then((users)=>{
-       console.log("get",users.data)
-return users.data
-   }).then(data=>data).catch(err=>console.log(err))
-   console.log(data)
-   return data;
-}
+//  const favouritProductsId=(b)=>{
+//    const data=axios.get("http://localhost:8080/api/Favour/FavproductId").then((users)=>{
+//        console.log("get",users.data)
+// return users.data
+//    }).then(data=>data).catch(err=>console.log(err))
+//    console.log(data)
+//    return data;
+// }

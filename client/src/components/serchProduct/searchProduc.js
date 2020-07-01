@@ -45,10 +45,19 @@ import history from '../history/history'
 import {Link} from 'react-router-dom';
  class SerchProduct extends Component {
 
-  addToFav=(fav ,auth)=>{
+   addToFav=(fav ,auth)=>{
+
     if(!auth.isAuthenticated===false){
-   this.props.FavouritAdds(fav)
+
+      const userFavouritHandler={
+        favpro:fav,
+        auth:auth.user.id
+      }
+       
+   this.props.FavouritAdds(userFavouritHandler,auth)
   //  alert(fav)
+  console.log(fav)
+  // console.log(auth.user.id)
     }
     else{
       history.push('/login')
@@ -106,7 +115,7 @@ return    <Card className="main">
 fontSize="large"
 
 style={{float:"right"}}
-control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
     
       />
 
@@ -118,7 +127,7 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 <div className="top-section">
                                                             
 
-   <center> <Link  to={`productitems/${item._id}`}><img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
+<center> <Link  to={`/product/productitems/${item._id}`}><img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
 
 <div className="nav">
 

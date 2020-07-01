@@ -139,7 +139,7 @@ class Slidersimple extends Component {
 								<div className="l">L</div>
 								<div className="s3">S</div> */}
 							</div>
-              <h2 className='text2'>HYDDIMAN SERVICES</h2>
+              <h2 className='text2'> GOBACHI PLATEFORM</h2>
 						
 						</div>
         

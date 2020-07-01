@@ -19,7 +19,7 @@ constructor(props){
 
     componentDidMount() {
         if (this.props.match.params.id) {
-
+console.log("this ",this.props.match.params.id)
             this.props.getProfilebyId(this.props.match.params.id)
         }
     }
