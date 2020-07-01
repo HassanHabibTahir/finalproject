@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import Slider from "react-slick";
 import Typical from 'react-typical'
 import './slider.css';
-import './slideranimation.css'
 import './textanimation.css'
-// import './slideranimation.css'
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import Button from '@material-ui/Button';
@@ -33,7 +32,7 @@ class Slidersimple extends Component {
 
   render() {
     var settings = {
-      // autoplay:true,
+      autoplay:true,
       dots: true,
       fade: true,
       useTransform: true,
@@ -70,7 +69,7 @@ class Slidersimple extends Component {
            loop={Infinity}
            wrapper="p"
          />
-         <Link className="shop-now"   to="/shop">shop NOW</Link>
+         <Link className="shop-now"   to="/shop">SHOP GOBACHI</Link>
          </div>
           </div>
       
@@ -105,11 +104,13 @@ class Slidersimple extends Component {
 								<div className="l">L</div>
 								<div className="s3">S</div>
 							</div>
+              <h2 className='text2'>Factory Products</h2>
+					
 					
 						</div>
 </div>
 
-<Link className="shop-now"   to="/shop">shop NOW</Link>
+
 </div>
 </div>
             </div>
@@ -119,12 +120,12 @@ class Slidersimple extends Component {
               <div>
                 <img className="img3" src={Imges3} />
               </div>
-           <div>
+              <div className="animation-container">
            <div className="type-animation">
            <div className="textDiv">
 							<div className='Slid1text1'>
-								<div className="p">BUY PRODUCTS  & SELL PRODUCTS</div>
-    
+								<div className="p"> YOU CAN ORDER PRODUCTS</div>
+               
 								{/* <div className="r">R</div>
 								<div className="o1">O</div>
 								<div className="f">F</div>
@@ -138,10 +139,10 @@ class Slidersimple extends Component {
 								<div className="l">L</div>
 								<div className="s3">S</div> */}
 							</div>
-						
+              <h2 className='text2'>HYDDIMAN SERVICES</h2>
 						
 						</div>
-            <Link className="shop-now-next"   to="/shop">shop NOW</Link>
+        
 </div>
            </div>
             </div>
@@ -151,7 +152,33 @@ class Slidersimple extends Component {
               <div>
                 <img className="img4" src={Imges4} />
               </div>
-              
+              <div className="animation-container">
+           <div className="type-animation">
+           <div className="textDiv">
+           <div className='Slid1text1'>
+								<div className="W">B</div>
+								<div className="E">U</div>
+								<div className="C">Y</div>
+								<div className="A1">P</div>
+								<div className="N1">N</div>
+								<div className="D">D</div>
+								<div className="O">O</div>
+								<div className="A2">A</div>
+								<div className="N2">N</div>
+								<div className="Y">Y</div>
+								<div className="T">T</div>
+								<div className="H">H</div>
+								<div className="I">I</div>
+								<div className="N3">N</div>
+								<div className="G">G</div>
+								<div className="LAST">!</div>
+							</div>
+              <h2 className='text2'>HYDDIMAN SERVICES</h2>
+						
+						</div>
+        
+</div>
+           </div>
             </div>
           </div>
 
