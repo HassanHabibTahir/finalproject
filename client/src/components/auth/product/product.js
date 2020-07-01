@@ -112,7 +112,7 @@ console.log(fd)
         const {price,discount,productname,discription,category,files} = this.state;
         const isnotValid = price === '' ||discount===''||productname===''||discription===''||category===''||files.length==='';
         return (
-            <div style={{ marginTop: "20vh" }} >
+            <div style={{ marginTop: "10vh" }} >
                 
                 <Grid item xs={false} sm={4} md={7} />
              

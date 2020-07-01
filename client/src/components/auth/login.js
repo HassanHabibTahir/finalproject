@@ -84,7 +84,7 @@ class Login extends Component {
             
             //  if( nextProps.auth.user.userCondition==="seller"){
            console.log(nextProps.auth.user)
-            history.push('/dashboard')
+            history.push('/userNav/setting')
         // }
         }else{
             history.push('/')

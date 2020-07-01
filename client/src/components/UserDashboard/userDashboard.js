@@ -6,6 +6,7 @@ import {getuserallproducts,DeleteUserProduct} from '../../store/action/products/
 import { connect } from 'react-redux'; 
 import './userDashbo.css'
 import axios from 'axios'; 
+// import UserRoutes from './userNave/userNave'
 import { Button } from '@material-ui/core';
 
 class Dashboard extends Component {
@@ -90,6 +91,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
       
     return (
       <div className="userProducts"  style={{marginTop:'100px'}} >
+        {/* <UserRoutes/> */}
         {/* welcome */}
         {profileItems}
       </div>

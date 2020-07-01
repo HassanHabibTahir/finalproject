@@ -8,7 +8,7 @@ console.log(productData)
     axios.post('/api/product/upload', productData)
         .then((res) => {
             console.log(res)
-            history.push('/dashboard')
+            history.push('/userNav/setting')
             dispatch({
                 type: UserProducts,
                 payload: res.data

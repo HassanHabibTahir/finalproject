@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import * as routes from '../constants';
+import * as routes from '../contents/index';
 import {Link,withRouter} from 'react-router-dom';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import HomeComp from '../AccountsHome';
-import MyAds from '../Myads';
-import Messages  from '../Messages';
+// import HomeComp from '../AccountsHome';
+// import MyAds from '../Myads';
+// import Messages  from '../Messages';
 import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -12,7 +12,11 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import {Home,Visibility,Message} from '@material-ui/icons';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
-import {startSendTocken} from '../redux/actions/messageActions';
+import Dashboard from '../userDashboard';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Product from '../../auth/product/product';
+// import {startSendTocken} from '../redux/actions/messageActions';
 
 class UserRoutes extends Component {
   state = {
@@ -43,12 +47,9 @@ class UserRoutes extends Component {
     return (
         
 <Router>
-        <Grid container spacing={8}> 
-        <Hidden smDown>
-        <Grid item xs={1} md={2}>
-        </Grid>
-        </Hidden>
-        <Grid item xs={12} md={8}>
+       <div style={{marginTop:"9vh"}} >
+       <Grid > 
+        {/* <Grid item xs={12} md={8}> */}
         <Hidden only={['xs','sm']}>
         <Paper className="" elevation={10}>
         
@@ -59,24 +60,24 @@ class UserRoutes extends Component {
                 >
                 <BottomNavigationAction 
                 className="buttomNavigation"
-                label="HOME"
-                icon={<Home/>}
-                component={Link} to={routes.ACCOUNT_HOME}
+                label="SELLER"
+                icon={<AccountCircleIcon/>}
+                component={Link} to={routes.SELLERACCOUNT}
                 />
 
                 <BottomNavigationAction 
                 className="buttomNavigation" 
                 label="My Ads" 
                 icon={<Visibility />} 
-                component={Link} to={routes.MYADS}
+                component={Link} to={routes.USERPRODUCT}
                 />
 
 
                 <BottomNavigationAction
                 className="buttomNavigation"
-                label="Messages" 
-                component={Link} to={routes.MESSAGE}
-                icon={<Message />} />
+                label="Add Product" 
+                component={Link} to={routes.ADDPRODUCT}
+                icon={<AddAPhotoIcon />} />
 
               {/*  <BottomNavigationAction
                 className="buttomNavigation"
@@ -90,27 +91,32 @@ class UserRoutes extends Component {
 
         </Hidden>
           
-        <Paper className="marginTop" style={{borderRadius:'0'}} elevation={5}>
+        {/* <Paper className="marginTop" style={{borderRadius:'0'}} elevation={5}> */}
                         
-            <Route exact path={routes.MYADS} component={() => <MyAds />}/>
-            <Route exact path={routes.MESSAGE} component={() =><Messages />}/>
-            <Route exact path={routes.ACCOUNT_HOME} component={() =>< HomeComp />}/>
-        </Paper>
+        <Route exact path={routes.USERPRODUCT} component={() => <Dashboard />}/>
+            {/* <Route exact path={routes.MESSAGE} component={() =><Product />}/>*/}
+            <Route exact path={routes.ADDPRODUCT} component={() =>< Product />}/>  
+        {/* </Paper> */}
           
-        </Grid>
+        {/* </Grid> */}
         <Hidden smDown>
         <Grid item xs={1} md={2}>
         </Grid>
         </Hidden>
       </Grid>
+
+       </div>
 </Router>
     );
   }
 }
 
 
-// const mapStateToProps = state => ({
-//   user : state.user.user._id,
-// })
+const mapStateToProps = state => ({
+
+  // user : state.user.user._id,
+
+
+})
 
 export default withRouter(connect(mapStateToProps)(UserRoutes));

@@ -115,7 +115,11 @@ return    <Card className="main">
 fontSize="large"
 
 style={{float:"right"}}
-control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+
+//  we dont use retuen method  of likes product becase we only  like product in the  
+// checked = {item.fav? true : false}
+
+control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
     
       />
 

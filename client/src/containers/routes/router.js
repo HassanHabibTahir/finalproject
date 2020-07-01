@@ -7,7 +7,7 @@ import Dashboard from '../../components/UserDashboard/userDashboard'
 import MainHeader from '../../containers/Header/header';
 import resetEmail from '../../components/auth/reset/resetemail'
 import Resetpassword from '../../components/auth/reset/resetpassword';
-import Product from '../../components/auth/product/product';
+// import Product from '../../components/auth/product/product';
 import UserDashboard from '../../components/UserDashboard/userDashboard'
 import Favproduct from '../../components/favProduct/favproduct'
 import { connect } from 'react-redux';
@@ -31,7 +31,9 @@ import Serch from '../../components/serchProduct/searchProduc'
 import io from "socket.io-client"
 import Axios from 'axios';
 import { SetChatData, AddNewMessage, AddNewRoom } from '../../store/action/ChatActions/ChatActions';
-import Chat from "../../components/Chat/chat"
+import Chat from "../../components/Chat/chat";
+import UserRoutes from "../../components/UserDashboard/userNave/userNave" 
+
 const socket = io(window.location.origin);
 window.socket = socket;
 
@@ -116,17 +118,20 @@ class Routes extends Component {
           </Switch>
 
           <Switch>
-            <ProvatieRoutes exact path="/dashboard" component={Dashboard} />
+            <ProvatieRoutes exact path="/userNav/setting" component={UserRoutes} />
           </Switch>
-          <Switch> <ProvatieRoutes exact path="/addProduct" component={Product} /></Switch>
+          {/* <Switch> <ProvatieRoutes exact path="/addProduct" component={Product} /></Switch> */}
 
-          <Switch>
+          {/* <Switch>
             <ProvatieRoutes path="/userproduct" exact component={UserDashboard} />
-          </Switch></div>
+          </Switch> */}
+          </div>
         <Switch>
           <ProvatieRoutes path="/Admin" exact component={Admin} />
         </Switch>
-
+        <Switch>
+          <ProvatieRoutes path="/userproduct" exact component={UserRoutes} />
+        </Switch>
 
         {/* <Switch>
           <Redirect to="/" />
