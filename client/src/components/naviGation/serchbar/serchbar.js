@@ -26,7 +26,7 @@ class Serchbar extends Component {
             keyword:this.state.search
         }
 
-        this.props.serchProduct(srcData)
+        this.props.serchProduct(srcData,this.props.auth.user)
 
         this.setState({
             search:''
@@ -49,8 +49,13 @@ class Serchbar extends Component {
     }
 }
 
+const mapStateToProps=(state)=>({
   
-  export default connect(null,{serchProduct})(Serchbar);
+      auth:state.auth,
+  
+    
+    })
+  export default connect(mapStateToProps,{serchProduct})(Serchbar);
 
 {/* <SearchBar
 // onChange={this.serchItem}

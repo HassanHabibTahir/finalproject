@@ -2,6 +2,7 @@ import { UserProducts, getUserProducts, getAllProducts,
      GetByIdProducts, FAVOURITPRODUCTBYID,SEARCGPRODUCT } from '../../action/types/types'
 import axios from 'axios';
 import history from '../../../components/history/history'
+let globalKeyword=null;
 export const addproducts = (productData) => dispatch => {
 console.log(productData)
     axios.post('/api/product/upload', productData)
@@ -69,17 +70,35 @@ if(res){
     })
 }
 
-export const serchProduct = (keyword) => (dispatch) => {
+export const serchProduct = (keyword,user) => (dispatch) => {
 console.log(keyword)
+globalKeyword=keyword;
     axios.post('http://localhost:8080/api/product/allProduts2', keyword).then((res) => {
 
  if(res){
+    axios.get("http://localhost:8080/api/Favour/FavproductId").then(users=>{
+        const data=users.data.filter(product=>product.user==user.id);
+      res.data=  res.data.map(product=>{
+          console.log(product,data)
+            if(data.find(fvprod=>fvprod.adId==product._id))
+          
+            {
+                product.fav=true;
+            }
+            else
+            product.fav=false;
+            return product;
+        })
+
+        
+        dispatch({
+            type:SEARCGPRODUCT,
+            payload:res.data
+        })
+        history.push('/serchProducts')
+    })
      
-    dispatch({
-         type:SEARCGPRODUCT,
-         payload:res.data
-     })
-     history.push('/serchProducts')
+    
     
  }
 
@@ -90,7 +109,6 @@ console.log(keyword)
 }
 
 export const getAllMenProduts = (user) => (dispatch) => {
-    console.log("getmen profuct")
     // console.log("user",user)
     axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
         
@@ -131,8 +149,9 @@ export const FavouritAdds = (add,auth) => (dispatch) => {
     axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
         .then((res) => {
             if (res) {
-                getAllMenProduts(auth.user)(dispatch)
                 GetFavourproducts()(dispatch)
+                serchProduct(globalKeyword,auth.user)(dispatch)
+                getAllMenProduts(auth.user)(dispatch)
                 
                 // console.log("are you here")
                
