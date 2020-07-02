@@ -248,5 +248,25 @@ passport.authenticate('jwt', { session: false }),
     .catch(err => console.log(err));
 
 })
+   router.get('/getOrders',
+   passport.authenticate('jwt', { session: false }),
+   (req,res,next)=>{
+
+    Order.find({ 'user.userId': req.user._id })
+    .then(orders => {
+      res.json({orders: orders});
+       
+  
+    })
+    .catch(err => {
+      res.json(err)
+  
+    });
+
+   }
+   
+   
+   )
+ 
 
 module.exports = router
