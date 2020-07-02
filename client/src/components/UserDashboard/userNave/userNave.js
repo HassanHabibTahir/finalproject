@@ -16,6 +16,8 @@ import Dashboard from '../userDashboard';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Product from '../../auth/product/product';
+import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined';
+import Chat from "../../Chat/chat";
 // import {startSendTocken} from '../redux/actions/messageActions';
 
 class UserRoutes extends Component {
@@ -79,12 +81,20 @@ class UserRoutes extends Component {
                 component={Link} to={routes.ADDPRODUCT}
                 icon={<AddAPhotoIcon />} />
 
-              {/*  <BottomNavigationAction
+               <BottomNavigationAction
                 className="buttomNavigation"
-                label="Saved Ads" 
-                component={Link} to={routes.SAVEDADS}
-              icon={<Icon>streetview</Icon>} /> */}
-
+                label="Messages" 
+                component={Link} to={routes.CHAT}
+              icon={<Message/>}
+              
+              />
+  <BottomNavigationAction
+                className="buttomNavigation"
+                label="ORDERS" 
+                component={Link} to={routes.ORDER}
+              icon={<AttachMoneyOutlinedIcon/>}
+              
+              />
 </BottomNavigation>
 
         </Paper>
@@ -94,7 +104,7 @@ class UserRoutes extends Component {
         {/* <Paper className="marginTop" style={{borderRadius:'0'}} elevation={5}> */}
                         
         <Route exact path={routes.USERPRODUCT} component={() => <Dashboard />}/>
-            {/* <Route exact path={routes.MESSAGE} component={() =><Product />}/>*/}
+            <Route exact path={routes.CHAT} component={() =><Chat />}/>
             <Route exact path={routes.ADDPRODUCT} component={() =>< Product />}/>  
         {/* </Paper> */}
           

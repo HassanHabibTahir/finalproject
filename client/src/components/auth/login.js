@@ -28,6 +28,7 @@ import history from '../history/history'
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import resetEmail from '../auth/reset/resetemail';
+// import {toast} from 'react-toastify';
 // // import axios from 'axios';
 // import Admin from '../adminpanal/admin';
 
@@ -85,6 +86,7 @@ class Login extends Component {
             //  if( nextProps.auth.user.userCondition==="seller"){
            console.log(nextProps.auth.user)
             history.push('/userNav/setting')
+            // toast.success("Successfully login!");
         // }
         }else{
             history.push('/')

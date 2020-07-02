@@ -7,19 +7,31 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CardMedia from '@material-ui/core/CardMedia';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { getcartproducts ,RemoveCartElement ,getCartProductbyId} from '../../store/action/cartAction/cartaction'
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
-import history from '../history/history'
+
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import history from '../history/history';
+import './cart.css'
 class PCart extends Component {
   constructor(props) {
     super(props)
 
  this.state={
-   data:[]
+   data:[],
+   counter: 0 
  }
   }
+
+  handleIncrement = () => {
+    this.setState(state => ({ counter: state.counter + 1 }));
+  };
+  handleDecrement = () => {
+    this.setState(state => ({ counter: state.counter - 1 }));
+  };
 
   DeletedCartItem=(i,id)=>{
 
@@ -115,6 +127,12 @@ this.state.data.map((item,i)=>{
   console.log(item,i)
 })
  
+const Btn = (
+    <ButtonGroup size="small" aria-label="large outlined button group">
+   <Button >{this.state.counter}</Button>
+   <Button onClick={this.handleDecrement}>-</Button>
+  </ButtonGroup>
+ );
       //  const cartProduct = this.props.CartItems.products
     //   let profileItems;
     //   if (cartProduct === null) {
@@ -154,18 +172,34 @@ this.state.data.map((item,i)=>{
            console.log(total)
           return (
     <div>
-            <TableRow key={item.id}>
-              <TableCell>
-                <img height="50" src={"http://localhost:8080/" + item.productId.imgSrc[0]} />
-              </TableCell>
-              <TableCell align="right">{item.productId.productname}</TableCell>
-              <TableCell align="right">{item.productId.price}</TableCell>
-          <TableCell align="right">{item.quantity}</TableCell>
-              <TableCell align="right">Discount</TableCell>
-              <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
-           
-            </TableRow>
          
+            <TableRow key={item.id} >
+              <TableCell style={{ width: "20%" }}  >
+                <img  className="cart-images"  src={"http://localhost:8080/" + item.productId.imgSrc[0]} />
+                <img className="cart-images"  src={"http://localhost:8080/" + item.productId.imgSrc[1]} />
+                <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[2]} />
+                <img className="cart-images"  src={"http://localhost:8080/" + item.productId.imgSrc[3]} />
+              </TableCell>
+              <TableCell style={{ width: "20%" }}  align="right">{item.productId.productname}</TableCell>
+              <TableCell style={{ width: "10%" }} align="right">{item.productId.price}</TableCell>
+              <TableCell style={{ width: "10%" }} align="right">{item.quantity}</TableCell>
+              <TableCell style={{ width: "10%" }} align="right">Discount</TableCell>
+              <TableCell style={{ width: "10%" }} align="right">
+              <ButtonGroup size="small" aria-label="large outlined button group">
+            <Button onClick={this.handleIncrement}>+</Button>
+           {this.state.counter > 0 && Btn}
+           </ButtonGroup>
+              </TableCell>
+              
+              <TableCell style={{ width: "10%" }} align="right"><Button 
+               variant="contained"
+               color="secondary"
+              
+               startIcon={<DeleteIcon />}
+              onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
+            
+            </TableRow>
+           
     </div>
           )
     }
@@ -173,32 +207,29 @@ this.state.data.map((item,i)=>{
   
  
     return (
-      <div style={{ marginTop: "vh" }}>
-        <h1>Shoping Cart</h1>
-
-        <TableContainer component={Paper}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Product</TableCell>
-                <TableCell align="right">Name</TableCell>
-                <TableCell align="right">Price</TableCell>
-                <TableCell align="right">Quantity</TableCell>
-                <TableCell align="right">Discount</TableCell>
-                <TableCell align="right">REMOVE</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
+      <div   className="cart_contain" >
+      <div >
+        
+          <Table >
+          <TableBody>
+           
+          {product}
+          </TableBody>
+         
                {/* {this.props.CartItems.map(item=>{
                 return <p>i=e</p>
               })} */}
               {/* {this.product(this.props.CartItems)} */}
-              {product}
+       
             
-            </TableBody>
+          
+          
           </Table>
-        </TableContainer>
-        <h1>total={total}</h1>
+      </div>
+      <div className="check-container" >
+      <div className="checkout-container" > <h1  ><span className="total_product" >Total:</span> <span className="total_price">${total}</span></h1></div> 
+      <div className="checkout-out-product" > <Button>checkout</Button> </div> 
+      </div>
       </div>
     )
   }
