@@ -240,7 +240,9 @@ passport.authenticate('jwt', { session: false }),
     },
     products: ordeProducts
   });
-  return order.save();
+  return order.save().then((orders)=>{
+    res.json("Order is posted on seller  account")
+  });
   })
    .then(result => {
       return req.user.clearCart();

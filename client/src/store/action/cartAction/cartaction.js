@@ -1,5 +1,6 @@
 import {ADDTOCARTITEMSS ,GETCARTPRODUCTS,REMOVECARTPRODUCT} from '../../action/types/types'
 import axios from 'axios';
+import {toast} from 'react-toastify';
 export const addtoCartValue=(cartId)=>dispatch=>{
 
   axios.post('http://localhost:8080/api/product/PostCart',cartId).then((res)=>{
@@ -68,6 +69,21 @@ console.log(data)
 
 
 }
+
+
+
+export const PostOrders=()=>(dispatch)=>{
+
+
+  axios.post('http://localhost:8080/api/product/postOrdr').then((res)=>{
+    toast.success("Successfully  send Order to seller!");
+  console.log("rescart",res)
+  })
+
+}
+
+
+
 
 export const getCartProductbyId =()=>(dispatch)=>{
 

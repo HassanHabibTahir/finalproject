@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CardMedia from '@material-ui/core/CardMedia';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getcartproducts ,RemoveCartElement ,getCartProductbyId} from '../../store/action/cartAction/cartaction'
+import { getcartproducts ,RemoveCartElement ,getCartProductbyId,PostOrders} from '../../store/action/cartAction/cartaction'
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
@@ -22,51 +22,39 @@ class PCart extends Component {
 
  this.state={
    data:[],
-   counter: 0 
+   counter: 0
  }
   }
 
   handleIncrement = (i) => {
-
-    let counting =[...this.state.data]
-    
-  let q = counting[i].quantity=counting[i].quantity+1
-  if(!(q<=0)){
+  let counting =[...this.state.data] 
+    let q = counting[i].quantity=counting[i].quantity+1
+  // if(!(q<=0)){
   this.setState({
       counting
     })
-  } 
-  else{
-return false;
-  }
-   this.ChangedQuantity(counting[i])
-    // this.setState(state => ({ counter: state.counter + 1 }));
+  // } 
   };
+
   handleDecrement = (i) => {
-    
+   
     let counting =[...this.state.data]
-    let cq = counting[i].quantity=counting[i].quantity-1
-if(!(cq<=0)){
+    let cq =counting[i].quantity-1
+    console.log("Decrement",cq)
+if(cq>0){
   console.log(cq)
+   counting[i].quantity=cq;
   this.setState({
     counting
   })
     }
-    else{
-    return false
-    }
+
+
 
   };
 
 
 
-
-
-
-  ChangedQuantity=(par)=>{
-    // console.log("changing",par)
-// this.props.ChangedDataQuantity()
-  }
 
 
 
@@ -158,18 +146,17 @@ if(!(cq<=0)){
 }
 
 
+
+checkOrders=()=>{
+  this.props.PostOrders()
+}
+
+
+
   render() {
 
-this.state.data.map((item,i)=>{
-  console.log(item,i)
-})
  
-// const Btn = (
-//     <ButtonGroup size="small" aria-label="large outlined button group">
-//    <Button >{this.state.counter}</Button>
-//    <Button onClick={this.handleDecrement}>-</Button>
-//   </ButtonGroup>
-//  );
+
       //  const cartProduct = this.props.CartItems.products
     //   let profileItems;
     //   if (cartProduct === null) {
@@ -223,13 +210,16 @@ this.state.data.map((item,i)=>{
               </TableCell>
               <TableCell style={{ width: "20%" }}  align="right">{item.productId.productname}</TableCell>
               <TableCell style={{ width: "10%" }} align="right">{item.productId.price}</TableCell>
-              <TableCell style={{ width: "10%" }} align="right"><Button onClick={()=>{this.handleIncrement(i,) }}>+</Button>{item.quantity<=0?0:item.quantity}  <Button onClick={()=>{this.handleDecrement(i)}}>-</Button></TableCell>
+              {/* <TableCell style={{ width: "10%" }} align="right"><Button onClick={()=>{this.handleIncrement(i,) }}>+</Button>{item.quantity<=0?0:item.quantity}  <Button onClick={()=>{this.handleDecrement(i)}}>-</Button></TableCell> */}
+          <TableCell style={{ width: "10%" }} align="right">{item.quantity<1?null:item.quantity}</TableCell>
               <TableCell style={{ width: "10%" }} align="right">Discount</TableCell>
               <TableCell style={{ width: "10%" }} align="right">
-              {/* <ButtonGroup size="small" aria-label="large outlined button group">
+              <ButtonGroup size="small" aria-label="large outlined button group">
             <Button onClick={()=>{this.handleIncrement(i) }}>+</Button>
-           {this.state.counter > 0 && Btn}
-           </ButtonGroup> */}
+            {/* this.state.counter > 0 && */}
+             { <Button>{this.state.counter}</Button>}
+            <Button onClick={()=>{this.handleDecrement(i) }}>-</Button>
+           </ButtonGroup>
               </TableCell>
               
               <TableCell style={{ width: "10%" }} align="right"><Button 
@@ -269,7 +259,7 @@ this.state.data.map((item,i)=>{
       </div>
     {!this.state.data.length==0? <div className="check-container" >
       <div className="checkout-container" > <h1  ><span className="total_product" >Total:</span> <span className="total_price">${total<=0?0:total}</span></h1></div> 
-      <div className="checkout-out-product" > <button>checkout</button> </div> 
+      <div className="checkout-out-product" > <button onClick={this.checkOrders} >checkout</button> </div> 
       </div>:null}
       </div>
     )
@@ -282,4 +272,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, { getcartproducts,RemoveCartElement,getCartProductbyId })(PCart)
+export default connect(mapStateToProps, { getcartproducts,RemoveCartElement,getCartProductbyId,PostOrders })(PCart)

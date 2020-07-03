@@ -43,7 +43,7 @@ class Header extends Component {
    
 //    }
     render() {
-      console.log(this.props.CartItems)
+    
       //  let quanit =   this.props.CartItems&&this.props.CartItems.products!=null&& this.props.CartItems.products!=undefined? this.props.CartItems.products.map((q)=>{
       // return q.quantity
       //  }):null length
