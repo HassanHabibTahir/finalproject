@@ -271,4 +271,31 @@ passport.authenticate('jwt', { session: false }),
    )
  
 
+
+   router.post('/updatequantity',
+   passport.authenticate('jwt', { session: false }),
+   (req,res)=>{
+   Users.findById(req.user._id).then((user)=>{
+ return req.user.ChangedQuantity(req,user)
+   })
+
+  //   req.user.populate('cart.items.productId')
+  // .execPopulate().then((user)=>{
+  //   const Update = user.cart.items.filter( i=> i.id===req.body.ids._id)
+        
+  //         })
+  })
+
+
+
+
+
+
+    // console.log(req.body.ids._id)
+//     Users.findById({'cart.items._id':req.body.ids._id}).then((user)=>{
+// console.log(user)
+//     })
+
+  
+
 module.exports = router

@@ -100,6 +100,15 @@ dispatch({
 }
 
 
+export const updateCartQuantity=(updatequn)=>()=>{
+console.log("changed",updatequn)
+axios.post('http://localhost:8080/api/product/updatequantity',updatequn).then((res)=>{
+
+
+})
+}
+
+
 
 
 

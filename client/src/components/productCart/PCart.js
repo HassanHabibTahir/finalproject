@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CardMedia from '@material-ui/core/CardMedia';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getcartproducts ,RemoveCartElement ,getCartProductbyId,PostOrders} from '../../store/action/cartAction/cartaction'
+import { getcartproducts ,RemoveCartElement ,getCartProductbyId,PostOrders,updateCartQuantity} from '../../store/action/cartAction/cartaction'
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
@@ -26,35 +26,46 @@ class PCart extends Component {
  }
   }
 
-  handleIncrement = (i) => {
+  handleIncrement = (i,item) => {
   let counting =[...this.state.data] 
     let q = counting[i].quantity=counting[i].quantity+1
-  // if(!(q<=0)){
-  this.setState({
+    this.setState({
       counting
     })
-  // } 
+
+    this.updateQuantity(q,item)
   };
 
-  handleDecrement = (i) => {
+  handleDecrement = (i,item) => {
    
     let counting =[...this.state.data]
     let cq =counting[i].quantity-1
-    console.log("Decrement",cq)
+
+
 if(cq>0){
   console.log(cq)
    counting[i].quantity=cq;
   this.setState({
     counting
   })
+  this.updateQuantity(cq,item)
     }
 
 
-
-  };
-
+};
 
 
+
+updateQuantity=(parms,cartproduct)=>{
+
+
+const updatequn = {
+  value:parms,
+  ids:cartproduct
+}
+
+this.props.updateCartQuantity(updatequn)
+}
 
 
 
@@ -153,6 +164,7 @@ checkOrders=()=>{
 
 
 
+
   render() {
 
  
@@ -189,7 +201,7 @@ checkOrders=()=>{
       let gettotal=0;
       let total=0;
     const  product = this.state.data &&this.state.data!=null&&this.state.data!=undefined?this.state.data.map((item, i) => {
-      console.log(item)
+  
     if(item.productId!=null && item.productId!=undefined){
     //   console.log(item.productId)
     // }
@@ -215,10 +227,10 @@ checkOrders=()=>{
               <TableCell style={{ width: "10%" }} align="right">Discount</TableCell>
               <TableCell style={{ width: "10%" }} align="right">
               <ButtonGroup size="small" aria-label="large outlined button group">
-            <Button onClick={()=>{this.handleIncrement(i) }}>+</Button>
+            <Button onClick={()=>{this.handleIncrement(i,item) }}>+</Button>
             {/* this.state.counter > 0 && */}
              { <Button>{this.state.counter}</Button>}
-            <Button onClick={()=>{this.handleDecrement(i) }}>-</Button>
+            <Button onClick={()=>{this.handleDecrement(i,item) }}>-</Button>
            </ButtonGroup>
               </TableCell>
               
@@ -272,4 +284,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, { getcartproducts,RemoveCartElement,getCartProductbyId,PostOrders })(PCart)
+export default connect(mapStateToProps, { getcartproducts,RemoveCartElement,getCartProductbyId,PostOrders ,updateCartQuantity})(PCart)

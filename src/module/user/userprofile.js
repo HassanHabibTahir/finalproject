@@ -82,7 +82,6 @@ const userSchema = new Schema({
 
 
 userSchema.methods.addToCart = function(product) {
-    console.log(product)
     const cartProductIndex = this.cart.items.findIndex(cp => {
           return cp.productId.toString() === product._id.toString();
         });
@@ -121,6 +120,37 @@ userSchema.methods.addToCart = function(product) {
                       this.cart = { items: [] };
                       return this.save();
                     };
+
+ userSchema.methods.ChangedQuantity = function(data,user) {
+  console.log(user)
+  const cartProductIndex=user.cart.items.findIndex( i=> {
+    return  i.id===data.body.ids._id})
+  // const cartProductIndex = this.cart.items.findIndex(cp => {
+  //       return cp.productId.toString() === product._id.toString();
+  //     });
+      console.log(cartProductIndex)
+      let newQuantity ;
+       newQuantity = this.cart.items[cartProductIndex].quantity
+      console.log(newQuantity)
+      const updatedCartItems = [...this.cart.items];
+      
+      if (cartProductIndex >= 0) {
+           let  newQuantity = this.cart.items[cartProductIndex].quantity = data.body.value;
+            updatedCartItems[cartProductIndex].quantity = newQuantity;
+          } 
+      //else {
+      //           updatedCartItems.push({
+      //                 productId: product._id,
+      //                 quantity: newQuantity
+      //               });
+      //             }
+                  const updatedCart = {
+                        items: updatedCartItems
+                      };
+                      this.cart = updatedCart;
+                      return this.save();
+  }
+
 module.exports = mongoose.model('users', userSchema);
                     
                     
