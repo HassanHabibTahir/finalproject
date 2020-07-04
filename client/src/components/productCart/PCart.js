@@ -158,8 +158,12 @@ this.props.updateCartQuantity(updatequn)
 
 
 
-checkOrders=()=>{
-  this.props.PostOrders()
+checkOrders=(id)=>{
+ const sellerId={
+    id:id
+  }
+  
+  this.props.PostOrders(sellerId)
 }
 
 
@@ -197,13 +201,14 @@ checkOrders=()=>{
           // }
       //   }
       // }
-
+      let globalKeyWord=null;
       let gettotal=0;
       let total=0;
     const  product = this.state.data &&this.state.data!=null&&this.state.data!=undefined?this.state.data.map((item, i) => {
   
     if(item.productId!=null && item.productId!=undefined){
-    //   console.log(item.productId)
+      console.log(item.productId.user)
+      globalKeyWord=item.productId.user
     // }
    
     gettotal+=parseInt(item.productId.price)*item.quantity
@@ -271,7 +276,7 @@ checkOrders=()=>{
       </div>
     {!this.state.data.length==0? <div className="check-container" >
       <div className="checkout-container" > <h1  ><span className="total_product" >Total:</span> <span className="total_price">${total<=0?0:total}</span></h1></div> 
-      <div className="checkout-out-product" > <button onClick={this.checkOrders} >checkout</button> </div> 
+      <div className="checkout-out-product" > <button onClick={()=>{this.checkOrders(globalKeyWord)}} >checkout</button> </div> 
       </div>:null}
       </div>
     )

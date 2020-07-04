@@ -226,6 +226,7 @@ passport.authenticate('jwt', { session: false }),
 router.post('/postOrdr',
 passport.authenticate('jwt', { session: false }),
 (req,res)=>{
+  console.log(req.body)
   req.user
   .populate('cart.items.productId')
   .execPopulate()
@@ -236,9 +237,11 @@ passport.authenticate('jwt', { session: false }),
    const order = new Order({
     user: {
       email: req.user.email,
-      userId: req.user
+      userId: req.user,
+      
     },
-    products: ordeProducts
+    products: ordeProducts,
+    seller:req.body.id
   });
   return order.save().then((orders)=>{
     res.json("Order is posted on seller  account")
@@ -250,26 +253,51 @@ passport.authenticate('jwt', { session: false }),
     .catch(err => console.log(err));
 
 })
-   router.get('/getOrders',
-   passport.authenticate('jwt', { session: false }),
-   (req,res,next)=>{
+  //  router.post('/getOrders',
+  //  passport.authenticate('jwt', { session: false }),
+  //  (req,res,next)=>{
+  //    console.log(req.body.user.id)
 
-    Order.find({ 'user.userId': req.user._id })
-    .then(orders => {
-      res.json({orders: orders});
+  //   Order.findById({ 'seller': req.body.user.id })
+  //   .then(orders => {
+  //     res.json({orders: orders});
        
   
-    })
-    .catch(err => {
-      res.json(err)
+  //   })
+  //   .catch(err => {
+  //     res.json(err)
   
-    });
+  //   });
 
-   }
+  //  }
    
    
-   )
+  //  )
  
+  router.route("/getOrders").get(function(req, res) {
+    Order.findOne({}, function(err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+      }
+    });
+  });
+
+//   router.get('/getOrders',
+//   // passport.authenticate('jwt', { session: false }),
+//   (req, res) => {
+//     Order.find().then(products => {
+//         if (!products) {
+//           errors = "there are no profile";
+//           return res.status(400).json(errors)
+//         }
+// res.json(products)
+
+//       })
+//       .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
+//   });
+
 
 
    router.post('/updatequantity',
@@ -288,14 +316,5 @@ passport.authenticate('jwt', { session: false }),
 
 
 
-
-
-
-    // console.log(req.body.ids._id)
-//     Users.findById({'cart.items._id':req.body.ids._id}).then((user)=>{
-// console.log(user)
-//     })
-
-  
 
 module.exports = router

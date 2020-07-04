@@ -1,6 +1,8 @@
 import {ADDTOCARTITEMSS ,GETCARTPRODUCTS,REMOVECARTPRODUCT} from '../../action/types/types'
 import axios from 'axios';
 import {toast} from 'react-toastify';
+
+let globalKeyWord;
 export const addtoCartValue=(cartId)=>dispatch=>{
 
   axios.post('http://localhost:8080/api/product/PostCart',cartId).then((res)=>{
@@ -72,10 +74,10 @@ console.log(data)
 
 
 
-export const PostOrders=()=>(dispatch)=>{
+export const PostOrders=(sellerId)=>(dispatch)=>{
 
 
-  axios.post('http://localhost:8080/api/product/postOrdr').then((res)=>{
+  axios.post('http://localhost:8080/api/product/postOrdr',sellerId).then((res)=>{
     toast.success("Successfully  send Order to seller!");
   console.log("rescart",res)
   })
@@ -108,6 +110,19 @@ axios.post('http://localhost:8080/api/product/updatequantity',updatequn).then((r
 })
 }
 
+export const GetBuyerOrder=(user)=>(dispatch)=>{
+axios.get('http://localhost:8080/api/product/getOrders',user).then((res)=>{
+  globalKeyWord=res.data.user
+ 
+ let a=  res.data.products.filter((i)=>{
+  console.log(i)      
+  // globalKeyWord=i.user
+        return i.product.user===user.user.id
+})
+console.log(globalKeyWord,a)
+
+})
+}
 
 
 

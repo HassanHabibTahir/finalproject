@@ -18,6 +18,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Product from '../../auth/product/product';
 import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined';
 import Chat from "../../Chat/chat";
+import Orders from '../Orders/order'
 // import {startSendTocken} from '../redux/actions/messageActions';
 
 class UserRoutes extends Component {
@@ -106,6 +107,7 @@ class UserRoutes extends Component {
         <Route exact path={routes.USERPRODUCT} component={() => <Dashboard />}/>
             <Route exact path={routes.CHAT} component={() =><Chat />}/>
             <Route exact path={routes.ADDPRODUCT} component={() =>< Product />}/>  
+            <Route exact path={routes.ORDER} component={() =>< Orders />}/>  
         {/* </Paper> */}
           
         {/* </Grid> */}

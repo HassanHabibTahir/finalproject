@@ -65,7 +65,7 @@ class Slidersimple extends Component {
           <div className="type-animation">
            <Typical
            
-           steps={['Hi!', 1000, 'GET SHIRTS', 1000,'GET PENTS ', 1000,'GET JEANS', 1000  ]}
+           steps={['WELCOME TO GOBACHI ! ', 1000, '', 1000,'GET PENTS ', 1000,'GET JEANS', 1000  ]}
            loop={Infinity}
            wrapper="p"
          />

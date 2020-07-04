@@ -19,6 +19,10 @@ const orderSchema = new Schema({
       required: true,
       ref: 'users'
     }
+  },
+  seller:{
+    type: Schema.Types.ObjectId,
+    required: true,
   }
 });
 
