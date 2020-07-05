@@ -10,6 +10,7 @@ import ItempProduct from '../raducers/itemProduct/itemProduct';
 import  FavouritProducts from '../raducers/favproducts/favProducts'
 import serchProducts from '../raducers/searchProduct/searchProduct'
 import ChatReducer from '../raducers/ChatReducer/ChatReducer'
+import order from '../raducers/order/order'
 const rootReducer = combineReducers({
     erorr:errors,
     auth:Auth,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     ItempProduct:ItempProduct,
     favproduct:FavouritProducts,
     SERCHPRODUCT:serchProducts,
-    ChatReducer
+    ChatReducer:ChatReducer,
+    orders:order
 })
 export default rootReducer;

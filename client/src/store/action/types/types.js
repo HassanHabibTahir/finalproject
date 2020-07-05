@@ -20,3 +20,4 @@ export const setChatData='setChatData';
 export const addNewMessage="addNewMessage"
 export const addNewRoom="addNewRoom"
 export const markMessagesAsReaded="markMessagesAsReaded"
+export const GETORDERS="GETORDERS"

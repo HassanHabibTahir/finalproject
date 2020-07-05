@@ -9,9 +9,17 @@ componentDidMount(){
     this.props.GetBuyerOrder(this.props.auth)
 }
 
+componentWillReceiveProps(nextProps) {
+  
+    console.log("1",nextProps.orders.orders)
+//   this.setState({})
+}
 
     render() {
-        console.log(this.props.auth)
+        // this.props.orders.orders.map((item)=>{
+            // console.log("gi",this.props.orders.orders)
+      
+
         return (
             <div style={{marginTop:"9vh"}} >
                 <h1>Orders</h1>
@@ -22,7 +30,8 @@ componentDidMount(){
 
 
 const mapStateToProps = state => ({
-    auth:state.auth
+    auth:state.auth,
+    orders:state.orders
   })
 
 

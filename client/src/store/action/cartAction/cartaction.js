@@ -1,4 +1,4 @@
-import {ADDTOCARTITEMSS ,GETCARTPRODUCTS,REMOVECARTPRODUCT} from '../../action/types/types'
+import {ADDTOCARTITEMSS ,GETCARTPRODUCTS,REMOVECARTPRODUCT,GETORDERS} from '../../action/types/types'
 import axios from 'axios';
 import {toast} from 'react-toastify';
 
@@ -128,8 +128,13 @@ let a= data.map((item)=>{
     return item=item
 })
 a.map((item)=>{
-  item.map((q)=>{
-    console.log(q)
+  // item.map((q)=>{
+  //   console.log(q)
+  // })
+
+  dispatch({
+    type:GETORDERS,
+    payload:item
   })
 })
 
