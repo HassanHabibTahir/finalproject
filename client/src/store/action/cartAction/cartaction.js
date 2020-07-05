@@ -111,15 +111,52 @@ axios.post('http://localhost:8080/api/product/updatequantity',updatequn).then((r
 }
 
 export const GetBuyerOrder=(user)=>(dispatch)=>{
-axios.get('http://localhost:8080/api/product/getOrders',user).then((res)=>{
-  globalKeyWord=res.data.user
- 
- let a=  res.data.products.filter((i)=>{
-  console.log(i)      
-  // globalKeyWord=i.user
-        return i.product.user===user.user.id
+axios.get('http://localhost:8080/api/product/getOrders').then((res)=>{
+
+let data=[]
+
+res.data.map((item)=>{
+
+ let a =  item.products.filter((i)=>{
+  return (i.product.user===user.user.id)
+}) 
+ data.push(a)
+return item
 })
-console.log(globalKeyWord,a)
+// console.log(data)
+let a= data.map((item)=>{
+    return item=item
+})
+a.map((item)=>{
+  item.map((q)=>{
+    console.log(q)
+  })
+})
+
+// let a =res.data.filter((item)=>{
+//  
+
+
+//    let a=  item.products.filter((i)=>{
+      
+//   // globalKeyWord=i.user
+//         return i.product.user===user.user.id
+
+//       })
+// return item
+
+
+
+// })
+
+  // globalKeyWord=res.data.user
+ 
+//  let a=  res.data.products.filter((i)=>{
+//   console.log(i)      
+//   // globalKeyWord=i.user
+//         return i.product.user===user.user.id
+// })
+
 
 })
 }

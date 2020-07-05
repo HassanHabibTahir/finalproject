@@ -232,7 +232,7 @@ passport.authenticate('jwt', { session: false }),
   .execPopulate()
   .then(user => {
    const ordeProducts = user.cart.items.map( i=>{
-     return { quantity: i.quantity, product: { ...i.productId._doc }}
+     return {email: req.user.email,quantity: i.quantity, product: { ...i.productId._doc }}
    })
    const order = new Order({
     user: {
@@ -274,29 +274,29 @@ passport.authenticate('jwt', { session: false }),
    
   //  )
  
-  router.route("/getOrders").get(function(req, res) {
-    Order.findOne({}, function(err, result) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.json(result);
-      }
-    });
+  // router.route("/getOrders").get(function(req, res) {
+  //   Order.findOne({}, function(err, result) {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       res.json(result);
+  //     }
+  //   });
+  // });
+
+  router.get('/getOrders',
+  // passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Order.find().then(products => {
+        if (!products) {
+          errors = "there are no profile";
+          return res.status(400).json(errors)
+        }
+res.json(products)
+
+      })
+      .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
   });
-
-//   router.get('/getOrders',
-//   // passport.authenticate('jwt', { session: false }),
-//   (req, res) => {
-//     Order.find().then(products => {
-//         if (!products) {
-//           errors = "there are no profile";
-//           return res.status(400).json(errors)
-//         }
-// res.json(products)
-
-//       })
-//       .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
-//   });
 
 
 
