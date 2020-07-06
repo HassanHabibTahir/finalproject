@@ -286,8 +286,12 @@ passport.authenticate('jwt', { session: false }),
 
   router.get('/getOrders',
   // passport.authenticate('jwt', { session: false }),
+
+
+
   (req, res) => {
     Order.find().then(products => {
+    
         if (!products) {
           errors = "there are no profile";
           return res.status(400).json(errors)
@@ -298,7 +302,25 @@ res.json(products)
       .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
   });
 
+  // router.post('/deleteOrder',
+  // passport.authenticate('jwt', { session: false }),
+  // (req,res)=>{
+    
+  //   Order.find().then(products => {
+    
+  //     if (!products) {
+  //       errors = "there are no profile";
+  //       return res.status(400).json(errors)
+  //     }
+  // req.user.DeleteOrder(products,req,(prod,err)=>{
 
+  //   prod
+  // })
+
+  //   })
+  //   .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
+
+  // })
 
    router.post('/updatequantity',
    passport.authenticate('jwt', { session: false }),

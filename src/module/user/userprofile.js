@@ -151,6 +151,24 @@ userSchema.methods.addToCart = function(product) {
                       return this.save();
   }
 
+
+
+  // userSchema.methods.DeleteOrder = function(data,user,cb){
+  //   // console.log(data,user)
+  //      data.map((item) => {
+    
+  //         let a = item.products.filter((i) => {
+  //           // console.log((i.product.user.toString()))
+  //           return (i._id.toString() !== user.body.id)
+  //         })
+  //         console.log(a)
+  //         // return item
+  //   return cb(a)
+  //       })
+  //     }
+      
+
+
 module.exports = mongoose.model('users', userSchema);
                     
                     
