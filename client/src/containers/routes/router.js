@@ -44,15 +44,7 @@ function InitializeChat(auth, socket, dispatch) {
       dispatch(SetChatData(chatRooms));
     })
     .catch(err => console.log(err));
-  socket.emit("join", auth.user.id);
-  socket.on("newMessage", (RoomID, message) => {
-    dispatch(AddNewMessage({ RoomID, message }))
-  }
-  );
-  //receive 
-  socket.on("receiveroom", (room) => {
-    dispatch(AddNewRoom(room))
-  });
+ 
 }
 
 
@@ -60,6 +52,15 @@ class Routes extends Component {
   componentDidMount() {
     if (this.props.auth) {
       InitializeChat(this.props.auth, window.socket, this.props.dispatch)
+      socket.emit("join", this.props.auth.user.id);
+      socket.on("newMessage", (RoomID, message) => {
+        this.props.dispatch(AddNewMessage({ RoomID, message }))
+      }
+      );
+      //receive 
+      socket.on("receiveroom", (room) => {
+        this.props.dispatch(AddNewRoom(room))
+      });
 
     }
   }
