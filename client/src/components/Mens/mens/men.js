@@ -5,11 +5,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
-import Fab from '@material-ui/core/Fab';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
- import {getAllMenProduts ,FavouritAdds} from '../../../store/action/products/productaction'
+import {getAllMenProduts ,FavouritAdds} from '../../../store/action/products/productaction'
 import history from '../../history/history'
 import MenCard from '../card/card'
+import Fab from '@material-ui/core/Fab';
  import Fade from 'react-reveal/Fade';
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
@@ -128,12 +128,18 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 </div>
 
 <div className="prduct_info">
+<div  className="name_product">
+  
+  
+<div  ><h2 className="name_category">{item.category.toUpperCase()}
 
-<div  className="name_product"><h2>{item.productname.toUpperCase()}
-{/* <span className="price">${item.price}</span> */}
 </h2>
-
 </div>
+  <h2>{item.productname.toUpperCase()}
+
+</h2>
+</div>
+<div className="dis">{item.category}</div>
 <div className="dis">{item.discription}</div>
 
 </div>
