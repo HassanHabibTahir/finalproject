@@ -11,6 +11,10 @@ const orderSchema = new Schema({
         type: String,
         required: true
       },
+      cellNo: {
+        type:String,
+        required: true,
+      }
     }
   ],
   user: {
@@ -22,7 +26,8 @@ const orderSchema = new Schema({
       type: Schema.Types.ObjectId,
       required: true,
       ref: 'users'
-    }
+    },
+  
   },
   seller:[{
     type: Schema.Types.ObjectId,

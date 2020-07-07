@@ -231,14 +231,15 @@ passport.authenticate('jwt', { session: false }),
   .populate('cart.items.productId')
   .execPopulate()
   .then(user => {
+    console.log(user)
    const ordeProducts = user.cart.items.map( i=>{
-     return {email: req.user.email,quantity: i.quantity, product: { ...i.productId._doc }}
+     return {email: req.user.email, cellNo:req.user.cellNo,quantity: i.quantity, product: { ...i.productId._doc }}
    })
    const order = new Order({
     user: {
       email: req.user.email,
       userId: req.user,
-      
+      cellNo:req.user.cellNo
     },
     products: ordeProducts,
     seller:req.body.id
