@@ -69,8 +69,14 @@
 
     .name_product{
         color: rgb(33, 10, 88);
+        display: flex;
+        justify-content: space-between;
+        /* flex: 1; */
+    padding-right: 50px;
     }
-
+    .name_category{
+        padding-left:50px;
+    }
 
     .top-section {
         text-align: center;

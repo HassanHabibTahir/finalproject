@@ -13,6 +13,8 @@ import Card from '@material-ui/core/Card';
  import history from '../../history/history'
  import {Link} from 'react-router-dom';
 import ChildCard from '../card/card'
+
+ import Fade from 'react-reveal/Fade';
  class Child extends Component {
 
 
@@ -28,9 +30,18 @@ import ChildCard from '../card/card'
     
 
   addToFav=(fav ,auth)=>{
+
     if(!auth.isAuthenticated===false){
-   this.props.FavouritAdds(fav)
+
+      const userFavouritHandler={
+        favpro:fav,
+        auth:auth.user.id
+      }
+       
+   this.props.FavouritAdds(userFavouritHandler,auth)
   //  alert(fav)
+  console.log(fav)
+  // console.log(auth.user.id)
     }
     else{
       history.push('/login')
@@ -73,18 +84,20 @@ console.log(this.props.Products)
 //   fav={item.fav}
 // />
 // )
-return <Card className="main">
+return(
+  <Fade bottom cascade>
+<Card className="main">
 <Fab size="medium" color="secondary" aria-label="add" >
 {item.price}$
       </Fab>
-<FormControlLabel
+      <FormControlLabel
 fontSize="large"
 
 style={{float:"right"}}
-control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
-   
-     />
 
+control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked = {item.fav? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+    
+      />
 
 
 <div className="card_products">
@@ -106,11 +119,19 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 
 <div className="prduct_info">
 
-<div  className="name_product"><h2>{item.productname.toUpperCase()}
-{/* <span className="price">${item.price}</span> */}
-</h2>
+<div  className="name_product">
+  
+  
+<div  ><h2 className="name_category">{item.category.toUpperCase()}
 
+</h2>
 </div>
+  <h2>{item.productname.toUpperCase()}
+
+</h2>
+</div>
+
+
 <div className="dis">{item.discription}</div>
 
 </div>
@@ -121,6 +142,8 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 
               </Card>
  
+ </Fade>
+)
 })
 
 
