@@ -85,38 +85,24 @@ const UpdatadataElemt = (id) => {
 
     <TableRow   key={props.user._id} >
   <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell>
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.name}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.email}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
+  <TableCell  >
+                <img  className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[0]} />
+                <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[1]} />
+                <img className="cart-images" src={"http://localhost:8080/" + props.user.product.imgSrc[2]} />
+                <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[3]} />
+              </TableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.product.productname}</StyledTableCell>
   {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */}
-  <StyledTableCell component="th" scope="row"  >{props.user.email}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
+  <StyledTableCell component="th" scope="row"  >{props.user.product.category}</StyledTableCell>
+  <StyledTableCell component="th" scope="row"  >{props.user.quantity}</StyledTableCell>
+  <StyledTableCell component="th" scope="row"  >{props.user.product.price}$</StyledTableCell>
+  <StyledTableCell component="th" scope="row"  >price*quantity={props.user.product.price*props.user.quantity}$</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
+  <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{!props.user.userCondition?'Admin':props.user.userCondition}</StyledTableCell>
-      {props.user.userCondition==="seller"?<StyledTableCell component="th" scope="row"  >
-  <Checkbox
-                 checked={props.user.isVarified==true?"checked":false}
-                 onChange={()=>{changedElement(props.user._id)}} value={verfiy}
-
-                                />
-    
-    </StyledTableCell>:null}
   
-  <StyledTableCell>
-  <Button
-                                variant="contained"
-                                color="secondary"
-                                onClick={() => {DeleteUser(props.index, props.user._id) }}
-                                startIcon={<DeleteIcon />}
-                            >
-                                Delete
-                            </Button>
-
-  </StyledTableCell>
-  <StyledTableCell> {!props.user.isVarified==true?"user not verified":"user verified  by admin"}</StyledTableCell>
-   {/* <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell> */}
-  
-     
       </TableRow>
     //   </Table>
     // </TableContainer>

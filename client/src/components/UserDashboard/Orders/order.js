@@ -106,15 +106,18 @@ handleChangePage = (event, page) => {
                 <TableHead>
       <TableRow >
       <StyledTableCell   component="th" >SR.NO</StyledTableCell>
-        <StyledTableCell   component="th" >Email</StyledTableCell>
-        <StyledTableCell   component="th" >PhoneNumber</StyledTableCell>
-        <StyledTableCell   component="th" >city</StyledTableCell>
+      <StyledTableCell   component="th" >Email</StyledTableCell>
+      <StyledTableCell   component="th" >PHONE NO</StyledTableCell>
+        <StyledTableCell   component="th" >Product</StyledTableCell>
+        <StyledTableCell   component="th" >Product Name</StyledTableCell>
+        <StyledTableCell   component="th" >Category</StyledTableCell>
+        <StyledTableCell   component="th" >Quantity</StyledTableCell>
+        <StyledTableCell   component="th" >Price</StyledTableCell>
+        <StyledTableCell   component="th" >total</StyledTableCell>
         <StyledTableCell   component="th" >Province</StyledTableCell>
-        <StyledTableCell   component="th" >Adress</StyledTableCell>
-        <StyledTableCell   component="th" >user Type</StyledTableCell>
-        <StyledTableCell   component="th" >Verification</StyledTableCell>
-        <StyledTableCell   component="th" >Delete User</StyledTableCell>
-        <StyledTableCell   component="th" >verification by Admin</StyledTableCell>
+        <StyledTableCell   component="th" >city</StyledTableCell>
+        <StyledTableCell   component="th" >address</StyledTableCell>
+       
        
       </TableRow>
   </TableHead>

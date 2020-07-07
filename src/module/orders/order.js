@@ -14,7 +14,21 @@ const orderSchema = new Schema({
       cellNo: {
         type:String,
         required: true,
-      }
+      },
+      address: {
+
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    province: {
+        type:String,
+        required:true
+
+    },
     }
   ],
   user: {

@@ -233,13 +233,18 @@ passport.authenticate('jwt', { session: false }),
   .then(user => {
     console.log(user)
    const ordeProducts = user.cart.items.map( i=>{
-     return {email: req.user.email, cellNo:req.user.cellNo,quantity: i.quantity, product: { ...i.productId._doc }}
+     return {email: req.user.email,
+       cellNo:req.user.cellNo,
+       address: req.user.address,
+       city: req.user.city,
+       province: req.user.province,
+       quantity: i.quantity, product: { ...i.productId._doc }}
    })
    const order = new Order({
     user: {
       email: req.user.email,
       userId: req.user,
-      cellNo:req.user.cellNo
+      // cellNo:req.user.cellNo
     },
     products: ordeProducts,
     seller:req.body.id

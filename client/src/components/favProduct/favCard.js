@@ -7,9 +7,14 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {FavouritAdds} from '../../store/action/products/productaction'
-import './favCard.css'
+
+import Fab from '@material-ui/core/Fab';
+ import Fade from 'react-reveal/Fade';
+
+
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
+import './favCard.css'
  class FavCard extends Component {
     
     addToFav=(fav,auth)=>{
@@ -24,58 +29,120 @@ import {Link} from 'react-router-dom';
 
        }
     
+
+
+       changedData=(i,img)=>{
+        // console.log(i)
+        // const index = this.target.valaue
+        // console.log(index)
+        // .imageContainer.src
+        const containerSrc = this.refs[i].src
+          
+        console.log("this is second",containerSrc)
+        this.refs[i].src="http://localhost:8080/"+img
+        // console.log(img) 
+          }
+        
+
+
     render() {
         const {fCard,index}= this.props
         console.log(fCard)
 
 
-
+        let id=fCard._id
        
         return (
-            <div  >
-            <Card className="main">
 
-            <FormControlLabel
+          <Fade bottom cascade>
+          <Card className="main">
+           <Fab size="medium" color="secondary" aria-label="add" >
+          {fCard.price}$
+                 </Fab>
+             <FormControlLabel
             fontSize="large"
             
             style={{float:"right"}}
             control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard,this.props.auth)}} checked = 'true'  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
                 
                   />
+          
+          
+          
+          <div className="card_products">
+            {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
+          
+          <div className="top-section">
+                                                                      
+          
+             <center> <Link  to={`productitems/${fCard._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></Link></center>
+          
+          <div className="nav">
+          
+          <img    onClick={()=>{this.changedData( fCard._id  ,fCard.imgSrc[0])}} ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[0]}/>
+          <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard.imgSrc[1]}/>
+          <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[2]}/>
+          <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[3]}/>
+          
+          </div>
+          
+          <div className="prduct_info">
+          
+          <div  className="name_product"><h2>{fCard.productname.toUpperCase()}
+          {/* <span className="price">${item.price}</span> */}
+          </h2>
+          
+          </div>
+          <div className="dis">{fCard.discription}</div>
+          
+          </div>
+          </div>
+          
+          
+          </div>
+          
+                         </Card>
+                         </Fade>
+
+
+
+            // <div  >
+            // <Card className="main">
+
+            // <FormControlLabel
+            // fontSize="large"
+            
+            // style={{float:"right"}}
+            // control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard,this.props.auth)}} checked = 'true'  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+                
+            //       />
             
             
             
-            <div className="card_products">
-              {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
+            // <div className="card_products">
             
-            <div className="top-section">
+            
+            // <div className="top-section">
               
-               <center>><img  className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></center>
+            //    <center>><img  className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></center>
+            
+     
+            
+            // <div className="product_info">
+            
+            // <div  className="name_product"><h2>{fCard.productname.toUpperCase()}<span className="price">${fCard.price}</span></h2>
+            
+            // </div>
+            // <div className="dis">{fCard.discription}</div>
+            
+            // </div>
+            // </div>
             
             
-            {/* <div className="nav"> */}
+            // </div>
             
-            {/* <img src={"http://localhost:8080/"+item.imgSrc[1]}/>
-            <img src={"http://localhost:8080/"+item.imgSrc[2]}/>
-            <img src={"http://localhost:8080/"+item.imgSrc[3]}/> */}
-            
-            {/* </div> */}
-            
-            <div className="product_info">
-            
-            <div  className="name_product"><h2>{fCard.productname.toUpperCase()}<span className="price">${fCard.price}</span></h2>
-            
-            </div>
-            <div className="dis">{fCard.discription}</div>
-            
-            </div>
-            </div>
-            
-            
-            </div>
-            
-                           </Card>
-                           </div>
+            //                </Card>
+            //                </div>
         )
     }
 }
