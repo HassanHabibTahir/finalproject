@@ -56,23 +56,23 @@ class Header extends Component {
 {/* onMouseOver={this.hoverEffects */}
 <li className="header_nav" ><Link to="/product/mens">MENs</Link>
 <ul className="list_show">
-<li  ><Link to="/shirt" >Shirt</Link></li>
-<li><Link to="/pent"  >Pents</Link></li>
-<li><Link to="/jeans"  >Jeans</Link></li>
+<li  ><Link to="/men/shirt" >Shirt</Link></li>
+<li><Link to="/men/pent"  >Pents</Link></li>
+<li><Link to="/men/jeans"  >Jeans</Link></li>
 </ul>
 </li>
 <li className="header_nav"  ><Link to="/product/child">CHILD</Link>
 <ul className="list_show">
-<li  ><Link to="/shirt" >Shirt</Link></li>
-<li><Link to="/pent"  >Pents</Link></li>
-<li><Link to="/jeans"  >Jeans</Link></li>
+<li  ><Link to="/women/shirt" >Shirt</Link></li>
+<li><Link to="/women/pent"  >Pents</Link></li>
+<li><Link to="/women/jeans"  >Jeans</Link></li>
 </ul>
 </li>
 <li className="header_nav"    ><Link to="/product/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
 <ul className="list_show">
-<li  ><Link to="/shirt" >Shirt</Link></li>
-<li><Link to="/pent"  >Pents</Link></li>
-<li><Link to="/jeans"  >Jeans</Link></li>
+<li  ><Link to="/child/shirt" >Shirt</Link></li>
+<li><Link to="/child/pent"  >Pents</Link></li>
+<li><Link to="/child/jeans"  >Jeans</Link></li>
 <li><Link href="#"> typse <i className="arow_rotate"   style={{transform: "rotate(-90deg)"}} ><span   >&#11162;</span></i> </Link>
 {/* <ul className="list_show_more" >
 <li><Link href="#"></Link></li>
