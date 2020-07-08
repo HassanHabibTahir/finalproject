@@ -88,19 +88,22 @@ class Routes extends Component {
           </Switch>
 
           <Switch>
-            <Route exact path="/product/mens" component={MEN} />
+            <Route exact path="/product/:category" component={MEN} />
           </Switch>
           <Switch>
-            <Route exact path="/product/child" component={Child} />
+            <Route exact path="/product/:category/:productname" component={MEN} />
           </Switch>
+          {/* <Switch>
+            <Route exact path="/product/child" component={Child} />
+          </Switch> */}
           <Switch>
             <Route exact path="/cartproductItems/loginbycart" component={Login} />
           </Switch>
 
 
-          <Switch>
+          {/* <Switch>
             <Route exact path="/product/women" component={Women} />
-          </Switch>
+          </Switch> */}
           <Switch>
             <Route exact path="/product/productitems/:id" component={Productitem} />
           </Switch>
