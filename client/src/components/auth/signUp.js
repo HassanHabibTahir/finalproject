@@ -83,7 +83,9 @@ class SignUp extends Component {
           province:'',
           checkbox:'',
           emailError:'',
+          cellNumberError:'',
           passwordError:'',
+          
           emailVarified:'',
           loading:false,
           buyer: '',
@@ -151,12 +153,40 @@ class SignUp extends Component {
   
   }
 
+
+
+
+  onBlurNumberHandler=(e)=>{
+    const {cellNo} = this.state;
+    const re = /^[0-9\b]+$/;
+    let result = re.test(cellNo);
+    if (result) {
+      this.setState({cellNumberError:''})
+   }
+   else{
+    this.setState({cellNumberError:"Please use correct Number!"})
+   }
+  }
+
+
+
+
   onBlurPasswordHandler = (e) =>{
     const {password,confirmpassword} = this.state; 
-     if(confirmpassword !== ''){
+    // const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+      //  const  re = /^\w+$/; 
+    if(confirmpassword !== ''){
       if(password !== confirmpassword){
         this.setState({passwordError:'Password does not match to the  confirm password!'})
-      }
+      } 
+    
+      
+      // if(!re.test(password)) {
+      //   this.setState({passwordError:"Error: Username must contain only letters, numbers and underscores!"});
+           
+            
+      // }
+    
       else{
         this.setState({passwordError:''})
       }
@@ -225,8 +255,8 @@ class SignUp extends Component {
   render() {
     
     console.log(this.props.err)
-    const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading} = this.state;
-    const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' || passwordError !== '' || loading; 
+    const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading,userCondition,cellNumberError} = this.state;
+    const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' ||cellNumberError!==''|| passwordError !== '' || loading||userCondition==null; 
       return (
         <div>          <div  style={{marginTop:"10vh"}} >
               <Grid container spacing={8}   > 
@@ -374,7 +404,10 @@ class SignUp extends Component {
                 required={true}
                 placeholder="Mobile No."
                 name="cellNo"
+                FormHelperTextProps={{error:true}}
+                helperText={cellNumberError}
                 onChange={this.onChangeHandler}
+                onBlur={this.onBlurNumberHandler}
                 />
                   </Grid>
 

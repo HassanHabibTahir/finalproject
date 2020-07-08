@@ -144,10 +144,16 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   check
 
 <div className="prduct_info">
 
-<div  className="name_product"><h2>{item.productname.toUpperCase()}
-{/* <span className="price">${item.price}</span> */}
-</h2>
+<div  className="name_product">
+  
+  
+<div  ><h2 className="name_category">{item.category.toUpperCase()}
 
+</h2>
+</div>
+  <h2>{item.productname.toUpperCase()}
+
+</h2>
 </div>
 <div className="dis">{item.discription}</div>
 

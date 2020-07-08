@@ -139,7 +139,7 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 
 </h2>
 </div>
-<div className="dis">{item.category}</div>
+
 <div className="dis">{item.discription}</div>
 
 </div>

@@ -123,6 +123,8 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
 
             </div>
 
+            <div className="prduct_info">
+
             <div  className="name_product">
   
   
@@ -134,6 +136,9 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
   
   </h2>
   </div>
+              <div className="dis">{item.discription}</div>
+
+            </div>
           </div>
 
 
@@ -150,6 +155,7 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}} checked
       <div className="mainvalue" >
 
         {product}
+      
       </div>
     )
   }
