@@ -127,7 +127,7 @@ class MEN extends Component {
               <div className="top-section">
 
 
-                <center> <Link to={`productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item.imgSrc[0]} alt="img1" /></Link></center>
+                <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item.imgSrc[0]} alt="img1" /></Link></center>
 
                 <div className="nav">
 
