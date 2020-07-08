@@ -5,8 +5,8 @@ const crypto = require('crypto')
 // dotenv
 
 require('dotenv').config()
-
-
+//avatar
+const gravatar = require('gravatar');
 // node mailer requred
 const nodemailer = require("nodemailer");
 //bcrypt product
@@ -20,8 +20,7 @@ const router = express.Router();
 const keys = require('../../../config/key');
 //passport
 const passport = require('passport');
-
-
+// paasport .......................................
 //get Token form ./user/token
 const Tokenprofile = require("../../../module/token/token");
 
@@ -51,10 +50,18 @@ router.post('/rejister', (req, res) => {
   //       return res.status(400).json(errors)
   //     }
       // else {
+        const avatar = gravatar.url(req.body.email,{
+          s:'200',//Size
+          r:'pg',//rating
+          d:'mm'//default
+
+          })
+
         const newUser = new Userprofile({
           name: req.body.name,
           email: req.body.email,
           password: req.body.password,
+          avatar,
           // product: req.body.product,
           cellNo:req.body.cellNo,
           address:req.body.address,
@@ -62,6 +69,9 @@ router.post('/rejister', (req, res) => {
           province:req.body.province,
           typeAdmin:false,
           isVarified:null,
+          bankcode:null,
+          bankname:null,
+          accountnumber:null,
           cart: { items: [] },
           userCondition:req.body.userCondition
           // productsId:{}
@@ -291,6 +301,30 @@ router.put("/updateUser/:user_id", function(req,res){
      }
     });
 });
+
+
+//Update bank account
+
+router.put("/sellerDetail", function(req,res){
+  Userprofile.findByIdAndUpdate(req.body.id.id,{$set:{
+    bankcode:req.body.bankcode,
+    bankname:req.body.bankname,
+    accountnumber:req.body.accountnumber,
+    }},
+    (err,user)=>{
+        if(err){
+          console.log(err)
+          
+        }else{
+          console.log(user)
+          res.json(user)
+      
+     }
+    });
+});
+
+
+
 
 //reset pawword
 

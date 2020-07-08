@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
-
+import './product.css'
 export default class Verification extends Component {
     render() {
         return (
-            <div style={{marginTop:"80vh"}}>
-                <h1>you account is under revision</h1>
-            </div>
+            <div>
+             <div className="bg-img">
+  <div className="middle">
+    <h1>YOUR ACCOUNT IS UNDER VERIFICATION</h1>
+ 
+    <p>WAIT FOR IT</p>
+  </div>
+ 
+</div>
+
+     
+        </div>
+           
         )
     }
 }
