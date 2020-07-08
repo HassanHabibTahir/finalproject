@@ -69,9 +69,9 @@ router.post('/rejister', (req, res) => {
           province:req.body.province,
           typeAdmin:false,
           isVarified:null,
-          bankcode:null,
-          bankname:null,
-          accountnumber:null,
+          bankcode:'not yet',
+          bankname:'not yet',
+          accountnumber:'not yet',
           cart: { items: [] },
           userCondition:req.body.userCondition
           // productsId:{}

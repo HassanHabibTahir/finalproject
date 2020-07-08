@@ -31,7 +31,7 @@ console.log("this ",this.props.match.params.id)
             const cartId = {
                 id: id
             }
-
+console.log(cartId)
             this.props.addtoCartValue(cartId)
         }
         else {

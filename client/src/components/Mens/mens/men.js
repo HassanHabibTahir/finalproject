@@ -4,9 +4,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import Hidden from '@material-ui/core/Hidden';
+import Paper from '@material-ui/core/Paper';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { getAllMenProduts, FavouritAdds } from '../../../store/action/products/productaction'
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import history from '../../history/history'
 import MenCard from '../card/card'
 import Fab from '@material-ui/core/Fab';
@@ -15,6 +20,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../mens.css'
 import productitem from '../productItem/productitem';
+import { Grid } from '@material-ui/core';
 
 
 class MEN extends Component {
@@ -105,7 +111,17 @@ class MEN extends Component {
       // )
 
       return (
-        <Fade bottom cascade>
+       <div>
+<div>
+
+
+
+
+
+
+</div>
+
+<Fade bottom cascade>
           <Card className="main">
             <Fab size="medium" color="secondary" aria-label="add" >
               {item.price}$
@@ -161,6 +177,8 @@ class MEN extends Component {
 
           </Card>
         </Fade>
+
+       </div>
       )
 
     })

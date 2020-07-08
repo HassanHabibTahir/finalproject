@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
@@ -23,6 +22,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import LOGIN from '../auth/login';
+import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import history from '../history/history'
 import Map from '../auth/map/mapapi/mapapi';

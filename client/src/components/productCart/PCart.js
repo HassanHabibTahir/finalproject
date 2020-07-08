@@ -85,7 +85,7 @@ this.props.updateCartQuantity(updatequn)
 
     //}
     const data = {
-      // index: i,
+      // index: i,3e
       id: id
   }
         this.props.RemoveCartElement(data)

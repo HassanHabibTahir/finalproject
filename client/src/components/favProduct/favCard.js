@@ -75,7 +75,7 @@ import './favCard.css'
           <div className="top-section">
                                                                       
           
-             <center> <Link  to={`productitems/${fCard._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></Link></center>
+             <center> <Link  to={`/product/productitems/${fCard._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></Link></center>
           
           <div className="nav">
           
