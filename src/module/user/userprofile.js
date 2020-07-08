@@ -49,6 +49,27 @@ const userSchema = new Schema({
       type:String,
       required:true
     },
+    avatar: {
+      type: String,
+      required: true
+  },
+  bankname: {
+    type: String,
+    required: true
+},
+bankcode: {
+    type: String,
+    required: true
+},
+
+accountnumber: {
+    type: String,
+    required: true
+},
+
+
+
+
     // role:{
     //   type:String
     // },

@@ -1,7 +1,7 @@
 import { ADDTOCARTITEMSS, GETCARTPRODUCTS, REMOVECARTPRODUCT, GETORDERS } from '../../action/types/types'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
+import history from '../../../components/history/history'
 let globalKeyWord;
 export const addtoCartValue = (cartId) => dispatch => {
 
@@ -172,12 +172,22 @@ export const GetBuyerOrder = (user) => (dispatch) => {
 }
 
 
-export const DeleteOrder = (id) => (dispatch) => {
-  axios.post('http://localhost:8080/api/product/deleteOrder',id).then((res) => {})
+// export const DeleteOrder = (id) => (dispatch) => {
+//   axios.post('http://localhost:8080/api/product/deleteOrder',id).then((res) => {})
+
+// }
+
+export const SendbanckDetail = (data) => (dispatch) => {
+  history.push('/userNav/setting')
+  axios.put('http://localhost:8080/api/users/sellerDetail',data).then((res) => {
+    toast.success("you accout has been update!");
+console.log(res)
+
+
+  })
+
 
 }
-
-
 
 
 

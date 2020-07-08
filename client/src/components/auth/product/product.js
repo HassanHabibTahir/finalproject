@@ -112,11 +112,12 @@ console.log(fd)
         const {price,discount,productname,discription,category,files} = this.state;
         const isnotValid = price === '' ||discount===''||productname===''||discription===''||category===''||files.length==='';
         return (
-            <div style={{ marginTop: "10vh" }} >
+            <div>
+             {this.props.auth.user.isverified==true?<div style={{ marginTop: "10vh" }} >
                 
                 <Grid item xs={false} sm={4} md={7} />
              
-                {this.props.auth.user.isverified==true?    <Container component="main" maxWidth="md">
+               <Container component="main" maxWidth="md">
                     <Paper  style={{padding:"20px"}} elevation={10} align="center" >
 
                     <div>
@@ -238,8 +239,8 @@ console.log(fd)
                     <option selected value="none">
                     Choose  Category
                     </option>
-                    <option value="gents">
-                    gents
+                    <option value="mens">
+                    mens
                     </option>
                     <option value="WOMEN">
                     WOMEN
@@ -290,10 +291,10 @@ console.log(fd)
                     </Box>
                     </Paper>
   
-                    </Container>:<Verification/>}
+                    </Container>
                     
+            </div>:<Verification/>}
             </div>
-          
             
             )
     }

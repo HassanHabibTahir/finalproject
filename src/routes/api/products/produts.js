@@ -5,6 +5,7 @@ const Product = require('../../../module/products/product');
 const Users  = require('../../../module/user/userprofile');
 const Faourit = require('../../../module/favourit/favritAd')
 const Order = require('../../../module/orders/order')
+const BankModule = require('../../../module/bankacount/bankacount')
 const Productcontroler = require('../../../controler/product')
 const passport = require('passport');
 // var storage = multer.diskStorage({
@@ -343,6 +344,35 @@ res.json(products)
   })
 
 
+//   router.post('/sellerDetail',
+//   passport.authenticate('jwt', { session: false }),
+//   (req,res)=>{
 
+      
+//       const  Account = new BankModule({
+        
+//         bankname:req.body.bankname,
+//         bankcode:req.body.bankcode,
+//         accountnumber:req.body.accountnumber,
+//         userId: req.user,
+//         user:{
+//             userId: req.user,
+//            name:req.user.name,
+//            email: req.user.email,
+//          cellNo:req.user.cellNo,
+//           address: req.user.address,
+//          city: req.user.city,
+//          province: req.user.province,
+//           }
+
+
+
+//       })
+//       Account.save().then((ress)=>{
+//         res.json(ress)
+//       })
+
+// // console.log(req)
+//   })
 
 module.exports = router

@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import {Home,Visibility,Message} from '@material-ui/icons';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
 import Dashboard from '../userDashboard';
@@ -18,7 +19,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Product from '../../auth/product/product';
 import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined';
 import Chat from "../../Chat/chat";
-import Orders from '../Orders/order'
+import Orders from '../Orders/order';
+import Bankaccount from '../bankaccount/bacnkaccount';
 // import {startSendTocken} from '../redux/actions/messageActions';
 
 class UserRoutes extends Component {
@@ -96,18 +98,26 @@ class UserRoutes extends Component {
               icon={<AttachMoneyOutlinedIcon/>}
               
               />
+               <BottomNavigationAction
+                className="buttomNavigation"
+                label="BANK ACCOUNT" 
+                component={Link} to={routes.BANKACCOUNT}
+              icon={<AccountBalanceIcon/>}
+              
+              />
 </BottomNavigation>
 
         </Paper>
 
         </Hidden>
-          
+     
         {/* <Paper className="marginTop" style={{borderRadius:'0'}} elevation={5}> */}
                         
-        <Route exact path={routes.USERPRODUCT} component={() => <Dashboard />}/>
+            <Route exact path={routes.USERPRODUCT} component={() => <Dashboard />}/>
             <Route exact path={routes.CHAT} component={() =><Chat />}/>
             <Route exact path={routes.ADDPRODUCT} component={() =>< Product />}/>  
             <Route exact path={routes.ORDER} component={() =>< Orders />}/>  
+            <Route exact path = {routes.BANKACCOUNT} component={()=><Bankaccount/>}/>
         {/* </Paper> */}
           
         {/* </Grid> */}
