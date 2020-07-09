@@ -19,6 +19,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link,withRouter} from 'react-router-dom';
 import {buyergetallbuy} from "../../store/action/buyer/buyeraction"
+import BuyetOrders from "./BuerOrder"
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -128,8 +129,8 @@ handleChangePage = (event, page) => {
    buyerorder.length>0 ?
         buyerorder.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
          .map((order,i) => 
-          console.log(order)
-        //  <Orders key={i} user={users} index={i}  TableStyle={StyledTableCell} />
+        //  console.log()
+         <BuyetOrders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
           
         )
       :<img alt=""/> 

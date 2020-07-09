@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
+// import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import { useDispatch  } from "react-redux";
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -39,32 +39,32 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomizedTables(props) {
+export default function BuyetOrders(props) {
 
-const [verfiy , isVarified]= useState(false)
+// const [verfiy , isVarified]= useState(false)
 
-  const classes = useStyles();
-  const dispatch = useDispatch();
+//   const classes = useStyles();
+//   const dispatch = useDispatch();
 
-  // const changedElement=(id)=>{
-  //  isVarified(!verfiy)
-  //  UpdatadataElemt(id)
+//   const changedElement=(id)=>{
+//    isVarified(!verfiy)
+//    UpdatadataElemt(id)
    
-  // }
+//   }
 
 
 
-  //  const DeleteUser = (i, id) => {
+//    const DeleteUser = (i, id) => {
 
-  //       console.log(i, id)
-  //       const data = {
-  //           index: i,
-  //           id: id
-  //       }
+//         console.log(i, id)
+//         const data = {
+//             index: i,
+//             id: id
+//         }
 
-  //       dispatch(DeleteUserprofile(data))
+//         dispatch(DeleteUserprofile(data))
 
-  //   }
+//     }
 
 
 // const UpdatadataElemt = (id) => {
@@ -78,14 +78,29 @@ const [verfiy , isVarified]= useState(false)
 //     }
 // console.log(verfiy)
 // console.log(props.user)
+let a =props.orders.products.map((item)=>{
+    console.log(item)
+return <h1>{item.email}</h1>
+})
+// let c = []
+// let b = a.map((ite)=>{
+//     return c.concat(ite)
+// })
+// let items 
+// let b = a.map((i)=>{
+//     items =i.reduce((r, e) => (r.push(...e), r), [])
+// })
 
+// console.log(items)
+// let items= b.reduce((r, e) => (r.push(...e), r), [])
+// console.log(items)
   return (
     // <TableContainer component={Paper}>
     //   <Table   size="large"  className={classes.table} aria-label="customized table">
 
-    <TableRow   key={props.user._id} >
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell>
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.email}</StyledTableCell>
+    <TableRow   key={props.orders._id} >
+  <StyledTableCell size="large"    component="th" scope="row"  >{a}</StyledTableCell>
+  {/* <StyledTableCell size="large"    component="th" scope="row"  >{props.user.email}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
   <TableCell  >
                 <img  className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[0]} />
@@ -95,13 +110,13 @@ const [verfiy , isVarified]= useState(false)
               </TableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{props.user.product.productname}</StyledTableCell>
   {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */}
-  <StyledTableCell component="th" scope="row"  >{props.user.product.category}</StyledTableCell>
+  {/* <StyledTableCell component="th" scope="row"  >{props.user.product.category}</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >{props.user.quantity}</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >{props.user.product.price}$</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >price*quantity={props.user.product.price*props.user.quantity}$</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
   <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell>
+  <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell> */} 
   
       </TableRow>
     //   </Table>
