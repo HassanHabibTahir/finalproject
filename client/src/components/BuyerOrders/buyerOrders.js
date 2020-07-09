@@ -18,7 +18,7 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link,withRouter} from 'react-router-dom';
-import {buyergethisOrdre} from "../../store/"
+import {buyergetallbuy} from "../../store/action/buyer/buyeraction"
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -60,8 +60,20 @@ class Buyer extends Component {
       
 componentDidMount(){
     document.title = "GetOrders";
-    // this.props.buyergethisOrdre()
+    this.props.buyergetallbuy()
 }
+
+
+
+componentWillReceiveProps(nextProps){
+
+  console.log("",nextProps.buyerorders)
+  this.setState({
+    buyerorder:nextProps.buyerorders
+  })
+  
+}
+
 
 handleChangePage = (event, page) => {
     this.setState({page});
@@ -72,8 +84,9 @@ handleChangePage = (event, page) => {
   };
 
     render() {
-        const classes = useStyles;
+
         const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
+        console.log(buyerorder)
       return (
             <div>
           
@@ -110,16 +123,18 @@ handleChangePage = (event, page) => {
 
 
   <TableBody>
-  {/* <TableRow> */}
-  {buyerorder.length>0 ?
-          buyerorder.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((order,i) => 
-          console.log("here oredrs",order)
-        //   <Orders key={i} user={users} index={i}  TableStyle={StyledTableCell} />
+
+   {   
+   buyerorder.length>0 ?
+        buyerorder.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+         .map((order,i) => 
+          console.log(order)
+        //  <Orders key={i} user={users} index={i}  TableStyle={StyledTableCell} />
           
-          )
-          :<img alt=""/> }
-{/* </TableRow> */}
+        )
+      :<img alt=""/> 
+      }
+
   </TableBody>
                 <TableFooter>
                   <TableRow>
@@ -154,10 +169,10 @@ handleChangePage = (event, page) => {
 
 const mapStateToProps = state => ({
     auth:state.auth,
-    orders:state.orders
+    buyerorders:state.buyerOrder.buyerprdouct
   })
 
 //   buyergethisOrdre
-export default withRouter(connect(mapStateToProps,{})(Buyer));
+export default connect(mapStateToProps,{buyergetallbuy})(Buyer);
 
 

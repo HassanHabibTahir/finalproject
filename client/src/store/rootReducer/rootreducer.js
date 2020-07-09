@@ -11,6 +11,7 @@ import  FavouritProducts from '../raducers/favproducts/favProducts'
 import serchProducts from '../raducers/searchProduct/searchProduct'
 import ChatReducer from '../raducers/ChatReducer/ChatReducer'
 import order from '../raducers/order/order'
+import buyerOrder from '../raducers/buyer/buyerorders'
 const rootReducer = combineReducers({
     erorr:errors,
     auth:Auth,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
     favproduct:FavouritProducts,
     SERCHPRODUCT:serchProducts,
     ChatReducer:ChatReducer,
-    orders:order
+    orders:order,
+    buyerOrder:buyerOrder
 })
 export default rootReducer;

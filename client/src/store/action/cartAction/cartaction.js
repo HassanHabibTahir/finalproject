@@ -193,17 +193,6 @@ console.log(res)
 
 
 
-export const buyergethisOrdre = () => (dispatch) => {
-  history.push('/userNav/setting')
-  axios.get('http://localhost:8080/api/product/getBuyerOrders').then((res) => {
-  
-console.log(res)
-
-
-  })
-
-
-}
 
 
 
