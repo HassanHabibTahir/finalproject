@@ -13,6 +13,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ToolBar from '../../auth/toobar/tolbar';
 import {getCartProductbyId} from '../../../store/action/cartAction/cartaction'
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // import $ from 'jquery'
 import Aux from '../../../hoc/hoc';
 import { connect } from 'react-redux'; 
@@ -90,13 +91,13 @@ class Header extends Component {
         )
 
 
-const adminLinks=(
-    <div  > 
-    <Link to="/admin" ><img src="https://img.icons8.com/ultraviolet/40/000000/data-configuration.png"/></Link>
+// const adminLinks=(
+//     <div  > 
+//     <Link to="/admin" ><img src="https://img.icons8.com/ultraviolet/40/000000/data-configuration.png"/></Link>
 
-    </div>
+//     </div>
 
-    )
+//     )
 
 
         return (
@@ -109,7 +110,7 @@ const adminLinks=(
 {/* <div className="spacer"></div> */}
 <div style={{width:"10vw"}}></div>
 <div className="toolbar_navigation_items" >
-{this.props.auth.user.Admin?adminLinks:list}
+{this.props.auth.user.Admin?null:list}
 
 </div>
 {/* <div style={{width:"20vw"}}></div> */}
@@ -127,13 +128,15 @@ const adminLinks=(
               </IconButton>
               </Link> 
    </div>}
-   <div>
+  { this.props.auth.user.Admin?
+  <Link to="/admin"  >< AccountCircleIcon fontSize="large" style={{color:"white"}} /></Link>
+  :<div>
    {/* <div style={{width:"5vw"}}></div> */}
 {/* <div className="spacer"></div> */}
    {/* <div style={{width:"5vw"}}></div> */}
-<Link to="/favourint"  >  <FavoriteIcon  className="fave_icon" fontSize="large" color="red" />
+<Link to="/favourint"  >  <FavoriteIcon  className="fave_icon" fontSize="large"  />
   </Link>
-  </div>
+  </div>}
 <div  ><ToolBar/></div>
 </nav>
 

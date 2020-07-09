@@ -293,10 +293,7 @@ passport.authenticate('jwt', { session: false }),
 
   router.get('/getOrders',
   // passport.authenticate('jwt', { session: false }),
-
-
-
-  (req, res) => {
+(req, res) => {
     Order.find().then(products => {
     
         if (!products) {
@@ -308,6 +305,22 @@ res.json(products)
       })
       .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
   });
+
+
+  
+router.get('/getBuyerOrders',
+passport.authenticate('jwt', { session: false })
+,(req,res)=>{
+Order.find({'user.userId':req.user.id})
+.then((orders)=>{
+  res.json(orders)
+})
+
+})
+
+
+
+
 
   // router.post('/deleteOrder',
   // passport.authenticate('jwt', { session: false }),
@@ -344,35 +357,6 @@ res.json(products)
   })
 
 
-//   router.post('/sellerDetail',
-//   passport.authenticate('jwt', { session: false }),
-//   (req,res)=>{
 
-      
-//       const  Account = new BankModule({
-        
-//         bankname:req.body.bankname,
-//         bankcode:req.body.bankcode,
-//         accountnumber:req.body.accountnumber,
-//         userId: req.user,
-//         user:{
-//             userId: req.user,
-//            name:req.user.name,
-//            email: req.user.email,
-//          cellNo:req.user.cellNo,
-//           address: req.user.address,
-//          city: req.user.city,
-//          province: req.user.province,
-//           }
-
-
-
-//       })
-//       Account.save().then((ress)=>{
-//         res.json(ress)
-//       })
-
-// // console.log(req)
-//   })
 
 module.exports = router

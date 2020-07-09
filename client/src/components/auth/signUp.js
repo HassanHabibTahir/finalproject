@@ -259,7 +259,7 @@ class SignUp extends Component {
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' ||cellNumberError!==''|| passwordError !== '' || loading||userCondition==null; 
       return (
         <div>          <div  style={{marginTop:"10vh"}} >
-              <Grid container spacing={8}   > 
+              <Grid container   > 
               <Hidden smDown>
               <Grid item xs={4} md={3}> 
               </Grid>

@@ -2,15 +2,18 @@
 .product-item{
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content: center;
+align-items: center;
     }
 
 .container_product{
 background-color: #F8F8F8;
-margin-top: 7vh;
-padding: 100px;
+/* margin-top: 7vh; */
+/* padding: 100px; */
 /* display: flex;
 flex-wrap: wrap; */
+/* justify-content: center;
+align-items: center; */
 }
 
 .item-slider{
@@ -21,9 +24,8 @@ background-color: white;
 }
 
 
-
 @media (min-width: 500px) and (min-height: 600px) {
-    .item-card {
+    .big-card .item-card img{
         width: 100px; 
         height: 10vh
     }
@@ -34,7 +36,7 @@ background-color: white;
 }
 
 @media (min-width: 500px) and (min-height: 401px) {
-    .item-card{
+    .big-card .item-card img{
         width: 400px;
         height: 20vh;
     }
@@ -42,13 +44,13 @@ background-color: white;
 } 
 
 @media (min-width: 1000px) and (min-height: 700px) {
-    .item-card{
+    .big-card .item-card img{
         width: 500px; 
         height: 10vh
     }
 
 
-}
+} 
 
 
 
@@ -63,27 +65,29 @@ background-color: white;
 
 
 .slide-item{
-    /* height: 20vh; */
-    /* margin: 10px; */
-    /* padding: 20px; */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 10vw;
 }
 
 .slide-item img{
-    width: 200px;
-    height: 200px;
+    width: 10vw;
 }
 .categ-info{
     width: 100vw;
     background-color: red;
 }
 .big-card .item-card{
-width: 40vw;
-height: 70vh;
+width: 100%;
+height:auto;
+border: 1px solid #ddd;
+border-radius: 4px;
 }
 
 .big-card .item-card img{
-    width: 40vw;
-    height: 70vh;
+    width: 60vw;
+    height: 80vh;
     }
 
 .space-between{
@@ -91,7 +95,7 @@ height: 70vh;
 }
 
 .product_infomation{
-    width: 30vw;
+    width: 70vw;
     height: 70vh;
     /* background-color: white; */
 
@@ -110,7 +114,7 @@ height: 70vh;
     text-align:  center ;
 }
 .product_price{
-    font-size: 40px;
+    
     line-height: 1.1;
     letter-spacing: 2.8px;
     font-weight: 900;
@@ -119,14 +123,14 @@ height: 70vh;
     letter-spacing: 2px;
 }
 .pr-discription{
-    width: 30vw;
+    width: 70vw;
     height: 20vh;
     background-color: white;
 
 }
 .pr-price {
     width: 30vw;
-    height: 5vh;
+    height: 15vh;
     background-color: white;
     text-transform: uppercase;
 }

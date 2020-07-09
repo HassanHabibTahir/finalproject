@@ -158,7 +158,7 @@ class Login extends Component {
         return (
             <div>         
                    <div style={{marginTop:"10vh"}}>
-                <Grid container spacing={8}>
+                <Grid container >
                     <Hidden smDown>
                         <Grid item xs={4} md={4}></Grid>
                     </Hidden>

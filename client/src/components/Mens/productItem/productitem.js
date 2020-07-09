@@ -91,16 +91,21 @@ componentWillReceiveProps(nexprops){
                     <div className="product_infomation" >
 
                         <div className="pr-discription"  >
+                            <h1 className="product_description" >Descriptio</h1>
                             <h1 className="product_description">   {item.discription}</h1>
                         </div>
                         <br />
                         <br />
-                        <div className="pr-price">   <h1 className="product_price" > <span className="price-text" >price</span> {item.price}$  </h1></div>
+                        {/* <div className="pr-price">   </div> */}
                         <br />
                         <br />
-                        <div className="Deliverd"><h3 className="delivery-product" > Product Delikver after  the  complete satisfaction  </h3></div>
+                        <div className="Deliverd"><h3 className="delivery-product" >
+                        <h1 className="product_price" > <span className="price-text" >price</span> {item.price}$  </h1>
+                             Product Delikver after  the  complete satisfaction  </h3></div>
                         <br />
                         <div className="addto_cart" ><Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary" onClick={() => this.addProductinCart(item._id, this.props.auth)}   >ADD TO CART</Button></div>
+                       <br/>
+                        <Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary"  onClick={e=>handleChat(true)} >chat with us</Button>
                     </div>
 
 
@@ -134,7 +139,7 @@ componentWillReceiveProps(nexprops){
         return (
             <div className="container_product" >
                 {Images}
-                <button onClick={e=>handleChat(true)} >chat with us</button>
+   
                 {
                     this.state.chatPopUp&&
                     <ChatPopUp handleChatPopUp={handleChat} users={[this.props.auth?.user?.id,this.props.SingleProduct.ItemProduct[0]?.user]}/>

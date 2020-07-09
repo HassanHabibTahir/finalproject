@@ -202,7 +202,7 @@ Tokenprofile.findOne({
       .then((isMatch) => {
         if (isMatch) {
 
-          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified ,userCondition:user.userCondition}
+          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified ,userCondition:user.userCondition,avatar:user.avatar}
           //using token
           jwt.sign(payload,
             keys.secretOrkey,

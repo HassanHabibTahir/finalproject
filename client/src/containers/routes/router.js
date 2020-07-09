@@ -33,7 +33,7 @@ import Axios from 'axios';
 import { SetChatData, AddNewMessage, AddNewRoom } from '../../store/action/ChatActions/ChatActions';
 import Chat from "../../components/Chat/chat";
 import UserRoutes from "../../components/UserDashboard/userNave/userNave" 
-
+import BuyerOrder from './../../components/BuyerOrders/buyerOrders'
 const socket = io(window.location.origin);
 window.socket = socket;
 
@@ -82,7 +82,7 @@ class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/:token" component={Login} />
           <Route exact path="/getEmail/forgot" component={resetEmail} />
-          <Route exact path="/chat" component={Chat} />
+          {/* <Route exact path="/chat" component={Chat} /> */}
           <Switch>
             <Route exact path="/reset/:token" component={Resetpassword} />
           </Switch>
@@ -137,6 +137,10 @@ class Routes extends Component {
           <ProvatieRoutes path="/userproduct" exact component={UserRoutes} />
         </Switch>
 
+
+        {/* <Switch>
+            <Route exact path="/buyer/orders/getorder" component={BuyerOrder} />
+          </Switch> */}
         {/* <Switch>
           <Redirect to="/" />
         </Switch> */}

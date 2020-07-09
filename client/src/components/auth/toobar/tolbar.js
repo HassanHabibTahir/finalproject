@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
@@ -16,15 +16,42 @@ import ArtTrackOutlinedIcon from '@material-ui/icons/ArtTrackOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LockIcon from '@material-ui/icons/Lock';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
+
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import './toolbar.css'
 import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/EnhancedEncryptionOutlined';
 import Logout from '../../../store/action/logout/logout'
 import { connect } from 'react-redux'; 
+import Avatar from '@material-ui/core/Avatar';
 import Aux from '../../../hoc/hoc'
 import {
    
     Link
   } from "react-router-dom";
+
+
+
+  const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+    small: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
+    large: {
+      width: theme.spacing(7),
+      height: theme.spacing(7),
+    },
+  }),
+);
+
 class ToolBar extends React.Component {
    constructor(props){
        super(props)
@@ -73,7 +100,7 @@ class ToolBar extends React.Component {
 
 
     render() {
-
+        const classes = useStyles;
         const {isAuthenticated}= this.props.auth
         
 
@@ -81,12 +108,21 @@ class ToolBar extends React.Component {
 
         const LogoutAdmain=(
             <div>
-            
-            <div><img  src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
+      <p>      
+        <Button>
+        <Avatar  src={this.props.auth.user.avatar} alt="Remy Sharp"   className={classes.large} /><span  >{this.props.auth.user.name}</span>
+            </Button> 
+            </p>
+
+            <p> 
+                    <Button onClick={this.handleClose} ><Link to="/admin" >
+        <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />Go admin page</Button></Link></Button></p>
                 <p><Button 
                 onClick={this.onLogoutClick}>
-                   <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/>
+                
+                <ExitToAppIcon fontSize="large"  style={{color:"#020D75"}} />
                     logout</Button></p>
+                   
             </div>
             )
             
@@ -95,33 +131,38 @@ class ToolBar extends React.Component {
 const Logout=(
 <div>
 
-<div><img  src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
-   
+<Button><Avatar  src={this.props.auth.user.avatar} alt="Remy Sharp" /><span  >{this.props.auth.user.name}</span></Button>
+   <br/>
 {/* {this.props.auth.user.Admin===false?<Button onClick={this.handleClose} ><Link to="/addProduct" ><img src="https://img.icons8.com/nolan/64/edit-property.png"/> InsertProduct</Link></Button>:null} */}
-{this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="seller"?<Button onClick={this.handleClose} ><Link to="/userNav/setting" ><img src="https://img.icons8.com/ultraviolet/40/000000/user-male.png"/>SELLER DASHBOARD</Link></Button>:null}
+{this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="seller"?<Button onClick={this.handleClose} ><Link to="/userNav/setting" >
+ <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />SELLER DASHBOARD</Button></Link></Button>:null}
+{/* 
+{this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="buyer"?<Button onClick={this.handleClose} ><Link to="/buyer/orders/getorder" >
+ <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />BUYER ORDERS</Button></Link></Button>:null} */}
+
 <p><Button 
     onClick={this.onLogoutClick}>
-       <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/>
+            <ExitToAppIcon fontSize="large"  style={{color:"#020D75"}} />
+       {/* <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/> */}
         logout</Button></p>
 </div>
-)
+)  
 
         const loginFirtst=(
 <div className="auth" >
           <div className="aut_svg" >  
-          <h1>SignUp here</h1>    
       <MenuItem  onClick={this.handleClose}>
-     <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon/></span> <Button  type="button">
+     <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon fontSize="large"  /></span> <Button  type="button">
      SignUp
 </Button></Link></MenuItem> 
-<MenuItem  onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
+<MenuItem  onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon fontSize="large"  /></span><Button>Login</Button></Link></MenuItem> 
     
  </div>
           </div>
 
 
         )
-
+console.log(this.props.auth.user.avatar)
         return (
             <Aux>
             <div>
