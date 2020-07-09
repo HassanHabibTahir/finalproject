@@ -136,9 +136,9 @@ const Logout=(
 {/* {this.props.auth.user.Admin===false?<Button onClick={this.handleClose} ><Link to="/addProduct" ><img src="https://img.icons8.com/nolan/64/edit-property.png"/> InsertProduct</Link></Button>:null} */}
 {this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="seller"?<Button onClick={this.handleClose} ><Link to="/userNav/setting" >
  <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />SELLER DASHBOARD</Button></Link></Button>:null}
-{/* 
+
 {this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="buyer"?<Button onClick={this.handleClose} ><Link to="/buyer/orders/getorder" >
- <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />BUYER ORDERS</Button></Link></Button>:null} */}
+ <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />BUYER ORDERS</Button></Link></Button>:null}
 
 <p><Button 
     onClick={this.onLogoutClick}>

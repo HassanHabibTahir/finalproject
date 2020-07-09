@@ -138,9 +138,9 @@ class Routes extends Component {
         </Switch>
 
 
-        {/* <Switch>
-            <Route exact path="/buyer/orders/getorder" component={BuyerOrder} />
-          </Switch> */}
+      <Switch>
+            <ProvatieRoutes  path="/buyer/orders/getorder"  exact component={()=><BuyerOrder/>} />
+          </Switch> 
         {/* <Switch>
           <Redirect to="/" />
         </Switch> */}

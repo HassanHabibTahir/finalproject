@@ -18,7 +18,7 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link,withRouter} from 'react-router-dom';
-import {buyergethisOrdre} from "../../store/action/cartAction/cartaction"
+import {buyergethisOrdre} from "../../store/"
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -46,12 +46,12 @@ const useStyles = makeStyles({
   },
 });
 
-class BuyerOrder extends Component {
+class Buyer extends Component {
     constructor(props) {
         super(props)
         this.state={
          ads:[],
-         data:[],     
+         buyerorder:[],     
          page: 0,
          rowsPerPage: 8,
          adsViewOf:true
@@ -60,15 +60,7 @@ class BuyerOrder extends Component {
       
 componentDidMount(){
     document.title = "GetOrders";
-    this.props.buyergethisOrdre()
-}
-
-componentWillReceiveProps(nextProps) {
-  
-    // console.log("1",nextProps.orders.orders)
-  this.setState({
-      data:nextProps.orders.orders
-  })
+    // this.props.buyergethisOrdre()
 }
 
 handleChangePage = (event, page) => {
@@ -78,16 +70,10 @@ handleChangePage = (event, page) => {
   handleChangeRowsPerPage = event => {
     this.setState({rowsPerPage: event.target.value});
   };
-// DeleteteOrder=(item)=>{
-//    const id = {
-//        id:item._id
-//    }
-// //    console.log(id)
-// this.props.DeleteOrder(id)
-// }
+
     render() {
         const classes = useStyles;
-        const {data, rowsPerPage, page,adsViewOf} = this.state;
+        const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
       return (
             <div>
           
@@ -125,10 +111,10 @@ handleChangePage = (event, page) => {
 
   <TableBody>
   {/* <TableRow> */}
-  {data.length>0 ?
-          data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((users,i) => 
-          console.log("here oredrs",users)
+  {buyerorder.length>0 ?
+          buyerorder.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((order,i) => 
+          console.log("here oredrs",order)
         //   <Orders key={i} user={users} index={i}  TableStyle={StyledTableCell} />
           
           )
@@ -139,7 +125,7 @@ handleChangePage = (event, page) => {
                   <TableRow>
                     <TablePagination
                       // colSpan={2}
-                      count={data.length}
+                      count={buyerorder.length}
                       rowsPerPage={rowsPerPage}
                       page={page}
                       labelDisplayedRows={() => ""}
@@ -171,7 +157,7 @@ const mapStateToProps = state => ({
     orders:state.orders
   })
 
-
-export default withRouter(connect(mapStateToProps,{buyergethisOrdre})(BuyerOrder));
+//   buyergethisOrdre
+export default withRouter(connect(mapStateToProps,{})(Buyer));
 
 
