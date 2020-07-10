@@ -264,7 +264,15 @@ router.get(
   }
 );
 
+//get Unique User
 
+router.post('/getSellerUnicount',(req,res)=>{
+console.log(req.body.id.ids)
+  Userprofile.findById(req.body.id.ids).then((specificuser)=>{
+    res.json(specificuser)
+  })
+
+})
 
 
 
@@ -282,6 +290,9 @@ passport.authenticate('jwt', { session: false })
  
 
 })
+
+
+
 
 //MODIFICATION USRES
 

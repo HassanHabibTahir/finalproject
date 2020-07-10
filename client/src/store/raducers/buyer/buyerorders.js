@@ -1,9 +1,11 @@
-import {BUYERORDERSDATA} from '../../action/types/types'
+import {BUYERORDERSDATA,SELLERINFORMATION} from '../../action/types/types'
+import { act } from 'react-dom/test-utils'
 
 
 const intialState = {
     buyer:"BUYORDERS",
-    buyerprdouct:[]
+    buyerprdouct:[],
+    SELLERINFO:''
 }
 
 export default function ( state=intialState, action ) {
@@ -17,13 +19,16 @@ export default function ( state=intialState, action ) {
     
         case BUYERORDERSDATA:
     
-            console.log(action.payload)
                      return({
                       ...newState,
                       buyerprdouct:action.payload
              
                      })
-
+case SELLERINFORMATION:
+    return({
+        ...newState,
+        SELLERINFO:action.payload
+    })
 
             default:
                 return newState

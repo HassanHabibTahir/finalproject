@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import {Link,withRouter} from 'react-router-dom';
 // import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import { useDispatch  } from "react-redux";
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -78,10 +79,23 @@ export default function BuyetOrders(props) {
 //     }
 // console.log(verfiy)
 // console.log(props.user)
+let x=[]
 let a =props.orders.products.map((item)=>{
-    console.log(item)
-return <h1>{item.email}</h1>
+// console.log(item)
+return(
+  <TableRow >
+  <StyledTableCell size="large"    component="th" scope="row"  >{item.product.productname}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{item.quantity}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{item.product.category}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{item.product.price}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  >{item.product.user.toString()}</StyledTableCell>
+  <StyledTableCell size="large"    component="th" scope="row"  ><Link to={`/selleracount/${item.product.user}`} >GET SELLER INFORMATION</Link>
+ </StyledTableCell>
+  
+    </TableRow>
+)
 })
+console.log(x)
 // let c = []
 // let b = a.map((ite)=>{
 //     return c.concat(ite)
@@ -94,33 +108,57 @@ return <h1>{item.email}</h1>
 // console.log(items)
 // let items= b.reduce((r, e) => (r.push(...e), r), [])
 // console.log(items)
-  return (
-    // <TableContainer component={Paper}>
-    //   <Table   size="large"  className={classes.table} aria-label="customized table">
 
-    <TableRow   key={props.orders._id} >
-  <StyledTableCell size="large"    component="th" scope="row"  >{a}</StyledTableCell>
-  {/* <StyledTableCell size="large"    component="th" scope="row"  >{props.user.email}</StyledTableCell>
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
-  <TableCell  >
-                <img  className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[0]} />
-                <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[1]} />
-                <img className="cart-images" src={"http://localhost:8080/" + props.user.product.imgSrc[2]} />
-                <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[3]} />
-              </TableCell>
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.product.productname}</StyledTableCell>
-  {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */}
-  {/* <StyledTableCell component="th" scope="row"  >{props.user.product.category}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.quantity}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.product.price}$</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >price*quantity={props.user.product.price*props.user.quantity}$</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell> */} 
+
+
+// "quantity" : 1,
+// "product" : {
+//     "imgSrc" : [ 
+//         "1594347488274.3179-pngguru.com (2).png", 
+//         "1594347488302.895-pngguru.com (3).png", 
+//         "1594347488312.521-pngguru.com (8).png", 
+//         "1594347488340.8447-pngguru.com (9).png"
+//     ],
+//     "_id" : ObjectId("5f07cfe06bac5037804518dd"),
+//     "user" : ObjectId("5f05cfb80a49676bb4a30d60"),
+//     "price" : 34,
+//     "discount" : 9,
+//     "productname" : "shirt",
+//     "discription" : "games developmetns",
+//     "category" : "WOMEN",
+
+
+  return (
+  // <div>{a}</div>
+    // <TableContainer component={Paper}>
+     <Table   size="large"  aria-label="customized table">
+
+<TableRow   key={props.orders._id} >
+  <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell>
+   <StyledTableCell size="large"    component="th" scope="row"  >{a} </StyledTableCell>   
+ 
   
-      </TableRow>
-    //   </Table>
+    </TableRow>
+    </Table>
     // </TableContainer>
   );
 }
 
+//  {/* // <StyledTableCell size="large"    component="th" scope="row"  >  {a,'\n'}</StyledTableCell> */}
+  
+//   {/* /* <StyledTableCell size="large"    component="th" scope="row"  >{props.user.cellNo}</StyledTableCell> */}
+//   {/* <TableCell  >
+//                 <img  className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[0]} />
+//                 <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[1]} />
+//                 <img className="cart-images" src={"http://localhost:8080/" + props.user.product.imgSrc[2]} />
+//                 <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[3]} />
+//               </TableCell> */}
+//   {/* <StyledTableCell size="large"    component="th" scope="row"  >{props.user.product.productname}</StyledTableCell> */}
+//   {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */
+//   /* <StyledTableCell component="th" scope="row"  >{props.user.product.category}</StyledTableCell>
+//   <StyledTableCell component="th" scope="row"  >{props.user.quantity}</StyledTableCell>
+//   <StyledTableCell component="th" scope="row"  >{props.user.product.price}$</StyledTableCell>
+//   <StyledTableCell component="th" scope="row"  >price*quantity={props.user.product.price*props.user.quantity}$</StyledTableCell>
+//   <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
+//   <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
+//   <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell> */

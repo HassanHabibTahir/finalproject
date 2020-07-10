@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-
+import PropTypes from 'prop-types';
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
@@ -165,6 +165,13 @@ handleChangePage = (event, page) => {
             </div>
         )
     }
+}
+
+
+Buyer.protoType={
+  // getSellerAccount: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  buyerorders:PropTypes.object.isRequired
 }
 
 

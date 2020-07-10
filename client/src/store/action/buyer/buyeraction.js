@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {BUYERORDERSDATA} from '../types/types'
+import {BUYERORDERSDATA,SELLERINFORMATION} from '../types/types'
 
 export const buyergetallbuy=()=> (dispatch) => {
     
@@ -17,17 +17,17 @@ export const buyergetallbuy=()=> (dispatch) => {
   }
   
 
-  // export const getCartProductbyId = () => (dispatch) => {
-
-
-  //   axios.get('http://localhost:8080/api/product/getCart').then((res) => {
+  export const getSellerAccount = (id) => (dispatch) => {
+// console.log(id)
+    axios.post('http://localhost:8080/api/users/getSellerUnicount',{id}).then((res) => {
   
+    console.log(res.data)
   
-  //     dispatch({
-  //       type: ADDTOCARTITEMSS,
-  //       payload: res.data
-  //     })
-  //   })
+      dispatch({
+        type: SELLERINFORMATION,
+        payload: res.data
+      })
+    })
   
-  // }
+  }
   
