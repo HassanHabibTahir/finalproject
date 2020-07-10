@@ -6,7 +6,12 @@ import { getSellerAccount } from '../../../store/action/buyer/buyeraction'
 
 
 class Selleracount extends Component {
-
+constructor(props){
+    super(props)
+    this.state={
+        data:null
+    }
+}
     componentDidMount() {
         console.log("this ", this.props.match.params)
 
@@ -16,45 +21,80 @@ class Selleracount extends Component {
 
     componentWillReceiveProps(nextProps) {
         console.log("this is next props", nextProps.SellerData)
+        if(nextProps.SellerData!==undefined||nextProps.SellerData!==null){
+            this.setState({
+                data:{...nextProps.sellerData}
+            })
+        }
     }
 
 
     render() {
+    
+        const  seller = this.props.SellerData
+        console.log("state data",seller)
         return (
             <Grid>
-           <div  style={{marginTop:"28vh"}}>
-           <h1 className="title-pen"> User Profile <span>UI</span></h1>
+            
+           {<div  style={{marginTop:"10vh"}}>
+           <h1 className="title-pen"> GOBACHI <span>SELLER</span></h1>
 <div className="user-profile">
-	<img className="avatar" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTF_erFD1SeUnxEpvFjzBCCDxLvf-wlh9ZuPMqi02qGnyyBtPWdE-3KoH3s" alt="Ash" />
-    <div className="username">Will Smith</div>
-  <div className="bio">
-  	Senior UI Designer
-  </div>
+	<img className="avatar" src={seller.avatar} alt="Ash" />
+    <div className="username">{seller.name}</div>
     <div className="description">
-      I use to design websites and applications
-      for the web.
+I AM SELLEING PRODUCTS ON GOBACHI PLATE FORM
   </div>
-  <ul className="data">
-    <li>
-      <span className="entypo-heart"> 127</span>
-    </li>
-    <li>
-      <span className="entypo-eye"> 853</span>
-    </li>
-    <li>
-      <span className="entypo-user"> 311</span>
-    </li>
- </ul>
 </div>
-  <footer>
-    <h1>inspired by 
-  <a href="https://dribbble.com/shots/1033074-User-Profile">
-  <span className="entypo-dribbble"></span> shot</a>
-    </h1>
-  </footer>
 
-           </div>
-            </Grid>
+
+
+
+
+
+
+
+
+     
+
+
+           <table>
+  <thead>
+    <tr>
+      <th scope="col">EMAIL</th>
+      <th scope="col">{seller.email}</th>
+      <th scope="col">CELL NO</th>
+      <th scope="col">{seller.cellNo}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th scope="col">PROVINVE</th>
+        <th scope="col">{seller.province}</th>
+      <th scope="col">CITY</th>
+        <th scope="col">{seller.city}</th>
+    </tr>
+    <tr>
+    <th scope="col">ADRESS</th>
+        <th scope="col">{seller.address}</th>
+      <th scope="col">BANK CODE </th>
+        <th scope="col">{seller.bankcode}</th>
+    </tr>
+    <tr>
+    <th scope="col">BANK NAME</th>
+        <th scope="col">{seller.bankname}</th>
+      <th scope="col">ACCOUNT NUMBER </th>
+        <th scope="col">{seller.accountnumber}</th>
+    </tr>
+  </tbody>
+</table>
+
+</div>}
+
+
+
+
+
+      </Grid> 
         )
     }
 }
@@ -73,3 +113,25 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { getSellerAccount })(Selleracount)
+
+
+// "_id" : ObjectId("5f07e1426bac5037804518e3"),
+//     "isVarified" : true,
+//     "typeAdmin" : false,
+//     "name" : "ali",
+//     "email" : "test@test.com",
+//     "password" : "$2a$10$QvjyiikA/rPwd8lO.K3tC.DC9ru3xbfqCerOl19XdQ76bLrPkXxdC",
+//     "avatar" : "//www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=200&r=pg&d=mm",
+//     "cellNo" : 43333,
+//     "address" : "Games Village Estate Abuja, FCT, Unnamed Road, Abuja, Nigeria",
+//     "city" : "Alīābad",
+//     "province" : "Gilgit-Baltistan",
+//     "bankcode" : "not yet",
+//     "bankname" : "not yet",
+//     "accountnumber" : "not yet",
+//     "cart" : {
+//         "items" : []
+//     },
+//     "userCondition" : "seller",
+//     "__v" : 0
+// }

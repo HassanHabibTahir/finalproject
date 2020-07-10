@@ -17,21 +17,25 @@
 
 .user-profile {
   margin: auto;
-	width: 25em; 
-  height: 11em;
+	/* width: 30em;  */
+  /* height: 11em; */
   background: #fff;
   border-radius: .3em;
+  text-align: center;
+
 }
 
 .user-profile  .username {
     margin: auto;
+    margin-left: 40px;
     /* margin-right: -28px; */
     /* margin-top: -4.40em; */
-    margin-left: 1.8em;
+    /* margin-left: 1.8em; */
     color: #658585;
-    font-size: 3.53em;
+    /* font-size: 4.53em; */
     font-family: "Coda", sans-serif;
     font-weight: bold;
+    font-size: 30px;
 }
 
 .user-profile  .bio {
@@ -44,21 +48,22 @@
 }
 
 .user-profile > .description {
-  margin: auto;
-  margin-top: 1.35em;
-  margin-right: 4.43em;
-  width: 14em;
-  color: #c0c5c5; 
-  font-size: .87em;
-  font-family: "varela round", sans-serif;
+    /* margin: auto; */
+    /* margin-top: 1.35em; */
+    /* margin-right: 4.43em; */
+    /* width: 14em; */
+    color: #c0c5c5;
+    /* font-size: .87em; */
+    font-family: "varela round", sans-serif;
 }
+
 .user-profile > img.avatar {
-	padding: .7em;
-  margin-left: .3em;
-  margin-top: .3em;
-  height: 6.23em;
-  width: 6.23em;
-  border-radius: 18em;
+    /* padding: .7em; */
+    margin-left: .3em;
+    /* margin-top: .3em; */
+    height: 6.23em;
+    width: 6.23em;
+    border-radius: 18em;
 }
 
 .user-profile ul.data {
@@ -87,16 +92,111 @@
   color: #daebea;
 }
 
-footer > h1 {
-  display: block;
-  text-align: center;
-  clear: both;
-  font-family: "Coda", sans-serif;
-  color: #343f3d;
-  line-height: 6;
-  font-size: 1.6em;
-}
+/* footer > h1 {
+    display: block;
+    text-align: center;
+    clear: both;
+    font-family: "Coda", sans-serif;
+    color: #020D75;
+    text-shadow: white 2px ;
+    line-height: 10;
+    font-size: 1.6em;
+} */
 footer > h1 a {
   text-decoration: none;
   color: #ea4c89;
 }
+
+/* 
+body {
+    font-family: 'lato', sans-serif;
+  } */
+  
+
+
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.25;
+  }
+  
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }

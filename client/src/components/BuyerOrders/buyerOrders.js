@@ -89,7 +89,7 @@ handleChangePage = (event, page) => {
         const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
         console.log(buyerorder)
       return (
-            <div>
+            <div style={{marginTop:"5vh"}}>
           
           <Grid container > 
     
@@ -104,7 +104,7 @@ handleChangePage = (event, page) => {
    
                 <Table  style={{width:"100vw"}}   >
                 <TableHead>
-      <TableRow >
+      {/* <TableRow >
       <StyledTableCell   component="th" >SR.NO</StyledTableCell>
       <StyledTableCell   component="th" >Email</StyledTableCell>
       <StyledTableCell   component="th" >PHONE NO</StyledTableCell>
@@ -119,7 +119,7 @@ handleChangePage = (event, page) => {
         <StyledTableCell   component="th" >address</StyledTableCell>
        
        
-      </TableRow>
+      </TableRow> */}
   </TableHead>
 
 
