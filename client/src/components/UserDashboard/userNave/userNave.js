@@ -52,10 +52,10 @@ class UserRoutes extends Component {
     return (
         
 <Router>
-       <div style={{marginTop:"9vh"}} >
+       <div style={{marginTop:"10vh"}} >
        <Grid > 
         {/* <Grid item xs={12} md={8}> */}
-        <Hidden only={['xs','sm']}>
+        {/* <Hidden only={['xs','sm']}> */}
         <Paper className="" elevation={10}>
         
           <BottomNavigation
@@ -109,7 +109,7 @@ class UserRoutes extends Component {
 
         </Paper>
 
-        </Hidden>
+        {/* </Hidden> */}
      
         {/* <Paper className="marginTop" style={{borderRadius:'0'}} elevation={5}> */}
                         
