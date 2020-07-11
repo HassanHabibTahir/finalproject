@@ -45,44 +45,22 @@ export default function NestedList() {
 
       <ListItem button onClick={handleClick}>
         
-        <ListItemText primary="MEN LIST" />
+        <ListItemText primary="WOME LIST" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-  
+      {/* <div><Men/></div> */}
 <ul className="list_show">
-<li  ><Link to="/product/mens">MENs</Link></li>
-<li  ><Link to="/product/mens/shirt" >Shirt</Link></li>
-<li><Link to="/product/mens/pent"  >Pents</Link></li>
-<li><Link to="/product/mens/jeans"  >Jeans</Link></li>
+
+<li><Link to="/product/women">WOMEN </Link></li>
+<li  ><Link to="/product/women/shirt" >Shirt</Link></li>
+<li><Link to="/product/women/pent"  >Pents</Link></li>
+<li><Link to="/product/women/jeans"  >Jeans</Link></li>
 </ul>
 
       </Collapse>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
     </List>
   );
 }

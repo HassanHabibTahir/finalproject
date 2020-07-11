@@ -117,30 +117,8 @@ handleChangeRowsPerPage = event => {
         <Divider />
         <Grid  className="marginTop" > 
          
-       
-
-          <Grid item xs={12} md={12}>
-          {/* <Divider /> */}
-          {/* <TableContainer component={Paper}> */}
-      {/* <Table className={classes.table}  aria-label="customized table"  > */}
-        
-        {/* <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody> */}
-      {/* </Table> */}
-    {/* </TableContainer> */}
-       
-                    <Table  style={{width:"100vw"}}   >
+             <Grid item xs={12} md={12}>
+                  <Table  style={{width:"100vw"}}   >
                     <TableHead>
           <TableRow >
           <StyledTableCell   component="th" >SR.NO</StyledTableCell>

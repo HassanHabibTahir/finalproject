@@ -40,7 +40,7 @@ export default function CategoryGrid(props) {
                     <div className={classes.overlay}>
                         <h1 style={{ color: 'white', fontWeight: 600 }}>Men's Collection</h1>
 
-                        <Button component={Link} to="/mens" variant="contained" size="large" color="primary" className={classes.button}> Shop Now </Button>
+                        <Button component={Link} to="/product/mens" variant="contained" size="large" color="primary" className={classes.button}> Shop Now </Button>
                     </div>
                 </div>
                 </Fade>
@@ -51,7 +51,7 @@ export default function CategoryGrid(props) {
                     <img className={classes.gridImg} src="https://mir-s3-cdn-cf.behance.net/projects/404/61126c78044397.Y3JvcCwxMTUwLDkwMCwyNSww.jpg" alt="women's Collection" />
                     <div className={classes.overlay} >
                         <h1 style={{ color: 'white' }}>Women's Collection</h1>
-                        <Button component={Link} to="/mens" variant="contained" size="large" color="primary" className={classes.button}>Shop Now</Button>
+                        <Button component={Link} to="/product/women" variant="contained" size="large" color="primary" className={classes.button}>Shop Now</Button>
                     </div>
                 </div>
             </Fade>
@@ -61,7 +61,7 @@ export default function CategoryGrid(props) {
                     <img className={classes.gridImg} src="https://images.pexels.com/photos/35188/child-childrens-baby-children-s.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Mens Collection" />
                     <div className={classes.overlay}>
                         <h1 style={{ color: 'white' }} >Children Collection</h1>
-                        <Button component={Link} to="/mens" Size variant="contained" size="large" color="primary" className={classes.button}> Shop Now </Button>
+                        <Button component={Link} to="/product/child" Size variant="contained" size="large" color="primary" className={classes.button}> Shop Now </Button>
                     </div>
                 </div>
 </Fade>

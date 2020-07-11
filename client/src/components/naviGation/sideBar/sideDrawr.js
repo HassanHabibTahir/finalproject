@@ -1,7 +1,10 @@
 import React from 'react';
 import './sideDrawr.css';
-// import Search from '../serchbar/serchbar'
+
 import Men from './homeSmallScreeLinks/Men'
+import Women from './homeSmallScreeLinks/womenlist';
+import Child from './homeSmallScreeLinks/childlist';
+import List from './homeSmallScreeLinks/list'
 import { Link } from "react-router-dom";
 const SideDrawr = (props)=>{
     let drawerClasses='side-drawer';
@@ -16,18 +19,16 @@ const SideDrawr = (props)=>{
           
             </div>
 <ul style={{textAlign:"center"}}>
-
+<div><List/></div>
 <div><Men/></div>
-<h1>Hassan habib tahir</h1>
-<h1>Hassan habib tahir</h1>
-<h1>Hassan habib tahir</h1>
-<h1>Hassan habib tahir</h1>
-<h1>Hassan habib tahir</h1>
-<h1>Hassan habib tahir</h1>
+<div><Women/></div>
+<div><Child/></div>
+<div></div>
 
 
-     <li><Link to="/">Home</Link></li>
-    <li><Link to="/Courses">Courses</Link></li>
+
+
+  
 </ul>
 
 </nav>

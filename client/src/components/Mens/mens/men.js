@@ -71,6 +71,9 @@ class MEN extends Component {
   }
 
 
+  changedhandler=(e)=>{
+    console.log(e)
+    }
   render() {
     console.log(this.props.Products)
     const MenProducts = this.props.Products
@@ -185,13 +188,20 @@ class MEN extends Component {
 
 
     return (
+      <div  className="container-product">
       <div className="mainvalue"   >
-       
+    
         {product}
+      </div>
+    
       </div>
     )
   }
 }
+
+
+
+
 const mapStateToProps = (state) => ({
 
   Products: state.allProducts.AllusersProducts,

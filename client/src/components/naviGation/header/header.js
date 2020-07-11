@@ -69,19 +69,11 @@ class Header extends Component {
 <li><Link to="/product/child/jeans"  >Jeans</Link></li>
 </ul>
 </li>
-<li className="header_nav"    ><Link to="/product/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
+<li className="header_nav"    ><Link to="/product/women">WOMEN</Link>
 <ul className="list_show">
 <li  ><Link to="/product/women/shirt" >Shirt</Link></li>
 <li><Link to="/product/women/pent"  >Pents</Link></li>
 <li><Link to="/product/women/jeans"  >Jeans</Link></li>
-<li><Link href="#"> typse <i className="arow_rotate"   style={{transform: "rotate(-90deg)"}} ><span   >&#11162;</span></i> </Link>
-{/* <ul className="list_show_more" >
-<li><Link href="#"></Link></li>
-<li><Link href="#">small shirt</Link></li>
-<li><Link href="#">big shirt</Link></li>
-</ul> */}
-</li>
-
 </ul>
 
 </li>
@@ -141,6 +133,18 @@ class Header extends Component {
 </nav>
 
 </header>
+{/* <div  className="product-navbar">
+<nav className="product_navigation" >
+<div  className="input_serch_text"><input type="text"/> <input onChange={this.changedhandler} type="range"/></div>
+
+ 
+
+
+</nav>
+
+
+
+        </div> */}
 </Aux>
 
         )}
