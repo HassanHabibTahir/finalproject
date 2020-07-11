@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button'
 import { connect } from 'react-redux';
-import './selleraccount.css';
+import './selleffffraccount.css';
 import { getSellerAccount } from '../../../store/action/buyer/buyeraction'
 
 
@@ -34,9 +35,9 @@ constructor(props){
         const  seller = this.props.SellerData
         console.log("state data",seller)
         return (
-            <Grid>
+     
             
-           {<div  style={{marginTop:"10vh"}}>
+       <div  style={{marginTop:"10vh"}}>
            <h1 className="title-pen"> GOBACHI <span>SELLER</span></h1>
 <div className="user-profile">
 	<img className="avatar" src={seller.avatar} alt="Ash" />
@@ -44,20 +45,9 @@ constructor(props){
     <div className="description">
 I AM SELLEING PRODUCTS ON GOBACHI PLATE FORM
   </div>
-</div>
+</div> 
 
-
-
-
-
-
-
-
-
-     
-
-
-           <table>
+ <table>
   <thead>
     <tr>
       <th scope="col">EMAIL</th>
@@ -86,15 +76,15 @@ I AM SELLEING PRODUCTS ON GOBACHI PLATE FORM
         <th scope="col">{seller.accountnumber}</th>
     </tr>
   </tbody>
-</table>
-
-</div>}
-
-
+</table> 
+<Button  onClick={() => window.print()} >PRINT ACCOUNT </Button>
+</div>
 
 
 
-      </Grid> 
+
+
+  
         )
     }
 }

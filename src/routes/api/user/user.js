@@ -441,7 +441,7 @@ router.post('/reset/:token', (req, res) => {
                   Userprofile.findOneAndUpdate({ email: user.email },{password:hash},{ new: true} )
                   .then((err, data)=>{
                     res.json(data)
-                  console.log("password is updata",res)
+                  // console.log("password is updata",res)
                   })
 
                 //}) })

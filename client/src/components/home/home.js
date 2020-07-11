@@ -3,6 +3,7 @@ import Slidersimple from '../slider/slider';
 import MenuList from '../menueList/menulist';
 import CatgSlider from '../home/categorslider/quickbox/catgSlider'
 import Showcase from './shopImg/shop'
+import CategoryGrid from './Categrid/categorigrid'
 import Details from './Details/details'
  import Paralex from './paralelx/foot';
  import Footer from './paralelx/footer/footer';
@@ -30,9 +31,8 @@ export default class Home extends Component {
         </div>
 
 <br/>
+<div><CategoryGrid/></div>
         {/* <div   ><MenuList/></div> */}
-
-<br/>
         <div> <Showcase /></div>
         <div> <Paralex/></div> 
    <div><Footer/></div>   

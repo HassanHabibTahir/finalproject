@@ -28,12 +28,8 @@ import history from '../history/history'
 import Map from '../auth/map/mapapi/mapapi';
 import data from '../auth/map/pk/pk.json';
 import Footer from '../home/paralelx/footer/footer'
-
-import './aut.css';
-import './toobar/toolbar.css'
-
-
-
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import {AccountCircle,Email,Lock,Send,StarHalf,LocationCity,Phone,BankaccountBankaccountBankaccountBankaccount,Add} from '@material-ui/icons';
 
@@ -498,28 +494,54 @@ class SignUp extends Component {
     
                 />
                      </Grid>
+              
 
-                     <Grid item xs={12} md={12} >
-           <Grid >Check button Are you  a  </Grid>
-           <Grid item xs={12} md={12}  >  Saller:   <Radio
+              
+                     <Grid align="center"   item xs={12} md={12} >
+          
+                     <Typography variant="caption" > 
+                    
+                     <FormControl  align="center" >
+                     Check UserCondition
+           <Grid  align="center" item xs={12} md={6}>
+             
+           <FormControlLabel value="male" control={   <Radio
           checked={this.state.userCondition === 'seller'}
           onChange={this.handleChangeCondition}
           value="seller"
           name="sel"
           aria-label="A"
-        />
+    
+        />} label="SELLER" />
+
+            
         </Grid>
      
-        <Grid item xs={12} md={12}  >
-       Buyer:  <Radio
+        <Grid  align="center" item xs={12} md={6}  >
+
+        <FormControlLabel value="male" control={
+
+<Radio
           checked={this.state.userCondition==='buyer'}
           onChange={this.handleChangeCondition}
           value="buyer"
           name="buy"
           aria-label="B"
         />
+
+
+        } label="BUYER" />
+
         </Grid>
+     
+</FormControl>
+
+        </Typography>   
 </Grid>
+
+
+
+
                      <Grid item xs={12} md={12} className="paddingTop">
                        <Typography variant="caption" > 
                        <FormControlLabel
@@ -567,6 +589,12 @@ class SignUp extends Component {
 
       )
   }
+}
+SignUp.propTypes={
+  startEmailVerification: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  err: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

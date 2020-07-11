@@ -1,12 +1,5 @@
-/* CSS design by @jofpin */
-/* @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
-@import url(http://weloveiconfonts.com/api/?family=entypo); */
-/* 
-[class*="entypo-"]:before {
-  font-family: 'entypo', sans-serif;
-} */
 
-.title-pen {
+ .title-pen {
   color: #333;
   font-family: "Coda", sans-serif;
   text-align: center;
@@ -17,8 +10,7 @@
 
 .user-profile {
   margin: auto;
-	/* width: 30em;  */
-  /* height: 11em; */
+
   background: #fff;
   border-radius: .3em;
   text-align: center;
@@ -28,11 +20,9 @@
 .user-profile  .username {
     margin: auto;
     margin-left: 40px;
-    /* margin-right: -28px; */
-    /* margin-top: -4.40em; */
-    /* margin-left: 1.8em; */
+  
     color: #658585;
-    /* font-size: 4.53em; */
+
     font-family: "Coda", sans-serif;
     font-weight: bold;
     font-size: 30px;
@@ -48,19 +38,16 @@
 }
 
 .user-profile > .description {
-    /* margin: auto; */
-    /* margin-top: 1.35em; */
-    /* margin-right: 4.43em; */
-    /* width: 14em; */
+
     color: #c0c5c5;
-    /* font-size: .87em; */
+
     font-family: "varela round", sans-serif;
 }
 
 .user-profile > img.avatar {
-    /* padding: .7em; */
+
     margin-left: .3em;
-    /* margin-top: .3em; */
+
     height: 6.23em;
     width: 6.23em;
     border-radius: 18em;
@@ -90,9 +77,9 @@
 }
 .user-profile span:hover {
   color: #daebea;
-}
+} 
 
-/* footer > h1 {
+ footer > h1 {
     display: block;
     text-align: center;
     clear: both;
@@ -101,24 +88,17 @@
     text-shadow: white 2px ;
     line-height: 10;
     font-size: 1.6em;
-} */
+} 
 footer > h1 a {
   text-decoration: none;
   color: #ea4c89;
-}
+} 
+
+
+
+
 
 /* 
-body {
-    font-family: 'lato', sans-serif;
-  } */
-  
-
-
-
-  body {
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.25;
-  }
   
   table {
     border: 1px solid #ccc;
@@ -185,18 +165,16 @@ body {
       text-align: right;
     }
     
-    table td::before {
-      /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+  
+     
     
     table td:last-child {
       border-bottom: 0;
     }
   }
+
+  .print-button{
+position: relative;
+top: 60px;
+    float: right;
+  } */

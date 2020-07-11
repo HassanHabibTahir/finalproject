@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import resetEmailUser from '../../../store/action/resetAction/resetaction'
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import ResetpasswordUser from '../../../store/action/resetAction/resetpasswordaction'
 import history from '../../history/history'
 class Resetpassword extends Component {
@@ -75,8 +76,9 @@ class Resetpassword extends Component {
         };
         const token = this.props.match.params.token;
         axios.post('/api/users/reset/'+token,userData).then((res)=>{
-            console.log("backend",res)
+            // console.log("backend",res)
             history.push('/login');
+            toast.success("Successfully reset password!");   
         })
         
     

@@ -134,7 +134,8 @@ console.log(x)
      <Table   size="large"  aria-label="customized table">
 
 <TableRow   key={props.orders._id} >
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell>
+<h1 style={{color:"blue"}} >{props.index}</h1>
+  {/* <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell> */}
    <StyledTableCell size="large"    component="th" scope="row"  >{a} </StyledTableCell>   
  
   
