@@ -107,7 +107,7 @@ userSchema.methods.addToCart = function(product) {
           return cp.productId.toString() === product._id.toString();
         });
         console.log(cartProductIndex)
-        let newQuantity = 1;
+        let newQuantity = 10;
         const updatedCartItems = [...this.cart.items];
         
         if (cartProductIndex >= 0) {

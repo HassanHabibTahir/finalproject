@@ -30,6 +30,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import resetEmail from '../auth/reset/resetemail';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import Alert from '@material-ui/lab/Alert';
 // import {toast} from 'react-toastify';
 // // import axios from 'axios';
 // import Admin from '../adminpanal/admin';
@@ -108,7 +109,14 @@ class Login extends Component {
     if (nextProps.errors) {
             this.setState({errors:nextProps.errors})
             // console.log(this.state.errors)
-      
+            // if(this.state.errors==="passsword in corect"){
+            //     toast.error("passsword in corect");
+            // }
+            // else if(this.state.errors==="user not found"){
+            //     toast.error("user not found");
+            // }else{
+            //     toast.error("login first")
+            // }
           }
 
   }
@@ -189,7 +197,8 @@ LogIn
 <br/>  <br/>  <br/> 
                             
                             <Grid container spacing={8} className="LoginContainer">
-                            <h4 style={{color:"red"}} >{this.state.errors.message}</h4>
+                            {/* <h4 style={{color:"red"}} >{this.state.errors.message}</h4> */}
+                        <Grid aitem xs={12} md={12} align="center">  {this.state.errors.message?<Alert severity="error">{this.state.errors.message}</Alert>:loading}</Grid>
                                 <Grid item xs={12} md={12} className="paddingTop">
                                     <TextField
                                         type="email"

@@ -5,6 +5,11 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 // import HomeComp from '../AccountsHome';
 // import MyAds from '../Myads';
 // import Messages  from '../Messages';
+import Typography from '@material-ui/core/Typography';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+
 import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -21,27 +26,16 @@ import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined';
 import Chat from "../../Chat/chat";
 import Orders from '../Orders/order';
 import Bankaccount from '../bankaccount/bacnkaccount';
+import Selleracount from '../selleraccount/selleracount'
+
+
 // import {startSendTocken} from '../redux/actions/messageActions';
 
 class UserRoutes extends Component {
   state = {
-    value: 0
+    value: "SELLER"
   };
-//   componentDidMount() {
-//      document.title = "Account";
-//      if(!this.props.user){
-//        this.props.history.push(routes.LOGIN);
-//      }
-//      else{
-//        let tocken = localStorage.getItem('token');
-//        if (tocken){
-//       let data = {
-//         tocken,
-//         userid:this.props.user
-//       }
-//       this.props.startSendTocken(data);
-//      }}
-//   }  
+ 
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -53,63 +47,92 @@ class UserRoutes extends Component {
         
 <Router>
        <div style={{marginTop:"10vh"}} >
-       <Grid > 
-        {/* <Grid item xs={12} md={8}> */}
-        {/* <Hidden only={['xs','sm']}> */}
-        <Paper className="" elevation={10}>
-        
-          <BottomNavigation
+       <Grid item xs={12} > 
+        <Grid  item xs={12} >
+   
+        <Paper className=""   elevation={15}>
+        <Grid  item xs={12} >
+
+          <Grid
+
+                align="center"
                 value={value}
                 onChange={this.handleChange}
-                showLabels
+            
                 >
+
+{/* <Hidden only={['xs','sm']}> */}
+
+{/* <Link to={routes.SELLERACCOUNT} ><AccountCircleIcon/></Link> */}
+                <span>SELLER
                 <BottomNavigationAction 
-                className="buttomNavigation"
+                  //  showLabels
+                // className="buttomNavigation"
                 label="SELLER"
+                // value=" SELLER"
                 icon={<AccountCircleIcon/>}
                 component={Link} to={routes.SELLERACCOUNT}
                 />
 
+                </span>
+              
+
+<span>SELLER ADS
                 <BottomNavigationAction 
                 className="buttomNavigation" 
                 label="My Ads" 
+                value=" Ads"
                 icon={<Visibility />} 
                 component={Link} to={routes.USERPRODUCT}
                 />
-
-
+</span>
+<span>Add Product
                 <BottomNavigationAction
                 className="buttomNavigation"
                 label="Add Product" 
+                value=" Product"
                 component={Link} to={routes.ADDPRODUCT}
                 icon={<AddAPhotoIcon />} />
-
+</span>
+<span>Messages
                <BottomNavigationAction
                 className="buttomNavigation"
                 label="Messages" 
+                value=" Messages"
                 component={Link} to={routes.CHAT}
               icon={<Message/>}
               
               />
-  <BottomNavigationAction
-                className="buttomNavigation"
+</span>
+
+<span>ORDERS
+        <BottomNavigationAction
+    
                 label="ORDERS" 
+                // value=" ORDERS"
                 component={Link} to={routes.ORDER}
               icon={<AttachMoneyOutlinedIcon/>}
               
               />
-               <BottomNavigationAction
-                className="buttomNavigation"
+
+              </span>
+              <span>BANK ACCOUNT
+                <BottomNavigationAction
+         
                 label="BANK ACCOUNT" 
+                value=" ACCOUNT"
                 component={Link} to={routes.BANKACCOUNT}
               icon={<AccountBalanceIcon/>}
               
-              />
-</BottomNavigation>
+              /></span>
 
+               {/* </Hidden> */}
+             
+</Grid>
+</Grid>
         </Paper>
 
-        {/* </Hidden> */}
+       
      
         {/* <Paper className="marginTop" style={{borderRadius:'0'}} elevation={5}> */}
                         
@@ -118,13 +141,11 @@ class UserRoutes extends Component {
             <Route exact path={routes.ADDPRODUCT} component={() =>< Product />}/>  
             <Route exact path={routes.ORDER} component={() =>< Orders />}/>  
             <Route exact path = {routes.BANKACCOUNT} component={()=><Bankaccount/>}/>
+            <Route exact path = {routes.SELLERACCOUNT} component={()=><Selleracount/>}/>
         {/* </Paper> */}
           
-        {/* </Grid> */}
-        <Hidden smDown>
-        <Grid item xs={1} md={2}>
         </Grid>
-        </Hidden>
+      
       </Grid>
 
        </div>

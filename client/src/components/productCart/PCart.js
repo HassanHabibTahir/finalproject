@@ -42,7 +42,7 @@ class PCart extends Component {
     let cq =counting[i].quantity-1
 
 
-if(cq>0){
+if(cq>6){
   console.log(cq)
    counting[i].quantity=cq;
   this.setState({

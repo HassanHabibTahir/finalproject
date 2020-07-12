@@ -71,14 +71,22 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 <img    onClick={()=>{this.changedData(item._id,item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]}/>
 </div>
 
-<div className="product_info">
+                  <div className="prduct_info">
+                  <div className="name_product">
 
-<div  className="name_product"><h2>{item.productname.toUpperCase()}<span className="price">${item.price}</span></h2>
 
-</div>
-<div className="dis">{item.discription}</div>
+                    <div  ><h2 className="name_category">{item.category.toUpperCase()}
 
-</div>
+                    </h2>
+                    </div>
+                    <h2>{item.productname.toUpperCase()}
+
+                    </h2>
+                  </div>
+
+                  <div className="dis">{item.discription}</div>
+
+                </div>
 </div>
 
 
