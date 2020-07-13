@@ -64,6 +64,7 @@ class UserRoutes extends Component {
 {/* <Hidden only={['xs','sm']}> */}
 
 {/* <Link to={routes.SELLERACCOUNT} ><AccountCircleIcon/></Link> */}
+<Link to={routes.SELLERACCOUNT}  >
                 <span>SELLER
                 <BottomNavigationAction 
                   //  showLabels
@@ -75,8 +76,9 @@ class UserRoutes extends Component {
                 />
 
                 </span>
+                </Link>
               
-
+                <Link to={routes.USERPRODUCT}  >
 <span>SELLER ADS
                 <BottomNavigationAction 
                 className="buttomNavigation" 
@@ -86,6 +88,8 @@ class UserRoutes extends Component {
                 component={Link} to={routes.USERPRODUCT}
                 />
 </span>
+</Link>
+<Link to={routes.ADDPRODUCT}  >
 <span>Add Product
                 <BottomNavigationAction
                 className="buttomNavigation"
@@ -94,6 +98,8 @@ class UserRoutes extends Component {
                 component={Link} to={routes.ADDPRODUCT}
                 icon={<AddAPhotoIcon />} />
 </span>
+</Link>
+<Link to={routes.CHAT}  >
 <span>Messages
                <BottomNavigationAction
                 className="buttomNavigation"
@@ -104,7 +110,8 @@ class UserRoutes extends Component {
               
               />
 </span>
-
+</Link>
+<Link to={routes.ORDER}  >
 <span>ORDERS
         <BottomNavigationAction
     
@@ -116,7 +123,11 @@ class UserRoutes extends Component {
               />
 
               </span>
-              <span>BANK ACCOUNT
+              </Link>
+              <Link to={routes.BANKACCOUNT}  >
+              
+              
+              <span  >BANK ACCOUNT
                 <BottomNavigationAction
          
                 label="BANK ACCOUNT" 
@@ -124,7 +135,8 @@ class UserRoutes extends Component {
                 component={Link} to={routes.BANKACCOUNT}
               icon={<AccountBalanceIcon/>}
               
-              /></span>
+              /></span></Link>
+            
 
                {/* </Hidden> */}
              

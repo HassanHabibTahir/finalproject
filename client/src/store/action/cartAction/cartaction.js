@@ -79,7 +79,9 @@ export const PostOrders = (sellerId) => (dispatch) => {
 
   axios.post('http://localhost:8080/api/product/postOrdr', sellerId).then((res) => {
     toast.success("Successfully  send Order to seller!");
-    console.log("rescart", res)
+    if(res){
+      getCartProductbyId()(dispatch)
+    }
   })
 
 }

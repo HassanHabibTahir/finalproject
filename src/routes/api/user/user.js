@@ -34,6 +34,17 @@ let errors;
 // /api/users
 
 router.post('/rejister', (req, res) => {
+
+  // const {errors,isValid}  =ValidateRegisterInput(req.body)
+ 
+  //CheckValidation
+  // isValid=isEmpty(errro)
+  // if(!isValid){
+  //     return res.status(400).json(errors);
+  // }
+
+
+
 //   const result = validatePhoneNumber.validate(+4333334123);
 //   console.log(result)
 //  if(result){
@@ -202,7 +213,14 @@ Tokenprofile.findOne({
       .then((isMatch) => {
         if (isMatch) {
 
-          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified ,userCondition:user.userCondition,avatar:user.avatar}
+          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified ,userCondition:user.userCondition,avatar:user.avatar,email: user.email,    address:user.address,
+            city:user.city,
+            province:user.province,
+            bankcode:user?.bankcode,
+            bankname:user?.bankname,
+            accountnumber:user?.accountnumber,
+          
+          }
           //using token
           jwt.sign(payload,
             keys.secretOrkey,

@@ -30,19 +30,20 @@ var storage = multer.diskStorage({
 
 const imageFilter = function (req, file, cb) {
     //accept image files only
-    if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+    if(!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|webp|png|PNG|gif)$/)) {
         return cb(new Error('Only image files are allowed!'), false);
     }
     cb(null, true);
 };
 //upload
 // fileFilter: imageFilter
-var upload = multer({ storage: storage,fileFilter: imageFilter  })
+var upload = multer({ storage: storage,fileFilter: imageFilter })
+
 ///api/product/upload
 router.post('/upload',
 passport.authenticate('jwt', { session: false }),
 upload.array('files',7), (req, res) => {
-      // console.log(req.user)
+
     // if (!req.files) {
     //     return res.send('Please upload File')
 
@@ -50,7 +51,14 @@ upload.array('files',7), (req, res) => {
     //else if(req.files){
 
         Productcontroler.submitProduct(req, (err, product) => {
+
+          if(err){res.json(err)}
+          else{
+            
             res.json(product)
+          }
+
+
         })
     //}
 
@@ -59,7 +67,6 @@ upload.array('files',7), (req, res) => {
 
 
 })
-
 // router.delete('/deleteUserproduct/:id', (req, res) => {
 
     

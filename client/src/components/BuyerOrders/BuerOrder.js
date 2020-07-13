@@ -79,23 +79,33 @@ export default function BuyetOrders(props) {
 //     }
 // console.log(verfiy)
 // console.log(props.user)
-let x=[]
-let a =props.orders.products.map((item)=>{
+// let x=[]
+let a =props.orders.products.map((item,i)=>{
 // console.log(item)
+
+console.log(item)
+
 return(
-  <TableRow >
+  <TableRow  style={{border:"2px solid blue"}}  >
+      <StyledTableCell size="large"    component="th" scope="row"  >{i}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{item.product.productname}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{item.quantity}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{item.product.category}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{item.product.price}</StyledTableCell>
   <StyledTableCell size="large"    component="th" scope="row"  >{item.product.user.toString()}</StyledTableCell>
+  <TableCell  >
+                <img  className="cart-images"  src={"http://localhost:8080/" + item.product?.imgSrc[0]} />
+                <img className="cart-images"  src={"http://localhost:8080/" + item.product?.imgSrc[1]} />
+                <img className="cart-images" src={"http://localhost:8080/" + item.product?.imgSrc[2]} />
+                <img className="cart-images"  src={"http://localhost:8080/" + item.product?.imgSrc[3]} />
+              </TableCell>
   <StyledTableCell size="large"    component="th" scope="row"  ><Link to={`/selleracount/${item.product.user}`} >GET SELLER INFORMATION</Link>
  </StyledTableCell>
   
     </TableRow>
 )
 })
-console.log(x)
+// console.log(x)
 // let c = []
 // let b = a.map((ite)=>{
 //     return c.concat(ite)

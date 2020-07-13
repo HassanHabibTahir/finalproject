@@ -30,7 +30,7 @@ import {connect} from 'react-redux';
                Your Name:{this.props.auth.user.name}
              </Typography>
               <Typography variant="body2"> 
-             {/* Id:{this.props.auth.user._id} */}
+             Id:{this.props.auth.user._id}
              </Typography>
            <Typography variant="body2"> 
              User:{this.props.auth.user?.userCondition}
@@ -40,16 +40,33 @@ import {connect} from 'react-redux';
              </Typography>
             
              <Divider />
-               {/*     <Typography variant="caption" > 
+                   <Typography variant="caption" > 
              Address : {this.props.auth.user.address}
              </Typography>
+             <Divider />
              <Typography variant="caption" > 
              City : {this.props.auth.user.city}
              </Typography>
-             <Typography variant="caption" > 
+             <Divider />
+             <Typography variant="caption"  color="primary" > 
              Province : {this.props.auth.user.province}
              </Typography>
-              */}
+             <Divider />
+             <Divider />
+             <Typography variant="caption"  color="primary" > 
+             Bank Name : {this.props.auth.user.bankname}
+             </Typography>
+             <Divider />
+             <Divider />
+             <Typography variant="caption"  color="primary" > 
+             bankcode : {this.props.auth.user.bankcode}
+             </Typography>
+             <Divider />
+             <Divider />
+             <Typography variant="caption"  color="primary" > 
+             accountnumber : {this.props.auth.user.accountnumber}
+             </Typography>
+             <Divider />
              </Grid>
            </Grid>
            <Grid item md={2}></Grid>

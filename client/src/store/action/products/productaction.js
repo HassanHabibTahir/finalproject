@@ -9,6 +9,7 @@ export const addproducts = (productData) => dispatch => {
 console.log(productData)
     axios.post('/api/product/upload', productData)
         .then((res) => {
+            console.log(res)
             toast.success("Successfully Upload products check Ads!");
             history.push('/userNav/setting')
             dispatch({

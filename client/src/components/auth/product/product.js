@@ -25,6 +25,7 @@ import {addproducts} from '../../../store/action/products/productaction'
 import Verification from './Verification';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import Alert from '@material-ui/lab/Alert';
 import '../product/product.css'
 import { connect } from 'react-redux';
 
@@ -37,6 +38,7 @@ class Product extends Component {
             productname: "",
             discription: "",
             category: "",
+            alerts:false,
 
 
 
@@ -65,16 +67,21 @@ console.log(productData)
         }
         
         if(this.state.files.length<=3){
-            alert("upload 4 imges")
+          
+            this.setState({
+                alerts:true
+            })
             return false;
         }
         else{
         this.state.files.forEach((file)=>{
         
+            
+
             fd.append('files', file)
         })
     }
-console.log(fd)
+// console.log(fd)
           this.props.addproducts(fd,this.props.history)
 
     }
@@ -109,6 +116,8 @@ console.log(fd)
 
 
     render() {
+  console.log(this.state.alerts)
+
         const {price,discount,productname,discription,category,files} = this.state;
         const isnotValid = price === '' ||discount===''||productname===''||discription===''||category===''||files.length==='';
         return (
@@ -119,7 +128,7 @@ console.log(fd)
              
                <Container component="main" maxWidth="md">
                     <Paper  style={{padding:"20px"}} elevation={10} align="center" >
-
+<Grid>{this.state.alerts&&<Alert severity="error">maximaum 4 images required</Alert>}</Grid>
                     <div>
 
                               <Grid item xs={12} md={12} className="paddingTop">

@@ -68,7 +68,7 @@ componentDidMount(){
 
 componentWillReceiveProps(nextProps){
 
-  console.log("",nextProps.buyerorders)
+  // console.log("",nextProps.buyerorders)
   this.setState({
     buyerorder:nextProps.buyerorders
   })
@@ -87,7 +87,7 @@ handleChangePage = (event, page) => {
     render() {
 
         const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
-        console.log(buyerorder)
+        // console.log(buyerorder)
       return (
             <div style={{marginTop:"5vh"}}>
           
