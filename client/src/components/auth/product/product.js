@@ -268,7 +268,7 @@ console.log(productData)
                                     <DropzoneArea
                                             maxFileSize={5000000}
                                           acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
-                                      filesLimit={5}
+                                      filesLimit={4}
                                         onChange={this.ImageshandleChange}
                                     />
                                 </Grid>

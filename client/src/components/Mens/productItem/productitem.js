@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux'
-import './productitem.css'
 import { getProfilebyId } from '../../../store/action/products/productaction'
 import { addtoCartValue } from '../../../store/action/cartAction/cartaction';
 // ,getAllProduts
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 import history from '../../history/history'
 import { Button } from '@material-ui/core';
 import ChatPopUp from '../../Chat/chatPopUp';
+import './productitem.css'
 class Productitem extends Component {
 constructor(props){
     super(props);
     this.state={
         chatPopUp:false,
+        DItems:[]
     }
 }
 
@@ -63,49 +64,73 @@ componentWillReceiveProps(nexprops){
         console.log(this.props.unique)
 
         const Images = this.props.SingleProduct === undefined || this.props.SingleProduct === null ? <h1>show is noting</h1> : this.props.SingleProduct.ItemProduct.map((item) => {
-
+                     
             return (
                 <div className="product-item">
-                    <br />
-                    <br />
-
-
-                    <div className="item-slider">
-
-
-
-                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[0]} /></div>
-                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[1]} /></div>
-                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[2]} /></div>
-                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[3]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[3]} /></div>
-                    </div>
-                    <div className="space-between"></div>
-                    <div className="big-card" >
-                        <Card className="item-card"  >
-
-                            <img ref='imageContainer' className="img_container" src={"http://localhost:8080/" + item.imgSrc[3]} alt="img1" />
-                        </Card>
-
-                    </div>
-                    <div className="space-between"></div>
+                 
+        
+<div class="container-of_items ">
+  <div class="box_items">
+    <img src={"http://localhost:8080/" + item.imgSrc[0]} />
+    {/* <span>CSS</span> */}
+  </div>
+  <div class="box_items">
+    <img src={"http://localhost:8080/" + item.imgSrc[1]} />
+    {/* <span>Image</span> */}
+  </div>
+  <div class="box_items">
+    <img src={"http://localhost:8080/" + item.imgSrc[2]} />
+    {/* <span>Hover</span> */}
+  </div>
+  <div class="box_items">
+    <img src={"http://localhost:8080/" + item.imgSrc[3]} />
+    {/* <span>Effect</span> */}
+  </div>
+</div>
                     <div className="product_infomation" >
 
-                        <div className="pr-discription"  >
+                      {/* <div className="pr-discription"  >
                             <h1 className="product_description" >Descriptio</h1>
                             <h1 className="product_description">   {item.discription}</h1>
-                        </div>
-                        <br />
-                        <br />
-                        {/* <div className="pr-price">   </div> */}
-                        <br />
-                        <br />
-                        <div className="Deliverd"><h3 className="delivery-product" >
-                        <h1 className="product_price" > <span className="price-text" >price</span> {item.price}$  </h1>
-                             Product Delikver after  the  complete satisfaction  </h3></div>
-                        <br />
-                        <div className="addto_cart" ><Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary" onClick={() => this.addProductinCart(item._id, this.props.auth)}   >ADD TO CART</Button></div>
+                        </div>  */}
+                    
+    
+                      
+                      
+                      <div className="addto_box">
+                      <div className="Deliverd"><div className="delivery-product" >
+                        <h1 className="product_description">
+                            {/* <span className="desc_ription" >Description</span> */}
+                       
+                        </h1>
+Welcome to choosing factory products 
+ Gobachi plate form hav many garments  factory products  in whic many seller  uploads their  products  and they selles theirproduct  , beacuse in this plate form  only Factor  person display their  prodcus or any Seller whow wanna to sell their  prodcts ,
+  it is depending upone the satiscfaction between seller and buyer   A seller is responsible for initiating sales conversations and making the selling process easy for customers. They work in various settings, especially retail stores or service centers.
+
+                 </div></div>
+ 
+
+ <div className="description_auanttiy"  >
+ <div className="checkout-container" > <h1  ><span className="total_product" >Discription</span></h1></div> 
+     
+                    <div className="checkout-container" > <h1  >{item.discription}</h1></div> 
+ 
+ <div className="checkout-container" > <h1  ><span className="total_product" >Total:</span> <span className="total_price">${item.price}</span></h1></div> 
+ <div className="checkout-container" > <h1  ><span className="total_product" >ITEMS:</span> <span className="total_price">{item.discount}</span></h1></div> 
+ <div className="checkout-container" > <h1  >if you like this product you can CHAT with seller and   do add to cart</h1></div> 
+     
+      <div className="checkout-out-product" > <button onClick={() => this.addProductinCart(item._id, this.props.auth)}   >ADD to CART</button> </div> 
+      {/* <div className="checkout-container" > <h1  > you can chat with seller</h1></div>  */}
+     <div className="checkout-out-product" > <button   onClick={e=>handleChat(true)}   >CHAT WITH SELLER</button> </div> 
+      {/* <h1  > {item.discription}</h1> */}
+ </div>
+ <div>
+ </div>
+                      </div>
+                      
+                      
+                        {/* <div className="addto_cart" ><Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary" onClick={() => this.addProductinCart(item._id, this.props.auth)}   >ADD TO CART</Button></div> */}
                        <br/>
-                        <Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary"  onClick={e=>handleChat(true)} >chat with us</Button>
                     </div>
 
 
@@ -144,6 +169,8 @@ componentWillReceiveProps(nexprops){
                     this.state.chatPopUp&&
                     <ChatPopUp handleChatPopUp={handleChat} users={[this.props.auth?.user?.id,this.props.SingleProduct.ItemProduct[0]?.user]}/>
                 }
+                        {/* <Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary"  onClick={e=>handleChat(true)} >chat with us</Button> */}
+
             </div>
         )
     }
@@ -161,3 +188,37 @@ export default connect(mapStateToProps, { getProfilebyId, addtoCartValue })(Prod
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// <ImageGallery 
+// items={
+//   [
+//     {
+//         original: `http://localhost:8080/${item.imgSrc[0]}`,
+//         thumbnail:  `http://localhost:8080/${item.imgSrc[0]}`,
+//       },
+//       {
+//         original: `http://localhost:8080/${item.imgSrc[1]}`,
+//         thumbnail: 'https://picsum.photos/id/1015/250/150/',
+//       },
+//       {
+//         original: `http://localhost:8080/${item.imgSrc[2]}`,
+//         thumbnail: 'https://picsum.photos/id/1019/250/150/',
+//       },
+//       {
+//         original: `http://localhost:8080/${item.imgSrc[3]}`,
+//         thumbnail: 'https://picsum.photos/id/1019/250/150/',
+//       },
+//   ]
+
+// }                
+//                     />
