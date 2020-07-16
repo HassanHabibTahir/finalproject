@@ -40,7 +40,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {FavouritAdds} from '../../store/action/products/productaction'
 import history from '../history/history'
 // import MenCard from '../card/card'
-
+import Fade from 'react-reveal/Fade';
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
  class SerchProduct extends Component {
@@ -107,7 +107,9 @@ console.log(this.props.serchProducts)
 // />
 // )
 
-return    <Card className="main">
+return  (<Fade bottom cascade>
+         <div  className="main_container_card" >
+<Card className="main">
  <Fab size="medium" color="secondary" aria-label="add" >
 {item.price}$
        </Fab>
@@ -164,6 +166,9 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   check
 </div>
 
                </Card>
+               </div>
+                </Fade>)
+             
  
 })
 

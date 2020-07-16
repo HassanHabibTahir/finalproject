@@ -115,14 +115,6 @@ class MEN extends Component {
 
       return (
        <div>
-<div>
-
-
-
-
-
-
-</div>
 
 <Fade bottom cascade>
          <div  className="main_container_card" >
