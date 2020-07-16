@@ -36,7 +36,7 @@ import {AccountCircle,Email,Lock,Send,StarHalf,LocationCity,Phone,BankaccountBan
 
 import {registerUser,startEmailVerification} from '../../store/action/userProfile/userPAction'
 
-
+import Alert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import PropTypes from 'prop-types';
@@ -90,7 +90,7 @@ class SignUp extends Component {
           userCondition:null,
           checkedA: true,
           checkedB: true,
-        
+          passwrdStrong:''
       }
   }
   handleChangeCondition = event => {
@@ -121,14 +121,17 @@ class SignUp extends Component {
     
     }
     else{
-      this.setState({emailError:''});
+      this.setState({emailError:''})
     }
-
-    if(nextProps.err.message ==='account is created'){
+     if(nextProps.err.message ==='account is created'){
       history.push('/login')
     }
-    
-
+     if(nextProps.err.message.password==="Password must be at least 6 characters"){
+       debugger;
+      this.setState({
+        passwrdStrong:nextProps.err.message.password
+      })
+    } 
     // if(nextProps.auth.user){
     //   history.push('/login')
     // }
@@ -251,7 +254,7 @@ class SignUp extends Component {
  }
   render() {
     
-    console.log(this.props.err)
+    console.log(this.state.passwrdStrong)
     const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading,userCondition,cellNumberError} = this.state;
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' ||cellNumberError!==''|| passwordError !== '' || loading||userCondition==null; 
       return (
@@ -288,6 +291,7 @@ class SignUp extends Component {
                      
                      
                    <Grid container spacing={8} className="LoginContainer"> 
+                   <Grid aitem xs={12} md={12} align="center">  {this.state?.passwrdStrong==="Password must be at least 6 characters"?<Alert severity="error">{this.state?.passwrdStrong}</Alert>:loading}</Grid>
                      <Grid item xs={12} md={6} className="paddingTop">
                      <TextField
               

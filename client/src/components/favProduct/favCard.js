@@ -55,6 +55,7 @@ import './favCard.css'
         return (
 
           <Fade bottom cascade>
+                    <div  className="main_container_card" >
           <Card className="main">
            <Fab size="medium" color="secondary" aria-label="add" >
           {fCard.price}$
@@ -87,21 +88,28 @@ import './favCard.css'
           </div>
           
           <div className="prduct_info">
-          
-          <div  className="name_product"><h2>{fCard.productname.toUpperCase()}
-          {/* <span className="price">${item.price}</span> */}
-          </h2>
-          
-          </div>
-          <div className="dis">{fCard.discription}</div>
-          
-          </div>
+                  <div className="name_product">
+
+
+                    <div  ><h2 className="name_category">{fCard.category.toUpperCase()}
+
+                    </h2>
+                    </div>
+                    <h2>{fCard.productname.toUpperCase()}
+
+                    </h2>
+                  </div>
+
+                  {/* <div className="dis">{item.discription}</div> */}
+
+                </div>
           </div>
           
           
           </div>
           
                          </Card>
+                         </div>
                          </Fade>
 
 

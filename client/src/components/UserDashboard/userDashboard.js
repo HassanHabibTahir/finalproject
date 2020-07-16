@@ -53,6 +53,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
   let id=item._id
   console.log(item.imgSrc[0])
   return (
+    <div  className="main_container_card" >
                <Card className="main"  >
 
 <div className="card_products">
@@ -93,6 +94,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 </div>
 
                </Card>
+               </div>
               )
 
         })

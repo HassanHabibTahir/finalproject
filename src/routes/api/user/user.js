@@ -26,6 +26,8 @@ const Tokenprofile = require("../../../module/token/token");
 
 //valiidataier
 const validatePhoneNumber = require('validate-phone-number-node-js');
+//import validator 
+const ValidateRegisterInput = require('../../../validation/validation')
 //errosrs
 let errors;
 
@@ -35,13 +37,13 @@ let errors;
 
 router.post('/rejister', (req, res) => {
 
-  // const {errors,isValid}  =ValidateRegisterInput(req.body)
+  const {errors,isValid}  =ValidateRegisterInput(req.body)
  
   //CheckValidation
-  // isValid=isEmpty(errro)
-  // if(!isValid){
-  //     return res.status(400).json(errors);
-  // }
+ 
+  if(!isValid){
+      return res.status(400).json(errors);
+  }
 
 
 

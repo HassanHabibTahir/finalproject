@@ -89,7 +89,7 @@ handleChangePage = (event, page) => {
         const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
         // console.log(buyerorder)
       return (
-            <div style={{marginTop:"5vh"}}>
+            <div style={{marginTop:"8vh"}}>
           
           <Grid container > 
     
@@ -102,9 +102,9 @@ handleChangePage = (event, page) => {
 
       <Grid item xs={12} md={12}>
    
-                <Table  style={{width:"100vw"}}   >
+      <Table  style={{width:"100vw"}}   >
                 <TableHead>
-      {/* <TableRow >
+      <TableRow >
       <StyledTableCell   component="th" >SR.NO</StyledTableCell>
       <StyledTableCell   component="th" >Email</StyledTableCell>
       <StyledTableCell   component="th" >PHONE NO</StyledTableCell>
@@ -113,14 +113,13 @@ handleChangePage = (event, page) => {
         <StyledTableCell   component="th" >Category</StyledTableCell>
         <StyledTableCell   component="th" >Quantity</StyledTableCell>
         <StyledTableCell   component="th" >Price</StyledTableCell>
-        <StyledTableCell   component="th" >total</StyledTableCell>
-        <StyledTableCell   component="th" >Province</StyledTableCell>
-        <StyledTableCell   component="th" >city</StyledTableCell>
-        <StyledTableCell   component="th" >address</StyledTableCell>
-       
-       
-      </TableRow> */}
+        <StyledTableCell   component="th" >TOTAL</StyledTableCell>
+        <StyledTableCell   component="th" >SELLER ID</StyledTableCell>
+        <StyledTableCell   component="th" >SELLER INFORMATION</StyledTableCell>       
+      </TableRow>
   </TableHead>
+
+           
 
 
   <TableBody>
@@ -135,9 +134,8 @@ handleChangePage = (event, page) => {
         )
       :<img alt=""/> 
       }
-
-  </TableBody>
-                <TableFooter>
+              </TableBody>
+                 <TableFooter>
                   <TableRow>
                     <TablePagination
                       // colSpan={2}

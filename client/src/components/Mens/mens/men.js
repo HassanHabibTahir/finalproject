@@ -125,7 +125,9 @@ class MEN extends Component {
 </div>
 
 <Fade bottom cascade>
-          <Card className="main">
+         <div  className="main_container_card" >
+
+         <Card className="main">
             <Fab size="medium" color="secondary" aria-label="add" >
               {item.price}$
        </Fab>
@@ -146,14 +148,14 @@ class MEN extends Component {
               <div className="top-section">
 
 
-                <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item.imgSrc[0]} alt="img1" /></Link></center>
+                <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="img1" /></Link></center>
 
                 <div className="nav">
 
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[0]} />
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[1]} />
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[2]} />
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[3]} />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[0]} />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[1]} />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[2]} />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[3]} />
 
                 </div>
 
@@ -170,7 +172,7 @@ class MEN extends Component {
                     </h2>
                   </div>
 
-                  <div className="dis">{item.discription}</div>
+                  {/* <div className="dis">{item.discription}</div> */}
 
                 </div>
               </div>
@@ -179,6 +181,8 @@ class MEN extends Component {
             </div>
 
           </Card>
+
+         </div>
         </Fade>
 
        </div>
