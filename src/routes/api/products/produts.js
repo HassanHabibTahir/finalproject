@@ -184,7 +184,7 @@ passport.authenticate('jwt', { session: false }),
       return req.user.addToCart(product);
     })
     .then(result => {
-      console.log(result);
+    res.json("product add to cart")
       // res.redirect('/cart');
     });
 

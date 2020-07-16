@@ -155,7 +155,7 @@ class MEN extends Component {
                   <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[0]} />
                   <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[1]} />
                   <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[2]} />
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[3]} />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image'  src={"http://localhost:8080/" + item?.imgSrc[3]} />
 
                 </div>
 

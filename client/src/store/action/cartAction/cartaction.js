@@ -6,7 +6,7 @@ let globalKeyWord;
 export const addtoCartValue = (cartId) => dispatch => {
 
   axios.post('http://localhost:8080/api/product/PostCart', cartId).then((res) => {
-
+    toast.success("Successfully add to cart!");
     console.log(res)
 
   })

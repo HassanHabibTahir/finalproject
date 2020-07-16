@@ -80,7 +80,7 @@ import './favCard.css'
           
           <div className="nav">
           
-          <img    onClick={()=>{this.changedData( fCard._id  ,fCard.imgSrc[0])}} ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[0]}/>
+          <img    onClick={()=>{this.changedData( fCard._id,fCard.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[0]}/>
           <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard.imgSrc[1]}/>
           <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[2]}/>
           <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[3]}/>

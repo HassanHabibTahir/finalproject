@@ -47,33 +47,33 @@ I AM SELLEING PRODUCTS ON GOBACHI PLATE FORM
   </div>
 </div> 
 
- <table>
+ <table className="seller_acount_table">
   <thead>
-    <tr>
-      <th scope="col">EMAIL</th>
-      <th scope="col">{seller.email}</th>
-      <th scope="col">CELL NO</th>
-      <th scope="col">{seller.cellNo}</th>
+    <tr className="table_tr_seller" >
+      <th  className="table_heading" scope="col">EMAIL</th>
+      <th  className="table_heading" scope="col">{seller.email}</th>
+      <th className="table_heading" scope="col">CELL NO</th>
+      <th className="table_heading"  scope="col">{seller.cellNo}</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-    <th scope="col">PROVINVE</th>
-        <th scope="col">{seller.province}</th>
-      <th scope="col">CITY</th>
-        <th scope="col">{seller.city}</th>
+    <tr className="table_tr_seller" >
+    <th  className="table_heading"  scope="col">PROVINVE</th>
+        <th   className="table_heading" scope="col">{seller.province}</th>
+      <th  className="table_heading"  scope="col">CITY</th>
+        <th  className="table_heading"  scope="col">{seller.city}</th>
     </tr>
-    <tr>
-    <th scope="col">ADRESS</th>
-        <th scope="col">{seller.address}</th>
-      <th scope="col">BANK CODE </th>
-        <th scope="col">{seller.bankcode}</th>
+    <tr className="table_tr_seller" >
+    <th   className="table_heading"   scope="col">ADRESS</th>
+        <th  className="table_heading"    scope="col">{seller.address}</th>
+      <th   className="table_heading"    scope="col">BANK CODE </th>
+        <th   className="table_heading"   scope="col">{seller.bankcode}</th>
     </tr>
-    <tr>
-    <th scope="col">BANK NAME</th>
-        <th scope="col">{seller.bankname}</th>
-      <th scope="col">ACCOUNT NUMBER </th>
-        <th scope="col">{seller.accountnumber}</th>
+    <tr className="table_tr_seller" >
+    <th  className="table_heading"   scope="col">BANK NAME</th>
+        <th   className="table_heading"   scope="col">{seller.bankname}</th>
+      <th   className="table_heading"   scope="col">ACCOUNT NUMBER </th>
+        <th  className="table_heading"    scope="col">{seller.accountnumber}</th>
     </tr>
   </tbody>
 </table> 

@@ -12,7 +12,7 @@ import { getcartproducts ,RemoveCartElement ,getCartProductbyId,PostOrders,updat
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
-
+import Spiner from '../spnier/spiner';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import history from '../history/history';
 import './cart.css'
@@ -234,7 +234,7 @@ checkOrders=(id)=>{
               <ButtonGroup size="small" aria-label="large outlined button group">
             <Button onClick={()=>{this.handleIncrement(i,item) }}>+</Button>
             {/* this.state.counter > 0 && */}
-             { <Button>{this.state.counter}</Button>}
+             { <Button>{item.quantity}</Button>}
             <Button onClick={()=>{this.handleDecrement(i,item) }}>-</Button>
            </ButtonGroup>
               </TableCell>
@@ -251,7 +251,7 @@ checkOrders=(id)=>{
     </div>
           )
     }
-        }):null
+        }):<Spiner/>
   
  
     return (
@@ -277,7 +277,8 @@ checkOrders=(id)=>{
     {!this.state.data.length==0? <div className="check-container" >
       <div className="checkout-container" > <h1  ><span className="total_product" >Total:</span> <span className="total_price">${total<=0?0:total}</span></h1></div> 
       <div className="checkout-out-product" > <button onClick={()=>{this.checkOrders(globalKeyWord)}} >checkout</button> </div> 
-      </div>:null}
+      {/* <Spiner/> */}
+      </div>:<Spiner/>}
       </div>
     )
   }
