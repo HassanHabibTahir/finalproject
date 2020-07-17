@@ -60,6 +60,13 @@ function InitializeChat(auth, socket, dispatch) {
 }
 
 
+
+
+//component will mount run befor  component
+// component did mount run 
+//componentDidUpdate run after  the component
+//
+
 class Routes extends Component {
   componentDidMount() {
     if (this.props.auth) {
@@ -84,7 +91,7 @@ class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/:token" component={Login} />
           <Route exact path="/getEmail/forgot" component={resetEmail} />
-          {/* <Route exact path="/chat" component={Chat} /> */}
+          <Route exact path="/buyerchat" component={Chat} />
           <Switch>
             <Route exact path="/reset/:token" component={Resetpassword} />
           </Switch>
@@ -157,6 +164,7 @@ const mapStateToProps = (state) => ({
   errors: state.erorr,
   auth: state.auth,
 })
+
 
 
 export default connect(mapStateToProps)(Routes)

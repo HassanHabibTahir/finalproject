@@ -139,6 +139,8 @@ const Logout=(
 
 {this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="buyer"?<Button onClick={this.handleClose} ><Link to="/buyer/orders/getorder" >
  <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />BUYER ORDERS</Button></Link></Button>:null}
+ {this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="buyer"?<Button onClick={this.handleClose} ><Link to="/buyerchat" >
+ <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />MESSAGES</Button></Link></Button>:null}
 
 <p><Button 
     onClick={this.onLogoutClick}>
