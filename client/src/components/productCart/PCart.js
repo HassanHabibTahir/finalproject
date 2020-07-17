@@ -278,7 +278,10 @@ checkOrders=(id)=>{
       <div className="checkout-container" > <h1  ><span className="total_product" >Total:</span> <span className="total_price">${total<=0?0:total}</span></h1></div> 
       <div className="checkout-out-product" > <button onClick={()=>{this.checkOrders(globalKeyWord)}} >checkout</button> </div> 
       {/* <Spiner/> */}
-      </div>:<Spiner/>}
+      </div>:<div>
+        
+        <h1>Succefully submitted you order</h1>
+        </div>}
       </div>
     )
   }

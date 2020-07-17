@@ -72,11 +72,10 @@ class Buyer extends Component {
 constructor(props) {
   super(props)
   this.state={
-   ads:[],
    copyData:[],     
    page: 0,
    rowsPerPage: 8,
-   adsViewOf:true
+
   }
 }
 
@@ -87,15 +86,10 @@ componentDidMount() {
 
 }
 
-adsViewOff = () => {
-  this.setState({adsViewOf:false});
-}
-
-
 componentWillReceiveProps(nextProps) {
   
     // console.log(nextProps.profile.profile.users)
-  this.setState({ads:nextProps.ads,copyData:nextProps.profile.profile.users})
+  this.setState({copyData:nextProps.profile.profile.users})
 }
 handleChangePage = (event, page) => {
   this.setState({page});
@@ -106,7 +100,7 @@ handleChangeRowsPerPage = event => {
 };
   render() {
     const classes = useStyles;
-    const {copyData, rowsPerPage, page,adsViewOf} = this.state;
+    const {copyData, rowsPerPage, page} = this.state;
   
     return (
       <div>

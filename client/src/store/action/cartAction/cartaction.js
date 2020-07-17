@@ -1,4 +1,4 @@
-import { ADDTOCARTITEMSS, GETCARTPRODUCTS, REMOVECARTPRODUCT, GETORDERS } from '../../action/types/types'
+import { ADDTOCARTITEMSS, GETCARTPRODUCTS, REMOVECARTPRODUCT, GETORDERS,GETALLORDERS } from '../../action/types/types'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import history from '../../../components/history/history'
@@ -112,6 +112,21 @@ export const updateCartQuantity = (updatequn) => () => {
   })
 }
 
+
+export const GetAllsendOrders = () => (dispatch) => {
+  axios.get('http://localhost:8080/api/product/getOrders').then((res) => {
+
+    dispatch({
+      type: GETALLORDERS,
+      payload: res.data
+    })
+
+
+})
+}
+
+
+
 export const GetBuyerOrder = (user) => (dispatch) => {
   axios.get('http://localhost:8080/api/product/getOrders').then((res) => {
 
@@ -136,38 +151,6 @@ export const GetBuyerOrder = (user) => (dispatch) => {
           payload: items  
         })
 
-
-    // a.map((item) => {
-    //   // item.map((q)=>{
-    //   //   console.log(q)
-    //   // })
-
-      
-  
-
-    // let a =res.data.filter((item)=>{
-    //  
-
-
-    //    let a=  item.products.filter((i)=>{
-
-    //   // globalKeyWord=i.user
-    //         return i.product.user===user.user.id
-
-    //       })
-    // return item
-
-
-
-    // })
-
-    // globalKeyWord=res.data.user
-
-    //  let a=  res.data.products.filter((i)=>{
-    //   console.log(i)      
-    //   // globalKeyWord=i.user
-    //         return i.product.user===user.user.id
-    // })
 
 
   })

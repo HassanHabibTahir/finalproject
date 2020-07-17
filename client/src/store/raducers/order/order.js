@@ -1,9 +1,10 @@
-import {GETORDERS} from '../../action/types/types'
+import {GETORDERS,GETALLORDERS} from '../../action/types/types'
 
 
 const intialState = {
     order:"GETORDERS",
-    orders:[]
+    orders:[],
+    allorders:[]
 }
 
 export default function ( state=intialState, action ) {
@@ -24,6 +25,11 @@ export default function ( state=intialState, action ) {
     
             })
 
+            case GETALLORDERS:
+                return({
+                    ...newState,
+                    allorders:action.payload
+                })
 
             default:
                 return newState
