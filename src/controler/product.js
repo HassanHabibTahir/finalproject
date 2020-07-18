@@ -5,6 +5,9 @@ const productControler = {
         let producatData = new Product();
    
      producatData.user = data.user.id;
+    //  producatData.user = data.user.province;
+    //  producatData.user = data.user.city;
+    //  producatData.user = data.user.address;
      producatData.price = data.body.price;
      producatData.discount = data.body.discount;
      producatData.productname = data.body.productname;

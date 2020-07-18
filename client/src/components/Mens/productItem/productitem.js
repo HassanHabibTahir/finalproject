@@ -61,10 +61,10 @@ componentWillReceiveProps(nexprops){
 
     render() {
 
-        console.log(this.props.unique)
+        console.log("single",this.props.SingleProduct.ItemProduct[0]?.user._id,"singleproduct",this.props.SingleProduct.ItemProduct?.user)
 
         const Images = this.props.SingleProduct === undefined || this.props.SingleProduct === null ? <h1>show is noting</h1> : this.props.SingleProduct.ItemProduct.map((item) => {
-                     
+                  console.log(item)   
             return (
                 <div className="product-item">
                  
@@ -111,6 +111,16 @@ Welcome to choosing factory products
  
 
  <div className="description_auanttiy"  >
+ <div className="checkout-container" > <h1  ><span className="total_product" >SELLER:</span> <span className="total_price">{item.user.name}</span></h1></div> 
+ 
+ <div className="checkout-container" > <h1  ><span className="total_product" >CELL NO:</span> <span className="total_price">{item.user.cellNo}</span></h1></div> 
+ <div className="checkout-container" > <h1  ><span className="total_product" >PROVINCE:</span> <span className="total_price">{item.user.province}</span></h1></div> 
+ <div className="checkout-container" > <h1  ><span className="total_product" >CITY:</span> <span className="total_price">{item.user.city}</span></h1></div> 
+ <div className="checkout-container" > <h1  ><span className="total_product" >ADDRESS</span></h1></div> 
+     
+     <div className="checkout-container" > <h1  >{item.user.address}</h1></div> 
+
+
  <div className="checkout-container" > <h1  ><span className="total_product" >Discription</span></h1></div> 
      
                     <div className="checkout-container" > <h1  >{item.discription}</h1></div> 
@@ -145,8 +155,8 @@ Welcome to choosing factory products
             {
                 if(this.props.auth.isAuthenticated)
                 {
-                    console.log(this.props.auth?.user?.id==this.props.SingleProduct.ItemProduct[0]?.user)
-                    if(this.props.auth?.user?.id!=this.props.SingleProduct.ItemProduct[0]?.user)
+                    console.log(this.props.auth?.user?.id==this.props.SingleProduct.ItemProduct[0]?.user._id)
+                    if(this.props.auth?.user?.id!=this.props.SingleProduct.ItemProduct[0]?.user._id)
                     this.setState({...this.state,chatPopUp:true})
                     else{
                         alert("its your own prodect so chat is unavailable")
@@ -167,7 +177,7 @@ Welcome to choosing factory products
    
                 {
                     this.state.chatPopUp&&
-                    <ChatPopUp handleChatPopUp={handleChat} users={[this.props.auth?.user?.id,this.props.SingleProduct.ItemProduct[0]?.user]}/>
+                    <ChatPopUp handleChatPopUp={handleChat} users={[this.props.auth?.user?.id,this.props.SingleProduct.ItemProduct[0]?.user._id]}/>
                 }
                         {/* <Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary"  onClick={e=>handleChat(true)} >chat with us</Button> */}
 

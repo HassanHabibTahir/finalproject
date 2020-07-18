@@ -11,13 +11,14 @@ body{
      background-size: cover;
      text-align: center;
      /* margin-top:10px; */
+     padding-left: 50px;
      
  }
  .footerbg img{
      padding: 5px;
  }
  .peraColor{
-     color:#757575 !important;
+     color:#0c0752 !important;
  }
  .copyWrite{
      margin-top:15px !important;
@@ -59,7 +60,10 @@ body{
      padding-left: 30px;
  }
  .fontSizeSet{
-     background-color:transparent
+     /* background-color:transparent */
+     text-align: center;
+     align-items: center;
+     justify-content: center;
  }
  .fontSizeSet p{
       font-size: 12px !important;

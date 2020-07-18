@@ -18,7 +18,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import LockIcon from '@material-ui/icons/Lock';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
-
+import {Home,Visibility,Message} from '@material-ui/icons';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import './toolbar.css'
 import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/EnhancedEncryptionOutlined';
@@ -140,7 +140,7 @@ const Logout=(
 {this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="buyer"?<Button onClick={this.handleClose} ><Link to="/buyer/orders/getorder" >
  <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />BUYER ORDERS</Button></Link></Button>:null}
  {this.props.auth.user.Admin===false && this.props.auth.user.userCondition==="buyer"?<Button onClick={this.handleClose} ><Link to="/buyerchat" >
- <Button>  <AccountCircleIcon fontSize="large" style={{color:"#020D75"}} />MESSAGES</Button></Link></Button>:null}
+ <Button>  <Message fontSize="large" style={{color:"#020D75"}} />MESSAGES</Button></Link></Button>:null}
 
 <p><Button 
     onClick={this.onLogoutClick}>

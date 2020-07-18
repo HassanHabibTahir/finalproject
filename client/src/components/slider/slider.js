@@ -16,9 +16,9 @@ import Imges4 from './images/img4.jpg'
 import Imges5 from './images/menShirt.jpg'
 import { Link } from '@material-ui/core';
 import Animate from 'animate.css-react'
- import 'animate.css/animate.css'
- import Fade from 'react-reveal/Fade';
- import Roll from 'react-reveal/Roll';
+import 'animate.css/animate.css'
+import Fade from 'react-reveal/Fade';
+import Roll from 'react-reveal/Roll';
 class Slidersimple extends Component {
 
 
@@ -32,7 +32,7 @@ class Slidersimple extends Component {
 
   render() {
     var settings = {
-      autoplay:true,
+      autoplay: true,
       dots: true,
       fade: true,
       useTransform: true,
@@ -40,7 +40,7 @@ class Slidersimple extends Component {
       speed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1,
-       arrows : false,
+      arrows: false,
       useCSS: true,
       beforeChange: this.onBeforeChange,
       afterChange: this.onAfterChange
@@ -54,131 +54,122 @@ class Slidersimple extends Component {
         <div onClick={this.next} className="right-arrow"><ArrowForwardIosIcon className="rightIcon" /></div>
 
         <Slider ref={c => (this.slider = c)} {...settings} className="sliderContainer"   >
-            <div >
-              
+          <div >
 
-            <a href='#'>    <div><img   className="img1" src={Image1} /></div></a>
-         
-         
-          <div className="animation-container">
 
-          <div className="type-animation">
-           <Typical
-           
-           steps={['WELCOME TO GOBACHI ! ', 1000, '', 1000,'GET PENTS ', 1000,'GET JEANS', 1000  ]}
-           loop={Infinity}
-           wrapper="p"
-         />
-         <Link className="shop-now"   to="/shop">SHOP GOBACHI</Link>
-         </div>
-          </div>
-      
-              
-             
+            <a href='#'>    <div><img className="img1" src={Image1} /></div></a>
 
-            </div> 
-         
-     
 
-           <div  >
-              <div>
-                <img className="img2" src={Imges2} />
+            <div className="animation-container">
+
+              <div className="type-animation">
+                <Typical
+
+                  steps={['WELCOME TO GOBACHI  PLATEFORM! ', 1000, 'GET WOMEN PRODUCTS', 1000, 'GET MEN PRODUCTS ', 1000, 'GET CHILD PRODUCTS', 1000]}
+                  loop={Infinity}
+                  wrapper="p"
+                />
+                <h2 className='text2'>GOBACHI PLATEFORM</h2>
               </div>
-              <div className="animation-container">
-
-<div className="type-animation">
-<div>
-<div className="textDiv">
-              <div className='Slid1text1'>
-								<div className="p">P</div>
-								<div className="r">R</div>
-								<div className="o1">O</div>
-								<div className="f">F</div>
-								<div className="e">E</div>
-								<div className="s1">S</div>
-								<div className="s2">S</div>
-								<div className="i">I</div>
-								<div className="o2">O</div>
-								<div className="n">N</div>
-								<div className="a">A</div>
-								<div className="l">L</div>
-								<div className="s3">S</div>
-							</div>
-              <h2 className='text2'>Factory Products</h2>
-					
-					
-						</div>
-</div>
-
-
-</div>
-</div>
             </div>
-      
+
+
+
+
+          </div>
+
+
+
+          <div  >
+            <div>
+              <img className="img2" src={Imges2} />
+            </div>
+            <div className="animation-container">
+
+              <div className="type-animation">
+                <div>
+                  <div className="textDiv">
+                    <div className='Slid1text1'>
+                      <div className="p">P</div>
+                      <div className="r">R</div>
+                      <div className="o1">O</div>
+                      <div className="f">F</div>
+                      <div className="e">E</div>
+                      <div className="s1">S</div>
+                      <div className="s2">S</div>
+                      <div className="i">I</div>
+                      <div className="o2">O</div>
+                      <div className="n">N</div>
+                      <div className="a">A</div>
+                      <div className="l">L</div>
+                      <div className="s3">S</div>
+                    </div>
+                    <h2 className='text2'>Factory Products</h2>
+
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
           <div>
             <div  >
               <div>
                 <img className="img3" src={Imges3} />
               </div>
               <div className="animation-container">
-           <div className="type-animation">
-           <div className="textDiv">
-							<div className='Slid1text1'>
-								<div className="p"> YOU CAN ORDER PRODUCTS</div>
-               
-								{/* <div className="r">R</div>
-								<div className="o1">O</div>
-								<div className="f">F</div>
-								<div className="e">E</div>
-								<div className="s1">S</div>
-								<div className="s2">S</div>
-								<div className="i">I</div>
-								<div className="o2">O</div>
-								<div className="n">N</div>
-								<div className="a">A</div>
-								<div className="l">L</div>
-								<div className="s3">S</div> */}
-							</div>
-              <h2 className='text2'> GOBACHI PLATEFORM</h2>
-						
-						</div>
-        
-</div>
-           </div>
+                <div className="type-animation">
+                  <div className="textDiv">
+                    <div className='Slid1text1'>
+                      <div className="p"  > YOU </div>
+                      <div className="p"  >-</div>
+                      <div className="r">CAN </div>
+                      <div className="p"  >-</div>
+                      <div className="o1">ORDER</div>
+                      <div className="p"  >-</div>
+                      <div className="f"  >PRODUCTS</div>
+                    </div>
+                    <h2 className='text2'> GOBACHI PLATEFORM</h2>
+
+                  </div>
+
+                </div>
+              </div>
             </div>
-          </div> 
-        <div>
+          </div>
+          <div>
             <div  >
               <div>
                 <img className="img4" src={Imges4} />
               </div>
               <div className="animation-container">
-           <div className="type-animation">
-           <div className="textDiv">
-           <div className='Slid1text1'>
-								<div className="W">B</div>
-								<div className="E">U</div>
-								<div className="C">Y</div>
-								<div className="A1">P</div>
-								<div className="N1">N</div>
-								<div className="D">D</div>
-								<div className="O">O</div>
-								<div className="A2">A</div>
-								<div className="N2">N</div>
-								<div className="Y">Y</div>
-								<div className="T">T</div>
-								<div className="H">H</div>
-								<div className="I">I</div>
-								<div className="N3">N</div>
-								<div className="G">G</div>
-								<div className="LAST">!</div>
-							</div>
-              <h2 className='text2'>HYDDIMAN SERVICES</h2>
-						
-						</div>
-        
-</div>
-           </div>
+                <div className="type-animation">
+                  <div className="textDiv">
+                    <div className='Slid1text1'>
+                      <div className="W">D</div>
+                      <div className="E">R</div>
+                      <div className="C">E</div>
+                      <div className="A1">A</div>
+                      <div className="N1">M</div>
+                      <div className="N1">-</div>
+                      <div className="D">P</div>
+                      <div className="O">R</div>
+                      <div className="A2">O</div>
+                      <div className="N2">D</div>
+                      <div className="Y">U</div>
+                      <div className="T">C</div>
+                      <div className="H">T</div>
+                      <div className="I">S</div>
+                    </div>
+                    <h2 className='text2'>GET YOUR DREAM</h2>
+
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 

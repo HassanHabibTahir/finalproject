@@ -49,7 +49,6 @@ upload.array('files',7), (req, res) => {
 
     // }
     //else if(req.files){
-
         Productcontroler.submitProduct(req, (err, product) => {
 
           if(err){res.json(err)}
@@ -91,7 +90,9 @@ router.delete('/deleteUserproduct/:id',
 
 
 router.get('/profilebyid/:id',(req,res)=>{
-  Product.findById({ _id: req.params.id }).then((profile) => {
+  Product.findById({ _id: req.params.id })
+  .populate('user', ['name','isVarified','city','province','address','cellNo'])
+  .then((profile) => {
 
  
    
@@ -107,7 +108,7 @@ router.post('/getallproducts',(req,res)=>{
   passport.authenticate('jwt', { session: false }),
   
   Product.find({user:req.body.user.id})
-  .populate('user', ['name','isVarified'])
+  .populate('user', ['name','isVarified','city','province','address','cellNo'])
   .then((data)=>{
     res.status(200).json(data)
   })
@@ -117,7 +118,7 @@ router.post('/getallproducts',(req,res)=>{
 // allProduts
   router.get('/allProduts',(req,res)=>{
    Product.find()
-  .populate('user', ['name' ,'isVarified','userCondition' ])
+  .populate('user', ['name','isVarified','city','province','address','cellNo'])
   .then(allproduts => {
     if (!allproduts) {
       errors = "there are no products";
@@ -134,7 +135,7 @@ router.post('/categoryProducts',(req,res)=>{
 console.log(req)
 
     Product.find({"category":req.body.category})
-  .populate('user', ['name' ,'isVarified' ])
+  .populate('user', ['name','isVarified','city','province','address','cellNo'])
   .then(allproduts => {
     if (!allproduts) {
       errors = "there are no products";
@@ -157,7 +158,7 @@ router.post('/allProduts2',(req,res)=>{
       { discription: {'$regex': keyword } } 
     ]
   })
- .populate('user', ['name' ,'isVarified' ])
+ .populate('user', ['name','isVarified','city','province','address','cellNo'])
  .then(allproduts => {
    console.log(allproduts);
    if (!allproduts) {

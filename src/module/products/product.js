@@ -34,6 +34,18 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
       },
+    //   province: {
+    //     type: String,
+    //     required:true
+    //   },
+    //   city: {
+    //     type: String,
+    //     required:true
+    //   },
+    //   address: {
+    //     type: String,
+    //     required:true
+    //   },
     
 
 })

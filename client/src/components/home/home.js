@@ -21,9 +21,9 @@ export default class Home extends Component {
      </div> 
 
 
-        <div style={{ height: "auto" ,marginTop:"60px"}}>
-
-          <Details />
+        <div style={{ height: "auto" }}>
+        <div><CategoryGrid/></div>
+         
         </div>
 {/* <br/> */}
         <div style={{ height: "auto" }} >
@@ -31,9 +31,10 @@ export default class Home extends Component {
         </div>
 
 <br/>
-<div><CategoryGrid/></div>
+{/* <div><CategoryGrid/></div> */}
         {/* <div   ><MenuList/></div> */}
         <div> <Showcase /></div>
+        <div>  <Details /> </div>
         <div> <Paralex/></div> 
    <div><Footer/></div>   
         <div><Scrool/></div>

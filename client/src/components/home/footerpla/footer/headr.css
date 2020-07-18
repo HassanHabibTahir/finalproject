@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+}
+
+.img{
+    background-image: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    margin: 0px;
+}
+.Our-Mission,.Information,.Contect-Us{
+    /* padding: 50px ; */
+    margin: 20px 0px 0px 0px;
+}
+h2{
+    margin: 10px 0px 20px 0px;
+
+}
+.Our-Mission>p{
+    margin: 0px 50px 0px 50px;
+
+}
+.Contect-Us{
+    margin: 0px 20px 0px 20px;
+}
+.img>p{
+    text-align: center;
+    color: white;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+    margin: 30px 0px 0px 0px;
+}
+/* h2:hover{
+    transition: .5s;
+    border-bottom: 1px black solid;
+    color:   #130c52;
+    opacity: 0.5;
+    font-size: 1.65em;
+} */
+.info{
+    list-style-type: none;
+    text-align:  left;
+    font-size: 18px;
+
+}
+.fa{
+    margin:0px 7px 0px 0px ;
+}
+.info>li{
+    padding-bottom: 5px ;
+}
+.info>li:hover{
+    color :  #330867;
+    /* padding: 0px 0px 0px 5px; */
+    transition: 0.5s;
+    /* font-size: 19px; */
+}
+.infe{
+    list-style-type: none;
+    text-align:  left;
+    font-size: 18px;
+    font-weight: 600;
+}
