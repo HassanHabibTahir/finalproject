@@ -90,7 +90,7 @@ class Footer extends Component {
                        </div>
                        <Typography className="socialLinks"  variant="caption" > 
                          {/* <img src={require('../img/shop.jpg')} alt="fb"/> */}
-                      <Link to="https://twitter.com/HassanHabibTah1" > <img src={require('./resource/images/download (1).png')} alt="fb"/></Link> 
+                      <a href="https://twitter.com/HassanHabibTah1" > <img src={require('./resource/images/download (1).png')} alt="fb"/></a> 
                          <img src={require('./resource/images/insta.jpg')} alt="fb"/>
                          <img src={require('./resource/images/skype.png')} alt="fb"/>
                          <img src={require('./resource/images/whatsapp.png')} alt="fb"/>

@@ -34,7 +34,7 @@ class Chat extends Component {
                                     <div key={chatRoom._id} onClick={e => handleClick(chatRoom._id)} className={(this.state.chatRoomID == chatRoom._id) ? "chatroom selectedChat" : "chatroom"} >
                                         <h3>
                                             {
-                                                chatRoom.users?.find(user=>user._id!=this.props.auth.user.id)?.name
+                                                chatRoom.users==undefined?"loading users.......":chatRoom.users?.find(user=>user._id!=this.props.auth.user.id)?.name
                                             }
                                         </h3>
                                         <time>{time.toLocaleTimeString()}</time>

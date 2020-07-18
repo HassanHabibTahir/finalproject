@@ -50,7 +50,7 @@ import './favCard.css'
         console.log(fCard)
 
 
-        let id=fCard._id
+        let id=fCard?._id
        
         return (
 
@@ -58,13 +58,13 @@ import './favCard.css'
                     <div  className="main_container_card" >
           <Card className="main">
            <Fab size="medium" color="secondary" aria-label="add" >
-          {fCard.price}$
+          {fCard?.price}$
                  </Fab>
              <FormControlLabel
             fontSize="large"
             
             style={{float:"right"}}
-            control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard,this.props.auth)}} checked = 'true'  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+            control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard,  this.props?.auth)}} checked = 'true'  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
                 
                   />
           
@@ -76,14 +76,14 @@ import './favCard.css'
           <div className="top-section">
                                                                       
           
-             <center> <Link  to={`/product/productitems/${fCard._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></Link></center>
+             <center> <Link  to={`/product/productitems/${fCard?._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard?.imgSrc[0]} alt="img1" /></Link></center>
           
           <div className="nav">
           
-          <img    onClick={()=>{this.changedData( fCard._id,fCard.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[0]}/>
-          <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard.imgSrc[1]}/>
-          <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[2]}/>
-          <img    onClick={()=>{this.changedData(fCard._id,fCard.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard.imgSrc[3]}/>
+          <img    onClick={()=>{this.changedData( fCard?._id,fCard?.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[0]}/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard?.imgSrc[1]}/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[2]}/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[3]}/>
           
           </div>
           
@@ -91,11 +91,11 @@ import './favCard.css'
                   <div className="name_product">
 
 
-                    <div  ><h2 className="name_category">{fCard.category.toUpperCase()}
+                    <div  ><h2 className="name_category">{fCard?.category.toUpperCase()}
 
                     </h2>
                     </div>
-                    <h2>{fCard.productname.toUpperCase()}
+                    <h2>{fCard?.productname.toUpperCase()}
 
                     </h2>
                   </div>
