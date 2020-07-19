@@ -97,7 +97,6 @@ class MEN extends Component {
 
 <Fade bottom cascade>
          <div  className="main_container_card" >
-
          <Card className="main">
             <Fab size="medium" color="secondary" aria-label="add" >
               {item.price}$

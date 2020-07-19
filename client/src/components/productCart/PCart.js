@@ -281,6 +281,7 @@ checkOrders=(id)=>{
       </div>:<div>
         
    <img src={require('./pic/shoping.png')}/>
+   <hr/>
         </div>}
       </div>
     )
