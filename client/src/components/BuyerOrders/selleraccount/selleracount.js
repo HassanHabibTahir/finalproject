@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
 import { connect } from 'react-redux';
 import './selleffffraccount.css';
+import PropTypes from 'prop-types';
 import { getSellerAccount } from '../../../store/action/buyer/buyeraction'
 
 
@@ -90,38 +91,18 @@ I AM SELLEING PRODUCTS ON GOBACHI PLATE FORM
 }
 
 
+Selleracount.protoType={
+  SellerData:PropTypes.object.isRequired
 
+}
 
 
 const mapStateToProps = (state) => ({
 
     SellerData: state.buyerOrder.SELLERINFO,
     BuyerOrders: state.buyerOrder.buyerprdouct
-    // ,SELLERINFO
-    // unique: state.allProducts.addedItems,
-    // auth: state.auth,
+  
 })
 
 export default connect(mapStateToProps, { getSellerAccount })(Selleracount)
 
-
-// "_id" : ObjectId("5f07e1426bac5037804518e3"),
-//     "isVarified" : true,
-//     "typeAdmin" : false,
-//     "name" : "ali",
-//     "email" : "test@test.com",
-//     "password" : "$2a$10$QvjyiikA/rPwd8lO.K3tC.DC9ru3xbfqCerOl19XdQ76bLrPkXxdC",
-//     "avatar" : "//www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=200&r=pg&d=mm",
-//     "cellNo" : 43333,
-//     "address" : "Games Village Estate Abuja, FCT, Unnamed Road, Abuja, Nigeria",
-//     "city" : "Alīābad",
-//     "province" : "Gilgit-Baltistan",
-//     "bankcode" : "not yet",
-//     "bankname" : "not yet",
-//     "accountnumber" : "not yet",
-//     "cart" : {
-//         "items" : []
-//     },
-//     "userCondition" : "seller",
-//     "__v" : 0
-// }

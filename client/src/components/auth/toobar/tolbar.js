@@ -21,6 +21,7 @@ import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import {Home,Visibility,Message} from '@material-ui/icons';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import './toolbar.css'
+import PropTypes from 'prop-types';
 import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/EnhancedEncryptionOutlined';
 import Logout from '../../../store/action/logout/logout'
 import { connect } from 'react-redux'; 
@@ -190,7 +191,12 @@ console.log(this.props.auth.user.avatar)
         );
     }
 }
+ToolBar.propTypes = {
+  errors:PropTypes.object.isRequired,
+  auth:PropTypes.object.isRequired,
+  Logout:PropTypes.func.isRequired
 
+};
 const mapStateToProps=(state)=>({
     errors:state.erorr,
     auth:state.auth

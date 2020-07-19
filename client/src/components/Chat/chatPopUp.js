@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./chatPopUp.css"
 import { connect } from 'react-redux';
 import { MarkMessagesAsReaded } from "../../store/action/ChatActions/ChatActions";
-
+import PropTypes from 'prop-types';
 class ChatPopUp extends Component {
 
 
@@ -111,6 +111,10 @@ class ChatPopUp extends Component {
     }
 }
 
+ChatPopUp.propTypes={
+    chat:PropTypes.object,
+    auth:PropTypes.object,
+}
 const mapStateToProps = (state) => ({
     errors: state.erorr,
     auth: state.auth,

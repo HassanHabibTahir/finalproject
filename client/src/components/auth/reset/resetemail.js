@@ -37,7 +37,7 @@ import { connect } from 'react-redux';
 //     Link
 // }
 
- class resetEmail extends Component {
+ class ResetEmail extends Component {
 
 
 
@@ -90,25 +90,6 @@ console.log(nextProps)
         return (
             <div style={{ marginTop: "20vh" }} >
                 <Container component="main" maxWidth="xs" >
-{/*                
-                    <ValidatorForm
-                        ref="form"
-                        onSubmit={this.onSubmit}
-                        onError={errors => console.log(errors)}
-                    >
-                        <Grid container spacing={2} >
-                        <h4 style={{color:"red"}} >{this.state.errors.message}</h4>
-                            <TextValidator
-                                label="Email"
-                                onChange={this.handleChange}
-                                name="email"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                value={this.state.email}
-                                validators={['required', 'isEmail']}
-                                errorMessages={['this field is required', 'email is not valid']}
-                            /> */}
 
  <Grid item xs={12} md={12} className="paddingTop">
                                     <TextField
@@ -167,8 +148,11 @@ console.log(nextProps)
     }
 }
 
-
+ResetEmail.propTypes = {
+    errors:PropTypes.object.isRequired,
+    resetEmailUser:PropTypes.func.isRequired
+};
 const mapStateToProps=(state)=>({
     errors:state.erorr,
   })
-export default connect(mapStateToProps,{resetEmailUser})(resetEmail)
+export default connect(mapStateToProps,{resetEmailUser})(ResetEmail)

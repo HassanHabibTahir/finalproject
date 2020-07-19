@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-
+import PropTypes from 'prop-types';
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
@@ -20,6 +20,7 @@ import Paper from '@material-ui/core/Paper';
 import {Link,withRouter} from 'react-router-dom';
 import Spiner from '../../spnier/spiner'
 import {GetAllsendOrders} from "../../../store/action/cartAction/cartaction"
+import { prototype } from 'nodemailer/lib/dkim';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -134,7 +135,7 @@ handleChangePage = (event, page) => {
           <AllOeders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
           
           )
-          :<Spiner/> }
+          :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >No order yet</h1> }
 {/* </TableRow> */}
   </TableBody>
                 <TableFooter>
@@ -167,6 +168,12 @@ handleChangePage = (event, page) => {
     }
 }
 
+
+AllOeders.propTypes={
+  auth: PropTypes.object.isRequired,
+  orders:PropTypes.object.isRequired,
+  GetAllsendOrders:PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
     auth:state.auth,

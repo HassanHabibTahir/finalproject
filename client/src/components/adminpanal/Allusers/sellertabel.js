@@ -11,6 +11,7 @@ import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import { useDispatch  } from "react-redux";
+import Spiner from '../../spnier/spiner'
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -95,7 +96,7 @@ const UpdatadataElemt = (id) => {
   <StyledTableCell component="th" scope="row"  >{!props.user.userCondition?'Admin':props.user.userCondition}</StyledTableCell>
       {props.user.userCondition==="seller"?<StyledTableCell component="th" scope="row"  >
   <Checkbox
-                 checked={props.user.isVarified==true?"checked":false}
+                 checked={props.user?.isVarified===true?"checked":false}
                  onChange={()=>{changedElement(props.user._id)}} value={verfiy}
 
                                 />

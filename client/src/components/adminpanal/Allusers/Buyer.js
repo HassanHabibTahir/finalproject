@@ -23,7 +23,7 @@
 
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-
+import PropTypes from 'prop-types'
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
@@ -40,6 +40,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Spiner from '../../spnier/spiner'
 import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -136,17 +137,16 @@ handleChangeRowsPerPage = event => {
       {copyData.length>0 ?
               copyData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .filter((ite)=>ite.userCondition=='buyer')
-              .map((users,i) => <Card key={i} user={users} index={i}  TableStyle={StyledTableCell} />
+              .map((users,i) => <Card Card key={i} user={users} index={i}  TableStyle={StyledTableCell} />
               
               )
-              :<img alt=""/> }
-{/* </TableRow> */}
+              :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >Empty</h1> }
+
       </TableBody>
                     <TableFooter>
                       <TableRow>
                         <TablePagination
-                          // colSpan={2}
-                          count={copyData.length}
+                          // colSpan={2}       count={copyData.length}
                           rowsPerPage={rowsPerPage}
                           page={page}
                           labelDisplayedRows={() => ""}
@@ -165,17 +165,17 @@ handleChangeRowsPerPage = event => {
         </Paper>
            
         </Grid>
-        {/* <Hidden smDown>
-        <Grid item xs={1} md={2}>
-        {adsViewOf ? 
-              <img  alt=""/>
-              :""}
-        </Grid>
-        </Hidden> */}
+       
       </Grid>
       </div>
     )
   }
+}
+Buyer.propTypes={
+  profile:PropTypes.object.isRequired,
+  DeleteUserprofile:PropTypes.func.isRequired  ,
+  getUsersProfiles:PropTypes.func.isRequired ,
+  updataElement:PropTypes.func.isRequired 
 }
 const mapStateToProps = (state) => ({
     profile: state

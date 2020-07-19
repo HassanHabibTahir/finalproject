@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 export default function AllOeders(props) {
 
  
-  let a = props.orders.products.map((item, i) => {
+  let alldata = props.orders.products.map((item, i) => {
  
 
     console.log(item)
@@ -79,26 +79,7 @@ export default function AllOeders(props) {
  
   return (
     <>
-      {a}
+      {alldata}
     </>
   );
 }
-
-//  {/* // <StyledTableCell size="large"    component="th" scope="row"  >  {a,'\n'}</StyledTableCell> */}
-
-//   {/* /* <StyledTableCell size="large"    component="th" scope="row"  >{props.user.cellNo}</StyledTableCell> */}
-//   {/* <TableCell  >
-//                 <img  className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[0]} />
-//                 <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[1]} />
-//                 <img className="cart-images" src={"http://localhost:8080/" + props.user.product.imgSrc[2]} />
-//                 <img className="cart-images"  src={"http://localhost:8080/" + props.user.product.imgSrc[3]} />
-//               </TableCell> */}
-//   {/* <StyledTableCell size="large"    component="th" scope="row"  >{props.user.product.productname}</StyledTableCell> */}
-//   {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */
-//   /* <StyledTableCell component="th" scope="row"  >{props.user.product.category}</StyledTableCell>
-//   <StyledTableCell component="th" scope="row"  >{props.user.quantity}</StyledTableCell>
-//   <StyledTableCell component="th" scope="row"  >{props.user.product.price}$</StyledTableCell>
-//   <StyledTableCell component="th" scope="row"  >price*quantity={props.user.product.price*props.user.quantity}$</StyledTableCell>
-//   <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
-//   <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
-//   <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell> */

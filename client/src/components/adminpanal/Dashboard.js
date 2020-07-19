@@ -23,7 +23,6 @@ import { mainListItems, secondaryListItems } from './listItem';
 // import Chart from './chart';
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from 'react-redux'; 
-import Logout from '../../store/action/logout/logout'
 import Deposits from './Deposits';
 import Orders from './Orders';
 import { BrowserRouter as Router, Route, c } from "react-router-dom";
@@ -175,4 +174,4 @@ const mapStateToProps=(state)=>({
 
 })
 
-export default connect(mapStateToProps,{Logout})(Menubar)
+export default connect(mapStateToProps)(Menubar)

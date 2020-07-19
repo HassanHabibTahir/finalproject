@@ -90,11 +90,11 @@ class Footer extends Component {
                        </div>
                        <Typography className="socialLinks"  variant="caption" > 
                          {/* <img src={require('../img/shop.jpg')} alt="fb"/> */}
-                      <a href="https://twitter.com/HassanHabibTah1" > <img src={require('./resource/images/download (1).png')} alt="fb"/></a> 
-                         <img src={require('./resource/images/insta.jpg')} alt="fb"/>
+                      <a href="https://twitter.com/HassanHabibTah1" > <img src={require('./resource/images/download (1).png')} alt="fb"/></a>
+                     <a href = "https://www.instagram.com/hassantahir2587/"><img src={require('./resource/images/insta.jpg')} alt="fb"/></a>
                          <img src={require('./resource/images/skype.png')} alt="fb"/>
-                         <img src={require('./resource/images/whatsapp.png')} alt="fb"/>
-                         <img src={require('./resource/images/face.png')} alt="fb"/>
+                         <a href="https://api.whatsapp.com/send?phone=03438709278"><img src={require('./resource/images/whatsapp.png')} alt="fb"/></a>
+                         <a href="https://www.facebook.com/profile.php?id=100009237984857">   <img src={require('./resource/images/face.png')} alt="fb"/></a> 
                        </Typography>
                   </Grid>
                   

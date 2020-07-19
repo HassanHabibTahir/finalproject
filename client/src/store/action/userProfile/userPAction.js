@@ -9,7 +9,7 @@ export const registerUser = (userData, history) => (dispatch) => {
         .then((res) => {
 
             console.log(res.data)
-debugger;
+
             dispatch({
                 type:TokenSetToUser,
                 payload:res.data

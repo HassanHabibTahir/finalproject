@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import Hidden from '@material-ui/core/Hidden';
+
 import { connect } from 'react-redux'
-import Typography from '@material-ui/core/Typography';
+
 import Divider from '@material-ui/core/Divider';
 // import Orders from './Orders';
 import TablePaginationActionsWrapped from './pagination/paginationn';
@@ -12,12 +12,11 @@ import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/s
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Link,withRouter} from 'react-router-dom';
+// import {Link,withRouter} from 'react-router-dom';
 import {buyergetallbuy} from "../../store/action/buyer/buyeraction"
 import BuyetOrders from "./BuerOrder"
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -87,7 +86,7 @@ handleChangePage = (event, page) => {
     render() {
 
         const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
-        // console.log(buyerorder)
+        console.log(this.props.buyerorders)
       return (
             <div style={{marginTop:"8vh"}}>
           
@@ -132,7 +131,7 @@ handleChangePage = (event, page) => {
          <BuyetOrders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
           
         )
-      :<img alt=""/> 
+      :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >No order yet</h1> 
       }
               </TableBody>
                  <TableFooter>
@@ -167,9 +166,9 @@ handleChangePage = (event, page) => {
 
 
 Buyer.protoType={
-  // getSellerAccount: PropTypes.func.isRequired,
+
   auth: PropTypes.object.isRequired,
-  buyerorders:PropTypes.object.isRequired
+  buyerorders:PropTypes.array
 }
 
 
@@ -177,8 +176,6 @@ const mapStateToProps = state => ({
     auth:state.auth,
     buyerorders:state.buyerOrder.buyerprdouct
   })
-
-//   buyergethisOrdre
 export default connect(mapStateToProps,{buyergetallbuy})(Buyer);
 
 

@@ -280,7 +280,7 @@ checkOrders=(id)=>{
       {/* <Spiner/> */}
       </div>:<div>
         
-        <h1>Succefully submitted you order</h1>
+   <img src={require('./pic/shoping.png')}/>
         </div>}
       </div>
     )

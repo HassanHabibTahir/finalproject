@@ -8,6 +8,7 @@ import { addtoCartValue } from '../../../store/action/cartAction/cartaction';
 import history from '../../history/history'
 import { Button } from '@material-ui/core';
 import ChatPopUp from '../../Chat/chatPopUp';
+import Spiner  from '../../spnier/spiner'
 import './productitem.css'
 class Productitem extends Component {
 constructor(props){
@@ -63,7 +64,7 @@ componentWillReceiveProps(nexprops){
 
         console.log("single",this.props.SingleProduct.ItemProduct[0]?.user._id,"singleproduct",this.props.SingleProduct.ItemProduct?.user)
 
-        const Images = this.props.SingleProduct === undefined || this.props.SingleProduct === null ? <h1>show is noting</h1> : this.props.SingleProduct.ItemProduct.map((item) => {
+        const ImageData = this.props.SingleProduct === undefined || this.props.SingleProduct === null ? <Spiner/> : this.props.SingleProduct.ItemProduct.map((item) => {
                   console.log(item)   
             return (
                 <div className="product-item">
@@ -173,7 +174,7 @@ Welcome to choosing factory products
 
         return (
             <div className="container_product" >
-                {Images}
+                {ImageData}
    
                 {
                     this.state.chatPopUp&&

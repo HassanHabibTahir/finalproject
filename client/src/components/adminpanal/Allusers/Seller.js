@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-
+import PropTypes from 'prop-types'
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
@@ -20,6 +20,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Spiner from '../../spnier/spiner'
 import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -71,15 +72,7 @@ adsViewOff = () => {
   this.setState({adsViewOf:false});
 }
 
-// onClickHandler = (data) =>{
-  
-//    const {ads} = this.state; 
-//    let filter = ads.filter(item => item.category === data);
-//    this.setState({copyData:filter});
-// }
 componentWillReceiveProps(nextProps) {
-  
-    // console.log(nextProps.profile.profile.users)
   this.setState({ads:nextProps.ads,copyData:nextProps.profile.profile.users})
 }
 handleChangePage = (event, page) => {
@@ -105,26 +98,6 @@ handleChangeRowsPerPage = event => {
        
 
           <Grid item xs={12} md={12}>
-          {/* <Divider /> */}
-          {/* <TableContainer component={Paper}> */}
-      {/* <Table className={classes.table}  aria-label="customized table"  > */}
-        
-        {/* <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody> */}
-      {/* </Table> */}
-    {/* </TableContainer> */}
-       
                     <Table  style={{width:"100vw"}}   >
                     <TableHead>
           <TableRow >
@@ -145,20 +118,17 @@ handleChangeRowsPerPage = event => {
 
 
       <TableBody>
-      {/* <TableRow> */}
       {copyData.length>0 ?
               copyData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .filter((ite)=>ite.userCondition=='seller')
               .map((users,i) => <Card key={i} user={users} index={i}  TableStyle={StyledTableCell} />
               
               )
-              :<img alt=""/> }
-{/* </TableRow> */}
+              :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >Empty</h1>}
       </TableBody>
                     <TableFooter>
                       <TableRow>
                         <TablePagination
-                          // colSpan={2}
                           count={copyData.length}
                           rowsPerPage={rowsPerPage}
                           page={page}
@@ -189,6 +159,13 @@ handleChangeRowsPerPage = event => {
       </div>
     )
   }
+}
+
+Seller.propTypes={
+  profile:PropTypes.object.isRequired,
+  DeleteUserprofile:PropTypes.func.isRequired  ,
+  getUsersProfiles:PropTypes.func.isRequired ,
+  updataElement:PropTypes.func.isRequired 
 }
 const mapStateToProps = (state) => ({
     profile: state

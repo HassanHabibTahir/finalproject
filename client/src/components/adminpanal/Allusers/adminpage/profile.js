@@ -76,25 +76,3 @@ I AM SELLEING PRODUCTS ON GOBACHI PLATE FORM
 
 
 export default Adminprofile
-
-
-// "_id" : ObjectId("5f07e1426bac5037804518e3"),
-//     "isVarified" : true,
-//     "typeAdmin" : false,
-//     "name" : "ali",
-//     "email" : "test@test.com",
-//     "password" : "$2a$10$QvjyiikA/rPwd8lO.K3tC.DC9ru3xbfqCerOl19XdQ76bLrPkXxdC",
-//     "avatar" : "//www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=200&r=pg&d=mm",
-//     "cellNo" : 43333,
-//     "address" : "Games Village Estate Abuja, FCT, Unnamed Road, Abuja, Nigeria",
-//     "city" : "Alīābad",
-//     "province" : "Gilgit-Baltistan",
-//     "bankcode" : "not yet",
-//     "bankname" : "not yet",
-//     "accountnumber" : "not yet",
-//     "cart" : {
-//         "items" : []
-//     },
-//     "userCondition" : "seller",
-//     "__v" : 0
-// }

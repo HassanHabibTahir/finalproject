@@ -2,23 +2,18 @@ import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import Hidden from '@material-ui/core/Hidden';
-import Paper from '@material-ui/core/Paper';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { getAllMenProduts, FavouritAdds } from '../../../store/action/products/productaction'
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import history from '../../history/history'
-import MenCard from '../card/card'
 import Fab from '@material-ui/core/Fab';
 import Fade from 'react-reveal/Fade';
 import { connect } from 'react-redux';
+import menCard from '../card/card'
 import { Link } from 'react-router-dom';
+
 import '../mens.css'
+
 import productitem from '../productItem/productitem';
 import { Grid } from '@material-ui/core';
 
@@ -97,22 +92,6 @@ class MEN extends Component {
     let product = Prdouctsitems.map((item, i) => {
       let id = item._id
 
-
-      // return(
-      //   <MenCard 
-
-      //   images={item.imgSrc}
-      //   price={item.price}
-      //   description={item.discription}
-      //   productName = {item.productname}
-      //   category={item.category}
-      //   _id={item._id}
-      //   id={item._id}
-      //   i={i}
-      //   fav={item.fav}
-      // />
-      // )
-
       return (
        <div>
 
@@ -135,9 +114,9 @@ class MEN extends Component {
 
 
             <div className="card_products">
-              {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
+           
 
-              <div className="top-section">
+   <div className="top-section">
 
 
                 <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="img1" /></Link></center>
@@ -163,8 +142,6 @@ class MEN extends Component {
 
                     </h2>
                   </div>
-
-                  {/* <div className="dis">{item.discription}</div> */}
 
                 </div>
               </div>

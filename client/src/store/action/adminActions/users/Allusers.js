@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets,UserVerfication} from '../../types/types';
-
+import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets,} from '../../types/types';
+import {toast} from 'react-toastify';
 
 export const getUsersProfiles = ()=>dispatch=>{
       dispatch(ProfileLoading())
@@ -37,10 +37,7 @@ export  const DeleteUserprofile=data=>dispatch=>{
         payload:data.index
             })
     axios.delete(`/api/users/deleteUser/${data.id}`).then((user)=>{
-
-
-
-
+        toast.success("sussefully deleted")
 //second concept to get users
 
         // axios.get('/api/users/all')
@@ -59,7 +56,7 @@ export  const DeleteUserprofile=data=>dispatch=>{
 
 
         
-    console.log(user)
+    // console.log(user)
 })
  
  }
@@ -67,20 +64,12 @@ export  const DeleteUserprofile=data=>dispatch=>{
 }; 
 
 export const updataElement=data=>dispatch=>{
-   console.log(data.isVarified)
-   dispatch({
-    type:UserVerfication,
-    payload:data.isVarified
-    })
+
  axios.put(`/api/users/updateUser/${data.id}`,data)
     .then((res)=>{
+     
         getUsersProfiles()(dispatch)
-        console.log(res.data)
-        dispatch({
-        type:UserVerfication,
-        payload:res.data
-        })
-
+     
     })
 
 

@@ -3,7 +3,7 @@ import './chat.css';
 import { connect } from "react-redux"
 import ChatPopUp from './chatPopUp';
 import { Redirect } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 class Chat extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +12,7 @@ class Chat extends Component {
         }
     }
     render() {
-
+console.log(this.props.chat)
         const closeChatPopup = (val) => {
             this.setState({ ...this.state, chatRoomID: null });
         };
@@ -67,6 +67,12 @@ class Chat extends Component {
         );
     }
 }
+
+Chat.propTypes={
+    chat:PropTypes.object.isRequired,
+    auth:PropTypes.object.isRequired,
+}
+
 const mapStateToProps = (state) => ({
     errors: state.erorr,
     auth: state.auth,

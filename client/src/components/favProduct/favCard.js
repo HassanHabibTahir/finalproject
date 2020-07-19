@@ -7,6 +7,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {FavouritAdds} from '../../store/action/products/productaction'
+ import PropTypes from 'prop-types';
 
 import Fab from '@material-ui/core/Fab';
  import Fade from 'react-reveal/Fade';
@@ -112,47 +113,13 @@ import './favCard.css'
                          </div>
                          </Fade>
 
-
-
-            // <div  >
-            // <Card className="main">
-
-            // <FormControlLabel
-            // fontSize="large"
-            
-            // style={{float:"right"}}
-            // control={<Checkbox  fontSize="large" onClick = {()=>{this.addToFav(fCard,this.props.auth)}} checked = 'true'  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
-                
-            //       />
-            
-            
-            
-            // <div className="card_products">
-            
-            
-            // <div className="top-section">
-              
-            //    <center>><img  className="img_container" src={"http://localhost:8080/"+fCard.imgSrc[0]} alt="img1" /></center>
-            
-     
-            
-            // <div className="product_info">
-            
-            // <div  className="name_product"><h2>{fCard.productname.toUpperCase()}<span className="price">${fCard.price}</span></h2>
-            
-            // </div>
-            // <div className="dis">{fCard.discription}</div>
-            
-            // </div>
-            // </div>
-            
-            
-            // </div>
-            
-            //                </Card>
-            //                </div>
         )
     }
+}
+
+FavCard.propTypes={
+  auth:PropTypes.object.isRequired,
+  FavouritAdds:PropTypes.func.isRequired
 }
 const mapStateToProps=(state)=>({
   

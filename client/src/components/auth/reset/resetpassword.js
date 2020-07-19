@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import resetEmailUser from '../../../store/action/resetAction/resetaction'
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import ResetpasswordUser from '../../../store/action/resetAction/resetpasswordaction'
@@ -167,7 +168,9 @@ class Resetpassword extends Component {
         )
     }
 }
-
+Resetpassword.propTypes = {
+    errors:PropTypes.object.isRequired
+};
 
 const mapStateToProps = (state) => ({
     errors: state.erorr,
