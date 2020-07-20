@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+
 import './header.css';
 import DrawerToggle from '../sideBar/drawerToggleButon'
 import { Link } from "react-router-dom";
 import Serch from '../serchbar/serchbar';
-import Cart from '../../serchNave/cart/cartlink';
+
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 // import SimpleMenu from '../../auth/toolbar'
@@ -12,7 +12,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ToolBar from '../../auth/toobar/tolbar';
 import {getCartProductbyId} from '../../../store/action/cartAction/cartaction'
-import LockOpenIcon from '@material-ui/icons/LockOpen';
+
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // import $ from 'jquery'
 import Aux from '../../../hoc/hoc';
@@ -92,33 +92,13 @@ class Header extends Component {
 </ul>
         )
 
-
-{/* <option value="traditionalclothing" >
-                   Traditional ClothingSuits
-                   </option>
-                   <option value="suits" >
-                   suits 
-                   </option>
-                   <option value="dresess" >
-                    Dresess */}
-
-
-// const adminLinks=(
-//     <div  > 
-//     <Link to="/admin" ><img src="https://img.icons8.com/ultraviolet/40/000000/data-configuration.png"/></Link>
-
-//     </div>
-
-//     )
-
-
         return (
             <Aux>
 <header className="toolbar" >
 <nav className="toolbar_navigation" >
 {this.props.auth.user.Admin?null:<div  className="tollbar-togle-button" ><DrawerToggle click={this.props.drawerClickHandler} /></div>}
-<div  className="toolbar_logo" ><a href="/"><span style={{color:"#FF0000" ,fontSize:"50px"}} >G</span>OBACHI</a></div>
-
+<div  className="toolbar_logo" ><span style={{color:"#FF0000" ,fontSize:"55px", fontWeight:"30px"}} >G</span><a href="/">OBACHI</a></div>
+{/* f */}
 {/* <div className="spacer"></div> */}
 <div style={{width:"10vw"}}></div>
 <div className="toolbar_navigation_items" >

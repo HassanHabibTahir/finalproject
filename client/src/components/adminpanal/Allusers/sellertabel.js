@@ -1,16 +1,13 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
+
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
-import { useDispatch  } from "react-redux";
+import { DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
+import { useDispatch } from "react-redux";
 import Spiner from '../../spnier/spiner'
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -40,91 +37,92 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomizedTables(props) {
+function SellerTable(props) {
 
-const [verfiy , isVarified]= useState(false)
+  const [verfiy, isVarified] = useState(false)
 
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const changedElement=(id)=>{
-   isVarified(!verfiy)
-   UpdatadataElemt(id)
-   
+  const changedElement = (id) => {
+    isVarified(!verfiy)
+    UpdatadataElemt(id)
+
   }
 
 
 
-   const DeleteUser = (i, id) => {
+  const DeleteUser = (i, id) => {
 
-        console.log(i, id)
-        const data = {
-            index: i,
-            id: id
-        }
-
-        dispatch(DeleteUserprofile(data))
-
+    console.log(i, id)
+    const data = {
+      index: i,
+      id: id
     }
 
+    dispatch(DeleteUserprofile(data))
 
-const UpdatadataElemt = (id) => {
-// console.log(id)
-        const updatation = {
-            id: id,
-            isVarified: verfiy
-        }
+  }
 
-        dispatch(updataElement(updatation))
+
+  const UpdatadataElemt = (id) => {
+    // console.log(id)
+    const updatation = {
+      id: id,
+      isVarified: verfiy
     }
-// console.log(verfiy)
-// console.log(props.user)
+
+    dispatch(updataElement(updatation))
+  }
+  // console.log(verfiy)
+  // console.log(props.user)
 
   return (
     // <TableContainer component={Paper}>
     //   <Table   size="large"  className={classes.table} aria-label="customized table">
 
-    <TableRow   key={props.user._id} >
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.index}</StyledTableCell>
-  <StyledTableCell size="large"    component="th" scope="row"  >{props.user.name}</StyledTableCell>
-  {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */}
-  <StyledTableCell component="th" scope="row"  >{props.user.email}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell>
-  <StyledTableCell component="th" scope="row"  >{!props.user.userCondition?'Admin':props.user.userCondition}</StyledTableCell>
-      {props.user.userCondition==="seller"?<StyledTableCell component="th" scope="row"  >
-  <Checkbox
-                 checked={props.user?.isVarified===true?"checked":false}
-                 onChange={()=>{changedElement(props.user._id)}} value={verfiy}
+    <TableRow key={props.user._id} >
+      <StyledTableCell size="large" component="th" scope="row"  >{props.index}</StyledTableCell>
+      <StyledTableCell size="large" component="th" scope="row"  >{props.user.name}</StyledTableCell>
+      {/* <StyledTableCell component="th" scope="row"  >{props.user.name}</StyledTableCell> */}
+      <StyledTableCell component="th" scope="row"  >{props.user.email}</StyledTableCell>
+      <StyledTableCell component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
+      <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
+      <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
+      <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell>
+      <StyledTableCell component="th" scope="row"  >{!props.user.userCondition ? 'Admin' : props.user.userCondition}</StyledTableCell>
+      {props.user.userCondition === "seller" ? <StyledTableCell component="th" scope="row"  >
+        <Checkbox
+          checked={props.user?.isVarified === true ? "checked" : false}
+          onChange={() => { changedElement(props.user._id) }} value={verfiy}
 
-                                />
-    
-    </StyledTableCell>:null}
-  
-  <StyledTableCell>
-  <Button
-                                variant="contained"
-                                color="secondary"
-                                onClick={() => {DeleteUser(props.index, props.user._id) }}
-                                startIcon={<DeleteIcon />}
-                            >
-                                Delete
+        />
+
+      </StyledTableCell> : null}
+
+      <StyledTableCell>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => { DeleteUser(props.index, props.user._id) }}
+          startIcon={<DeleteIcon />}
+        >
+          Delete
                             </Button>
 
-  </StyledTableCell>
-  <StyledTableCell> {!props.user.isVarified==true?"user not verified":"user verified  by admin"}</StyledTableCell>
-   {/* <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell> */}
-  
-     
-      </TableRow>
+      </StyledTableCell>
+      <StyledTableCell> {!props.user.isVarified == true ? "user not verified" : "user verified  by admin"}</StyledTableCell>
+      {/* <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell> */}
+
+
+    </TableRow>
     //   </Table>
     // </TableContainer>
   );
 }
 
 
+export default SellerTable
 
 
 
@@ -149,53 +147,5 @@ const UpdatadataElemt = (id) => {
 
 
 
-
-
-
-// import React, { Component } from 'react'
-
-// import { makeStyles } from '@material-ui/core/styles';
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableContainer from '@material-ui/core/TableContainer';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
-// export default class usertabel extends Component {
-//   render() {
-//     let TableStyle= props.TableStyle
-//     return (
-     
-//       <div>
-//         <TableRow  key={this.props.user._id}>
-           
-//               <TableStyle align="right">{this.props.user.name}</TableStyle>
-     
-//               <TableStyle align="right">{this.props.user.email}</TableStyle>
-//               <TableStyle align="right">{this.props.user.name}</TableStyle>
-     
-//               <TableStyle align="right">{this.props.user.email}</TableStyle>
-//               <TableStyle align="right">{this.props.user.name}</TableStyle>
-     
-//      <TableStyle align="right">{this.props.user.email}</TableStyle>
-//      <TableStyle align="right">{this.props.user.email}</TableStyle>
-//               <TableStyle align="right">{this.props.user.PhoneNumber}</TableStyle>
-//             </TableRow>
-//        <tr>
-//                            {/* <td>{this.props.user.name}</td> */}
-//                          {/* <td>{item.name}</td>                         
-//                           <td>{item.email}</td>
-//                            <td>{item.PhoneNumber}</td>
-//                            <td>{item.product}</td> */}
-
-                     
-// </tr>
-
-
-//       </div>
-//     )
-//   }
-// }
 
 

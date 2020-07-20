@@ -1,16 +1,9 @@
 import React,{useState} from 'react';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
+
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import { Checkbox, Button } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
-import { useDispatch  } from "react-redux";
+
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -40,11 +33,6 @@ const useStyles = makeStyles({
 });
 
 export default function CustomizedTables(props) {
-
-const [verfiy , isVarified]= useState(false)
-
-  const classes = useStyles();
-  const dispatch = useDispatch();
 
   // const changedElement=(id)=>{
   //  isVarified(!verfiy)

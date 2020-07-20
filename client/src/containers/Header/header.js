@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/naviGation/header/header';
 import SideDrawr from '../../components/naviGation/sideBar/sideDrawr';
 import BackDrop from '../../components/naviGation/backdrop/backdrop';
-import Admin from '../../components/adminpanal/Dashboard'
+// import Admin from '../../components/adminpanal/Dashboard'
 import { connect } from 'react-redux'; 
 class MainHeader extends Component {
 state={

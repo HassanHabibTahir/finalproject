@@ -33,7 +33,7 @@ export default function (state = intialState, action) {
 
         case addNewMessage: {
             var updatedChatRooms = state.chatRooms.filter(chatRoom => {
-                if (chatRoom._id == action.payload.RoomID)
+                if (chatRoom._id === action.payload.RoomID)
                     chatRoom.messages.push(action.payload.message);
                 return chatRoom;
             })
@@ -41,14 +41,14 @@ export default function (state = intialState, action) {
             return { ...state, chatRooms: updatedChatRooms }
         }
         case addNewRoom: {
-            var rooms = sortRooms([...state.chatRooms, action.payload])
+            let  rooms = sortRooms([...state.chatRooms, action.payload])
             return { ...state, chatRooms: rooms }
         }
         case markMessagesAsReaded: {
-            var rooms = state.chatRooms.filter(chatRoom => {
-                if (chatRoom._id == action.payload.chatRoomID) {
+            let rooms = state.chatRooms.filter(chatRoom => {
+                if (chatRoom._id === action.payload.chatRoomID) {
                     chatRoom.messages = chatRoom.messages.filter(msg => {
-                        if (action.payload.unreadedMessages.find(m => m._id == msg._id))
+                        if (action.payload.unreadedMessages.find(m => m._id === msg._id))
                             msg.readed = true;
                         return msg;
                     })

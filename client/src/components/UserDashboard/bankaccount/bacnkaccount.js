@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-
 import Divider from '@material-ui/core/Divider';
 import PropTypes from 'prop-types';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -88,7 +87,7 @@ bankname:evt.target.value
     render() {
        console.log(this.state)
       const {bankcode,bankname,accountbank,loading,accountnumber} = this.state
-      const isvalid = bankname ==='' || bankcode ==='' || accountbank ===''||accountnumber=='' ||loading ;  
+      const isvalid = bankname ==='' || bankcode ==='' || accountbank ===''||accountnumber==='' ||loading ;  
       return (
             <div style={{ marginTop: "10vh" }} >
                  <Grid item xs={12} md={12} className="paddingTop">
@@ -266,7 +265,7 @@ bankname:evt.target.value
                    <Grid item xs={12} md={12} align="center" className="paddingTop">
                     <Button
                     size="large"  variant="text" variant="outlined"  fullWidth={true} color="primary"
-                    onClick={()=>this.onSubmitHandler(this.props.auth.user)}
+                    onClick={()=>this.onSubmitHandler(this.props?.auth?.user)}
                     disabled={isvalid}
                     type="submit"
                     variant="contained" size="small" color="primary" className="singUpBtn">

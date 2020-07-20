@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import Hidden from '@material-ui/core/Hidden';
+
 import { connect } from 'react-redux'
-import Typography from '@material-ui/core/Typography';
+
 import Divider from '@material-ui/core/Divider';
 import AllOeders from './allOrders';
 import TablePaginationActionsWrapped from '../pagination/pagination';
@@ -12,15 +12,15 @@ import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/s
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
+
 import TableHead from '@material-ui/core/TableHead';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Link,withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Spiner from '../../spnier/spiner'
 import {GetAllsendOrders} from "../../../store/action/cartAction/cartaction"
-import { prototype } from 'nodemailer/lib/dkim';
+
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -44,7 +44,6 @@ const StyledTableRow = withStyles((theme: Theme) =>
 )(TableRow);
 const useStyles = makeStyles({
   table: {
-    // minWidth: 700,
   },
 });
 
@@ -67,7 +66,6 @@ componentDidMount(){
 
 componentWillReceiveProps(nextProps) {
   
-    // console.log("1",nextProps.orders.orders)
   this.setState({
     Alldata:nextProps.orders.allorders
   })
@@ -80,13 +78,7 @@ handleChangePage = (event, page) => {
   handleChangeRowsPerPage = event => {
     this.setState({rowsPerPage: event.target.value});
   };
-// DeleteteOrder=(item)=>{
-//    const id = {
-//        id:item._id
-//    }
-// //    console.log(id)
-// this.props.DeleteOrder(id)
-// }
+
     render() {
         const classes = useStyles;
         const {Alldata, rowsPerPage, page} = this.state;

@@ -2,21 +2,13 @@ import React, {Component} from 'react';
 import * as routes from '../contents/index';
 import {Link,withRouter} from 'react-router-dom';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-// import HomeComp from '../AccountsHome';
-// import MyAds from '../Myads';
-// import Messages  from '../Messages';
-import Typography from '@material-ui/core/Typography';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-
 import {connect} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import {Home,Visibility,Message} from '@material-ui/icons';
+import {Visibility,Message} from '@material-ui/icons';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import Hidden from '@material-ui/core/Hidden';
+
+
 import Paper from '@material-ui/core/Paper';
 import Dashboard from '../userDashboard';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';

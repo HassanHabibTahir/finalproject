@@ -80,10 +80,10 @@ globalKeyword=keyword;
 
  if(res){
     axios.get("http://localhost:8080/api/Favour/FavproductId").then(users=>{
-        const data=users.data.filter(product=>product.user==user.id);
+        const data=users.data.filter(product=>product.user===user.id);
       res.data=  res.data.map(product=>{
           console.log(product,data)
-            if(data.find(fvprod=>fvprod.adId==product._id))
+            if(data.find(fvprod=>fvprod.adId===product._id))
           
             {
                 product.fav=true;
@@ -120,7 +120,7 @@ export const getAllMenProduts = (user) => (dispatch) => {
             const data=users.data.filter(product=>product.user==user.id);
           res.data=  res.data.map(product=>{
               console.log(product,data)
-                if(data.find(fvprod=>fvprod.adId==product._id))
+                if(data.find(fvprod=>fvprod.adId===product._id))
               
                 {
                     console.log("found")

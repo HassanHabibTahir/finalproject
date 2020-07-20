@@ -40,11 +40,11 @@ const StyledTableRow = withStyles((theme: Theme) =>
     },
   }),
 )(TableRow);
-const useStyles = makeStyles({
-  table: {
-    // minWidth: 700,
-  },
-});
+// const useStyles = makeStyles({
+//   table: {
+//     // minWidth: 700,
+//   },
+// });
 
 class Buyer extends Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class Buyer extends Component {
          buyerorder:[],     
          page: 0,
          rowsPerPage: 8,
-         adsViewOf:true
+  
         }
       }
       
@@ -85,7 +85,7 @@ handleChangePage = (event, page) => {
 
     render() {
 
-        const {buyerorder, rowsPerPage, page,adsViewOf} = this.state;
+        const {buyerorder, rowsPerPage, page} = this.state;
         console.log(this.props.buyerorders)
       return (
             <div style={{marginTop:"8vh"}}>
@@ -168,7 +168,8 @@ handleChangePage = (event, page) => {
 Buyer.protoType={
 
   auth: PropTypes.object.isRequired,
-  buyerorders:PropTypes.array
+  buyerorders:PropTypes.array,
+  buyergetallbuy:PropTypes.func
 }
 
 

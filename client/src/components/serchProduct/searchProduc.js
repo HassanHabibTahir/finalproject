@@ -1,39 +1,8 @@
-// import React, { Component } from 'react'
-// import {connect} from 'react-redux';
-// import {withRouter} from 'react-router-dom';
-// class SerchProduct extends Component {
-
-
-//   render() {
-//     console.log("componetn",this.props.serchProducts)
-//     return (
-//       <div>
-        
-//       </div>
-//     )
-//   }
-// }
-
-
-// const mapStateToProps = state => ({
-  
-//    serchProducts:state.SERCHPRODUCT
-    
-   
-//   })
-
-  
-//   export default withRouter(connect(mapStateToProps)(SerchProduct));
-  
-
-
 
   import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import Fab from '@material-ui/core/Fab';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';

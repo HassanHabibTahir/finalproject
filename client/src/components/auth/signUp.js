@@ -1,28 +1,24 @@
 
 import React, { Component } from 'react';
-import Avatar from '@material-ui/core/Avatar';
+
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { render } from '@testing-library/react';
+
 import Divider from '@material-ui/core/Divider';
-import pink from '@material-ui/core/colors/blue';
+
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 import {withRouter} from 'react-router-dom';
 import green from '@material-ui/core/colors/green';
 import Radio from '@material-ui/core/Radio';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
-import LOGIN from '../auth/login';
+
+// import LOGIN from '../auth/login';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import history from '../history/history'
@@ -30,9 +26,9 @@ import Map from '../auth/map/mapapi/mapapi';
 import data from '../auth/map/pk/pk.json';
 import Footer from '../home/paralelx/footer/footer'
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
-import {AccountCircle,Email,Lock,Send,StarHalf,LocationCity,Phone,BankaccountBankaccountBankaccountBankaccount,Add} from '@material-ui/icons';
+
+import {AccountCircle,Email,Lock,Send,StarHalf,LocationCity,Phone,Add} from '@material-ui/icons';
 
 import {registerUser,startEmailVerification} from '../../store/action/userProfile/userPAction'
 
@@ -40,7 +36,7 @@ import Alert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux'; 
 import './toobar/toolbar.css'
@@ -51,15 +47,15 @@ import './aut.css'
 
 
 
-const styles = {
-  root: {
-    color: green[600],
-    '&$checked': {
-      color: green[500],
-    },
-  },
-  checked: {},
-};
+// const styles = {
+//   root: {
+//     color: green[600],
+//     '&$checked': {
+//       color: green[500],
+//     },
+//   },
+//   checked: {},
+// };
 
 
 class SignUp extends Component {
@@ -275,7 +271,7 @@ class SignUp extends Component {
              <div className="Icon_signUp">
 
               <div className=" aut_svg" >       
-                <LockOutlinedIcon />
+            <LockOutlinedIcon />
    </div>
 </div>
 <Typography variant="h3" gutterBottom>

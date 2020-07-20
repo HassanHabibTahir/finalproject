@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import SearchIcon from '@material-ui/icons/Search';
-import Button from '@material-ui/core/Button';
+
 import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import './serchbar.css'
@@ -47,6 +47,12 @@ class Serchbar extends Component {
 
         )
     }
+}
+
+
+Serchbar.propTypes={
+    auth:PropTypes.object.isRequired,
+    serchProduct:PropTypes.func.isRequired
 }
 
 const mapStateToProps=(state)=>({

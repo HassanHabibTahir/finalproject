@@ -19,7 +19,7 @@ class ChatPopUp extends Component {
         console.log("mounted")
         if (this.props.chatRoomID) {
             var room = this.props.chat.chatRooms.find(chatRoom =>
-                chatRoom._id == this.props.chatRoomID
+                chatRoom._id === this.props.chatRoomID
             )
             if (room) {
                 this.setState({ ...this.state, chatRoom: { ...room } });
@@ -27,7 +27,7 @@ class ChatPopUp extends Component {
         }
         else {
             var room = this.props.chat.chatRooms.find(chatRoom =>
-                chatRoom.users.find(user => user._id == this.props.users[1])
+                chatRoom.users.find(user => user._id === this.props.users[1])
             )
             if (room) {
                 this.setState({ ...this.state, chatRoom: { ...room } });
@@ -41,7 +41,7 @@ class ChatPopUp extends Component {
     }
     componentWillUpdate(nextProps, nextState) {
         if(nextState.chatRoom&&nextState.chatRoom.messages)
-        var unreadedMessages = nextState.chatRoom.messages.filter(msg => msg.readed == "false" && msg.sender != this.props.auth.user.id);
+        var unreadedMessages = nextState.chatRoom.messages.filter(msg => msg.readed === "false" && msg.sender !== this.props.auth.user.id);
         if (unreadedMessages&&unreadedMessages.length > 0) {
             this.props.dispatch(MarkMessagesAsReaded({ chatRoomID: nextState.chatRoom._id, unreadedMessages }))
             window.socket.emit("markasReaded", unreadedMessages);
@@ -50,14 +50,14 @@ class ChatPopUp extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.chatRoomID)
             var room = this.props.chat.chatRooms.find(chatRoom =>
-                chatRoom._id == this.props.chatRoomID
+                chatRoom._id === this.props.chatRoomID
             )
         else if (this.props.users)
             var room = this.props.chat.chatRooms.find(chatRoom =>
-                chatRoom.users.find(user => user._id == this.props.users[1])
+                chatRoom.users.find(user => user._id === this.props.users[1])
             )
         console.log(room)
-        if ((room && JSON.stringify(prevState.chatRoom) != JSON.stringify(room)) || prevProps.chatRoomID != this.props.chatRoomID) {
+        if ((room && JSON.stringify(prevState.chatRoom) !== JSON.stringify(room)) || prevProps.chatRoomID !== this.props.chatRoomID) {
 
             this.setState({ chatRoom: { ...room } });
         }
@@ -74,12 +74,12 @@ class ChatPopUp extends Component {
             const message = this.refs.message.value;
             const socket = window.socket;
             if (message) {
-                socket.emit("message", this.state.chatRoom, this.state.chatRoom.users.find(user => user._id != this.props.auth.user.id)._id, this.props.auth.user.id, message)
+                socket.emit("message", this.state.chatRoom, this.state.chatRoom.users.find(user => user._id !== this.props.auth.user.id)._id, this.props.auth.user.id, message)
                 this.refs.message.value = ""
             }
         }
         const GetUserName = () => {
-            return this.state.chatRoom.users.find(user => user._id != this.props.auth.user.id).name
+            return this.state.chatRoom.users.find(user => user._id !== this.props.auth.user.id).name
         }
         return (
             <div className="chatPopup">
@@ -94,7 +94,7 @@ class ChatPopUp extends Component {
 
                             return (
 
-                                <div className={(msg.sender != this.props.auth.user.id) ? "message" : "message right"}>
+                                <div className={(msg.sender !== this.props.auth.user.id) ? "message" : "message right"}>
                                     <p>{msg.message_body}</p>
                                     <time>{new Date(msg.createdAt).toLocaleTimeString([], {timeStyle: 'short'})}</time>
                                 </div>

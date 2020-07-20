@@ -4,25 +4,24 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import Hidden from '@material-ui/core/Hidden';
+
 import { connect } from 'react-redux'
-import Typography from '@material-ui/core/Typography';
+
 import Divider from '@material-ui/core/Divider';
-import Card from './sellertabel';
+
 import TablePaginationActionsWrapped from '../pagination/pagination';
 import TablePagination from '@material-ui/core/TablePagination';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
+
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Adminprofile from './adminpage/profile'
-import Spiner from '../../spnier/spiner'
-import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
+// import Spiner from '../../spnier/spiner'
+import { getUsersProfiles} from '../../../store/action/adminActions/users/Allusers';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -58,7 +57,6 @@ constructor(props) {
    copyData:[],     
    page: 0,
    rowsPerPage: 8,
-   adsViewOf:true
   }
 }
 
@@ -69,9 +67,6 @@ componentDidMount() {
 
 }
 
-adsViewOff = () => {
-  this.setState({adsViewOf:false});
-}
 
 componentWillReceiveProps(nextProps) {
   
@@ -86,7 +81,7 @@ handleChangeRowsPerPage = event => {
 };
   render() {
     const classes = useStyles;
-    const {copyData, rowsPerPage, page,adsViewOf} = this.state;
+    const {copyData, rowsPerPage, page} = this.state;
   
     return (
       <div>

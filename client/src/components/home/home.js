@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slidersimple from '../slider/slider';
-import MenuList from '../menueList/menulist';
+
 import CatgSlider from '../home/categorslider/quickbox/catgSlider'
 import Showcase from './shopImg/shop'
 import CategoryGrid from './Categrid/categorigrid'

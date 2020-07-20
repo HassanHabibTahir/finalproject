@@ -3,7 +3,7 @@ import { GET_ERRORS } from '../types/types';
 import SetAuthToken from '../utility/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import SetCurrentUser from '../loginAction/setUser';
-import {toast} from 'react-toastify';
+// import {toast} from 'react-toastify';
 const loginUser = userData => dispatch => {
 axios.post(`/api/users/login?token=${userData.token}`, userData)
         .then(res => {

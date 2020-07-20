@@ -10,24 +10,22 @@ import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {Link} from 'react-router-dom';
-import LockIcon from '@material-ui/icons/LockOutlined';
-import Avatar from '@material-ui/core/Avatar';
 // import {SIGNUP} from '../constants';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // import {loginUser} from '../../store/action/loginAction';
 import {connect} from 'react-redux';
-import pink from '@material-ui/core/colors/pink';
+
 // import {ACCOUNT} from '../constants';
 import {withRouter} from 'react-router-dom';
 import {Send,Email,Lock} from '@material-ui/icons';
-import SignUp from '../auth/signUp';
+
 import Footer from '../home/paralelx/footer/footer'
 import loginUser from '../../store/action/loginAction/loginaction'
 // import { connect } from 'react-redux';
 import history from '../history/history'
-import Box from '@material-ui/core/Box';
+
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import resetEmail from '../auth/reset/resetemail';
+// import resetEmail from '../auth/reset/resetemail';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import Alert from '@material-ui/lab/Alert';

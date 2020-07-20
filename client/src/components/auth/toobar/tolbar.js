@@ -1,24 +1,19 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+
 import Dialog from '@material-ui/core/Dialog';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
 import MenuItem from '@material-ui/core/MenuItem';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import ArtTrackOutlinedIcon from '@material-ui/icons/ArtTrackOutlined';
-import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+
 import SettingsIcon from '@material-ui/icons/Settings';
-import LockIcon from '@material-ui/icons/Lock';
+
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
-import {Home,Visibility,Message} from '@material-ui/icons';
+
+import {Message} from '@material-ui/icons';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import './toolbar.css'
 import PropTypes from 'prop-types';

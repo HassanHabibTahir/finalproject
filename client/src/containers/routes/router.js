@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 import Home from '../../components/home/home'
 import Register from '../../components/auth/signUp'
 import Login from '../../components/auth/login';
-import Dashboard from '../../components/UserDashboard/userDashboard'
+
 import MainHeader from '../../containers/Header/header';
 import resetEmail from '../../components/auth/reset/resetemail'
 import Resetpassword from '../../components/auth/reset/resetpassword';
 // import Product from '../../components/auth/product/product';
-import UserDashboard from '../../components/UserDashboard/userDashboard'
+
 import Favproduct from '../../components/favProduct/favproduct'
 import { connect } from 'react-redux';
 import {

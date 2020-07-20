@@ -1,7 +1,6 @@
 import SetAuthToken from "../utility/setAuthToken"
 import SetCurrentUser from "../loginAction/setUser"
 import history from '../../../components/history/history'
-import addproducts from "../products/productaction"
 import {UserProducts} from '../../action/types/types'
   const Logout = decode=>dispatch=>{
       localStorage.removeItem('jwtToken')

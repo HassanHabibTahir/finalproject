@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
-import Avatar from '@material-ui/core/Avatar';
+
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { ValidatorForm} from 'react-material-ui-form-validator';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import InputAdornment from '@material-ui/core/InputAdornment';
 // import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-// import Select from '@material-ui/core/Select';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import InputLabel from '@material-ui/core/InputLabel';
+
 import Container from '@material-ui/core/Container';
 import { DropzoneArea } from 'material-ui-dropzone'
-import {Subtitles,Business,LocalAtm,CastConnected,Details,Attachment,AccountBox,LocationOn,Phone,Email} from '@material-ui/icons';
+import {Business,LocalAtm} from '@material-ui/icons';
 import DescriptionIcon from '@material-ui/icons/Description';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
 import Paper from '@material-ui/core/Paper';
 import {addproducts} from '../../../store/action/products/productaction'
 import Verification from './Verification';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
 import '../product/product.css'
 import { connect } from 'react-redux';
@@ -122,7 +114,7 @@ console.log(productData)
         const isnotValid = price === '' ||discount===''||productname===''||discription===''||category===''||files.length==='';
         return (
             <div>
-             {this.props.auth.user.isverified==true?<div style={{ marginTop: "10vh" }} >
+             {this.props.auth.user.isverified===true?<div style={{ marginTop: "10vh" }} >
                 
                 <Grid item xs={false} sm={4} md={7} />
              

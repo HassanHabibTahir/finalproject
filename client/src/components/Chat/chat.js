@@ -28,13 +28,13 @@ console.log(this.props.chat)
                         {
                             this.props.chat.chatRooms.map(chatRoom => {
 
-                                const unreadedMessages = chatRoom.messages.filter(msg=>msg.readed=="false"&&msg.sender!=this.props.auth.user.id)
+                                const unreadedMessages = chatRoom.messages.filter(msg=>msg.readed==="false"&&msg.sender!=this.props.auth.user.id)
                                 const time=new Date(chatRoom.messages[chatRoom.messages.length - 1].createdAt)
                                 return (
-                                    <div key={chatRoom._id} onClick={e => handleClick(chatRoom._id)} className={(this.state.chatRoomID == chatRoom._id) ? "chatroom selectedChat" : "chatroom"} >
+                                    <div key={chatRoom._id} onClick={e => handleClick(chatRoom._id)} className={(this.state.chatRoomID ===chatRoom._id) ? "chatroom selectedChat" : "chatroom"} >
                                         <h3>
                                             {
-                                                chatRoom.users==undefined?"loading users.......":chatRoom.users?.find(user=>user._id!=this.props.auth.user.id)?.name
+                                                chatRoom.users===undefined?"loading users.......":chatRoom.users?.find(user=>user._id!=this.props.auth.user.id)?.name
                                             }
                                         </h3>
                                         <time>{time.toLocaleTimeString()}</time>

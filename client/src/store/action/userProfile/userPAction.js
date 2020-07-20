@@ -1,5 +1,4 @@
 import axios from 'axios';
-import types from '../types/types';
 import { GET_ERRORS, SET_USERS,TokenSetToUser } from '../types/types';
 // const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 export const registerUser = (userData, history) => (dispatch) => {

@@ -1,14 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import posed, { PoseGroup } from 'react-pose';
 import InfiniteCarousel from 'react-leaf-carousel';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import zIndex from '@material-ui/core/styles/zIndex';
+
 // import QuickOrder from '../categorslider/quickbox/quickbox';
-import { Button } from '@material-ui/core';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './qhick.css'
 const Box = posed.div({
     hidden: { opacity: 0, delay: 3000 },

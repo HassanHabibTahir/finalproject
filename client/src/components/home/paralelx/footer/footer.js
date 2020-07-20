@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 // import logo from '../resource/images/logo.png';'
 import {Link }from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
+
 import {Email,Phone} from '@material-ui/icons';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+
 import './resource/css/index.css'
 class Footer extends Component {
     render() {
@@ -20,7 +19,7 @@ class Footer extends Component {
                       <h1 className="peraColor" >Gobachi</h1>
                  {/* <img src={logo} alt="logo"/> */}
                   <Typography   paragraph variant="h6"  align="justify"  className="peraColor">
-                  OLX is the world's leading classifieds platform which provides local communities in high-growth markets with vibrant online marketplaces: OLX connects local people to buy, sell or exchange used goods and services by making it fast and easy for anyone to post a listing through their mobile phone or on the web.
+                GOBACHI is the world's leading classifieds platform which provides local communities in high-growth markets with vibrant online marketplaces: G connects local people to buy, sell or exchange used goods and services by making it fast and easy for anyone to post a listing through their mobile phone or on the web.
               </Typography>
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} >

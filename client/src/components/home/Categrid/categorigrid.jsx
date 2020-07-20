@@ -3,27 +3,7 @@ import Fade from "react-reveal/Fade";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { Link } from "react-router-dom";
-
-const dummyGridData = [
-    {
-        title: "Mens Collection",
-        img: 'https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        link: "/mens"
-    },
-    {
-        title: "Mens Collection",
-        img: 'https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        link: '/women'
-    },
-    {
-        title: "Mens Collection",
-        img: 'https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        link: '/child'
-    }
-]
-
 export default function CategoryGrid(props) {
 
     const classes = useStyles();

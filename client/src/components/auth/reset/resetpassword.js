@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import resetEmailUser from '../../../store/action/resetAction/resetaction'
+// import resetEmailUser from '../../../store/action/resetAction/resetaction'
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import ResetpasswordUser from '../../../store/action/resetAction/resetpasswordaction'
+// import ResetpasswordUser from '../../../store/action/resetAction/resetpasswordaction'
 import history from '../../history/history'
 class Resetpassword extends Component {
 

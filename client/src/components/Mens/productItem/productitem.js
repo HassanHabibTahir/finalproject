@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import Card from '@material-ui/core/Card';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { getProfilebyId } from '../../../store/action/products/productaction'
 import { addtoCartValue } from '../../../store/action/cartAction/cartaction';
-// ,getAllProduts
-// import ImageGallery from 'react-image-gallery';
 import history from '../../history/history'
-import { Button } from '@material-ui/core';
+
 import ChatPopUp from '../../Chat/chatPopUp';
 import Spiner  from '../../spnier/spiner'
 import './productitem.css'
@@ -62,9 +60,9 @@ componentWillReceiveProps(nexprops){
 
     render() {
 
-        console.log("single",this.props.SingleProduct.ItemProduct[0]?.user._id,"singleproduct",this.props.SingleProduct.ItemProduct?.user)
+        console.log("single",this.props.SingleProduct.ItemProduct[0]?.user._id,"singleproduct",this.props.SingleProduct)
 
-        const ImageData = this.props.SingleProduct === undefined || this.props.SingleProduct === null ? <Spiner/> : this.props.SingleProduct.ItemProduct.map((item) => {
+        const ImageData = this.props.SingleProduct === undefined || this.props.SingleProduct === null|| this.props.SingleProduct.ItemProduct.length<0?<div style={{marginTop:"8vh"}}><Spiner  /> </div>: this.props.SingleProduct.ItemProduct.map((item) => {
                   console.log(item)   
             return (
                 <div className="product-item">
@@ -72,19 +70,19 @@ componentWillReceiveProps(nexprops){
         
 <div class="container-of_items ">
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[0]} />
+    <img src={"http://localhost:8080/" + item.imgSrc[0]} alt="showcase" />
     {/* <span>CSS</span> */}
   </div>
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[1]} />
+    <img src={"http://localhost:8080/" + item.imgSrc[1]}  alt="showcase" />
     {/* <span>Image</span> */}
   </div>
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[2]} />
+    <img src={"http://localhost:8080/" + item.imgSrc[2]}  alt="showcase" />
     {/* <span>Hover</span> */}
   </div>
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[3]} />
+    <img src={"http://localhost:8080/" + item.imgSrc[3]}  alt="showcase" />
     {/* <span>Effect</span> */}
   </div>
 </div>
@@ -187,7 +185,10 @@ Welcome to choosing factory products
     }
 }
 
-
+Productitem.propTypes={
+    SingleProduct:PropTypes.object.isRequired,
+    auth:PropTypes.object.isRequired
+}
 const mapStateToProps = (state) => ({
 
     SingleProduct: state.ItempProduct,

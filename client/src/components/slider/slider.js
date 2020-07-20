@@ -13,12 +13,6 @@ import Image1 from './images/img1.jpg'
 import Imges2 from './images/img2.jpg'
 import Imges3 from './images/img3.jpg'
 import Imges4 from './images/img4.jpg'
-import Imges5 from './images/menShirt.jpg'
-import { Link } from '@material-ui/core';
-import Animate from 'animate.css-react'
-import 'animate.css/animate.css'
-import Fade from 'react-reveal/Fade';
-import Roll from 'react-reveal/Roll';
 class Slidersimple extends Component {
 
 
@@ -57,7 +51,7 @@ class Slidersimple extends Component {
           <div >
 
 
-            <a href='#'>    <div><img className="img1" src={Image1} /></div></a>
+            <a href='#'>    <div><img className="img1" src={Image1} alt="wisiting"/></div></a>
 
 
             <div className="animation-container">
@@ -82,7 +76,7 @@ class Slidersimple extends Component {
 
           <div  >
             <div>
-              <img className="img2" src={Imges2} />
+              <img className="img2" src={Imges2} alt="wisiting" />
             </div>
             <div className="animation-container">
 
@@ -118,7 +112,7 @@ class Slidersimple extends Component {
           <div>
             <div  >
               <div>
-                <img className="img3" src={Imges3} />
+                <img className="img3" src={Imges3}  alt="wisiting"/>
               </div>
               <div className="animation-container">
                 <div className="type-animation">
@@ -143,7 +137,7 @@ class Slidersimple extends Component {
           <div>
             <div  >
               <div>
-                <img className="img4" src={Imges4} />
+                <img className="img4" src={Imges4}  alt="wisiting"/>
               </div>
               <div className="animation-container">
                 <div className="type-animation">

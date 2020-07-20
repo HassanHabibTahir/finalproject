@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-
-import Hidden from '@material-ui/core/Hidden';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import Typography from '@material-ui/core/Typography';
+
 import Divider from '@material-ui/core/Divider';
 import Orders from './Orders';
 import TablePaginationActionsWrapped from '../pagination/pagination';
@@ -12,12 +11,12 @@ import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/s
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
+
 import TableHead from '@material-ui/core/TableHead';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Link,withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {GetBuyerOrder} from "../../../store/action/cartAction/cartaction"
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -165,6 +164,10 @@ handleChangePage = (event, page) => {
     }
 }
 
+Order.propTypes={
+auth:PropTypes.object.isRequired,
+orders:PropTypes.array
+}
 
 const mapStateToProps = state => ({
     auth:state.auth,

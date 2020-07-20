@@ -77,14 +77,14 @@ import './favCard.css'
           <div className="top-section">
                                                                       
           
-             <center> <Link  to={`/product/productitems/${fCard?._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard?.imgSrc[0]} alt="img1" /></Link></center>
+             <center> <Link  to={`/product/productitems/${fCard?._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard?.imgSrc[0]} alt="cartproduct"/></Link></center>
           
           <div className="nav">
           
-          <img    onClick={()=>{this.changedData( fCard?._id,fCard?.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[0]}/>
-          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard?.imgSrc[1]}/>
-          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[2]}/>
-          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[3]}/>
+          <img  onClick={()=>{this.changedData( fCard?._id,fCard?.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[0]}  alt="cartproduct"/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard?.imgSrc[1]} alt="cartproduct"/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[2]} alt="cartproduct"/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[3]} alt="cartproduct"/>
           
           </div>
           
