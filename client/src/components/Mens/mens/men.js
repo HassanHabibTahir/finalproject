@@ -97,9 +97,11 @@ class MEN extends Component {
 <Fade bottom cascade>
          <div  className="main_container_card" >
          <Card className="main">
-            <Fab size="medium" color="secondary" aria-label="add" >
+          
+            <Fab size="medium" color="secondary" aria-label="add"  >
               {item.price}$
        </Fab>
+  
             <FormControlLabel
               fontSize="large"
 
@@ -114,12 +116,12 @@ class MEN extends Component {
             <div className="card_products">
            
 
-   <div className="top-section">
+               <div className="top-section">
 
 
                 <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>
 
-                <div className="nav">
+                <div className="nav_images">
 
                   <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" />
                   <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[1]}  alt="serchproduct"/>
@@ -128,7 +130,7 @@ class MEN extends Component {
 
                 </div>
 
-                <div className="prduct_info">
+                <div className="product_info">
                   <div className="name_product">
 
 

@@ -15,7 +15,7 @@ import Fab from '@material-ui/core/Fab';
 
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
-import './favCard.css'
+import '../Mens/mens.css'
  class FavCard extends Component {
     
     addToFav=(fav,auth)=>{
@@ -79,7 +79,7 @@ import './favCard.css'
           
              <center> <Link  to={`/product/productitems/${fCard?._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard?.imgSrc[0]} alt="cartproduct"/></Link></center>
           
-          <div className="nav">
+          <div className="nav_images">
           
           <img  onClick={()=>{this.changedData( fCard?._id,fCard?.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[0]}  alt="cartproduct"/>
           <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard?.imgSrc[1]} alt="cartproduct"/>
@@ -88,7 +88,7 @@ import './favCard.css'
           
           </div>
           
-          <div className="prduct_info">
+          <div className="product_info">
                   <div className="name_product">
 
 

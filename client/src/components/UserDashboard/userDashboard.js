@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {getuserallproducts,DeleteUserProduct} from '../../store/action/products/productaction'
 import { connect } from 'react-redux'; 
-import './userDashbo.css'
+import '../Mens/mens.css'
  
 // import UserRoutes from './userNave/userNave'
 import { Button } from '@material-ui/core';
@@ -63,7 +63,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
    <center> <img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
 
-<div className="nav">
+<div className="nav_images">
 
 <img    onClick={()=>{this.changedData( item._id  ,item.imgSrc[0])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[0]} alt="userproduct"  />
 <img    onClick={()=>{this.changedData(item._id,item.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+item.imgSrc[1]} alt="userproduct"   />
@@ -71,7 +71,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 <img    onClick={()=>{this.changedData(item._id,item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]} alt="userproduct"   />
 </div>
 
-                  <div className="prduct_info">
+                  <div className="product_info">
                   <div className="name_product">
 
 

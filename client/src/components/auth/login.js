@@ -173,7 +173,7 @@ class Login extends Component {
                     </Hidden>
 
                     <Grid item xs={12} md={4}>
-                        <Paper    style={{padding:"100px"}} className="loginPaper" elevation={10} align="center">
+                        <Paper  className="loginPaper" elevation={10} align="center">
 
                             {/* <Avatar
                                 style={{
@@ -267,14 +267,14 @@ LogIn
                                 </Grid>
                                 <Grid container spacing={12} className="paddingTop">
                                     <Grid item xs={12} md={12} className="paddingTop" align="right">
-                                        <Typography variant="body2">
-                                            <Link to='/signup'>Register</Link>
-                                        </Typography>
                                    
                                         <Grid item>
                                 <Typography variant="body2"> <Link to="/getEmail/forgot">Forgot your password?
                           </Link>  </Typography>
                           </Grid>
+                                        <Typography variant="body2">
+                                            <Link to='/signup'>Register</Link>
+                                        </Typography>
                                    
                                    
                                    

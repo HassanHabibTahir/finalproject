@@ -8,7 +8,7 @@ import Fab from '@material-ui/core/Fab';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
  import {FavouritAdds} from '../../store/action/products/productaction'
 import history from '../history/history'
-// import MenCard from '../card/card'
+import '../Mens/mens.css'
 import Fade from 'react-reveal/Fade';
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
@@ -96,43 +96,41 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   check
 
 
 
-<div className="card_products">
-  {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
+   <div className="card_products">
+           
 
-<div className="top-section">
-                                                            
-
-<center> <Link  to={`/product/productitems/${item._id}`}><img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
-
-<div className="nav">
-
-<img    onClick={()=>{this.changedData( item._id  ,item.imgSrc[0])}} ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[0]}/>
-<img    onClick={()=>{this.changedData(item._id,item.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+item.imgSrc[1]}/>
-<img    onClick={()=>{this.changedData(item._id,item.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[2]}/>
-<img    onClick={()=>{this.changedData(item._id,item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]}/>
-
-</div>
-
-<div className="prduct_info">
-
-<div  className="name_product">
-  
-  
-<div  ><h2 className="name_category">{item.category.toUpperCase()}
-
-</h2>
-</div>
-  <h2>{item.productname.toUpperCase()}
-
-</h2>
-</div>
-<div className="dis">{item.discription}</div>
-
-</div>
-</div>
+           <div className="top-section">
 
 
-</div>
+            <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>
+
+            <div className="nav_images">
+
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" />
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[1]}  alt="serchproduct"/>
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[2]} alt="serchproduct" />
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image'  src={"http://localhost:8080/" + item?.imgSrc[3]} alt="serchproduct"  />
+
+            </div>
+
+            <div className="product_info">
+              <div className="name_product">
+
+
+                <div  ><h2 className="name_category">{item.category.toUpperCase()}
+
+                </h2>
+                </div>
+                <h2>{item.productname.toUpperCase()}
+
+                </h2>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
 
                </Card>
                </div>
@@ -143,10 +141,13 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   check
 
 
         return (
-            <div className="mainvalue"   >
+          <div  className="container-product">
+          <div className="mainvalue"   >
         
             {product}
-            </div>
+          </div>
+        
+          </div>
         )
     }
 }

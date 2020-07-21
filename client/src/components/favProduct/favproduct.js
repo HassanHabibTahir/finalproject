@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {GetFavourproducts} from '../../store/action/products/productaction'
 import {connect} from 'react-redux'; 
 import FavCard from './favCard'
-import './favCard.css';
+import '../Mens/mens.css';
 import PropTypes from 'prop-types';
 class Favproduct extends Component {
 constructor(){
@@ -35,9 +35,12 @@ componentWillReceiveProps(nextProps) {
         
         
         return (
-            <div className="mainvalue"  style={{marginTop:"8vh"}} > 
-            
-                {favcard}
+            <div  className="container-product">
+            <div className="mainvalue"   >
+          
+              {favcard}
+            </div>
+          
             </div>
         )
     }
