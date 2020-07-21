@@ -15,11 +15,16 @@ import '../mens.css'
 
 import productitem from '../productItem/productitem';
 import { Grid } from '@material-ui/core';
+import Spiner from '../../spnier/spiner';
 
 
 class MEN extends Component {
   constructor() {
     super()
+
+this.state={
+  loader:false
+}
 
   }
 
@@ -64,9 +69,11 @@ class MEN extends Component {
     // console.log(img) 
   }
 
-
-  changedhandler=(e)=>{
-    console.log(e)
+  // imgesLoaded
+  imgesLoaded=(e)=>{
+    this.setState({
+      loader:true
+    })
     }
   render() {
     console.log(this.props.Products)
@@ -87,7 +94,8 @@ class MEN extends Component {
         return item.category.toLowerCase() === category.toLowerCase()
 
       })
-    console.log(Prdouctsitems)
+    console.log(this.state.loader)
+     
     let product = Prdouctsitems.map((item, i) => {
       let id = item._id
 
@@ -119,7 +127,7 @@ class MEN extends Component {
                <div className="top-section">
 
 
-                <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>
+     {<center> <Link to={`/product/productitems/${item._id}`}><img   onLoad={this.imgesLoaded}  ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>}
 
                 <div className="nav_images">
 

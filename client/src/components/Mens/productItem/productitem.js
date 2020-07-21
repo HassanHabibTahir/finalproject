@@ -8,12 +8,14 @@ import history from '../../history/history'
 import ChatPopUp from '../../Chat/chatPopUp';
 import Spiner  from '../../spnier/spiner'
 import './productitem.css'
+import spiner from '../../spnier/spiner';
 class Productitem extends Component {
 constructor(props){
     super(props);
     this.state={
         chatPopUp:false,
-        DItems:[]
+        DItems:[],
+        coming:false
     }
 }
 
@@ -52,8 +54,12 @@ console.log(cartId)
     }
 
 
-componentWillReceiveProps(nexprops){
+componentWillReceiveProps(nextprops){
 
+if(nextprops)
+this.setState({
+    coming:true
+})
 }
 
 
@@ -102,6 +108,7 @@ componentWillReceiveProps(nexprops){
                             {/* <span className="desc_ription" >Description</span> */}
                        
                         </h1>
+              
 Welcome to choosing factory products 
  Gobachi plate form hav many garments  factory products  in whic many seller  uploads their  products  and they selles theirproduct  , beacuse in this plate form  only Factor  person display their  prodcus or any Seller whow wanna to sell their  prodcts ,
   it is depending upone the satiscfaction between seller and buyer   A seller is responsible for initiating sales conversations and making the selling process easy for customers. They work in various settings, especially retail stores or service centers.
@@ -171,7 +178,8 @@ Welcome to choosing factory products
         }
 
         return (
-            <div className="container_product" >
+            <div>
+            {this.state.coming===true?<div className="container_product" >
                 {ImageData}
    
                 {
@@ -180,6 +188,7 @@ Welcome to choosing factory products
                 }
                         {/* <Button size="large" variant="text" variant="outlined" fullWidth={true} color="primary"  onClick={e=>handleChat(true)} >chat with us</Button> */}
 
+            </div>:<Spiner/>}
             </div>
         )
     }

@@ -90,7 +90,7 @@ class PCart extends Component {
 
 
   componentWillReceiveProps(nextProps) {
-    //  console.log(nextProps.CartItems.products)
+     console.log(nextProps.CartItems.products)
     if (nextProps.CartItems.products !== undefined && nextProps.CartItems.products !== null) {
 
       this.setState({
@@ -171,11 +171,11 @@ class PCart extends Component {
                 <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[2]} alt="product" />
                 <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[3]} alt="product" />
               </TableCell>
-              <TableCell style={{ width: "20%" }} align="right">{item.productId.productname}</TableCell>
-              <TableCell style={{ width: "10%" }} align="right">{item.productId.price}</TableCell>
+              <TableCell style={{ width: "15%" }} align="right">{item.productId.productname}</TableCell>
+              <TableCell style={{ width: "15%" }} align="right">ONE PRODUCT PRICE:{item.productId.price}$</TableCell>
               {/* <TableCell style={{ width: "10%" }} align="right"><Button onClick={()=>{this.handleIncrement(i,) }}>+</Button>{item.quantity<=0?0:item.quantity}  <Button onClick={()=>{this.handleDecrement(i)}}>-</Button></TableCell> */}
-              <TableCell style={{ width: "10%" }} align="right">{item.quantity < 1 ? null : item.quantity}</TableCell>
-              <TableCell style={{ width: "10%" }} align="right">Discount</TableCell>
+              <TableCell style={{ width: "15%" }} align="right">{item.quantity < 1 ? null : item.quantity}</TableCell>
+        <TableCell style={{ width: "15%" }} align="right">WE HAVE ITEMS:{item.productId.discount}</TableCell>
               <TableCell style={{ width: "10%" }} align="right">
                 <ButtonGroup size="small" aria-label="large outlined button group">
                   <Button onClick={() => { this.handleIncrement(i, item) }}>+</Button>
