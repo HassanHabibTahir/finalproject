@@ -12,6 +12,7 @@ import '../Mens/mens.css'
 import Fade from 'react-reveal/Fade';
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
  class SerchProduct extends Component {
 
    addToFav=(fav ,auth)=>{
@@ -42,7 +43,7 @@ import {Link} from 'react-router-dom';
 const containerSrc = this.refs[i].src
   
 console.log("this is second",containerSrc)
-this.refs[i].src="http://localhost:8080/"+img
+this.refs[i].src=`${BURL}/`+img
 // console.log(img) 
   }
 
@@ -102,14 +103,14 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   check
            <div className="top-section">
 
 
-            <center> <Link to={`/onlyproduct/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>
+            <center> <Link to={`/onlyproduct/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={`${BURL}/`+  item?.imgSrc[0]} alt="serchproduct" /></Link></center>
 
             <div className="nav_images">
 
-              <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" />
-              <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[1]}  alt="serchproduct"/>
-              <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[2]} alt="serchproduct" />
-              <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image'  src={"http://localhost:8080/" + item?.imgSrc[3]} alt="serchproduct"  />
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={`${BURL}/`+  item?.imgSrc[0]} alt="serchproduct" />
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={`${BURL}/`+ item?.imgSrc[1]}  alt="serchproduct"/>
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={`${BURL}/`+  item?.imgSrc[2]} alt="serchproduct" />
+              <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image'  src={`${BURL}/`+ item?.imgSrc[3]} alt="serchproduct"  />
 
             </div>
 

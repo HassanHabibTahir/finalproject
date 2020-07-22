@@ -3,12 +3,12 @@ import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/s
 import TableCell from '@material-ui/core/TableCell';
 
 import TableRow from '@material-ui/core/TableRow';
-
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import { useDispatch } from "react-redux";
 import Spiner from '../../spnier/spiner'
+
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {

@@ -4,9 +4,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {getuserallproducts,DeleteUserProduct} from '../../store/action/products/productaction'
 import { connect } from 'react-redux'; 
 import '../Mens/mens.css'
- 
 // import UserRoutes from './userNave/userNave'
 import { Button } from '@material-ui/core';
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 
 class Dashboard extends Component {
 
@@ -27,7 +27,7 @@ changedData=(i,img)=>{
   const containerSrc = this.refs[i].src
   
   console.log("this is second",containerSrc)
-  this.refs[i].src="http://localhost:8080/"+img
+  this.refs[i].src=`${BURL}/`+img
   // console.log(img) 
 }
 
@@ -60,15 +60,15 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 
 <div className="top-section">
   
-   <center> <img    ref = {id}  valaue={i}    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+   <center> <img    ref = {id}  valaue={i}    className="img_container" src={`${BURL}/`+item.imgSrc[0]} alt="img1" /></center>
 
 
 <div className="nav_images">
 
-<img    onClick={()=>{this.changedData( item._id  ,item.imgSrc[0])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[0]} alt="userproduct"  />
-<img    onClick={()=>{this.changedData(item._id,item.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+item.imgSrc[1]} alt="userproduct"   />
-<img    onClick={()=>{this.changedData(item._id,item.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[2]} alt="userproduct"   />
-<img    onClick={()=>{this.changedData(item._id,item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]} alt="userproduct"   />
+<img    onClick={()=>{this.changedData( item._id  ,item.imgSrc[0])}}    ref = 'image'  src={`${BURL}/`+item.imgSrc[0]} alt="userproduct"  />
+<img    onClick={()=>{this.changedData(item._id,item.imgSrc[1])}}    ref = 'image' src={`${BURL}/`+item.imgSrc[1]} alt="userproduct"   />
+<img    onClick={()=>{this.changedData(item._id,item.imgSrc[2])}}    ref = 'image'  src={`${BURL}/`+item.imgSrc[2]} alt="userproduct"   />
+<img    onClick={()=>{this.changedData(item._id,item.imgSrc[3])}}    ref = 'image'  src={`${BURL}/`+item.imgSrc[3]} alt="userproduct"   />
 </div>
 
                   <div className="product_info">

@@ -10,7 +10,8 @@ import { connect } from 'react-redux'
 import { Button } from '@material-ui/core';
 import Spiner from '../spnier/spiner';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import './cart.css'
+import './cart.css';
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 class PCart extends Component {
   constructor(props) {
     super(props)
@@ -166,10 +167,10 @@ class PCart extends Component {
 
             <TableRow key={item.id} >
               <TableCell style={{ width: "20%" }}  >
-                <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[0]} alt="product" />
-                <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[1]} alt="product" />
-                <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[2]} alt="product" />
-                <img className="cart-images" src={"http://localhost:8080/" + item.productId.imgSrc[3]} alt="product" />
+                <img className="cart-images" src={`${BURL}/`+ item.productId.imgSrc[0]} alt="product" />
+                <img className="cart-images" src={`${BURL}/`+item.productId.imgSrc[1]} alt="product" />
+                <img className="cart-images" src={`${BURL}/`+ item.productId.imgSrc[2]} alt="product" />
+                <img className="cart-images" src={`${BURL}/`+ item.productId.imgSrc[3]} alt="product" />
               </TableCell>
               <TableCell style={{ width: "15%" }} align="right">{item.productId.productname}</TableCell>
               <TableCell style={{ width: "15%" }} align="right">ONE PRODUCT PRICE:{item.productId.price}$</TableCell>

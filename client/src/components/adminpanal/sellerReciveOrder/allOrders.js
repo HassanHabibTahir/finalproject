@@ -5,9 +5,9 @@ import TableCell from '@material-ui/core/TableCell';
 
 import TableRow from '@material-ui/core/TableRow';
 
-
 // import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import { useDispatch } from "react-redux";
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -50,10 +50,10 @@ export default function AllOeders(props) {
         <StyledTableCell component="th" scope="row"  >{props.orders.user.email}</StyledTableCell>
         <StyledTableCell component="th" scope="row"  >{item.cellNo}</StyledTableCell>
         <StyledTableCell  >
-          <img className="cart-images" src={"http://localhost:8080/" + item.product?.imgSrc[0]} />
-          <img className="cart-images" src={"http://localhost:8080/" + item.product?.imgSrc[1]} />
-          <img className="cart-images" src={"http://localhost:8080/" + item.product?.imgSrc[2]} />
-          <img className="cart-images" src={"http://localhost:8080/" + item.product?.imgSrc[3]} />
+          <img className="cart-images" src={`${BURL}/`+ item.product?.imgSrc[0]} />
+          <img className="cart-images" src={`${BURL}/`+ item.product?.imgSrc[1]} />
+          <img className="cart-images" src={`${BURL}/`+item.product?.imgSrc[2]} />
+          <img className="cart-images" src={`${BURL}/`+item.product?.imgSrc[3]} />
         </StyledTableCell>
         <StyledTableCell component="th" scope="row"  >{item.province}</StyledTableCell>
         <StyledTableCell component="th" scope="row"  >{item.city}</StyledTableCell>

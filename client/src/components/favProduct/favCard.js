@@ -16,6 +16,7 @@ import Fab from '@material-ui/core/Fab';
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
 import '../Mens/mens.css'
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
  class FavCard extends Component {
     
     addToFav=(fav,auth)=>{
@@ -40,7 +41,7 @@ import '../Mens/mens.css'
         const containerSrc = this.refs[i].src
           
         console.log("this is second",containerSrc)
-        this.refs[i].src="http://localhost:8080/"+img
+        this.refs[i].src=`${BURL}/`+ img
         // console.log(img) 
           }
         
@@ -81,10 +82,10 @@ import '../Mens/mens.css'
           
           <div className="nav_images">
           
-          <img  onClick={()=>{this.changedData( fCard?._id,fCard?.imgSrc[0])}}   ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[0]}  alt="cartproduct"/>
-          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[1])}}    ref = 'image' src={"http://localhost:8080/"+fCard?.imgSrc[1]} alt="cartproduct"/>
-          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[2])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[2]} alt="cartproduct"/>
-          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+fCard?.imgSrc[3]} alt="cartproduct"/>
+          <img  onClick={()=>{this.changedData( fCard?._id,fCard?.imgSrc[0])}}   ref = 'image'  src={`${BURL}/`+ fCard?.imgSrc[0]}  alt="cartproduct"/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[1])}}    ref = 'image' src={`${BURL}/`+ fCard?.imgSrc[1]} alt="cartproduct"/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[2])}}    ref = 'image'  src={`${BURL}/`+ fCard?.imgSrc[2]} alt="cartproduct"/>
+          <img    onClick={()=>{this.changedData(fCard?._id,fCard?.imgSrc[3])}}    ref = 'image'  src={`${BURL}/`+ fCard?.imgSrc[3]} alt="cartproduct"/>
           
           </div>
           

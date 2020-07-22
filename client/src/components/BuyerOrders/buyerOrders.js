@@ -19,6 +19,7 @@ import Paper from '@material-ui/core/Paper';
 // import {Link,withRouter} from 'react-router-dom';
 import {buyergetallbuy} from "../../store/action/buyer/buyeraction"
 import BuyetOrders from "./BuerOrder"
+
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {

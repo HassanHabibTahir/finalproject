@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import FavCard from './favCard'
 import '../Mens/mens.css';
 import PropTypes from 'prop-types';
+
 class Favproduct extends Component {
 constructor(){
     super()

@@ -175,7 +175,7 @@ this.state={
       </div>
       <br/>
       <br/>
- <div    style={{alignItems:"center", textAlign:"center"}}>  {this.props.Products  && <Pagination count={10} color="primary" />}</div>
+ {/* <div    style={{alignItems:"center", textAlign:"center"}}>  {this.props.Products  && <Pagination count={10} color="primary" />}</div> */}
       </div>
     )
   }
