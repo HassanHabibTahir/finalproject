@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets,} from '../../types/types';
 import {toast} from 'react-toastify';
-
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 export const getUsersProfiles = ()=>dispatch=>{
       dispatch(ProfileLoading())
 axios.get('/api/users/all')
@@ -36,7 +36,7 @@ export  const DeleteUserprofile=data=>dispatch=>{
         type:RemoveElemets,
         payload:data.index
             })
-    axios.delete(`/api/users/deleteUser/${data.id}`).then((user)=>{
+    axios.delete(BURL+`/api/users/deleteUser/${data.id}`).then((user)=>{
         toast.success("sussefully deleted")
 //second concept to get users
 
@@ -65,7 +65,7 @@ export  const DeleteUserprofile=data=>dispatch=>{
 
 export const updataElement=data=>dispatch=>{
 
- axios.put(`/api/users/updateUser/${data.id}`,data)
+ axios.put(BURL+`/api/users/updateUser/${data.id}`,data)
     .then((res)=>{
      
         getUsersProfiles()(dispatch)

@@ -5,18 +5,17 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { getAllMenProduts, FavouritAdds } from '../../../store/action/products/productaction'
+import Pagination from '@material-ui/lab/Pagination';
 import history from '../../history/history'
 import Fab from '@material-ui/core/Fab';
 import Fade from 'react-reveal/Fade';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import '../mens.css'
-
 import productitem from '../productItem/productitem';
 import { Grid } from '@material-ui/core';
 import Spiner from '../../spnier/spiner';
-
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 
 class MEN extends Component {
   constructor() {
@@ -65,7 +64,7 @@ this.state={
     const containerSrc = this.refs[i].src
 
     console.log("this is second", containerSrc)
-    this.refs[i].src = "http://localhost:8080/" + img
+    this.refs[i].src = `${BURL}/`+img
     // console.log(img) 
   }
 
@@ -127,16 +126,16 @@ this.state={
                <div className="top-section">
 
 
-     {<center> <Link to={`/product/productitems/${item._id}`}><img   onLoad={this.imgesLoaded}  ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>}
+     {<center> <Link to={`/onlyproduct/productitems/${item._id}`}><img   onLoad={this.imgesLoaded}  ref={id} valaue={i} className="img_container" src={`${BURL}/` + item?.imgSrc[0]} alt="serchproduct" /></Link></center>}
 
-                <div className="nav_images">
+           {this.state.loader?<div className="nav_images">
 
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" />
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[1]}  alt="serchproduct"/>
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item?.imgSrc[2]} alt="serchproduct" />
-                  <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image'  src={"http://localhost:8080/" + item?.imgSrc[3]} alt="serchproduct"  />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[0]) }} ref='image' src={`${BURL}/`+item?.imgSrc[0]} alt="serchproduct" />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[1]) }} ref='image' src={`${BURL}/` + item?.imgSrc[1]}  alt="serchproduct"/>
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[2]) }} ref='image' src={`${BURL}/` + item?.imgSrc[2]} alt="serchproduct" />
+                  <img onClick={() => { this.changedData(item._id, item.imgSrc[3]) }} ref='image'  src={`${BURL}/`+ item?.imgSrc[3]} alt="serchproduct"  />
 
-                </div>
+                </div>:<Spiner/>}
 
                 <div className="product_info">
                   <div className="name_product">
@@ -161,7 +160,7 @@ this.state={
 
          </div>
         </Fade>
-
+    
        </div>
       )
 
@@ -174,7 +173,9 @@ this.state={
     
         {product}
       </div>
-    
+      <br/>
+      <br/>
+ <div    style={{alignItems:"center", textAlign:"center"}}>  {this.props.Products  && <Pagination count={10} color="primary" />}</div>
       </div>
     )
   }

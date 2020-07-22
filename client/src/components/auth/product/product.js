@@ -47,6 +47,7 @@ class Product extends Component {
             productname:this.state.productname,
             discription:this.state.discription,
             category:this.state.category,
+            invalidImage:''
             // files:this.state.files
 
             //   errors: null
@@ -86,13 +87,22 @@ console.log(productData)
 
     ImageshandleChange = (files) => {
   
-//         files.forEach((f)=>{
-//   console.log(f)
-//         })
+        files.forEach((fil,i)=>{
+console.log(fil.name)
+if (!fil.name.match(/\.(jpg|JPG|jpeg|JPEG|webp|png|PNG|gif)$/)) {
+            this.setState({ invalidImage: 'Please select valid image.' });
+            return false;
+          }
+return fil
+})
+      
+
      
+    //  else{
         this.setState({
             files: files
         });
+    //  }
     }
 
     handleSelectChange = (event) => {
@@ -120,6 +130,7 @@ console.log(productData)
              
                <Container component="main" maxWidth="md">
                     <Paper  style={{padding:"20px"}} elevation={10} align="center" >
+        <Grid>{this.state.invalidImage&&<Alert severity="error">{this.state.invalidImage}</Alert>}</Grid>
 <Grid>{this.state.alerts&&<Alert severity="error">maximaum 4 images required</Alert>}</Grid>
                     <div>
 
@@ -259,7 +270,8 @@ console.log(productData)
                               
                                     <DropzoneArea
                                             maxFileSize={5000000}
-                                          acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
+                                            // |webp|gif
+                                          acceptedFiles={['image/jpeg','image/JPEG','image/png','image/PNG', 'image/bmp','image/jpg','image/JPG','image/webp','image/gif']}
                                       filesLimit={4}
                                         onChange={this.ImageshandleChange}
                                     />

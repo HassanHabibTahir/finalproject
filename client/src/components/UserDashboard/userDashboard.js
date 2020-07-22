@@ -99,10 +99,13 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
         })
       
     return (
-      <div className="userProducts"  style={{marginTop:'100px'}} >
+ 
+      <div className="container-product"  >
+      <div className="mainvalue"   >
         {/* <UserRoutes/> */}
         {/* welcome */}
         {profileItems}
+      </div>
       </div>
     )
   }

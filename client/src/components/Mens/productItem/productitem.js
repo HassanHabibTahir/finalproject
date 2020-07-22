@@ -9,6 +9,7 @@ import ChatPopUp from '../../Chat/chatPopUp';
 import Spiner  from '../../spnier/spiner'
 import './productitem.css'
 import spiner from '../../spnier/spiner';
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 class Productitem extends Component {
 constructor(props){
     super(props);
@@ -46,12 +47,12 @@ console.log(cartId)
     }
 
 
-    changedData = (img) => {
-        const containerSrc = this.refs.imageContainer.src
+    // changedData = (img) => {
+    //     const containerSrc = this.refs.imageContainer.src
 
-        this.refs.imageContainer.src = "http://localhost:8080/" + img
+    //     this.refs.imageContainer.src = "http://localhost:8080/" + img
 
-    }
+    // }
 
 
 componentWillReceiveProps(nextprops){
@@ -76,19 +77,19 @@ this.setState({
         
 <div class="container-of_items ">
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[0]} alt="showcase" />
+    <img src={`${BURL}/`+ item.imgSrc[0]} alt="showcase" />
     {/* <span>CSS</span> */}
   </div>
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[1]}  alt="showcase" />
+    <img src={`${BURL}/` + item.imgSrc[1]}  alt="showcase" />
     {/* <span>Image</span> */}
   </div>
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[2]}  alt="showcase" />
+    <img src={`${BURL}/` + item.imgSrc[2]}  alt="showcase" />
     {/* <span>Hover</span> */}
   </div>
   <div class="box_items">
-    <img src={"http://localhost:8080/" + item.imgSrc[3]}  alt="showcase" />
+    <img src={`${BURL}/`+ item.imgSrc[3]}  alt="showcase" />
     {/* <span>Effect</span> */}
   </div>
 </div>

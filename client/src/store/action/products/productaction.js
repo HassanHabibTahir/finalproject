@@ -3,11 +3,12 @@ import { UserProducts, getUserProducts, getAllProducts,
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import history from '../../../components/history/history'
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : ''
 
 let globalKeyword=null;
 export const addproducts = (productData) => dispatch => {
-console.log(productData)
-    axios.post('/api/product/upload', productData)
+// console.log(produ/ctData)
+    axios.post(BURL+'/api/product/upload', productData)
         .then((res) => {
             console.log(res)
             toast.success("Successfully Upload products check Ads!");
@@ -32,7 +33,7 @@ console.log(productData)
 
 export const getuserallproducts = (user) => dispatch => {
 console.log(user)
-    axios.post('http://localhost:8080/api/product/getallproducts', user).then((res) => {
+    axios.post(BURL+'/api/product/getallproducts', user).then((res) => {
 
      dispatch({
             type: getUserProducts,
@@ -53,13 +54,14 @@ console.log(user)
 
 
 export const DeleteUserProduct=(userData)=>(dispatch)=>{
-
-    axios.delete(`http://localhost:8080/api/product/deleteUserproduct/${userData.id}`).then((res) => {
+let conf= window.confirm("Are you sure  you wannt to  del this  product")
+if(conf){
+        axios.delete(BURL+`/api/product/deleteUserproduct/${userData.id}`).then((res) => {
        
 
     console.log(userData)
 if(res){
-    axios.post('http://localhost:8080/api/product/getallproducts', userData).then((res) => {
+    axios.post(BURL+'/api/product/getallproducts', userData).then((res) => {
 
         dispatch({
                type: getUserProducts,
@@ -73,13 +75,15 @@ if(res){
     })
 }
 
+}
+
 export const serchProduct = (keyword,user) => (dispatch) => {
 console.log(keyword)
 globalKeyword=keyword;
-    axios.post('http://localhost:8080/api/product/allProduts2', keyword).then((res) => {
+    axios.post(BURL+'/api/product/allProduts2', keyword).then((res) => {
 
  if(res){
-    axios.get("http://localhost:8080/api/Favour/FavproductId").then(users=>{
+    axios.get(BURL+"/api/Favour/FavproductId").then(users=>{
         const data=users.data.filter(product=>product.user===user.id);
       res.data=  res.data.map(product=>{
           console.log(product,data)
@@ -113,10 +117,10 @@ globalKeyword=keyword;
 
 export const getAllMenProduts = (user) => (dispatch) => {
     // console.log("user",user)
-    axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
+    axios.get(BURL+'/api/product/allProduts').then((res) => {
         
         
-        axios.get("http://localhost:8080/api/Favour/FavproductId").then(users=>{
+        axios.get(BURL+"/api/Favour/FavproductId").then(users=>{
             const data=users.data.filter(product=>product.user==user.id);
           res.data=  res.data.map(product=>{
               console.log(product,data)
@@ -149,7 +153,7 @@ export const getAllMenProduts = (user) => (dispatch) => {
 
 
 export const FavouritAdds = (add,auth) => (dispatch) => {
-    axios.post("http://localhost:8080/api/Favour/favaddChanged", add)
+    axios.post(BURL+"/api/Favour/favaddChanged", add)
         .then((res) => {
             if (res) {
                 GetFavourproducts()(dispatch)
@@ -191,7 +195,7 @@ export const getCategoryProduct = (data) => (dispatch) => {
 
     console.log(data)
 
-    axios.post('http://localhost:8080/api/product/categoryProducts',data).then((res) => {
+    axios.post(BURL+'/api/product/categoryProducts',data).then((res) => {
         dispatch({
             type: getAllProducts,
             payload: res.data
@@ -206,7 +210,7 @@ export const getCategoryProduct = (data) => (dispatch) => {
 
 export const getProfilebyId = (id) => (dispatch) => {
 
-    axios.get(`http://localhost:8080/api/product/profilebyid/${id}`).then((res) => {
+    axios.get(BURL+`/api/product/profilebyid/${id}`).then((res) => {
 
 
         dispatch({
@@ -224,7 +228,7 @@ export const getProfilebyId = (id) => (dispatch) => {
 
 export const GetFavourproducts = () => (dispatch) => {
 
-    axios.get("http://localhost:8080/api/Favour/getFavouritadd")
+    axios.get(BURL+"/api/Favour/getFavouritadd")
         .then((res) => {
             console.log(res.data)
             dispatch({

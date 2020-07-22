@@ -77,7 +77,7 @@ import '../Mens/mens.css'
           <div className="top-section">
                                                                       
           
-             <center> <Link  to={`/product/productitems/${fCard?._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard?.imgSrc[0]} alt="cartproduct"/></Link></center>
+             <center> <Link  to={`/onlyproduct/productitems/${fCard?._id}`}><img    ref = {id}  valaue={index}    className="img_container" src={"http://localhost:8080/"+fCard?.imgSrc[0]} alt="cartproduct"/></Link></center>
           
           <div className="nav_images">
           

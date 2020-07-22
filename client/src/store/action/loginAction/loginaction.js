@@ -4,8 +4,9 @@ import SetAuthToken from '../utility/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import SetCurrentUser from '../loginAction/setUser';
 // import {toast} from 'react-toastify';
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 const loginUser = userData => dispatch => {
-axios.post(`/api/users/login?token=${userData.token}`, userData)
+axios.post(BURL+`/api/users/login?token=${userData.token}`, userData)
         .then(res => {
 
             //Save to localStorage

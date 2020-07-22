@@ -8,7 +8,8 @@ class Favproduct extends Component {
 constructor(){
     super()
     this.state={
-        Dfav:[]
+        Dfav:[],
+        favadds:false
     }
 }
 
@@ -32,13 +33,18 @@ componentWillReceiveProps(nextProps) {
             console.log(item)
             return <FavCard   fCard={item} index={i} />
         }):null
+       
         
         
         return (
             <div  className="container-product">
             <div className="mainvalue"   >
           
-              {favcard}
+              { this.state.Dfav.length<=0?  <div>
+
+<img src={require('./img/heart.png')} />
+<hr />
+</div>:favcard}
             </div>
           
             </div>

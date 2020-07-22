@@ -1,5 +1,5 @@
 import { setChatData, addNewMessage, addNewRoom, markMessagesAsReaded } from '../types/types';
-
+// const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 
 export const SetChatData = chat => {
 

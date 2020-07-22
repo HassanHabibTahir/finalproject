@@ -2,10 +2,11 @@ import { ADDTOCARTITEMSS, GETCARTPRODUCTS, REMOVECARTPRODUCT, GETORDERS,GETALLOR
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import history from '../../../components/history/history'
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 let globalKeyWord;
 export const addtoCartValue = (cartId) => dispatch => {
 
-  axios.post('http://localhost:8080/api/product/PostCart', cartId).then((res) => {
+  axios.post(BURL+'/api/product/PostCart', cartId).then((res) => {
     toast.success("Successfully add to cart!");
     console.log(res)
 
@@ -37,11 +38,11 @@ export const getcartproducts = (data) => (dispatch) => {
 export const RemoveCartElement = (data) => (dispatch) => {
 
   console.log(data)
-  axios.post('http://localhost:8080/api/product/removeCartproduct', data).then((res) => {
+  axios.post(BURL+'/api/product/removeCartproduct', data).then((res) => {
 
 
     if (res) {
-      axios.get('http://localhost:8080/api/product/getCart').then((res) => {
+      axios.get(BURL+'/api/product/getCart').then((res) => {
 
 
         dispatch({
@@ -77,7 +78,7 @@ export const RemoveCartElement = (data) => (dispatch) => {
 export const PostOrders = (sellerId) => (dispatch) => {
 
 
-  axios.post('http://localhost:8080/api/product/postOrdr', sellerId).then((res) => {
+  axios.post(BURL+'/api/product/postOrdr', sellerId).then((res) => {
     toast.success("Successfully  send Order to seller!");
     if(res){
       getCartProductbyId()(dispatch)
@@ -92,7 +93,7 @@ export const PostOrders = (sellerId) => (dispatch) => {
 export const getCartProductbyId = () => (dispatch) => {
 
 
-  axios.get('http://localhost:8080/api/product/getCart').then((res) => {
+  axios.get(BURL+'/api/product/getCart').then((res) => {
 
 
     dispatch({
@@ -106,7 +107,7 @@ export const getCartProductbyId = () => (dispatch) => {
 
 export const updateCartQuantity = (updatequn) => () => {
   console.log("changed", updatequn)
-  axios.post('http://localhost:8080/api/product/updatequantity', updatequn).then((res) => {
+  axios.post(BURL+'/api/product/updatequantity', updatequn).then((res) => {
 
 
   })
@@ -114,7 +115,7 @@ export const updateCartQuantity = (updatequn) => () => {
 
 
 export const GetAllsendOrders = () => (dispatch) => {
-  axios.get('http://localhost:8080/api/product/getOrders').then((res) => {
+  axios.get(BURL+'/api/product/getOrders').then((res) => {
 
     dispatch({
       type: GETALLORDERS,
@@ -128,7 +129,7 @@ export const GetAllsendOrders = () => (dispatch) => {
 
 
 export const GetBuyerOrder = (user) => (dispatch) => {
-  axios.get('http://localhost:8080/api/product/getOrders').then((res) => {
+  axios.get(BURL+'/api/product/getOrders').then((res) => {
 
     let data = []
 
@@ -164,7 +165,7 @@ export const GetBuyerOrder = (user) => (dispatch) => {
 
 export const SendbanckDetail = (data) => (dispatch) => {
   history.push('/userNav/setting')
-  axios.put('http://localhost:8080/api/users/sellerDetail',data).then((res) => {
+  axios.put(BURL+'/api/users/sellerDetail',data).then((res) => {
     toast.success("you accout has been update!");
 console.log(res)
 

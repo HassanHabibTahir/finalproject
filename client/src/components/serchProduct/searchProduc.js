@@ -102,7 +102,7 @@ control={<Checkbox onClick = {()=>{this.addToFav(item,this.props.auth)}}   check
            <div className="top-section">
 
 
-            <center> <Link to={`/product/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>
+            <center> <Link to={`/onlyproduct/productitems/${item._id}`}><img ref={id} valaue={i} className="img_container" src={"http://localhost:8080/" + item?.imgSrc[0]} alt="serchproduct" /></Link></center>
 
             <div className="nav_images">
 
