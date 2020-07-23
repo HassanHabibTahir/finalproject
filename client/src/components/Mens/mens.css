@@ -140,6 +140,24 @@
            
         }
 
+        .pagination_page{
+            text-align: center;
+
+        }
+
+        .pagination_page button {
+            text-decoration: none;
+            color: rgb(0, 38, 255);
+            padding: 0.9rem;
+            border: 2px solid blue;
+            margin: 0 2rem;
+            
+        }
+        .pagination_page button:hover,
+        .pagination_page button:active{
+            background-color: #020D75;
+            color: white;
+        }
         /* .photo-album {
             padding: 0.7em 1em;
             border-radius: 0 0 6px 6px;

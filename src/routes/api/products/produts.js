@@ -116,9 +116,19 @@ router.post('/getallproducts',(req,res)=>{
 
 })
 // allProduts
+
+
+// const ITEMS_PERPAGE = 4;
+
   router.get('/allProduts',(req,res)=>{
+
+// const page = req.query.page;
+
+
    Product.find()
-  .populate('user', ['name','isVarified','city','province','address','cellNo'])
+  //  .skip((page-1)*ITEMS_PERPAGE)
+  //  .limit(ITEMS_PERPAGE)
+    .populate('user', ['name','isVarified','city','province','address','cellNo'])
   .then(allproduts => {
     if (!allproduts) {
       errors = "there are no products";
@@ -363,6 +373,11 @@ Order.find({'user.userId':req.user.id})
         
   //         })
   })
+
+
+
+
+
 
 
 
