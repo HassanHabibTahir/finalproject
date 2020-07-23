@@ -24,7 +24,7 @@ class MEN extends Component {
 this.state={
   loader:false,
   page: 2,
-  visible: 2,
+  visible: 1,
 }
 
   }
@@ -107,7 +107,13 @@ loadMore=()=>{
     return {visible: prev.visible + 1};
   });
 }
-
+loadLesss=()=>{
+  if(this.state.visible>0){
+  this.setState((prev) => {
+    return {visible: prev.visible -1};
+  });
+}
+}
 
   render() {
     const {page}= this.state
@@ -220,7 +226,11 @@ loadMore=()=>{
 
 
              {this.state.visible < this.props?.Products?.length &&
-             <button onClick={this.loadMore} type="button" className="load-more">Load more</button>
+            <div> 
+              
+            <button onClick={this.loadLesss} type="button" className="load-more">Remove more</button>
+              <button onClick={this.loadMore} type="button" className="load-more">Load more</button>
+            </div> 
           }
 {/* {page>1 ? (<Link   onClick={() => this.loadMore(1)}>     Next ({page + 1})</Link>):""} */}
 {/* <Link    onClick={() => this.loadLess(1)} >  Previous ({this.state.page - 1})</Link> */}

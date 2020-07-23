@@ -157,6 +157,7 @@
         .pagination_page button:active{
             background-color: #020D75;
             color: white;
+            cursor: pointer;
         }
         /* .photo-album {
             padding: 0.7em 1em;
