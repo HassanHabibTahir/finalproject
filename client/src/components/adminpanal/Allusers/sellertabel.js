@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import { useDispatch } from "react-redux";
 import Spiner from '../../spnier/spiner'
-
+import Modal from '../Model/Model'
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -40,9 +40,15 @@ const useStyles = makeStyles({
 function SellerTable(props) {
 
   const [verfiy, isVarified] = useState(false)
+  const [showMap, setShowMap] = useState(false);
 
   const classes = useStyles();
   const dispatch = useDispatch();
+
+  const openMapHandler = () => setShowMap(!showMap);
+
+  const closeMapHandler = () => setShowMap(false);
+
 
   const changedElement = (id) => {
     isVarified(!verfiy)
@@ -76,10 +82,44 @@ function SellerTable(props) {
   }
   // console.log(verfiy)
   // console.log(props.user)
-
+console.log(showMap)
   return (
     // <TableContainer component={Paper}>
     //   <Table   size="large"  className={classes.table} aria-label="customized table">
+    <React.Fragment>
+
+
+{showMap ? 
+
+          <TableRow>
+            {/* text='Close Me' */}
+            {/* // closePopup={this.openMapHandler.bind(this)} */}
+            <div className="map_toolbar"  style={{width:"100%",
+        
+          height:"300px" ,textAlign:"center",alignItems:"center", justifyContent:"center"}}>
+<h1>{props.user.name}</h1>
+{/* <Modal/> */}
+<button onClick={()=>{setShowMap(false)}} >closexczxcvcxvzxcvzxvxcv</button>
+          </div>
+          </TableRow>
+          : null
+        }
+
+{/* <Modal
+      
+        show={showMap}
+        onCancel={closeMapHandler}
+      
+        contentClass="place-item__modal-content"
+        footerClass="place-item__modal-actions"
+        footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
+      >
+        <div className="map-container">
+          <Map center={props.coordinates} zoom={16} />
+          <h1>hassan haib tahaor</h1>
+        </div>
+      </Modal> */}
+
 
     <TableRow key={props.user._id} >
       <StyledTableCell size="large" component="th" scope="row"  >{props.index}</StyledTableCell>
@@ -113,10 +153,22 @@ function SellerTable(props) {
       </StyledTableCell>
       <StyledTableCell> {!props.user.isVarified == true ? "user not verified" : "user verified  by admin"}</StyledTableCell>
       {/* <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell> */}
+      <StyledTableCell>
+        <Button
+          onClick={openMapHandler}
+          variant="contained"
+          color="secondary"
+      
+        >
+         ON MAP
+                    </Button>
+
+      </StyledTableCell>
 
 
     </TableRow>
-    //   </Table>
+    </React.Fragment>
+    
     // </TableContainer>
   );
 }

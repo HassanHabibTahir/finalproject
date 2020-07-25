@@ -18,6 +18,7 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 // import Spiner from '../../spnier/spiner'
+import Model from '../Model/Model'
 import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -92,7 +93,7 @@ handleChangeRowsPerPage = event => {
         <Divider />
         <Grid  className="marginTop" > 
          
-       
+       <Model />
 
           <Grid item xs={12} md={12}>
                     <Table  style={{width:"100vw"}}   >
@@ -101,15 +102,15 @@ handleChangeRowsPerPage = event => {
           <StyledTableCell   component="th" >SR.NO</StyledTableCell>
             <StyledTableCell   component="th" >Name</StyledTableCell>
             <StyledTableCell   component="th" >Email</StyledTableCell>
-            <StyledTableCell   component="th" >PhoneNumber</StyledTableCell>
-            <StyledTableCell   component="th" >city</StyledTableCell>
-            <StyledTableCell   component="th" >Province</StyledTableCell>
-            <StyledTableCell   component="th" >Adress</StyledTableCell>
-            <StyledTableCell   component="th" >user Type</StyledTableCell>
-            <StyledTableCell   component="th" >Verification</StyledTableCell>
-            <StyledTableCell   component="th" >Delete User</StyledTableCell>
-            <StyledTableCell   component="th" >verification by Admin</StyledTableCell>
-           
+             <StyledTableCell   component="th" >PhoneNumber</StyledTableCell>
+              <StyledTableCell   component="th" >city</StyledTableCell>
+              <StyledTableCell   component="th" >Province</StyledTableCell>
+              <StyledTableCell   component="th" >Adress</StyledTableCell>
+              <StyledTableCell   component="th" >user Type</StyledTableCell>
+              <StyledTableCell   component="th" >Verification</StyledTableCell>
+              <StyledTableCell   component="th" >Delete User</StyledTableCell>
+              <StyledTableCell   component="th" >verification by Admin</StyledTableCell>
+              <StyledTableCell   component="th" >OnMap </StyledTableCell>
           </TableRow>
       </TableHead>
 
@@ -118,7 +119,7 @@ handleChangeRowsPerPage = event => {
       {copyData.length>0 ?
               copyData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .filter((ite)=>ite.userCondition==='seller')
-              .map((users,i) => <Card key={i} user={users} index={i}  TableStyle={StyledTableCell} />
+              .map((users,i) => <Card key={i} user={users} index={i}  TableStyle={StyledTableCell}  />
               
               )
               :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >Empty</h1>}

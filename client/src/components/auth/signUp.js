@@ -86,17 +86,41 @@ class SignUp extends Component {
           userCondition:null,
           checkedA: true,
           checkedB: true,
-          passwrdStrong:''
+          passwrdStrong:'',
+          currentLocation: {
+            latitude: 0.0,
+            longitude: 0.0
+          }
       }
   }
   handleChangeCondition = event => {
     this.setState({ userCondition: event.target.value });
   };
   componentDidMount() {
-    document.title = "Signup";
+ this.getLoctions()
   }
 
 
+getLoctions=async()=>{
+    await  navigator.geolocation.getCurrentPosition(
+  (position) => {
+    let lat = position.coords.latitude
+    let lng = position.coords.longitude
+    console.log("getCurrentPosition Success " + lat + lng) // logs position correctly
+    this.setState({
+      currentLocation: {
+        latitude: lat,
+        longitude: lng
+      }
+    })
+  },
+  (error) => {
+    this.props.displayError("Error dectecting your location");
+    console.error(JSON.stringify(error))
+  },
+  {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+)
+}
 //   componentWillReceiveProps(nextProps){
 //     if(nextProps.errors){
 //  this.setState({errors:nextProps.errors})
@@ -213,7 +237,7 @@ class SignUp extends Component {
   onSubmitHandler=(e)=>{
     e.preventDefault();
     this.setState({loading:true});
-    const {name,email,password,cellNo,address,city,province,userCondition} = this.state;
+    const {name,email,password,cellNo,address,city,province,userCondition,currentLocation} = this.state;
     
           let userData = {
             name,
@@ -224,6 +248,7 @@ class SignUp extends Component {
             city,
             province,
             userCondition,
+            currentLocation
           }
           console.log(userData)
       this.props.registerUser(userData);
@@ -249,8 +274,7 @@ class SignUp extends Component {
     this.setState({address})
  }
   render() {
-    
-    console.log(this.state.passwrdStrong)
+ console.log(this.state.currentLocation)
     const {cities,name,email,password,confirmpassword,cellNo,address,city,province,checkbox,emailError,passwordError,loading,userCondition,cellNumberError} = this.state;
     const isvalid = name ==='' || email ==='' || password ==='' || confirmpassword ==='' || cellNo ==='' || address ==='' ||  city ===''||province===''|| checkbox===''  || emailError !=='' ||cellNumberError!==''|| passwordError !== '' || loading||userCondition==null; 
       return (

@@ -1,4 +1,5 @@
 // const crypto = require('crypto');
+const geocoder = require('../../util/geocoder');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
@@ -67,13 +68,21 @@ accountnumber: {
     required: true
 },
 
-
-
-
-    // role:{
-    //   type:String
-    // },
-
+  currentLocation: {
+      latitude:{
+        type:Number,
+        required:true
+      },
+      longitude:{
+        type:Number,
+        required:true
+      }
+  }
+// currentLocation: {
+//   type: [Number],
+//   required: true
+// }
+,
     cart: {
         items: [
           {
@@ -189,6 +198,20 @@ userSchema.methods.addToCart = function(product) {
   //     }
       
 
+// Geocode & create location
+// userSchema.pre('save', async function(next) {
+//   const loc = await geocoder.geocode(this.address);
+//   console.log(loc)
+  // this.location = {
+  //   type: 'Point',
+  //   coordinates: [loc[0].longitude, loc[0].latitude],
+  //   formattedAddress: loc[0].formattedAddress
+  // };
+
+  // // Do not save address
+  // this.address = undefined;
+  // next();
+// });
 
 module.exports = mongoose.model('users', userSchema);
                     

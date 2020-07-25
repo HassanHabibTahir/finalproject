@@ -24,7 +24,7 @@ class MEN extends Component {
 this.state={
   loader:false,
   page: 2,
-  visible: 1,
+  visible: 2,
 }
 
   }

@@ -35,7 +35,7 @@ let errors;
 //user signUp
 // /api/users
 
-router.post('/rejister', (req, res) => {
+router.post('/rejister',async (req, res) => {
 
   const {errors,isValid}  =ValidateRegisterInput(req.body)
  
@@ -70,7 +70,7 @@ router.post('/rejister', (req, res) => {
 
           })
 
-        const newUser = new Userprofile({
+        const newUser =  await new Userprofile({
           name: req.body.name,
           email: req.body.email,
           password: req.body.password,
@@ -86,7 +86,11 @@ router.post('/rejister', (req, res) => {
           bankname:'not yet',
           accountnumber:'not yet',
           cart: { items: [] },
-          userCondition:req.body.userCondition
+          userCondition:req.body.userCondition,
+          currentLocation:{
+            latitude:req.body.currentLocation.latitude,
+            longitude:req.body.currentLocation.longitude
+          }
           // productsId:{}
           
           

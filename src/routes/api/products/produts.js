@@ -205,7 +205,7 @@ passport.authenticate('jwt', { session: false }),
 router.get('/getCart',
 passport.authenticate('jwt', { session: false }),
 (req, res, next) => {
- console.log(req.user.cart.items.productId)
+//  console.log(req.user.cart.items.productId)
  
  req.user
  

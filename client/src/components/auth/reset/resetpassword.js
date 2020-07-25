@@ -9,7 +9,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 // import ResetpasswordUser from '../../../store/action/resetAction/resetpasswordaction'
-import history from '../../history/history'
+import history from '../../history/history';
+const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : ''
 class Resetpassword extends Component {
 
 
@@ -75,7 +76,7 @@ class Resetpassword extends Component {
             
         };
         const token = this.props.match.params.token;
-        axios.post('/api/users/reset/'+token,userData).then((res)=>{
+        axios.post(BURL+'/api/users/reset/'+token,userData).then((res)=>{
             // console.log("backend",res)
             history.push('/login');
             toast.success("Successfully reset password!");   
