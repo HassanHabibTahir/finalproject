@@ -93,7 +93,7 @@ handleChangeRowsPerPage = event => {
         <Divider />
         <Grid  className="marginTop" > 
          
-       <Model />
+       {/* <Model /> */}
 
           <Grid item xs={12} md={12}>
                     <Table  style={{width:"100vw"}}   >
