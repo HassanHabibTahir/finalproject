@@ -95,7 +95,7 @@ function SellerTable(props) {
   }
   // console.log(verfiy)
   // console.log(props.user)
-console.log(props.user)
+console.log(props.user.currentLocation)
   return (
     // <TableContainer component={Paper}>
     //   <Table   size="large"  className={classes.table} aria-label="customized table">
@@ -183,8 +183,8 @@ console.log(props.user)
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <div id="transition-modal-title"><Maps/></div>
-      <p id="transition-modal-description">{props.user.name}</p>
+            <div id="transition-modal-title"><Maps  location={props.user.currentLocation}  /></div>
+      <p id="transition-modal-description">Name:{props.user.name}</p>
           </div>
         </Fade>
       </Modal>
