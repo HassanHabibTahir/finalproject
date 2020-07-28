@@ -88,8 +88,8 @@ router.post('/rejister',async (req, res) => {
           cart: { items: [] },
           userCondition:req.body.userCondition,
           currentLocation:{
-            latitude:req.body.currentLocation.latitude,
-            longitude:req.body.currentLocation.longitude
+          latitude:req.body.currentLocation?.latitude,
+          longitude:req.body.currentLocation?.longitude
           }
           // productsId:{}
           

@@ -26,19 +26,32 @@ constructor(){
         lat: 31.3808688,
         lng: 73.0663113,
         zoom: 10,
+        logg:false
       }
 }
 
     render() {
 //       latitude: 30.7285507
 // longitude: 72.6505842
-const {locations}= this.props.location;
-if(locations!==undefined && locations!==null){
 
-}
-      console.log("maplocation",this.props.location)
+
+// const {locations}= this.props.location;
+
+// if(locations!==undefined && locations!==null){
+ 
+//   this.setState({
+//      lat:locations.latitude,
+//      lng:locations.longitude
+//   })
+
+// }
+// let position;
+// this.state && this.state.lng !==undefined && this.state.lat!==undefined&&this.state.lng!==null&&this.state.lat!==null?
+//  position = [this.state.lat,this.state.lng]:null
+
+      // console.log("maplocation",this.props.location)
   
-      const position = [this.props.location.latitude===undefined?this.state.lat:this.props.location.latitude, this.props.location.longitude===undefined?this.state.lng:this.props.location.longitude]
+      const position = [this.props.location.latitude,this.props.location.longitude]
        
       // const position = [this.state.lat,this.state.lng]
       return (

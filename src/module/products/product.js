@@ -34,6 +34,10 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
       },
+      productVerified: {
+        type: Boolean,
+        default: false
+    },
     //   province: {
     //     type: String,
     //     required:true

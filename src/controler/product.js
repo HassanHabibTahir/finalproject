@@ -13,6 +13,7 @@ const productControler = {
      producatData.productname = data.body.productname;
      producatData.discription = data.body.discription;
      producatData.category = data.body.category;
+     producatData.productVerified=null
     //  producatData.imgSrc = []
 
     data.files.forEach((file)=>{

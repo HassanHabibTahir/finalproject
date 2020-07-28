@@ -115,8 +115,9 @@ getLoctions=async()=>{
     })
   },
   (error) => {
-    this.props.displayError("Error dectecting your location");
-    console.error(JSON.stringify(error))
+   
+    // console.error(JSON.stringify(error))
+    alert(JSON.stringify( "Error dectecting your location"))
   },
   {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
 )
