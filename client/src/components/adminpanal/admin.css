@@ -7,7 +7,7 @@
 .links {
    color:#020D75 !important;
    text-decoration: none;
-   padding: 20px;
+   /* padding: 20px; */
 }
 .admin_icon svg{
 
@@ -21,7 +21,7 @@
   
 }
 .contens{
-    /* margin-left: 1px; */
+    margin-left: 1px;
 display: flex;
 flex-wrap: wrap;
 }
@@ -29,6 +29,6 @@ flex-wrap: wrap;
     top: 70px !important;
     z-index: 0 !important;
 }
-.MuiToolbar-root {
+/* .MuiToolbar-root {
     margin-right: -20px !important;
-}
+} */

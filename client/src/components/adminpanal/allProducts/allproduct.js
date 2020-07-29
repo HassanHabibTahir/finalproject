@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
@@ -5,7 +7,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 
 import Divider from '@material-ui/core/Divider';
-import AllOeders from './allOrders';
 import TablePaginationActionsWrapped from '../pagination/pagination';
 import TablePagination from '@material-ui/core/TablePagination';
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
@@ -19,7 +20,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {withRouter} from 'react-router-dom';
 import Spiner from '../../spnier/spiner'
-import {GetAllsendOrders} from "../../../store/action/cartAction/cartaction"
+import {getallProducts} from "../../../store/action/cartAction/cartaction"
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -47,12 +48,12 @@ const useStyles = makeStyles({
   },
 });
 
-class AllOrders extends Component {
+class AllProducts extends Component {
     constructor(props) {
         super(props)
         this.state={
  
-         Alldata:[],     
+         AllProduct:[],     
          page: 0,
          rowsPerPage: 8,
          adsViewOf:true
@@ -60,8 +61,8 @@ class AllOrders extends Component {
       }
       
 componentDidMount(){
-    document.title = "AllOrders";
-    this.props.GetAllsendOrders()
+    document.title = "AllProducts";
+    this.props.getallProducts()
 }
 
 componentWillReceiveProps(nextProps) {
@@ -81,7 +82,7 @@ handleChangePage = (event, page) => {
 
     render() {
         const classes = useStyles;
-        const {Alldata, rowsPerPage, page} = this.state;
+        const {AllProduct, rowsPerPage, page} = this.state;
       return (
             <div>
           
@@ -99,7 +100,7 @@ handleChangePage = (event, page) => {
                 <Table  style={{width:"100%"}}   >
                 <TableHead>
       <TableRow >
-      <StyledTableCell   component="th" style={{width:"10vw" ,alignItems:"center"}}  >SR.NO</StyledTableCell>
+      <StyledTableCell   component="th" style={{width:"15vw",  alignItems:"center"}}  >SR.NO</StyledTableCell>
       <StyledTableCell   component="th" >Email</StyledTableCell>
       <StyledTableCell   component="th" >PHONE NO</StyledTableCell>
         <StyledTableCell   component="th" >Product</StyledTableCell>
@@ -120,11 +121,11 @@ handleChangePage = (event, page) => {
 
   <TableBody>
   {/* <TableRow> */}
-  {Alldata.length>0 ?
-          Alldata.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+  {AllProduct.length>0 ?
+          AllProduct.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
           .map((order,i) => 
-        //   console.log("here oredrs",order)
-          <AllOeders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
+          console.log("here oredrs",order)
+        //   <AllOeders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
           
           )
           :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >No order yet</h1> }
@@ -134,7 +135,7 @@ handleChangePage = (event, page) => {
                   <TableRow>
                     <TablePagination
                       // colSpan={2}
-                      count={Alldata.length}
+                      count={AllProduct.length}
                       rowsPerPage={rowsPerPage}
                       page={page}
                       labelDisplayedRows={() => ""}
@@ -161,18 +162,18 @@ handleChangePage = (event, page) => {
 }
 
 
-AllOeders.propTypes={
-  auth: PropTypes.object.isRequired,
-  orders:PropTypes.object.isRequired,
-  GetAllsendOrders:PropTypes.func.isRequired
-}
+// AllProducts.propTypes={
+//   auth: PropTypes.object.isRequired,
+//   orders:PropTypes.object.isRequired,
+//   GetAllsendOrders:PropTypes.func.isRequired
+// }
 
 const mapStateToProps = state => ({
     auth:state.auth,
-    orders:state.orders
+
   })
 
 
-export default withRouter(connect(mapStateToProps,{GetAllsendOrders})(AllOrders));
+export default withRouter(connect(mapStateToProps,{getallProducts})(AllProducts));
 
 

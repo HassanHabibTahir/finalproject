@@ -49,7 +49,7 @@ export default function AllOeders(props) {
         <StyledTableCell component="th" scope="row"  >{props.index}</StyledTableCell>
         <StyledTableCell component="th" scope="row"  >{props.orders.user.email}</StyledTableCell>
         <StyledTableCell component="th" scope="row"  >{item.cellNo}</StyledTableCell>
-        <StyledTableCell  >
+        <StyledTableCell style={{width:"20vw"}} >
           <img className="cart-images" src={`${BURL}/`+ item.product?.imgSrc[0]} />
           <img className="cart-images" src={`${BURL}/`+ item.product?.imgSrc[1]} />
           <img className="cart-images" src={`${BURL}/`+item.product?.imgSrc[2]} />

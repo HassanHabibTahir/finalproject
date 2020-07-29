@@ -8,46 +8,75 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
+import CollectionsIcon from '@material-ui/icons/Collections';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import AssignmentIcon from '@material-ui/icons/Assignment';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
-    <Link primary="Dashboard"  to="/dashboard" className="links" >
+    <ListItem button  component={Link}  to="/dashboard" >
+    {/* <Link primary="Dashboard"  to="/dashboard" className="links" > */}
+    <ListItemIcon>
         <DashboardIcon />
-      </Link>
-      <Link primary="Dashboard"  to="/dashboard" className="links" ><ListItemText primary="Admin" /></Link> 
+        </ListItemIcon>
+      {/* </Link> */}
+   <ListItemText primary="Admin" /> 
     </ListItem>
-    <ListItem button>
-    <Link primary="Dashboard"  to="/seller" className="links" >
+
+    <ListItem button  component={Link}  to="/seller" >
+    {/* <Link primary="Dashboard"  to="/dashboard" className="links" > */}
+    <ListItemIcon>
     <PeopleIcon />
-      </Link>
-      <Link primary="Dashboard"  to="/seller" className="links" ><ListItemText primary="Seller" /></Link> 
+        </ListItemIcon>
+      {/* </Link> */}
+   <ListItemText primary="Seller" /> 
     </ListItem>
 
-    <ListItem button>
-    <Link primary="Dashboard"  to="/buyer" className="links" >
-            <PeopleIcon />
-      </Link>
-      <Link primary="Dashboard"  to="/buyer" className="links" > <ListItemText primary="buyer" /></Link> 
-      
-     
-    </ListItem>
-    <ListItem button>
-      <Link primary="Dashboard"  to="/allorders" className="links" >
-        <ShoppingCartIcon />
-      </Link>
-      <Link primary="Dashboard"  to="/allorders" className="links" ><ListItemText primary="All Orders" /></Link> 
+    <ListItem button  component={Link}  to="/buyer" >
+    {/* <Link primary="Dashboard"  to="/dashboard" className="links" > */}
+    <ListItemIcon>
+    <PeopleIcon />
+        </ListItemIcon>
+      {/* </Link> */}
+   <ListItemText primary="buyer" /> 
     </ListItem>
 
-    <ListItem button>
+
+
+    <ListItem button  component={Link}  to="/allorders" >
+    {/* <Link primary="Dashboard"  to="/dashboard" className="links" > */}
+    <ListItemIcon>
+ 
+    <ShoppingCartIcon />
+    </ListItemIcon>
+      {/* </Link> */}
+   <ListItemText primary="All Orders" /> 
+    </ListItem>
+
+    <ListItem button  component={Link}  to="/prodcutsall" >
+    <ListItemIcon>
+ 
+    <CollectionsIcon />
+    </ListItemIcon>
+   <ListItemText primary="AllProducts" /> 
+    </ListItem>
+
+
+
+   
+
+
+
+
+
+    {/* <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
+    </ListItem> */}
+    <ListItem button   component={Link}  to="/regsssister
+"  >
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>

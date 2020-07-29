@@ -179,7 +179,12 @@ console.log(res)
 
 
 
+export const getallProducts =()=>()=>{
+  axios.get(BURL+'/api/product/getallProducts').then((products)=>{
 
+    console.log(products)
+  })
+}
 
 
 

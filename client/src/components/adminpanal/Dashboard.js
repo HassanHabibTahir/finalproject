@@ -135,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-       <List>{secondaryListItems}</List> 
+       {/* <List>{secondaryListItems}</List>  */}
       </Drawer>
     
     </div>

@@ -376,7 +376,7 @@ Order.find({'user.userId':req.user.id})
 
 // get all products by admin and verification products;
 
-
+// /api/product/getallProducts
 router.get('/getallProducts',(req,res)=>{
 
   Product.find({}).then((products)=>{
