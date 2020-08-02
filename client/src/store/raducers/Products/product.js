@@ -1,9 +1,10 @@
-import {UserProducts} from '../../action/types/types'
+import {UserProducts,GETALLPRODUCTSFORADMIN} from '../../action/types/types'
 
 
 const intialState = {
     prduct:"userProducts",
-    products:[]
+    products:[],
+    allProducts:[]
 }
 
 export default function ( state=intialState, action ) {
@@ -15,7 +16,7 @@ export default function ( state=intialState, action ) {
     
     
     
-        case UserProducts:
+           case UserProducts:
     
         // console.log(action.payload)
             return({
@@ -23,7 +24,12 @@ export default function ( state=intialState, action ) {
              products:intialState.products.concat(action.payload),
     
             })
+          case GETALLPRODUCTSFORADMIN:
+           return({
+           ...newState,
+           allADProducts:action.payload
 
+    })
 
             default:
                 return newState

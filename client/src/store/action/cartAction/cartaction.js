@@ -1,4 +1,4 @@
-import { ADDTOCARTITEMSS, GETCARTPRODUCTS, REMOVECARTPRODUCT, GETORDERS,GETALLORDERS } from '../../action/types/types'
+import { ADDTOCARTITEMSS, GETCARTPRODUCTS, REMOVECARTPRODUCT, GETORDERS,GETALLORDERS,GETALLPRODUCTSFORADMIN } from '../../action/types/types'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import history from '../../../components/history/history'
@@ -179,10 +179,16 @@ console.log(res)
 
 
 
-export const getallProducts =()=>()=>{
+export const getallProducts =()=>(dispatch)=>{
   axios.get(BURL+'/api/product/getallProducts').then((products)=>{
 
-    console.log(products)
+    dispatch({
+   type:GETALLPRODUCTSFORADMIN,
+   payload:products.data
+
+    })
+
+    console.log(products.data)
   })
 }
 

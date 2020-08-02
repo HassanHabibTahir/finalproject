@@ -68,7 +68,7 @@ componentDidMount(){
 componentWillReceiveProps(nextProps) {
   
   this.setState({
-    Alldata:nextProps.orders.allorders
+    Alldata:nextProps.ForAdminProducts
   })
 }
 
@@ -81,6 +81,7 @@ handleChangePage = (event, page) => {
   };
 
     render() {
+      console.log("allProducts",this.props.ForAdminProducts)
         const classes = useStyles;
         const {AllProduct, rowsPerPage, page} = this.state;
       return (
@@ -170,7 +171,8 @@ handleChangePage = (event, page) => {
 
 const mapStateToProps = state => ({
     auth:state.auth,
-
+  ForAdminProducts:state.Products
+  // .allADProducts
   })
 
 

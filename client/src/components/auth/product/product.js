@@ -383,6 +383,3 @@ export default connect(mapStateToProps,{addproducts}  )(Product)
 
 
 
-
-
-

@@ -136,7 +136,11 @@ loadLesss=()=>{
 
       })
     console.log(this.state.loader)
-     
+
+    // let Productverification = Prdouctsitems.filter((item)=>{
+    //   return item.productVerified===false
+    // })
+    //  console.log("getVerified",Productverification)
     let product = Prdouctsitems.slice(0, this.state.visible).map((item, i) => {
       let id = item._id
 
