@@ -21,7 +21,7 @@ import Paper from '@material-ui/core/Paper';
 import {withRouter} from 'react-router-dom';
 import Spiner from '../../spnier/spiner'
 import {getallProducts} from "../../../store/action/cartAction/cartaction"
-
+import Products from './Products'
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -68,7 +68,7 @@ componentDidMount(){
 componentWillReceiveProps(nextProps) {
   
   this.setState({
-    Alldata:nextProps.ForAdminProducts
+    AllProduct:nextProps.ForAdminProducts.allADProducts
   })
 }
 
@@ -81,7 +81,6 @@ handleChangePage = (event, page) => {
   };
 
     render() {
-      console.log("allProducts",this.props.ForAdminProducts)
         const classes = useStyles;
         const {AllProduct, rowsPerPage, page} = this.state;
       return (
@@ -101,11 +100,11 @@ handleChangePage = (event, page) => {
                 <Table  style={{width:"100%"}}   >
                 <TableHead>
       <TableRow >
-      <StyledTableCell   component="th" style={{width:"15vw",  alignItems:"center"}}  >SR.NO</StyledTableCell>
-      <StyledTableCell   component="th" >Email</StyledTableCell>
-      <StyledTableCell   component="th" >PHONE NO</StyledTableCell>
+      <StyledTableCell   component="th" style={{  alignItems:"center"}}  >SR.NO</StyledTableCell>
         <StyledTableCell   component="th" >Product</StyledTableCell>
-        <StyledTableCell   component="th" >Province</StyledTableCell>
+      <StyledTableCell   component="th" >Category</StyledTableCell>
+      <StyledTableCell   component="th" >Product Name</StyledTableCell>
+        <StyledTableCell   component="th" >Quantity</StyledTableCell>
         <StyledTableCell   component="th" >city</StyledTableCell>
         <StyledTableCell   component="th" >address</StyledTableCell>
         <StyledTableCell   component="th" >Product Name</StyledTableCell>
@@ -124,8 +123,9 @@ handleChangePage = (event, page) => {
   {/* <TableRow> */}
   {AllProduct.length>0 ?
           AllProduct.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((order,i) => 
-          console.log("here oredrs",order)
+          .map((product,i) => 
+ <Products key={i} Products={product} index={i}  />
+          // console.log("here oredrs",order)
         //   <AllOeders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
           
           )
