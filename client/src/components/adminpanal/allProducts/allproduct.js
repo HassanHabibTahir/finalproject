@@ -105,13 +105,14 @@ handleChangePage = (event, page) => {
       <StyledTableCell   component="th" >Category</StyledTableCell>
       <StyledTableCell   component="th" >Product Name</StyledTableCell>
         <StyledTableCell   component="th" >Quantity</StyledTableCell>
-        <StyledTableCell   component="th" >city</StyledTableCell>
-        <StyledTableCell   component="th" >address</StyledTableCell>
-        <StyledTableCell   component="th" >Product Name</StyledTableCell>
+        <StyledTableCell   component="th" >price</StyledTableCell>
+        <StyledTableCell   component="th" >Product verification</StyledTableCell>
+        <StyledTableCell   component="th" >Delete Products</StyledTableCell>
+         {/*<StyledTableCell   component="th" >Product Name</StyledTableCell>
         <StyledTableCell   component="th" >Category</StyledTableCell>
         <StyledTableCell   component="th" >Quantity</StyledTableCell>
         <StyledTableCell   component="th" >Price</StyledTableCell>
-        <StyledTableCell   component="th" >total</StyledTableCell>
+        <StyledTableCell   component="th" >total</StyledTableCell> */}
   
        
        

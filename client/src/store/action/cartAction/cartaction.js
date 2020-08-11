@@ -193,6 +193,15 @@ export const getallProducts =()=>(dispatch)=>{
 }
 
 
+ export  const VerifyProduct =(data)=>(dispatch)=>{
+  axios.put(BURL+'/api/product/verificationProduct',data)
+
+  .then((res)=>console.log(res),
+  toast.success("Successfully Updated!"),
+  getallProducts()(dispatch)
+  )
+}
+
 
 // axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
 //   const cartProduct=res.data;

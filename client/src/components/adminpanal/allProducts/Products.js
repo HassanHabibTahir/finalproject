@@ -5,14 +5,13 @@ import Maps from '../map/map'
 import TableRow from '@material-ui/core/TableRow';
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-// import { DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
+import {VerifyProduct } from '../../../store/action/cartAction/cartaction';
 import { useDispatch } from "react-redux";
 // import Spiner from '../../spnier/spiner'
 // import Modal from '../Model/Model'
 // import {  Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import './product.css'
 const BURL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -51,52 +50,29 @@ function SellerTable(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const openMapHandler = () => setShowMap(!showMap);
-
-  const closeMapHandler = () => setShowMap(false);
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const changedElement = (id) => {
+  const changedElement = (id, product) => {
     isVarified(!verfiy)
-    // UpdatadataElemt(id)
+    UpdatadataElemt(id,product)
+  }
+  const UpdatadataElemt = async(id,product) => {
+   
+    const  updatation = {
+      id: id,
+      isVarified:verfiy
+    }
+    console.log(updatation)
+
+     await dispatch(VerifyProduct(updatation))
+  }
+  const DeleteUser = (id) => {
+
+    console.log(id)
+   
+
+    // dispatch(DeleteUserprofile(data))
 
   }
 
-
-
-//   const DeleteUser = (i, id) => {
-
-//     console.log(i, id)
-//     const data = {
-//       index: i,
-//       id: id
-//     }
-
-//     dispatch(DeleteUserprofile(data))
-
-//   }
-
-
-//   const UpdatadataElemt = (id) => {
-//     // console.log(id)
-//     const updatation = {
-//       id: id,
-//       isVarified: verfiy
-//     }
-
-//     dispatch(updataElement(updatation))
-//   }
-  console.log(verfiy)
-  console.log("Products in  producsts",props.Products)
-// console.log(props.user.currentLocation)
   return (
     // <TableContainer component={Paper}>
     //   <Table   size="large"  className={classes.table} aria-label="customized table">
@@ -137,41 +113,48 @@ _id: "5f217667cd762228949c0e09"
 
     <TableRow key={props.Products._id} >
       <StyledTableCell size="large" component="th" scope="row"  >{props.index}</StyledTableCell>
-      <StyledTableCell size="large" component="th" scope="row"  >images</StyledTableCell> 
-      <StyledTableCell style={{width:"20vw"}} >
-          <img className="cart-images" src={`${BURL}/`+ props.Products?.imgSrc[0]} />
-          <img className="cart-images" src={`${BURL}/`+ props.Products?.imgSrc[1]} />
-          <img className="cart-images" src={`${BURL}/`+props.Products?.imgSrc[2]} />
-          <img className="cart-images" src={`${BURL}/`+props.Products?.imgSrc[3]} />
+   
+      <StyledTableCell style={{width:"50vw"}} >
+          <img className="cart-product-images" src={`${BURL}/`+ props.Products?.imgSrc[0]} />
+          <img className="cart-product-images" src={`${BURL}/`+ props.Products?.imgSrc[1]} />
+          <img className="cart-product-images" src={`${BURL}/`+props.Products?.imgSrc[2]} />
+          <img className="cart-product-images" src={`${BURL}/`+props.Products?.imgSrc[3]} />
         </StyledTableCell>
       <StyledTableCell size="large" component="th" scope="row"  >{props.Products.category}</StyledTableCell> 
      <StyledTableCell component="th" scope="row"  >{props.Products.productname}</StyledTableCell>
     <StyledTableCell component="th" scope="row"  >{props.Products.discount}</StyledTableCell>
-      {/*   <StyledTableCell component="th" scope="row"  >{props.user.cellNo}</StyledTableCell>
-      <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
+        <StyledTableCell component="th" scope="row"  >{props.Products.price}</StyledTableCell>
+     {/*  <StyledTableCell component="th" scope="row"  >{props.user.city}</StyledTableCell>
       <StyledTableCell component="th" scope="row"  >{props.user.province}</StyledTableCell>
       <StyledTableCell component="th" scope="row"  >{props.user.address}</StyledTableCell>
       <StyledTableCell component="th" scope="row"  >{!props.user.userCondition ? 'Admin' : props.user.userCondition}</StyledTableCell> */}
    <StyledTableCell component="th" scope="row"  >
         <Checkbox
           checked={props.Products?.productVerified === true ? "checked" : false}
-          onChange={() => { changedElement(props.Products._id) }} value={verfiy}
+          onChange={() => { changedElement(props.Products._id,props.Products?.productVerified) }} value={verfiy}
 
         />
 
       </StyledTableCell>
-{/* 
+      {/* <StyledTableCell component="th" scope="row"  >
+         <Button
+              variant="contained"
+              color="secondary"
+         onClick={()=>{this.ProducSave(props.Products._id)}} >DELETE</Button>
+
+      </StyledTableCell> */}
+
       <StyledTableCell>
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => { DeleteUser(props.index, props.user._id) }}
+          onClick={() => { DeleteUser(props.Products._id) }}
           startIcon={<DeleteIcon />}
         >
           Delete
                             </Button>
 
-      </StyledTableCell> */}
+      </StyledTableCell>
       {/* <StyledTableCell> {!props.user.isVarified == true ? "user not verified" : "user verified  by admin"}</StyledTableCell> */}
       {/* <StyledTableCell component="th" scope="row"  ><Button onClick={() => {UpdatadataElemt(props.user._id) }} color="primary" >SAVE</Button></StyledTableCell> */}
       {/* <StyledTableCell>
@@ -188,31 +171,8 @@ _id: "5f217667cd762228949c0e09"
 
 
     </TableRow>
-
-    {/* onClick={handleOpen} */}
     <div>
-      {/* <button type="button" >
-        react-transition-group
-      </button> */}
-      {/* <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <div id="transition-modal-title"><Maps  location={props.user.currentLocation}  /></div>
-      <p id="transition-modal-description">Name:{props.user.name}</p>
-          </div>
-        </Fade>
-      </Modal> */}
+   
     </div>
 
 

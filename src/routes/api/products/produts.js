@@ -385,9 +385,63 @@ res.json(products)
 })
 
 
+router .put('/verificationProduct',(req,res)=>{
+  Product.findByIdAndUpdate(req.body.id,{$set:{
+    productVerified:req.body.isVarified
+      }},(err,product)=>{
+if(err){
+  res.json(err)
+}else{
+  res.json(product)
+}
+      })
+
+
+})
+
+
+router.delete("/",(req,res)=>{
+  
+Product.findByIdAndDelete(req.body.id,()=>{
+  
+})
+
+})
+// /api/product/verificationProduct
+// router.post("/verificationProduct").put(function(req, res) {
+ 
+//  console.log(req.body)
+//   // Product.updateOne({ name: "Sergio Ramos" },function(
+//   //   err,
+//   //   result
+//   // ) {
+//   //   if (err) {
+//   //     res.send(err);
+//   //   } else {
+//   //     res.json(result);
+//   //   }
+//   // });
+// });
 
 
 
 
 
-module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
