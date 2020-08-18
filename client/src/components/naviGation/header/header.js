@@ -97,7 +97,7 @@ class Header extends Component {
 <header className="toolbar" >
 <nav className="toolbar_navigation" >
 {this.props.auth.user.Admin?null:<div  className="tollbar-togle-button" ><DrawerToggle click={this.props.drawerClickHandler} /></div>}
-<div  className="toolbar_logo" ><span style={{color:"#FF0000" ,fontSize:"55px", fontWeight:"30px"}} >G</span><a href="/">OBACHI</a></div>
+<div  className="toolbar_logo" ><span style={{color:"#FF0000" ,fontSize:"55px", fontWeight:"30px"}} >G</span><a href="/">UBACHI</a></div>
 {/* f */}
 {/* <div className="spacer"></div> */}
 <div style={{width:"10vw"}}></div>

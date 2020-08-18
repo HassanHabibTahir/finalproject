@@ -8,9 +8,9 @@ function LabdorWork() {
 
      <div className="lbwork-container2">
 
-        <p className="lbwork-heading">HOW GOBACHI WORK</p>
+        <p className="lbwork-heading">HOW GUBACHI WORK</p>
         <h2 className="lbwork-h2">
-       Gobachi is a awasome plateform where the seller sell their products and buyer buy the products 
+       GUbachi is a awasome plateform where the seller sell their products and buyer buy the products 
        form this stor , buyer contact with seller and seller also communicate with buyer  . buyer also set ordr on seller  page
        </h2>
     <div className="lbwork-p">

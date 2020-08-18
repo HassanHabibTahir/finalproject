@@ -130,7 +130,7 @@ handleChangePage = (event, page) => {
         //   <AllOeders key={i} orders={order} index={i}  TableStyle={StyledTableCell} />
           
           )
-          :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >No order yet</h1> }
+          :<h1 style={{textAlign:"center",alignItems:"center",color:"blue"}} >No product yet</h1> }
 {/* </TableRow> */}
   </TableBody>
                 <TableFooter>

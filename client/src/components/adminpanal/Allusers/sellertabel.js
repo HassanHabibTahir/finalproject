@@ -63,11 +63,12 @@ function SellerTable(props) {
     setOpen(false);
   };
 
-  const changedElement = (id) => {
-    isVarified(!verfiy)
-    UpdatadataElemt(id)
+  // const changedElement = (id,isVerifiy) => {
+  //   // isVarified(!verfiy)
+  //   if(!isVerifiy)
+  //   UpdatadataElemt(id)
 
-  }
+  // }
 
 
 
@@ -84,11 +85,11 @@ function SellerTable(props) {
   }
 
 
-  const UpdatadataElemt = (id) => {
+  const UpdatadataElemt = (id,isVerify) => {
     // console.log(id)
     const updatation = {
       id: id,
-      isVarified: verfiy
+      isVarified: !isVerify
     }
 
     dispatch(updataElement(updatation))
@@ -130,7 +131,7 @@ console.log(props.user.currentLocation)
       {props.user.userCondition === "seller" ? <StyledTableCell component="th" scope="row"  >
         <Checkbox
           checked={props.user?.isVarified === true ? "checked" : false}
-          onChange={() => { changedElement(props.user._id) }} value={verfiy}
+          onChange={() => { UpdatadataElemt(props.user._id, props.user?.isVarified) }} 
 
         />
 

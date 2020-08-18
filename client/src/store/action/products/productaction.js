@@ -54,6 +54,9 @@ console.log(user)
 
 
 export const DeleteUserProduct=(userData)=>(dispatch)=>{
+
+    console.log(userData)
+
 let conf= window.confirm("Are you sure  you wannt to  del this  product")
 if(conf){
         axios.delete(BURL+`/api/product/deleteUserproduct/${userData.id}`).then((res) => {

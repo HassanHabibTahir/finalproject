@@ -59,8 +59,8 @@ io.on('connection', (socket) => {
   app.get('/*', function(req, res) {
     res.sendFile(__dirname+'/client/build/', function(err) {
       if (err) {
-      console.log(err)
-        res.status(500).send(err)
+            console.log(err)
+            res.status(500).send(err)
       
       }
     })

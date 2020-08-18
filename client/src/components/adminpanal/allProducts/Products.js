@@ -5,7 +5,7 @@ import Maps from '../map/map'
 import TableRow from '@material-ui/core/TableRow';
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {VerifyProduct } from '../../../store/action/cartAction/cartaction';
+import {VerifyProduct ,DeleteSellerProduct} from '../../../store/action/cartAction/cartaction';
 import { useDispatch } from "react-redux";
 // import Spiner from '../../spnier/spiner'
 // import Modal from '../Model/Model'
@@ -50,26 +50,34 @@ function SellerTable(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const changedElement = (id, product) => {
-    isVarified(!verfiy)
-    UpdatadataElemt(id,product)
-  }
-  const UpdatadataElemt = async(id,product) => {
+  // const changedElement = (id, product) => {
+  //   isVarified(!verfiy)
+  //   UpdatadataElemt(id,product)
+  // }
+  const UpdatadataElemt = (id,isVerify) => {
    
-    const  updatation = {
+    const updatation = {
       id: id,
-      isVarified:verfiy
+      isVarified: !isVerify
     }
-    console.log(updatation)
-
-     await dispatch(VerifyProduct(updatation))
+    dispatch(VerifyProduct(updatation))
   }
-  const DeleteUser = (id) => {
 
-    console.log(id)
-   
 
-    // dispatch(DeleteUserprofile(data))
+ 
+
+
+
+
+
+  const DeleteProduct = (id) => {
+
+    const data = {
+      id:id
+    }
+   console.log(data)
+
+    dispatch(DeleteSellerProduct(data))
 
   }
 
@@ -131,7 +139,7 @@ _id: "5f217667cd762228949c0e09"
    <StyledTableCell component="th" scope="row"  >
         <Checkbox
           checked={props.Products?.productVerified === true ? "checked" : false}
-          onChange={() => { changedElement(props.Products._id,props.Products?.productVerified) }} value={verfiy}
+          onChange={() => { UpdatadataElemt(props.Products._id,props.Products?.productVerified) }} 
 
         />
 
@@ -148,7 +156,7 @@ _id: "5f217667cd762228949c0e09"
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => { DeleteUser(props.Products._id) }}
+          onClick={() => { DeleteProduct(props.Products._id) }}
           startIcon={<DeleteIcon />}
         >
           Delete

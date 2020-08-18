@@ -203,6 +203,22 @@ export const getallProducts =()=>(dispatch)=>{
 }
 
 
+export const DeleteSellerProduct=(userData)=> async(dispatch)=>{
+  console.log(userData)
+  let conf= window.confirm("Are you sure  you wannt to  del this  product")
+  if(conf){
+         await axios.delete(BURL+`/api/product/deleteUserproduct/${userData.id}`).then((res) => {
+        
+  if(res){
+    toast.success("Deleted Successfully!")
+    getallProducts()(dispatch)
+  }
+      })
+  }
+  
+  }
+
+
 // axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
 //   const cartProduct=res.data;
 // let addedItem = cartProduct.find(item=>item._id===id)   

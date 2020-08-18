@@ -400,13 +400,13 @@ if(err){
 })
 
 
-router.delete("/",(req,res)=>{
+// router.delete("/deleteproductbyadmin",(req,res)=>{
   
-Product.findByIdAndDelete(req.body.id,()=>{
+// Product.findByIdAndDelete(req.body.id,()=>{
   
-})
+// })
 
-})
+// })
 // /api/product/verificationProduct
 // router.post("/verificationProduct").put(function(req, res) {
  
@@ -425,7 +425,7 @@ Product.findByIdAndDelete(req.body.id,()=>{
 
 
 
-
+module.exports= router
 
 
 

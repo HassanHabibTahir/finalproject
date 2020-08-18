@@ -107,13 +107,13 @@ loadMore=()=>{
     return {visible: prev.visible + 1};
   });
 }
-loadLesss=()=>{
-  if(this.state.visible>0){
-  this.setState((prev) => {
-    return {visible: prev.visible -1};
-  });
-}
-}
+// loadLesss=()=>{
+//   if(this.state.visible>0){
+//   this.setState((prev) => {
+//     return {visible: prev.visible -1};
+//   });
+// }
+// }
 
   render() {
     const {page}= this.state
@@ -137,11 +137,11 @@ loadLesss=()=>{
       })
     console.log(this.state.loader)
 
-    // let Productverification = Prdouctsitems.filter((item)=>{
-    //   return item.productVerified===false
-    // })
+    let Productverification = Prdouctsitems.filter((item)=>{
+      return item.productVerified===true
+    })
     //  console.log("getVerified",Productverification)
-    let product = Prdouctsitems.slice(0, this.state.visible).map((item, i) => {
+    let product = Productverification.slice(0, this.state.visible).map((item, i) => {
       let id = item._id
 
       return (
@@ -232,7 +232,7 @@ loadLesss=()=>{
              {this.state.visible < this.props?.Products?.length &&
             <div> 
               
-            <button onClick={this.loadLesss} type="button" className="load-more">Remove more</button>
+            {/* <button onClick={this.loadLesss} type="button" className="load-more">Remove more</button> */}
               <button onClick={this.loadMore} type="button" className="load-more">Load more</button>
             </div> 
           }
