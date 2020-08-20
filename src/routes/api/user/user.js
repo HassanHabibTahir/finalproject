@@ -414,6 +414,7 @@ console.log(token)
           subject: 'Link to reset passsword',
           text: 'you are receiving this because you have requested to reset password for your account.\n'
             + 'please cliks on the following links\n'
+            // +`http://localhost:3000/reset/${token}`
             +`${req.protocol}://${req.headers.host}/reset/${token}`
         
         }

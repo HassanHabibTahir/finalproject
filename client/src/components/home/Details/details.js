@@ -35,7 +35,9 @@ export default function details() {
 
            <div  className="product_img" ><img src={SaveProduct}/>
            <h3>Save Products</h3>
-           <p className="p_ar" >Save client/ buyer   products , product will not be violate by rider until buyer not get . </p>
+           <p className="p_ar" >Save client/ buyer   products , product will not be violate by rider until buyer not get .
+           buyer when buy order form the seller   and seller man gives save  product orders. Because this order is safely reached end to the buyer ,
+           therefor  its is exact phase   </p>
            </div>
         </div>
            </Fade>

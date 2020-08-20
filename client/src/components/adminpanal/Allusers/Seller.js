@@ -96,7 +96,7 @@ handleChangeRowsPerPage = event => {
        {/* <Model /> */}
 
           <Grid item xs={12} md={12}>
-                    <Table  style={{width:"100vw"}}   >
+                    <Table  style={{width:"97vw"}}   >
                     <TableHead>
           <TableRow >
           <StyledTableCell   component="th" >SR.NO</StyledTableCell>

@@ -20,7 +20,7 @@ const userSchema = new Schema({
     //     required: true
     // },
     cellNo: {
-        type: Number,
+        type: String,
         required: true
     },
     address: {

@@ -196,9 +196,10 @@ export const getallProducts =()=>(dispatch)=>{
  export  const VerifyProduct =(data)=>(dispatch)=>{
   axios.put(BURL+'/api/product/verificationProduct',data)
 
-  .then((res)=>console.log(res),
+  .then((res)=>
+
+  getallProducts()(dispatch),
   toast.success("Successfully Updated!"),
-  getallProducts()(dispatch)
   )
 }
 

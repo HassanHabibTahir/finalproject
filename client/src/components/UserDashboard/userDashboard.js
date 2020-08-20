@@ -44,18 +44,20 @@ DeleteProduct=(id)=>{
 }
 
   render() {
-
-
+console.log("products",this.props.Products)
 
 let   profileItems = this.props.Products===undefined||this.props.Products===null? <h1>show is noting</h1>:this.props.Products.map((item, i) => {
           
   let id=item._id
-  console.log(item.imgSrc[0])
+
   return (
     <div  className="main_container_card" >
+         
                <Card className="main"  >
 
 <div className="card_products">
+
+  
   <div className="deleteButton"> <Button  onClick={()=>{this.DeleteProduct(item._id)}}   className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div>
 
 <div className="top-section">
@@ -83,9 +85,9 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 
                     </h2>
                   </div>
-
-                  <div className="dis">{item.discription}</div>
-
+                  <span style={{color:"red"}} ><u>{item.productVerified===true?"":"product underverification"}</u></span>
+                  {/* <div className="dis">{item.discription}</div> */}
+               
                 </div>
 </div>
 

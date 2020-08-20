@@ -60,6 +60,7 @@ function SellerTable(props) {
       id: id,
       isVarified: !isVerify
     }
+    console.log(updatation)
     dispatch(VerifyProduct(updatation))
   }
 
